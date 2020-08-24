@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/button_mailbox"
+        android:enabled="true"
+        android:icon="@drawable/mailbox"
+        android:title="우편함"
+        app:showAsAction="always" />
+    ...
+    <item
+        android:id="@+id/button_home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="홈"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/button_mypage"
+        android:enabled="true"
+        android:icon="@drawable/mypage"
+        android:title="마이페이지"
+        app:showAsAction="always" />
+</menu>
