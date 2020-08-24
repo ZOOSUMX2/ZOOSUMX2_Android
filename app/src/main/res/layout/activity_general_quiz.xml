@@ -15,20 +15,18 @@
         android:gravity="center">
 
         <!--    이전 버튼-->
-
-        <!--    이전버튼과 퀴즈 출제 버튼을 각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
-
         <ImageButton
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
+            android:layout_width="25sp"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/back"
+            android:background="@color/colorMain"
             android:contentDescription="@string/image"
-            android:scaleType="centerInside" />
+            android:src="@drawable/arrow_back" />
 
+        <!--    이전버튼과 퀴즈 출제 버튼을 각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"

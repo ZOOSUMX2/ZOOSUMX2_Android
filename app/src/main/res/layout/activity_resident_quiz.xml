@@ -15,20 +15,18 @@
         android:gravity="center">
 
         <!--    이전 버튼-->
-
-        <!--    이전버튼과 퀴즈 출제 버튼을 각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
-
         <ImageButton
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
+            android:layout_width="25sp"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/back"
+            android:background="@color/colorMain"
             android:contentDescription="@string/image"
-            android:scaleType="centerInside" />
+            android:src="@drawable/arrow_back" />
 
+        <!--    이전버튼과 퀴즈 출제 버튼을 각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -69,29 +67,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resident_second"
+        android:layout_marginStart="19sp"
         android:layout_marginLeft="19sp"
         android:layout_marginTop="56sp"
+        android:layout_marginEnd="26sp"
         android:layout_marginRight="26sp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_marginStart="19sp"
-        android:layout_marginEnd="26sp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_cjkkr_medium"
             android:lineSpacingExtra="12sp"
             android:textColor="@color/friendly_green"
-            android:fontFamily="@font/notosans_cjkkr_medium"
             android:textSize="18sp"
             tools:text="Q. " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="start"
             android:textSize="18sp"
-            android:fontFamily="@font/notosans_cjkkr_medium"
             tools:text="플라스틱 용기의 대안으로 부상했지만\n사실상 재활용이 불가능한 플라스틱은?" />
 
     </LinearLayout>
@@ -101,15 +99,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resident_third"
+        android:layout_marginStart="75sp"
         android:layout_marginLeft="75sp"
         android:layout_marginTop="10sp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center_horizontal"
-        android:textColor="@color/colorSoftGray"
 
+        android:textColor="@color/colorSoftGray"
         android:textSize="12sp"
-        tools:text="서울시 용산구 권*엽님 출제"
-        android:layout_marginStart="75sp" />
+        tools:text="서울시 용산구 권*엽님 출제" />
 
     <LinearLayout
         android:layout_width="match_parent"
