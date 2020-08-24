@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        val button2 = resident_quiz
+        val button2 = imagebutton_resident_quiz_home
         button2.setOnClickListener {
             val intent = Intent(context, Resident_quizActivity::class.java)
             startActivity(intent)

@@ -7,7 +7,7 @@
     android:background="@color/colorMain">
 
     <TextView
-        android:id="@+id/mailbox_first"
+        android:id="@+id/textview_mailbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -22,7 +22,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/mailbox_first">
+        android:layout_below="@+id/textview_mailbox">
 
         <LinearLayout
             android:id="@+id/text"
@@ -59,27 +59,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <!--하단바-->
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="40sp"
-            android:background="@drawable/bottom_navigation_bar"
-            app:itemIconTint="@drawable/item_color"
-            app:itemTextColor="@drawable/item_color"
-            app:labelVisibilityMode="unlabeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/navigation_items" />
-    </FrameLayout>
-
 </RelativeLayout>
