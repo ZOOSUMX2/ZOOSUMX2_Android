@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
-    tools:context=".Resident_quizActivity">
+    tools:context=".ResidentQuizActivity">
 
     <LinearLayout
         android:id="@+id/textview_resident"
@@ -16,6 +15,7 @@
 
         <!--    이전 버튼-->
         <ImageButton
+            android:id="@+id/imagebutton_back_resident_quiz"
             android:layout_width="25sp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
@@ -78,19 +78,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
             android:fontFamily="@font/notosans_cjkkr_medium"
+            android:includeFontPadding="false"
             android:lineSpacingExtra="12sp"
             android:textColor="@color/friendly_green"
             android:textSize="18sp"
-            tools:text="Q. " />
+            android:text="Q. " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:gravity="start"
+            android:includeFontPadding="false"
             android:textSize="18sp"
-            tools:text="플라스틱 용기의 대안으로 부상했지만\n사실상 재활용이 불가능한 플라스틱은?" />
+            android:text="플라스틱 용기의 대안으로 부상했지만\n사실상 재활용이 불가능한 플라스틱은?" />
 
     </LinearLayout>
 
@@ -99,15 +101,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resident_third"
-        android:layout_marginStart="75sp"
-        android:layout_marginLeft="75sp"
+        android:layout_marginStart="63sp"
+        android:layout_marginLeft="63sp"
         android:layout_marginTop="10sp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center_horizontal"
-
+        android:includeFontPadding="false"
         android:textColor="@color/colorSoftGray"
         android:textSize="12sp"
-        tools:text="서울시 용산구 권*엽님 출제" />
+        android:text="서울시 용산구 권*엽님 출제" />
 
     <LinearLayout
         android:layout_width="match_parent"

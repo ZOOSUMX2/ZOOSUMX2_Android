@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.zoosumx2.General_quizActivity
+import com.example.zoosumx2.MakequizActivity
 import com.example.zoosumx2.R
-import com.example.zoosumx2.Resident_quizActivity
+import com.example.zoosumx2.ResidentQuizActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -23,17 +23,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //Todo: 해당 뷰에서 필요한 기능 추가
-
         val button = imagebutton_general_quiz_home
         button.setOnClickListener {
-            val intent = Intent(context, General_quizActivity::class.java)
+            val intent = Intent(context, MakequizActivity::class.java)
             startActivity(intent)
         }
 
         val button2 = imagebutton_resident_quiz_home
         button2.setOnClickListener {
-            val intent = Intent(context, Resident_quizActivity::class.java)
+            val intent = Intent(context, ResidentQuizActivity::class.java)
             startActivity(intent)
         }
     }

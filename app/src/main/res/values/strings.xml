@@ -24,4 +24,10 @@
     <string name="resident_correct_answer">생분해 플라스틱</string>
     <string name="resident_wrong_answer">폴리스티(PS) 플라스틱</string>
     <string name="mypage">마이페이지</string>
+    <string name="level">Lv.2</string>
+    <string name="experience">Exp.308</string>
+    <string name="my_point">"나의 포인트  10   "</string>
+    <string name="store">주섬주섬 상점</string>
+    <string name="current_coin">10</string>
+    <string name="mytown_condition">우리동네 현황</string>
 </resources>

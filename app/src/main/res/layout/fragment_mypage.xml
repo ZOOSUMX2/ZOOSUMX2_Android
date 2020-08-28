@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain">
@@ -19,38 +18,303 @@
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/linearlayout_first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_mypage"
-        android:layout_marginLeft="16sp"
-        android:layout_marginRight="16sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="22sp"
+        android:layout_marginRight="20sp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleimageview_profile_image_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/penguin"
+            app:civ_border_color="@color/friendly_green"
+            app:civ_border_width="5dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20sp"
+            android:layout_marginLeft="20sp"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleimageview_profile_image_mypage"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="수아"
+                    android:textColor="@color/friendly_green"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="님의 "
+                    android:textColor="@color/colorText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="모여봤"
+                    android:textColor="@color/friendly_green"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="섬"
+                    android:textColor="@color/colorText"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/penguin"
-                android:scaleType="centerCrop"
-                app:civ_border_color="@color/friendly_green"
-                app:civ_border_width="5dp"/>
+                android:layout_marginTop="12sp"
+                android:background="@drawable/rounded_rectangle"
+                android:gravity="start|center"
+                android:orientation="horizontal"
+                android:paddingLeft="10sp"
+                android:paddingTop="3sp"
+                android:paddingRight="10sp"
+                android:paddingBottom="3sp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8sp"
+                    android:layout_marginRight="8sp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:text="나의 포인트"
+                    android:textColor="@color/colorText"
+                    android:textSize="14sp" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4sp"
+                    android:layout_marginRight="4sp"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="10"
+                    android:textColor="@color/colorText"
+                    android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/mypage_coin" />
 
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_level_mypage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_first"
+        android:layout_marginStart="96sp"
+        android:layout_marginLeft="96sp"
+        android:layout_marginTop="9sp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:text="@string/level"
+            android:textAlignment="center"
+            android:textColor="@color/friendly_green"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:text="@string/experience"
+            android:textAlignment="center"
+            android:textColor="@color/colorSoftGray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_first_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="7sp"
+        android:layout_below="@+id/linearlayout_level_mypage"
+        android:layout_marginTop="18sp"
+        android:background="@color/colorWhite" />
+
+    <!--주섬주섬 상점-->
+    <LinearLayout
+        android:id="@+id/linearlayout_store_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/view_first_mypage"
+        android:layout_marginTop="18dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="주섬주섬 상점"
+            android:textSize="16sp" />
+
+        <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_next" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_second_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_store_mypage"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
+
+    <!--우리동네 현황-->
+    <LinearLayout
+        android:id="@+id/linearlayout_town_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearlayout_store_mypage"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="우리동네 현황"
+            android:textSize="16sp" />
+
+        <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_next" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_third_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_town_mypage"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
+
+    <!--환경설정-->
+    <LinearLayout
+        android:id="@+id/linearlayout_setting_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/view_third_mypage"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="환경설정"
+            android:textSize="16sp" />
+
+        <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_next" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_setting_mypage"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
 
 </RelativeLayout>
