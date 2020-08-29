@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorMain</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--Status Bar 배경색-->
+        <item name="android:statusBarColor">@color/colorMain</item>
+
+        <!--Status Bar 글자색-->
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+</resources>

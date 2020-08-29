@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -7,16 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <!--Status Bar 배경색-->
-<!--        <item name="android:statusBarColor">@color/colorWhite</item>-->
+        <item name="android:statusBarColor">@color/colorWhite</item>
         <!--Status Bar 글자색깔-->
 <!--        <item name="android:windowLightStatusBar">true</item>-->
 
     </style>
-
-    <!--action Bar 제거-->
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
 </resources>
