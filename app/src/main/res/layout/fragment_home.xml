@@ -8,103 +8,248 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/text"
+        android:id="@+id/linearlayout_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="56sp"
+        android:layout_marginRight="16sp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-7sp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleimageview_profileimage_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/penguin"
+                app:civ_border_color="@color/colorWhite"
+                app:civ_border_width="5dp"
+                app:civ_circle_background_color="@color/colorMain" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/medal_silver" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20sp"
+            android:layout_marginLeft="20sp"
+            android:orientation="vertical">
+
+            <!--DB 연결 후 수정할 부분-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="수아"
+                    android:textColor="@color/friendly_green"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="님의 "
+                    android:textColor="@color/colorText"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="모여봤"
+                    android:textColor="@color/friendly_green"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="섬"
+                    android:textColor="@color/colorText"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="225sp"
+                android:layout_height="61sp"
+                android:layout_marginTop="12sp"
+                android:background="@drawable/rounded_rectangle2"
+                android:baselineAligned="false"
+                android:gravity="start|center"
+                android:orientation="horizontal"
+                android:paddingLeft="10sp"
+                android:paddingTop="3sp"
+                android:paddingRight="10sp"
+                android:paddingBottom="3sp">
+
+                <!--나의 순위-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="나의 순위"
+                        android:textColor="@color/black_5"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="850"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!--미션 현황-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="미션 현황"
+                        android:textColor="@color/black_5"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="1 / 4"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!--포인트-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="포인트"
+                        android:textColor="@color/black_5"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
+                            android:text="23 "
+                            android:textColor="@color/colorText"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="1sp"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/mypage_coin" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16sp"
+        <ImageView
+            android:id="@+id/island"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="16sp"
-            android:layout_marginTop="40dp"
-            android:text="@string/이번주_분리배출_미션"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/quest_count"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!--퀘스트 목록-->
-    <!--주민 출제 퀴즈 옆에 여백 없액기!!!!!!-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_marginLeft="16sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16sp">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_weight="1"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="16sp"
             android:adjustViewBounds="true"
-            android:background="@color/colorMain"
             android:contentDescription="@string/image"
-            android:scaleType="fitCenter"
-            android:src="@drawable/quest1" />
+            android:src="@drawable/island" />
 
-        <ImageButton
+        <!--말풍선은 visibility로 조절-->
+        <ImageView
+            android:id="@+id/speech_bubble1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@color/colorMain"
+            android:layout_marginStart="140sp"
+            android:layout_marginLeft="140sp"
+            android:layout_marginTop="255sp"
             android:contentDescription="@string/image"
-            android:scaleType="fitCenter"
-            android:src="@drawable/quest2" />
+            android:src="@drawable/speech_bubble1" />
 
-        <ImageButton
-            android:id="@+id/imagebutton_general_quiz_home"
+        <ImageView
+            android:id="@+id/speech_bubble2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@color/colorMain"
+            android:layout_marginStart="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="401sp"
             android:contentDescription="@string/image"
-            android:scaleType="fitCenter"
-            android:src="@drawable/quest3" />
-
-        <ImageButton
-            android:id="@+id/imagebutton_resident_quiz_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@color/colorMain"
-            android:contentDescription="@string/image"
-            android:scaleType="fitCenter"
-            android:src="@drawable/quest4" />
-    </LinearLayout>
+            android:src="@drawable/speech_bubble2" />
 
 
-    <ImageView
-        android:id="@+id/island"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16sp"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="16sp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/image"
-        android:src="@drawable/island" />
-
-    <!--하단바-->
+    </RelativeLayout>
 
 </RelativeLayout>
