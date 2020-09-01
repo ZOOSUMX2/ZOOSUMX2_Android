@@ -4,6 +4,7 @@
     android:id="@+id/relativelayout_store"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorMain"
     tools:context=".StoreActivity">
 
     <LinearLayout

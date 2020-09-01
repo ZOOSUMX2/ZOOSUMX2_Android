@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativelayout_town"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorMain"
     tools:context=".TownActivity">
 
     <LinearLayout
@@ -29,289 +31,138 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textview_headline_ranking"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
-        android:text="@string/mytown_condition"
+        android:text="@string/mytown_ranking"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textview_explain_town"
+        android:id="@+id/textview_update_ranking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_bar_mytown"
-        android:layout_marginTop="34sp"
-        android:fontFamily="@font/notosanscjkkr_regular"
-        android:gravity="center_horizontal"
-        android:includeFontPadding="false"
-        android:lineSpacingExtra="4sp"
-        android:text="우리 지역 사람들은 얼마나 열심히 실천하고 있을까요?\n지역의 평균 레벨과 나의 레벨을 비교해 보세요."
-        android:textAlignment="center"
-        android:textColor="@color/black_5"
-        android:textSize="12sp" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16sp"
-        android:layout_marginTop="232sp"
+        android:layout_below="@+id/textview_headline_ranking"
+        android:layout_marginTop="33sp"
+        android:layout_marginEnd="16sp"
         android:layout_marginRight="16sp"
-        android:background="@drawable/graph_background"
-        android:contentDescription="@string/image" />
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        android:text="서울시 용산구, 18:30 업데이트"
+        android:textColor="@color/colorSoftGray"
+        android:textSize="10sp" />
 
     <LinearLayout
-        android:id="@+id/linearlayout_graph_town"
+        android:id="@+id/linearlayout_myinfo_ranking"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68sp"
+        android:layout_below="@+id/textview_update_ranking"
         android:layout_marginLeft="16sp"
-        android:layout_marginTop="204sp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16sp"
-        android:orientation="horizontal">
+        android:background="@drawable/rounded_rectangle_green"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp">
 
-        <!--내 경험치-->
+        <!--나의 순위-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="850"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start|bottom"
-            android:layout_marginStart="71sp"
-            android:layout_marginLeft="71sp"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:gravity="center_horizontal"
-                android:includeFontPadding="false"
-                android:text="Exp.502"
-                android:textAlignment="center"
-                android:textColor="@color/friendly_green"
-                android:textSize="14sp" />
-
-            <View
+            <!--캐릭터 위치 조정하기-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleimageview_profileimage_home"
                 android:layout_width="40sp"
-                android:layout_height="217sp"
-                android:layout_gravity="bottom|center"
-                android:background="@drawable/progress_bar_me" />
+                android:layout_height="40sp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="18sp"
+                android:layout_marginRight="18sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/penguin"
+                app:civ_border_width="0sp"
+                app:civ_circle_background_color="@color/colorCircleFill" />
 
+            <!--사용자 이름-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="12sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:text="용산구 평균"
-                android:textColor="@color/colorText"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="3sp"
                 android:fontFamily="@font/notosans_cjkkr_bold"
+                android:gravity="center"
                 android:includeFontPadding="false"
-                android:text="Lv.3"
-                android:textColor="@color/friendly_green"
-                android:textSize="14sp" />
-
+                android:text="박수아(나)"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <!--마을 경험치-->
+        <!--포인트-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginEnd="71sp"
-            android:layout_marginRight="71sp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:gravity="center_horizontal"
-                android:includeFontPadding="false"
-                android:text="Exp.308"
-                android:textAlignment="center"
-                android:textColor="@color/colorSoftGray"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="40sp"
-                android:layout_height="129sp"
-                android:layout_gravity="center"
-                android:background="@drawable/progress_bar_town" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="12sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:text="나"
-                android:textColor="@color/colorText"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="3sp"
-                android:fontFamily="@font/notosans_cjkkr_bold"
+                android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="Lv.2"
-                android:textColor="@color/colorSoftGray"
-                android:textSize="14sp" />
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="Exp.27"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearlayout_days_town"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_mypage_ranking"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_graph_town"
-        android:layout_marginTop="34sp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_medium"
-            android:includeFontPadding="false"
-            android:text="주섬주섬과 함께한지 "
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_medium"
-            android:includeFontPadding="false"
-            android:text="7일"
-            android:textColor="@color/friendly_green"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_medium"
-            android:includeFontPadding="false"
-            android:text="째"
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayout_line1_town"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_days_town"
-        android:layout_marginTop="12sp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="수아님이 거주하시는 "
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_bold"
-            android:includeFontPadding="false"
-            android:text="서울시 용산구 "
-            android:textColor="@color/friendly_green"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="주민들의"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayout_line2_town"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_line1_town"
-        android:layout_marginTop="12sp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="평균 경험치보다 "
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_bold"
-            android:includeFontPadding="false"
-            android:text="37% "
-            android:textColor="@color/friendly_green"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="적네요😟"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_line2_town"
-        android:layout_marginTop="12sp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="남은 미션이 있다면 지금 해 보는건 어때요?"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearlayout_myinfo_ranking"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@color/colorSoftGray"
+        android:scrollbars="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="9" />
 
 </RelativeLayout>

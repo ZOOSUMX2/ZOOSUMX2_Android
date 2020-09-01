@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorSplash">#42D88F</color>
-    <color name="colorMain">#F9F8F9</color>
+    <color name="colorMain">#F8F8F8</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorText">#555555</color>
     <color name="colorSoftGray">#C4C4C4</color>
@@ -13,4 +13,5 @@
     <color name="friendly_green">#42d88f</color>
     <color name="black_5">#9d9d9d</color>
     <color name="black_6">#7b7b7b</color>
+    <color name="colorCircleFill">#efefef</color>
 </resources>

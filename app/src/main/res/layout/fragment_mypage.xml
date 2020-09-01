@@ -241,7 +241,7 @@
             android:layout_marginLeft="16dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
-            android:text="우리동네 현황"
+            android:text="@string/mytown_ranking"
             android:textSize="16sp" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->

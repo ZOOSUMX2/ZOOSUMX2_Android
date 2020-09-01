@@ -29,5 +29,5 @@
     <string name="my_point">"나의 포인트  10   "</string>
     <string name="store">주섬주섬 상점</string>
     <string name="current_coin">10</string>
-    <string name="mytown_condition">우리동네 현황</string>
+    <string name="mytown_ranking">우리동네 랭킹</string>
 </resources>

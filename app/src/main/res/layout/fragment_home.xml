@@ -23,6 +23,7 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="-7sp">
 
+            <!--캐릭터 위치 조정하기-->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleimageview_profileimage_home"
                 android:layout_width="wrap_content"
@@ -32,7 +33,7 @@
                 android:src="@drawable/penguin"
                 app:civ_border_color="@color/colorWhite"
                 app:civ_border_width="5dp"
-                app:civ_circle_background_color="@color/colorMain" />
+                app:civ_circle_background_color="@color/colorCircleFill" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_plus"
@@ -105,9 +106,7 @@
                 android:gravity="start|center"
                 android:orientation="horizontal"
                 android:paddingLeft="10sp"
-                android:paddingTop="3sp"
-                android:paddingRight="10sp"
-                android:paddingBottom="3sp">
+                android:paddingRight="10sp">
 
                 <!--나의 순위-->
                 <LinearLayout
@@ -201,7 +200,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="1sp"
+                            android:layout_marginTop="1.5sp"
                             android:contentDescription="@string/image"
                             android:src="@drawable/mypage_coin" />
                     </LinearLayout>
