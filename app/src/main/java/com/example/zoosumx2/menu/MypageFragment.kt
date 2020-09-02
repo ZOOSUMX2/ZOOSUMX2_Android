@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.zoosumx2.R
-import com.example.zoosumx2.SettingActivity
-import com.example.zoosumx2.StoreActivity
-import com.example.zoosumx2.TownActivity
+import com.example.zoosumx2.*
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 
@@ -25,6 +22,12 @@ class MypageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 포인트 내역
+        linearlayout_point_mypage.setOnClickListener {
+            val intent = Intent(context, PointActivity::class.java)
+            startActivity(intent)
+        }
 
         // 주섬주섬 상점
         linearlayout_store_mypage.setOnClickListener {

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".PointActivity">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bar_point"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical">
+
+        <!--이전 버튼-->
+        <ImageButton
+            android:id="@+id/imagebutton_back_point_details"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
+        android:text="포인트 내역"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_mypoint_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_bar_point"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/rounded_rectangle"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="12sp"
+        android:paddingTop="6sp"
+        android:paddingRight="12sp"
+        android:paddingBottom="6sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8sp"
+            android:layout_marginRight="8sp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:text="나의 포인트"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4sp"
+            android:layout_marginRight="4sp"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:includeFontPadding="false"
+            android:text="10"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/image"
+            android:src="@drawable/mypage_coin" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_point_mypage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearlayout_mypoint_point"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:scrollbarFadeDuration="0"
+        android:layout_marginTop="38sp"
+        android:scrollbarSize="5dp"
+        android:scrollbarThumbVertical="@color/colorSoftGray"
+        android:scrollbars="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="9" />
+
+</RelativeLayout>
