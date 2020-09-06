@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearlayout_first"
+        android:id="@+id/linearlayout_myinfo_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16sp"
@@ -20,25 +20,24 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="-7sp">
+            android:layout_gravity="bottom">
 
             <!--캐릭터 위치 조정하기-->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleimageview_profileimage_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="104sp"
+                android:layout_height="104sp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/penguin"
+                android:src="@drawable/penguincrop"
                 app:civ_border_color="@color/colorWhite"
                 app:civ_border_width="5dp"
                 app:civ_circle_background_color="@color/colorCircleFill" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_plus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="34.8sp"
+                android:layout_height="46.6sp"
                 android:layout_gravity="bottom|end"
                 android:src="@drawable/medal_silver" />
         </FrameLayout>
@@ -212,16 +211,17 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/island"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_myinfo_home">
 
         <ImageView
-            android:id="@+id/island"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="16sp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="98dp"
             android:layout_marginRight="16sp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/image"
@@ -234,7 +234,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="140sp"
             android:layout_marginLeft="140sp"
-            android:layout_marginTop="255sp"
+            android:layout_marginTop="100sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble1" />
 
@@ -244,11 +244,35 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
             android:layout_marginLeft="10sp"
-            android:layout_marginTop="401sp"
+            android:layout_marginTop="250sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble2" />
 
 
     </RelativeLayout>
+
+    <!--나중에 제거할 부분-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearlayout_myinfo_home"
+        android:layout_marginTop="30sp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_makequiz_home"
+            android:layout_width="150sp"
+            android:layout_height="55sp"
+            android:background="@drawable/round_button"
+            android:text="퀴즈 출제하기" />
+
+        <Button
+            android:id="@+id/button_residentquiz_home"
+            android:layout_width="150sp"
+            android:layout_height="55sp"
+            android:background="@drawable/round_button"
+            android:text="주민 출제 퀴즈" />
+    </LinearLayout>
 
 </RelativeLayout>

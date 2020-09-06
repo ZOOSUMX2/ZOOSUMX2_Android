@@ -2,6 +2,7 @@ package com.example.zoosumx2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 
 class MakequizActivity : AppCompatActivity() {
@@ -9,13 +10,14 @@ class MakequizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_makequiz)
 
-        val button = findViewById<ImageButton>(R.id.imagebutton_back_general_quiz)
-        button.setOnClickListener{
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
+        val backButton = findViewById<ImageButton>(R.id.imagebutton_back_general_quiz)
+        backButton.setOnClickListener{
             finish()
         }
 
-        //Todo : 퀴즈 출제 버튼 클릭 이벤트
+        val makeQuizButton = findViewById<Button>(R.id.button_makequiz_button_makequiz)
+        makeQuizButton.setOnClickListener{
+            finish()
+        }
     }
 }

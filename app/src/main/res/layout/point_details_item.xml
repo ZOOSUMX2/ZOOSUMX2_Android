@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_cjkkr_medium"
                 android:includeFontPadding="false"
-                android:text="3 "
+                android:text="3"
                 android:textColor="@color/joyful_orange"
                 android:textSize="16sp" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_cjkkr_medium"
                 android:includeFontPadding="false"
-                android:text="P"
+                android:text=" P"
                 android:textColor="@color/joyful_orange"
                 android:textSize="16sp" />
         </LinearLayout>

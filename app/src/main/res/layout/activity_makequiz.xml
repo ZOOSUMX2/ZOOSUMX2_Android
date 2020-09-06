@@ -35,6 +35,7 @@
 
         <!--    퀴즈 출제 버튼-->
         <Button
+            android:id="@+id/button_makequiz_button_makequiz"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,6 +131,7 @@
                 android:textColor="@color/colorGray"
                 android:textSize="12sp" />
 
+            <!--문제 입력-->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,10 +146,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/question"
+                    android:imeOptions="actionDone"
                     android:importantForAutofill="no"
-                    android:inputType="textMultiLine"
-                    android:lines="2"
-                    android:maxLines="4" />
+                    android:inputType="text"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -163,7 +165,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/correct_answer"
                     android:importantForAutofill="no"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -180,7 +183,8 @@
                     android:layout_height="wrap_content"
                     android:autofillHints=""
                     android:hint="@string/wrong_answer"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>

@@ -22,21 +22,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_mypage"
-        android:layout_marginLeft="20sp"
+        android:layout_marginLeft="25sp"
         android:layout_marginTop="22sp"
         android:layout_marginRight="20sp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:layout_marginStart="25sp"
+        android:layout_marginEnd="20sp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleimageview_profile_image_mypage"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/penguin"
-            app:civ_border_color="@color/friendly_green"
-            app:civ_border_width="5dp" />
+            android:layout_height="wrap_content">
+
+            <!--progressbar 삽입-->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleimageview_profile_image_mypage"
+                android:layout_width="104sp"
+                android:layout_height="104sp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/penguincrop"
+                app:civ_border_color="@color/friendly_green"
+                app:civ_border_width="3.5dp"
+                app:civ_circle_background_color="@color/colorCircleFill" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -141,8 +152,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout_first"
-        android:layout_marginStart="96sp"
-        android:layout_marginLeft="96sp"
+        android:layout_marginStart="56sp"
+        android:layout_marginLeft="56sp"
         android:layout_marginTop="9sp"
         android:orientation="vertical">
 
@@ -190,8 +201,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="포인트 내역"
@@ -207,14 +218,22 @@
             android:layout_width="10sp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
             android:src="@drawable/arrow_next" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_point_mypage"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
 
     <!--주섬주섬 상점-->
     <LinearLayout
@@ -228,8 +247,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="주섬주섬 상점"
@@ -245,8 +264,8 @@
             android:layout_width="10sp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
@@ -255,7 +274,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/view_second_mypage"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:layout_below="@+id/linearlayout_store_mypage"
@@ -263,7 +281,7 @@
         android:layout_marginRight="16sp"
         android:background="@color/colorDivision" />
 
-    <!--우리동네 현황-->
+    <!--우리동네 랭킹-->
     <LinearLayout
         android:id="@+id/linearlayout_town_mypage"
         android:layout_width="match_parent"
@@ -275,8 +293,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="@string/mytown_ranking"
@@ -292,8 +310,8 @@
             android:layout_width="10sp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
@@ -302,7 +320,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/view_third_mypage"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:layout_below="@+id/linearlayout_town_mypage"
@@ -315,15 +332,15 @@
         android:id="@+id/linearlayout_setting_mypage"
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:layout_below="@+id/view_third_mypage"
+        android:layout_below="@+id/linearlayout_town_mypage"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="환경설정"
@@ -339,8 +356,8 @@
             android:layout_width="10sp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
