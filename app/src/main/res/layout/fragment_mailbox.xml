@@ -20,7 +20,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textview_mailbox">
+        android:layout_below="@+id/textview_mailbox"
+        android:layout_marginBottom="100sp"
+        android:background="@color/colorMain"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="100sp"
+        android:requiresFadingEdge="vertical">
 
         <LinearLayout
             android:id="@+id/text"

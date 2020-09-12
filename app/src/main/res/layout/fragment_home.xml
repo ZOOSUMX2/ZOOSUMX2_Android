@@ -263,16 +263,18 @@
         <Button
             android:id="@+id/button_makequiz_home"
             android:layout_width="150sp"
-            android:layout_height="55sp"
+            android:layout_height="70sp"
             android:background="@drawable/round_button"
-            android:text="퀴즈 출제하기" />
+            android:text="퀴즈 출제하기"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/button_residentquiz_home"
             android:layout_width="150sp"
-            android:layout_height="55sp"
+            android:layout_height="70sp"
             android:background="@drawable/round_button"
-            android:text="주민 출제 퀴즈" />
+            android:text="주민 출제 퀴즈"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
 </RelativeLayout>

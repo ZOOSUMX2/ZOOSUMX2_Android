@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="68sp"
     android:layout_marginLeft="16sp"
@@ -81,7 +82,8 @@
                 android:includeFontPadding="false"
                 android:text="Lv."
                 android:textColor="@color/colorText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textview_level_town"
@@ -105,7 +107,8 @@
                 android:includeFontPadding="false"
                 android:text="Exp."
                 android:textColor="@color/colorText"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/textview_exp_town"

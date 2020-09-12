@@ -55,10 +55,10 @@
         </shape>
     </item>
 
-    <!-- Background -->
+    <!-- button color -->
     <item>
         <shape>
-            <solid android:color="@android:color/white" />
+            <solid android:color="@color/friendly_green" />
 
             <corners android:radius="12dp" />
         </shape>

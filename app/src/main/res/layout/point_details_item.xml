@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="68sp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginLeft="16sp"
     android:layout_marginRight="16sp"
     android:background="@drawable/bottom_border_line"
@@ -57,7 +58,8 @@
                 android:includeFontPadding="false"
                 android:text=" P"
                 android:textColor="@color/joyful_orange"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:ignore="HardcodedText"/>
         </LinearLayout>
 
     </LinearLayout>

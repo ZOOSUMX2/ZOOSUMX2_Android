@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain">
@@ -22,13 +23,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_mypage"
+        android:layout_marginStart="25sp"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="22sp"
+        android:layout_marginEnd="20sp"
         android:layout_marginRight="20sp"
         android:gravity="start"
-        android:orientation="horizontal"
-        android:layout_marginStart="25sp"
-        android:layout_marginEnd="20sp">
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -80,7 +81,8 @@
                     android:includeFontPadding="false"
                     android:text="님의 "
                     android:textColor="@color/colorText"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,7 +100,8 @@
                     android:includeFontPadding="false"
                     android:text="섬"
                     android:textColor="@color/colorText"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -206,7 +209,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="포인트 내역"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -252,7 +256,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="주섬주섬 상점"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -298,7 +303,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="@string/mytown_ranking"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -344,7 +350,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="환경설정"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View

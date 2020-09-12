@@ -37,6 +37,7 @@
         android:text="환경설정"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>
