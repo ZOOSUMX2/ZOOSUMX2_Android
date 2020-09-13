@@ -10,9 +10,9 @@ import androidx.core.content.ContextCompat
 
 class SplashActivity : AppCompatActivity() {
 
-    // This is the loading time of the splash screen
-    private val timeout:Long = 3000 // 1 sec
-    
+    // splash screen 로딩 시간
+    private val timeout: Long = 3000 // 1초
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +23,10 @@ class SplashActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.friendly_green)
 
         Handler().postDelayed({
-            // This method will be executed once the timer is over
-            // Start your app main activity
-            startActivity(Intent(this,MainActivity::class.java))
+            // 이 함수는 타이머가 끝난 후 한번만 실행됨
+            startActivity(Intent(this, MainActivity::class.java))
 
-            // close this activity
+            // activity 종료
             finish()
         }, timeout)
     }

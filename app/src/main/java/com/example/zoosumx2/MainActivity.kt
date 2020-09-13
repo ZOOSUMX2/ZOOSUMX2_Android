@@ -14,10 +14,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //네비게이션바에 리스너 부착
+        // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)
 
-        //홈 화면으로 초기화
+        // 홈 화면으로 초기화
         supportFragmentManager.beginTransaction().replace(R.id.frame_main, HomeFragment()).commit()
         navigation.menu.getItem(1).isChecked = true
 

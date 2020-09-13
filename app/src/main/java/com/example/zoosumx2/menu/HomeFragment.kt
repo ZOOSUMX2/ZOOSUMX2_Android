@@ -8,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
-import com.example.zoosumx2.MailboxFirstActivity
 import com.example.zoosumx2.MakequizActivity
 import com.example.zoosumx2.R
 import com.example.zoosumx2.ResidentQuizActivity
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_mailbox.*
 
 class HomeFragment : Fragment() {
 

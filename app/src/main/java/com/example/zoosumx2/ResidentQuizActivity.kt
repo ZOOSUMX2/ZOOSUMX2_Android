@@ -1,5 +1,6 @@
 package com.example.zoosumx2
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,28 +20,28 @@ class ResidentQuizActivity : AppCompatActivity() {
         correctAns.setOnClickListener {
             if (wrongAns.isSelected) {
                 wrongAns.isSelected = false
-                wrongAns.setTextColor(Color.BLACK)
+                wrongAns.setTextColor(ContextCompat.getColor(this, R.color.colorText))
             }
             correctAns.isSelected = true
-            correctAns.setTextColor(ContextCompat.getColor(this, R.color.friendly_green))
+            correctAns.setTextColor(Color.WHITE)
         }
 
         wrongAns.setOnClickListener {
             if (correctAns.isSelected) {
                 correctAns.isSelected = false
-                correctAns.setTextColor(ContextCompat.getColor(this, R.color.friendly_green))
+                correctAns.setTextColor(ContextCompat.getColor(this, R.color.colorText))
             }
             wrongAns.isSelected = true
             wrongAns.setTextColor((Color.WHITE))
         }
 
+        // 이전 버튼 클릭 이벤트
         val backButton = findViewById<ImageButton>(R.id.imagebutton_back_resident_quiz)
         backButton.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
             finish()
         }
 
+        // 정답확인 버튼 클릭 이벤트
         val submitAns = findViewById<Button>(R.id.button_check_answer_resident_quiz)
         submitAns.setOnClickListener {
 
@@ -50,7 +51,8 @@ class ResidentQuizActivity : AppCompatActivity() {
             }
             // 오답을 선택한 경우
             else {
-
+                val intent = Intent(this, WrongAnsActivity::class.java)
+                startActivity(intent)
             }
         }
 

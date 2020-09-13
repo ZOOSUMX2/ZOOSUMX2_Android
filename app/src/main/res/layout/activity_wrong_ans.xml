@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
-    tools:context=".ResidentQuizActivity">
+    tools:context=".WrongAnsActivity">
 
     <LinearLayout
         android:id="@+id/textview_resident"
@@ -13,28 +13,15 @@
         android:layout_marginTop="30dp"
         android:gravity="center">
 
-        <!--    이전 버튼-->
-        <ImageButton
-            android:id="@+id/imagebutton_back_resident_quiz"
-            android:layout_width="25sp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:adjustViewBounds="true"
-            android:background="@color/colorMain"
-            android:contentDescription="@string/image"
-            android:src="@drawable/arrow_back" />
-
-        <!--    이전버튼과 퀴즈 출제 버튼을 각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
+        <!-- 확인 버튼을 오른족 끝에 정렬하기 위해 삽입 -->
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!--    퀴즈 출제 버튼-->
+        <!-- 확인 버튼-->
         <Button
-            android:id="@+id/button_check_answer_resident_quiz"
+            android:id="@+id/button_ok_wrong_ans"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,9 +30,10 @@
             android:layout_marginRight="16dp"
             android:background="@color/colorMain"
             android:fontFamily="@font/notosanscjkkr_regular"
-            android:text="@string/check_answer"
+            android:text="확인"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -113,7 +101,21 @@
         android:textColor="@color/colorSoftGray"
         android:textSize="12sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearlayout_answer_button_wrong_ans"
+        android:layout_marginBottom="10sp"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:gravity="center_horizontal"
+        android:text="이런! 오답을 고르셨네요 정답은 바로"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
     <LinearLayout
+        android:id="@+id/linearlayout_answer_button_wrong_ans"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -128,10 +130,11 @@
             android:layout_height="105sp"
             android:layout_gravity="center"
             android:layout_marginBottom="-15sp"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/correct_ans_color"
+            android:enabled="false"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:text="@string/resident_correct_answer"
-            android:textColor="@color/colorText"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
         <Button
@@ -139,7 +142,8 @@
             android:layout_width="340sp"
             android:layout_height="105sp"
             android:layout_gravity="center"
-            android:background="@drawable/button_selector"
+            android:background="@drawable/answer_unclicked_color"
+            android:enabled="false"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:text="@string/resident_wrong_answer"
             android:textColor="@color/colorText"
