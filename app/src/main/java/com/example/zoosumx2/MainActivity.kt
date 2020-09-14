@@ -17,12 +17,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)
 
-        // 홈 화면으로 초기화
+        // 홈 화면으로 초기화 -> 홈 아이콘 색상만 friendly_green
         supportFragmentManager.beginTransaction().replace(R.id.frame_main, HomeFragment()).commit()
         navigation.menu.getItem(1).isChecked = true
 
     }
 
+    // res/menu/navigation_items.xml 파일에서 각 아이템의 id
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
         when (p0.itemId) {
             R.id.button_mailbox -> {
