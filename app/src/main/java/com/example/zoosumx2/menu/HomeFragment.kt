@@ -41,21 +41,21 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        speech_bubble1.visibility = View.INVISIBLE
-        speech_bubble2.visibility = View.INVISIBLE
+//        speech_bubble1.visibility = View.INVISIBLE
+//        speech_bubble2.visibility = View.INVISIBLE
 
-        //loading our custom made animations
-        val fadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in)
-
-        //fading our custom made animations
-        val fadeOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
-
-        speech_bubble1.startAnimation(fadeIn)
-
-        Handler().postDelayed({
-            //Do something after 5000ms
-            speech_bubble1.startAnimation(fadeOut)
-            speech_bubble2.startAnimation(fadeIn)
-        }, 5000)
+//        //loading our custom made animations
+//        val fadeIn = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+//
+//        //fading our custom made animations
+//        val fadeOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
+//
+//        speech_bubble1.startAnimation(fadeIn)
+//
+//        Handler().postDelayed({
+//            // Do something after 5000ms
+//            speech_bubble1.startAnimation(fadeOut)
+//            speech_bubble2.startAnimation(fadeIn)
+//        }, 5000)
     }
 }
