@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             // 이 함수는 타이머가 끝난 후 한번만 실행됨
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
 
             // activity 종료
             finish()

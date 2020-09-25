@@ -15,4 +15,7 @@
     <color name="black_6">#7b7b7b</color>
     <color name="colorCircleFill">#efefef</color>
     <color name="joyful_orange">#ff7d5a</color>
+    <color name="kakao">#fee500</color>
+    <color name="naver">#1ec800</color>
+
 </resources>
