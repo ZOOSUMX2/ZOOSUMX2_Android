@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="68sp"
+    android:layout_marginLeft="16sp"
+    android:layout_marginRight="16sp"
+    android:background="@drawable/bottom_border_line"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp">
+
+    <!--나의 순위-->
+    <TextView
+        android:id="@+id/textview_ranking_town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!--캐릭터 위치 조정하기-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleimageview_profile_town"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="18sp"
+            android:layout_marginRight="18sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/penguin"
+            app:civ_border_width="0sp"
+            app:civ_circle_background_color="@color/colorCircleFill" />
+
+        <!--사용자 이름-->
+        <TextView
+            android:id="@+id/textview_name_town"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="권*엽"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!--포인트-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="Lv."
+                android:textColor="@color/colorText"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textview_level_town"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="10"
+                android:textColor="@color/colorText"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="Exp."
+                android:textColor="@color/colorText"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textview_exp_town"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="6830"
+                android:textColor="@color/colorText"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

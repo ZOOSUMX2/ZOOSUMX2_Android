@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <TextView
+        android:id="@+id/textview_mailbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center_horizontal"
+        android:text="@string/mailbox"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="16sp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textview_mailbox"
+        android:layout_marginBottom="100sp"
+        android:background="@color/colorMain"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="100sp"
+        android:requiresFadingEdge="vertical">
+
+        <LinearLayout
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imagebutton_news1_mailbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-20sp"
+                android:adjustViewBounds="true"
+                android:background="@color/colorMain"
+                android:contentDescription="@string/image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mailbox1" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20sp"
+                android:layout_marginBottom="-20sp"
+                android:adjustViewBounds="true"
+                android:background="@color/colorMain"
+                android:contentDescription="@string/image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mailbox2" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20sp"
+                android:layout_marginBottom="-20sp"
+                android:adjustViewBounds="true"
+                android:background="@color/colorMain"
+                android:contentDescription="@string/image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mailbox3" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20sp"
+                android:layout_marginBottom="-20sp"
+                android:adjustViewBounds="true"
+                android:background="@color/colorMain"
+                android:contentDescription="@string/image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mailbox3" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

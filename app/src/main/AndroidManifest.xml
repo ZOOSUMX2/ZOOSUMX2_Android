@@ -49,6 +49,36 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConfirmOthersActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConfirmRecycleActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GetRegionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GetRewardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IslandNameActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PhotoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RandomQuizActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RandomquizCorrectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RandomquizWrongActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserNameActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

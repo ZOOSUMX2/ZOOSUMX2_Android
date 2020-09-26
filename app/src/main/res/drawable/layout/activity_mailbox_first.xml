@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativelayout_mailbox_first"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".MailboxFirstActivity">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bar_store"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_vertical">
+
+        <!--이전 버튼-->
+        <ImageButton
+            android:id="@+id/imagebutton_back_mailbox_first"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
+        android:text="우편함"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104sp"
+        android:background="@drawable/mailbox_first_news"
+        android:contentDescription="@string/image">
+
+    </ImageView>
+
+    <!--텍스트로 나중에 변환하기-->
+    <View
+        android:id="@+id/textview_headline_contents"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:layout_marginTop="104sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="340sp"
+        android:layout_below="@+id/textview_headline_contents"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp">
+
+        <LinearLayout
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="2020.06.24 용산구청"
+                android:textColor="@color/colorSoftGray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28sp"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="5월부터 단독주택, 상가지역 등을 대상으로\n‘폐비닐·페트병 목요 배출제’를\n시범운영합니다."
+                android:textColor="@color/black_6"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28sp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4sp"
+                android:text="폐비닐(색상, 종류 무관)은 투명・반투명\n봉투에,음료·생수 등 무색 페트병은 유색\n페트병과 분리하여 투명·반투명 봉투 또는 무색 페트병
+전용봉투에 담아 매주 목요일 집 앞에\n배출해야 합니다. 폐비닐, 무색 페트병 외 다른 재활용품은 이날 배출할 수 없습니다.
+\n공동주택의 경우 기존처럼 정해진 날짜에\n분리배출하면 됩니다.\n단, 무색 페트병은 유색 페트병
+·일반\n플라스틱과 나눠서 버려야 합니다.\n페트병에 붙은 라벨은 제거해 주세요. "
+                android:textColor="@color/black_6"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

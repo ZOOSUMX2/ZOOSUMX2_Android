@@ -8,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
-import com.example.zoosumx2.MakequizActivity
-import com.example.zoosumx2.R
-import com.example.zoosumx2.ResidentQuizActivity
+import com.example.zoosumx2.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -38,6 +36,19 @@ class HomeFragment : Fragment() {
         // 주민 출제 퀴즈 버튼
         button_residentquiz_home.setOnClickListener {
             val intent = Intent(context, ResidentQuizActivity::class.java)
+            startActivity(intent)
+        }
+
+        //새로 추가
+        //랜덤 퀴즈 버튼
+        button_randomquiz.setOnClickListener {
+            val intent = Intent(context, RandomQuizActivity::class.java)
+            startActivity(intent)
+        }
+
+        //재활용 인증 버튼
+        button_recycle_step.setOnClickListener {
+            val intent = Intent(context, ConfirmRecycleActivity::class.java)
             startActivity(intent)
         }
 

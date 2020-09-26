@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".ConfirmOthersActivity">
+
+    <LinearLayout
+        android:id="@+id/textview_resident"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/islandName_button_next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorMain"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="완료"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/photo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:includeFontPadding="false"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorText"
+        android:text="확인 요청"
+        android:textSize="16sp"
+        android:layout_marginTop="42dp"/>
+
+    <TextView
+        android:id="@+id/photo_ment_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/photo_title"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:includeFontPadding="false"
+        android:text="권*엽님이 재활용품 처리를 완료했어요\n아래 방법에 따라 올바르게 했는지 확인해주세요"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@color/black_5"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:id="@+id/photo_square_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/square_photo"
+        android:layout_below="@+id/photo_ment_sub"
+        android:layout_marginTop="36dp"
+        android:background="@color/friendly_green"
+        android:layout_centerHorizontal="true"/>
+
+
+    <LinearLayout
+        android:id="@+id/confirm_others_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/photo_square_others"
+        android:orientation="vertical">
+
+       <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내용물을 깨끗이 비우세요"
+            android:textSize="16sp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:paddingBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="라벨을 분리하세요"
+            android:textSize="16sp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:paddingBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
+            android:textSize="16sp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/confirm_step_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/confirm_others_steps">
+
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:background="@drawable/send_photo_selector"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:text="부족해요"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:background="@drawable/send_photo_selector"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:text="잘 하셨어요"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+</RelativeLayout>

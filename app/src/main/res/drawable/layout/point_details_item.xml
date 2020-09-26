@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="68sp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="16sp"
+    android:layout_marginRight="16sp"
+    android:background="@drawable/bottom_border_line"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="10sp"
+    android:paddingRight="10sp">
+
+    <!--내역 & 포인트-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textview_note_point_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:includeFontPadding="false"
+            android:text="재활용 인증미션 완료"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:text="+ "
+                android:textColor="@color/joyful_orange"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textview_point_point_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:text="3"
+                android:textColor="@color/joyful_orange"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:text=" P"
+                android:textColor="@color/joyful_orange"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--각각 왼쪽, 오른족 끝에 정렬하기 위해 삽입-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textview_date_point_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:text="2020.08.31"
+            android:textColor="@color/black_5"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textview_time_point_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:text="오후 3:02"
+            android:textColor="@color/black_5"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

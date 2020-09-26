@@ -12,7 +12,7 @@ class LoginActivity : AppCompatActivity() {
 
         val kakaoButton = findViewById<Button>(R.id.button_kakao_login)
         kakaoButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, UserNameActivity::class.java)
             startActivity(intent)
         }
     }

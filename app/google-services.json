@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "946692264237",
+    "firebase_url": "https://zoosumzoosum.firebaseio.com",
+    "project_id": "zoosumzoosum",
+    "storage_bucket": "zoosumzoosum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946692264237:android:d5bacb5355bb43ff6e03a4",
+        "android_client_info": {
+          "package_name": "com.example.zoosumx2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946692264237-6eu8nmjc99i2nptqalpqb5grl55dvo1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNP26TzRI6qrqRPBasBg2CfopXYsmCpfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946692264237-6eu8nmjc99i2nptqalpqb5grl55dvo1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

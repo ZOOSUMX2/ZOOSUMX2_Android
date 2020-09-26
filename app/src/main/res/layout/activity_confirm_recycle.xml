@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/friendly_green"
+    tools:context=".ConfirmRecycleActivity">
+
+    <LinearLayout
+        android:id="@+id/textview_resident"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/confirm_recycle_back"
+            android:layout_width="25sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/friendly_green"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/confirm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:includeFontPadding="false"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorWhite"
+        android:text="페트병 완벽하게 처리하기"
+        android:textSize="16sp"
+        android:layout_marginTop="45dp"/>
+
+    <TextView
+        android:id="@+id/confirm_ment_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirm_title"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:includeFontPadding="false"
+        android:text="아래 단계를 따라가며 재활용 쓰레기를\n올바르게 처리하고 다른 사람에게 인증합니다"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/colorWhite"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/confirm_step_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirm_ment_sub"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        //step1 checkbox
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="118dp"
+            android:gravity="center"
+            android:background="@drawable/step_selector">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:id="@+id/checkbox_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+
+                android:button="@drawable/image_checkbox"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/text_step1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorText"
+                android:text="Step1\n내용물을 깨끗이 비우세요"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+
+        </LinearLayout>
+
+        //step2 checkbox
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:background="@drawable/step_selector">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:id="@+id/checkbox_step2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+                android:button="@drawable/image_checkbox"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/text_step2"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorText"
+                android:text="Step2\n라벨을 분리하세요"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+        </LinearLayout>
+
+
+        //step3 checkbox
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:background="@drawable/step_selector">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:id="@+id/checkbox_step3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:adjustViewBounds="true"
+                android:button="@drawable/image_checkbox"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/text_step3"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorText"
+                android:text="Step3\n뚜껑을 닫고 발로 밟아\n부피를 줄이세요"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/confirm_recycle_next"
+        android:layout_width="340dp"
+        android:layout_height="55sp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/confirm_step_checkbox"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/go_photo_button_selector"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:text="인증사진 찍기"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/zoosum_textlogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="169sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/zoosum_typelogo" />
+
+    <!--카카오 로그인 버튼-->
+    <Button
+        android:id="@+id/button_kakao_login"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="52sp"
+        android:layout_marginLeft="36sp"
+        android:layout_marginTop="200sp"
+        android:layout_marginRight="36sp"
+        android:background="@drawable/login_kakao"
+        android:drawableStart="@drawable/login_kakao_icon"
+        android:drawableLeft="@drawable/login_kakao_icon"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:paddingStart="24sp"
+        android:paddingLeft="24sp"
+        android:paddingEnd="24sp"
+        android:paddingRight="24sp"
+        android:text="카카오 계정으로 로그인"
+        android:textSize="14sp" />
+
+    <!--구글 로그인 버튼-->
+    <Button
+        android:id="@+id/button_google_login"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="52sp"
+        android:layout_marginLeft="36sp"
+        android:layout_marginTop="13sp"
+        android:layout_marginRight="36sp"
+        android:background="@drawable/login_google"
+        android:drawableStart="@drawable/google_symbol"
+        android:drawableLeft="@drawable/google_symbol"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:paddingStart="24sp"
+        android:paddingLeft="24sp"
+        android:paddingEnd="24sp"
+        android:paddingRight="24sp"
+        android:text="구글 계정으로 로그인"
+        android:textSize="14sp" />
+
+    <!--네이버 로그인 버튼-->
+    <Button
+        android:id="@+id/button_naver_login"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="52sp"
+        android:layout_marginLeft="36sp"
+        android:layout_marginTop="13sp"
+        android:layout_marginRight="36sp"
+        android:background="@drawable/login_naver"
+        android:drawableStart="@drawable/login_naver_icon"
+        android:drawableLeft="@drawable/login_naver_icon"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:paddingStart="24sp"
+        android:paddingLeft="24sp"
+        android:paddingEnd="24sp"
+        android:paddingRight="24sp"
+        android:text="네이버 아이디로 로그인"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
+
+</LinearLayout>

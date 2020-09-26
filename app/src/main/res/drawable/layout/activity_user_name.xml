@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".UserNameActivity">
+
+    <LinearLayout
+        android:id="@+id/textview_resident"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/userName_button_next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@color/colorMain"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="다음"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/userName_ment_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_resident"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="12sp"
+            android:text="주섬주섬"
+            android:textColor="@color/friendly_green"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:includeFontPadding="false"
+            android:text="에 오신것을 환영해요!"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/userName_ment_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userName_ment_first"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:includeFontPadding="false"
+        android:text="이름을 알려주실래요?"
+        android:textSize="24sp" />
+
+
+    <EditText
+        android:id="@+id/userName_edit"
+        android:layout_width="164.5dp"
+        android:layout_height="wrap_content"
+        android:hint="이름 입력"
+        android:layout_below="@+id/userName_ment_second"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:includeFontPadding="false"
+        android:textSize="24sp"
+        android:textColorHint="@color/friendly_green"
+        android:backgroundTint="@color/friendly_green"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/process_percent_35"
+        android:layout_below="@+id/userName_edit"
+        android:layout_marginTop="381dp"
+        android:layout_marginLeft="16dp"/>
+
+
+</RelativeLayout>

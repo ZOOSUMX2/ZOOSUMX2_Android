@@ -30,4 +30,7 @@
     <string name="store">주섬주섬 상점</string>
     <string name="current_coin">10</string>
     <string name="mytown_ranking">우리동네 랭킹</string>
+    <string name="random_quiz">다 마신 페트병은\n어떻게 버려야 할까?</string>
+    <string name="random_correct">내용물을 비우고 라벨을 분리, 발로 밟는다</string>
+    <string name="random_wrong">내용물을 비우고 라벨을 떼서 그대로</string>
 </resources>

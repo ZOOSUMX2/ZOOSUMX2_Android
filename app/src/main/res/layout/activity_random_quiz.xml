@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".RandomQuizActivity">
+
+    <LinearLayout
+        android:id="@+id/textview_resident"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/random_quiz_back"
+            android:layout_width="25sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:adjustViewBounds="true"
+            android:background="@color/colorMain"
+            android:contentDescription="@string/image"
+            android:src="@drawable/arrow_back" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/random_quiz_next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorMain"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:text="@string/check_answer"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resident_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_resident"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:gravity="center_horizontal"
+        android:text="@string/random_quiz"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/random_quiz_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bottle"
+        android:layout_below="@+id/resident_second"
+        android:layout_marginTop="46dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/random_quiz_image"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_correct_answer_quiz"
+            android:layout_width="340sp"
+            android:layout_height="105sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-15sp"
+            android:background="@drawable/button_selector"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:text="@string/random_correct"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_wrong_answer_quiz"
+            android:layout_width="340sp"
+            android:layout_height="105sp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:text="@string/random_wrong"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>
