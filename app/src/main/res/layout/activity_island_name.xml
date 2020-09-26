@@ -52,8 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <TextView
@@ -83,12 +84,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_first"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:focusableInTouchMode="true"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="분리배출을 할 때마다 나만의\n섬을 가꾸어 나갈 수 있어요"
-        android:textSize="24sp"
-        android:focusableInTouchMode="true"/>
+        android:textSize="24sp" />
 
     <LinearLayout
         android:id="@+id/islandName_ment_third"
@@ -96,8 +98,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_second"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <TextView
@@ -152,27 +155,43 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_third"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/userName_edit"
-            android:layout_width="164.5dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="섬 이름 입력"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:textSize="24sp"
-            android:textColorHint="@color/friendly_green"
-            android:backgroundTint="@color/friendly_green"
-            />
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edittext_userName_edit"
+                android:layout_width="164.5dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:hint="섬 이름 입력"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:textColorHint="@color/friendly_green"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="164.5sp"
+                android:layout_height="2sp"
+                android:layout_marginTop="6sp"
+                android:background="@color/friendly_green" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12sp"
+            android:layout_marginLeft="12sp"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="섬"
@@ -180,15 +199,14 @@
 
     </LinearLayout>
 
-
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/process_percent"
-        android:layout_below="@+id/islandName_edit"
-        android:layout_marginTop="350dp"
-        android:layout_marginLeft="16dp"/>
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="80sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/process_percent" />
 
 </RelativeLayout>

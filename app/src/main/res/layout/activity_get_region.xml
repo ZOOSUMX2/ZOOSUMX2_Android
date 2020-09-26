@@ -45,15 +45,15 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/region_ment_first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <TextView
@@ -84,50 +84,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/region_ment_first"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:focusableInTouchMode="true"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="현재 어느 지역에 거주하시나요?"
-        android:textSize="24sp"
-        android:focusableInTouchMode="true"/>
-
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/region_edit"
         android:layout_width="164.5dp"
         android:layout_height="wrap_content"
-        android:text="행정구 입력"
         android:layout_below="@+id/region_ment_second"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="55dp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:includeFontPadding="false"
-        android:textSize="24sp"
+        android:text="행정구 입력"
         android:textColor="@color/friendly_green"
-        />
+        android:textSize="24sp" />
+
+    <View
+        android:layout_width="164.5sp"
+        android:layout_height="2sp"
+        android:layout_below="@+id/region_edit"
+        android:layout_marginStart="16sp"
+        android:layout_marginLeft="16sp"
+        android:layout_marginTop="6sp"
+        android:background="@color/friendly_green" />
 
     <TextView
         android:id="@+id/region_ment_sub"
-        android:focusedByDefault="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/region_edit"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:includeFontPadding="false"
         android:text="분리수거 방침은 지역마다 다르기에\n거주지에 맞는 분리배출 정보와 소식을 알려드려요"
-        android:textSize="12sp"
         android:textColor="@color/colorSoftGray"
-        android:focusableInTouchMode="true"/>
+        android:textSize="12sp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/process_percent_75"
-        android:layout_below="@+id/region_ment_sub"
-        android:layout_marginTop="381dp"
-        android:layout_marginLeft="16dp"/>
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="80sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/process_percent_75" />
 
 </RelativeLayout>
