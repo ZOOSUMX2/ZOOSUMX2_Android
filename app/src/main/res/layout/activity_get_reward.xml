@@ -90,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70sp"
-        android:background="@drawable/rounded_rectangle"
+        android:layout_marginBottom="65sp"
+        android:background="@drawable/rounded_rectangle_reward"
         android:gravity="start|center"
         android:orientation="horizontal"
         android:paddingLeft="10sp"
@@ -106,7 +106,7 @@
             android:layout_marginRight="8sp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:includeFontPadding="false"
-            android:text="나의 포인트"
+            android:text="나의 최종 포인트 :"
             android:textColor="@color/colorText"
             android:textSize="14sp" />
 
@@ -118,14 +118,19 @@
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
             android:text="10"
-            android:textColor="@color/colorText"
+            android:textColor="@color/joyful_orange"
             android:textSize="16sp" />
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image"
-            android:src="@drawable/mypage_coin" />
+            android:layout_marginEnd="4sp"
+            android:layout_marginRight="4sp"
+            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:includeFontPadding="false"
+            android:text="P"
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
