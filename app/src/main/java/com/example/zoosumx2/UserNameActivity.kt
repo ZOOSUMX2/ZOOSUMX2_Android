@@ -20,11 +20,20 @@ class UserNameActivity : AppCompatActivity() {
         //사용자 이름
 
         val nextButton = findViewById<Button>(R.id.userName_button_next)
-        nextButton.setOnClickListener{
+        nextButton.setOnClickListener {
             val intent = Intent(this, GetRegionActivity::class.java)
-            intent.putExtra("user_name",userName_edit.text.toString())
-            if(!TextUtils.isEmpty(userName_edit.getText())){
+            intent.putExtra("user_name", userName_edit.text.toString())
+            if (!TextUtils.isEmpty(userName_edit.getText())) {
                 startActivity(intent)
             }
         }
-    }}
+
+        // 이전 버튼
+        val button = findViewById<ImageButton>(R.id.userName_button_back)
+        button.setOnClickListener {
+
+            // back button 클릭 시 현재 activity 종료하고 이전 화면으로 돌아감
+            finish()
+        }
+    }
+}
