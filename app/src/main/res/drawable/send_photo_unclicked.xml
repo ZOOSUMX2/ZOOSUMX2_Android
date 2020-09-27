@@ -3,8 +3,10 @@
     <item>
         <shape>
             <padding
-                android:right="12dp"
-                android:left="12dp"/>
+                android:bottom="2.5dp"
+                android:left="2.5dp"
+                android:right="2.5dp"
+                android:top="2.5dp" />
 
             <solid android:color="#00CCCCCC" />
 
@@ -13,6 +15,11 @@
     </item>
     <item>
         <shape>
+            <padding
+                android:bottom="2.5dp"
+                android:left="2.5dp"
+                android:right="2.5dp"
+                android:top="2.5dp" />
             <solid android:color="#03CCCCCC" />
 
             <corners android:radius="10dp" />
@@ -20,6 +27,11 @@
     </item>
     <item>
         <shape>
+            <padding
+                android:bottom="2.5dp"
+                android:left="2.5dp"
+                android:right="2.5dp"
+                android:top="2.5dp" />
             <solid android:color="#06CCCCCC" />
 
             <corners android:radius="10dp" />
@@ -27,6 +39,11 @@
     </item>
     <item>
         <shape>
+            <padding
+                android:bottom="2.5dp"
+                android:left="2.5dp"
+                android:right="2.5dp"
+                android:top="2.5dp" />
             <solid android:color="#08CCCCCC" />
 
             <corners android:radius="10dp" />

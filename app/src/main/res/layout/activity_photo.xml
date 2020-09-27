@@ -96,9 +96,9 @@
         android:id="@+id/photo_ment_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/square_photo"
+        android:layout_above="@id/confirm_step_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
+        android:layout_marginBottom="30sp"
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -108,17 +108,19 @@
 
     <LinearLayout
         android:id="@+id/confirm_step_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/photo_ment_select"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="92sp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/confirm_to_friend"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10sp"
             android:background="@drawable/send_photo_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
@@ -130,11 +132,10 @@
         <Button
             android:id="@+id/confirm_to_resident"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
             android:background="@drawable/send_photo_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:gravity="center"
             android:includeFontPadding="false"
             android:text="지역 주민에게"
             android:textColor="@color/friendly_green"

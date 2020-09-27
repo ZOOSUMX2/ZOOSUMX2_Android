@@ -52,8 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
@@ -84,8 +84,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_first"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:focusableInTouchMode="true"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
@@ -98,8 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_second"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
@@ -155,8 +155,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/islandName_ment_third"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
@@ -203,8 +203,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="80sp"
         android:contentDescription="@string/image"
         android:src="@drawable/process_percent" />

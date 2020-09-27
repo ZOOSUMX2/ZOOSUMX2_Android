@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
@@ -82,8 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/userName_ment_first"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="이름을 알려주실래요?"
@@ -95,8 +95,8 @@
         android:layout_width="164.5dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/userName_ment_second"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="55dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/notosanscjkkr_regular"
@@ -111,8 +111,8 @@
         android:layout_width="164.5sp"
         android:layout_height="2sp"
         android:layout_below="@+id/userName_edit"
-        android:layout_marginStart="16sp"
-        android:layout_marginLeft="16sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginLeft="20sp"
         android:layout_marginTop="6sp"
         android:background="@color/friendly_green" />
 
@@ -120,9 +120,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="80sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="60sp"
         android:contentDescription="@string/image"
         android:src="@drawable/process_percent_35" />
 
