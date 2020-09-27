@@ -81,16 +81,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/get_reward_ment"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="32dp"
         android:contentDescription="@string/image"
-        android:src="@drawable/you_wrong" />
+        android:src="@drawable/image_getcoin" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/get_reward_ment"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="521dp"
+        android:layout_marginBottom="70sp"
         android:background="@drawable/rounded_rectangle"
         android:gravity="start|center"
         android:orientation="horizontal"

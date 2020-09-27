@@ -63,20 +63,24 @@
         android:id="@+id/random_quiz_sub_ment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/random_quiz_correct_image"
+        android:layout_above="@+id/linearlayout_choose_ans_randomquiz"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
+        android:layout_marginBottom="15sp"
         android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
         android:includeFontPadding="false"
         android:text="페트병 버리는 방법 잘 알고 계시네요!"
         android:textSize="16sp" />
 
     <LinearLayout
+        android:id="@+id/linearlayout_choose_ans_randomquiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/random_quiz_sub_ment"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="26sp"
+        android:layout_marginRight="26sp"
+        android:layout_marginBottom="60sp"
         android:orientation="vertical">
 
         <Button

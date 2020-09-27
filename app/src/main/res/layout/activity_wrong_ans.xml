@@ -105,10 +105,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearlayout_answer_button_wrong_ans"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="15sp"
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:gravity="center_horizontal"
-        android:text="이런! 오답을 고르셨네요 정답은 바로"
+        android:text="이런! 오답을 고르셨네요😢 정답은 바로"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="16sp"
@@ -121,7 +121,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="26sp"
         android:layout_marginRight="26sp"
-        android:layout_marginBottom="80sp"
+        android:layout_marginBottom="60sp"
         android:orientation="vertical">
 
         <Button
