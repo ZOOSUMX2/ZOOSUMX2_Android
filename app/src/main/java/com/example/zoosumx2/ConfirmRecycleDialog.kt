@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Context
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
 
 class ConfirmRecycleDialog(context: Context) {
     private val dlg = Dialog(context)

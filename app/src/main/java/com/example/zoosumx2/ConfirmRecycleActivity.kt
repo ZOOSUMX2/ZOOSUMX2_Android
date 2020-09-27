@@ -3,18 +3,13 @@ package com.example.zoosumx2
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_confirm_recycle.*
-import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class ConfirmRecycleActivity : AppCompatActivity() {
 

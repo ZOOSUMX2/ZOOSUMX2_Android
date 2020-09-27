@@ -1,14 +1,10 @@
 package com.example.zoosumx2
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_randomquiz_wrong.*
 
 class RandomquizWrongActivity : AppCompatActivity() {
 

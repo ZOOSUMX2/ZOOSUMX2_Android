@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.activity_get_region.*
-import kotlinx.android.synthetic.main.activity_user_name.*
 import kotlinx.android.synthetic.main.region_bottom_sheet_dialog.*
 
 

@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.RelativeLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_user_name.*
 
