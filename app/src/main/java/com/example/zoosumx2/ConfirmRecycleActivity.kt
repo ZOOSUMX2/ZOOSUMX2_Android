@@ -1,12 +1,14 @@
 package com.example.zoosumx2
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -16,19 +18,24 @@ import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class ConfirmRecycleActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_recycle)
 
+        // status bar 색상 변경
+        val window = this.window
+        window.statusBarColor = ContextCompat.getColor(this, R.color.friendly_green)
+
         val backButton = findViewById<ImageButton>(R.id.confirm_recycle_back)
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             finish()
         }
 
         val checkbox_s1 = findViewById<CheckBox>(R.id.checkbox_step1)
-        val text_s1 =  findViewById<TextView>(R.id.text_step1)
+        val text_s1 = findViewById<TextView>(R.id.text_step1)
         val checkbox_s2 = findViewById<CheckBox>(R.id.checkbox_step2)
-        val text_s2 =  findViewById<TextView>(R.id.text_step2)
+        val text_s2 = findViewById<TextView>(R.id.text_step2)
         val checkbox_s3 = findViewById<CheckBox>(R.id.checkbox_step3)
         val text_s3 =  findViewById<TextView>(R.id.text_step3)
         val nextButton = findViewById<Button>(R.id.confirm_recycle_next)
@@ -68,8 +75,7 @@ class ConfirmRecycleActivity : AppCompatActivity() {
             if(checkbox_s1.isChecked&&checkbox_s2.isChecked){
                 checkbox_s3.isChecked = true
                 text_s3.setTextColor(ContextCompat.getColor(this, R.color.colorText))
-            }
-            else{
+            } else{
                 checkbox_s3.isChecked = false
             }
 
@@ -84,8 +90,7 @@ class ConfirmRecycleActivity : AppCompatActivity() {
             if(checkbox_s1.isChecked&&checkbox_s2.isChecked&&checkbox_s3.isChecked){
                 val intent = Intent(this, PhotoActivity::class.java)
                 startActivity(intent)
-            }
-            else{
+            } else{
                 nextButton.isSelected = false
             }
         }

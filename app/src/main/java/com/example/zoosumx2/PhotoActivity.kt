@@ -17,10 +17,12 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.zoosumx2.menu.HomeFragment
 import com.gun0912.tedpermission.PermissionListener
@@ -39,15 +41,20 @@ class PhotoActivity : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 1 //카메라 사진 촬영 요청 코드
     lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo)
+
+        // status bar 색상 변경
+        val window = this.window
+        window.statusBarColor = ContextCompat.getColor(this, R.color.friendly_green)
 
         setPermission() //권한을 체크하는 메소드 수행
 
         //뒤로 가기
         val backButton = findViewById<ImageButton>(R.id.photo_back)
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             finish()
         }
 
