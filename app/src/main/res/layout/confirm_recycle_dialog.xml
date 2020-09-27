@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="306dp"
-    android:layout_height="268dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="268dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="확인 요청"
-        android:textSize="18sp"
-        android:textColor="@color/colorText"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="118.5dp"
         android:layout_marginLeft="118.5dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
+        android:text="확인 요청"
+        android:textColor="@color/colorText"
 
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
-        android:textSize="16sp"
-        android:textColor="@color/colorText"
-        android:text="수아님의 이웃이 미션을 완료하고\n인증을 기다리고 있습니다.\n올바르게 했는지 확인해주세요."
-        android:gravity="center"
         android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center"
+        android:text="수아님의 이웃이 미션을 완료하고\n인증을 기다리고 있습니다.\n올바르게 했는지 확인해주세요."
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,16 +37,17 @@
         android:id="@+id/confirm_ok"
         android:layout_width="114dp"
         android:layout_height="48dp"
+        android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
         android:layout_marginTop="186dp"
         android:background="@drawable/confirm_dialog_button_shape"
-        android:text="확인하기"
-        android:gravity="center"
         android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
+        android:text="확인하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
 
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginTop="16dp"
-
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingHorizontal="16dp">
@@ -21,82 +20,103 @@
                 android:id="@+id/seoul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="서울"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
                 android:textColor="@color/friendly_green"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="경기"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="인천"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="부산"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="대구"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="대전"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="0sp"
+                android:paddingLeft="0sp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
                 android:text="광주"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:paddingRight="24dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="울산"
                 android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
                 android:includeFontPadding="false"
-                android:textSize="16sp"
-                android:gravity="center" />
+                android:text="울산"
+                android:textSize="16sp" />
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -109,371 +129,372 @@
 
         <GridLayout
             android:id="@+id/region_buttons_seoul"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:columnCount="8"
-            android:rowCount="3"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingLeft="16dp"
             android:paddingTop="28dp"
+            android:paddingEnd="0sp"
+            android:paddingRight="0sp"
             android:paddingBottom="24dp"
-            android:paddingLeft="16dp">
+            android:rowCount="3">
 
             <Button
                 android:id="@+id/jong-ro"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="종로구"
-                android:includeFontPadding="false"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="종로구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/joong-gu"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="중구"
-                android:includeFontPadding="false"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp" />
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="중구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/yong-san"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="용산구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="용산구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/sung-dong"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="성동구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="성동구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gwang-jin"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="광진구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="광진구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/dong-dae-moon"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="동대문구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="동대문구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/joong-rang"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="중랑구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="중랑구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/sung-boog"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="성북구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="성북구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gang-boog"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="강북구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
                 android:layout_marginBottom="20dp"
-                />
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="강북구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/ma-po"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="마포구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="마포구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/eun-pyeng"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="은평구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="은평구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/yang-cheon"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="양천구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="양천구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gu-ro"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="구로구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="구로구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/yung-deung-po"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="영등포구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="영등포구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/dong-jak"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="동작구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="동작구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/kwan-ak"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="관악구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="관악구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/seo-cho"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="서초구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="서초구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/geum-cheon"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="금천구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
                 android:layout_marginBottom="20dp"
-                />
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="금천구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gang-nam"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="강남구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="강남구"
+                android:textColor="@color/colorText"
 
-                />
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/song-pa"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="송파구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="송파구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gang-dong"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="강동구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="강동구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/no-won"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="노원구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="노원구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/do-bong"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="도봉구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
-                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="도봉구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/gang-seo"
                 android:layout_width="96dp"
                 android:layout_height="38dp"
-                android:includeFontPadding="false"
-                android:background="@drawable/region_bottom_sheet_selector"
-                android:text="강서구"
-                android:gravity="center"
-                android:textColor="@color/colorText"
-                android:textSize="14sp"
-                android:fontFamily="@font/notosans_cjkkr_medium"
                 android:layout_marginBottom="20dp"
-                />
+                android:background="@drawable/region_bottom_sheet_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="강서구"
+                android:textColor="@color/colorText"
+                android:textSize="14sp" />
 
         </GridLayout>
 

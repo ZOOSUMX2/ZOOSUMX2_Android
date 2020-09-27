@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -56,8 +55,8 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:gravity="center_horizontal"
-        android:text="@string/random_quiz"
         android:includeFontPadding="false"
+        android:text="@string/random_quiz"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="24sp" />
@@ -66,18 +65,18 @@
         android:id="@+id/random_quiz_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/bottle"
         android:layout_below="@+id/resident_second"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:layout_centerHorizontal="true"/>
-
+        android:contentDescription="@string/image"
+        android:src="@drawable/bottle" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/random_quiz_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp"
-        android:layout_below="@+id/random_quiz_image"
         android:orientation="vertical">
 
         <Button
@@ -103,6 +102,5 @@
             android:textColor="@color/colorText"
             android:textSize="16sp" />
     </LinearLayout>
-
 
 </RelativeLayout>
