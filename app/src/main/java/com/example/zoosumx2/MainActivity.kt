@@ -3,6 +3,9 @@ package com.example.zoosumx2
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.zoosumx2.menu.HomeFragment
 import com.example.zoosumx2.menu.MailboxFragment
 import com.example.zoosumx2.menu.MypageFragment
@@ -13,6 +16,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)

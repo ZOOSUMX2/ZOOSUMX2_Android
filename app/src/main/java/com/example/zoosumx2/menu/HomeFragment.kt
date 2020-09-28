@@ -16,6 +16,7 @@ class HomeFragment : Fragment() {
     //Todo: 전역변수 정의
     //Fixme:
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,30 +28,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 퀴즈 출제 버튼
-        button_makequiz_home.setOnClickListener {
-            val intent = Intent(context, MakequizActivity::class.java)
-            startActivity(intent)
+        home_mission.setOnClickListener{
+            val transaction = activity!!.supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frame_main,MissionFragment())
+            transaction.commit()
         }
 
-        // 주민 출제 퀴즈 버튼
-        button_residentquiz_home.setOnClickListener {
-            val intent = Intent(context, ResidentQuizActivity::class.java)
-            startActivity(intent)
-        }
-
-        //새로 추가
-        //랜덤 퀴즈 버튼
-        button_randomquiz.setOnClickListener {
-            val intent = Intent(context, RandomQuizActivity::class.java)
-            startActivity(intent)
-        }
-
-        //재활용 인증 버튼
-        button_recycle_step.setOnClickListener {
-            val intent = Intent(context, ConfirmRecycleActivity::class.java)
-            startActivity(intent)
-        }
 
 //        speech_bubble1.visibility = View.INVISIBLE
 //        speech_bubble2.visibility = View.INVISIBLE

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/mission_card_shape"
+    android:layout_width="146dp"
+    android:layout_height="228dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardPreventCornerOverlap="true">
+
+    <TextView
+        android:id="@+id/mission_card_banner"
+        android:layout_width="44dp"
+        android:layout_height="18dp"
+        android:background="@drawable/mission_card_banner_challenge"
+        android:text="도전"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:includeFontPadding="false"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/mission_card_image"
+        android:layout_width="90dp"
+        android:layout_height="67dp"
+        android:layout_below="@+id/mission_card_banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/you_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mission_card_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mission_card_image"
+        android:text="@string/mission_card_title_confirm"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:textSize="14sp"
+        android:textColor="@color/colorText"
+        android:includeFontPadding="false"
+        android:layout_marginTop="133dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mission_card_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mission_card_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="157dp"
+        android:paddingBottom="20dp"
+        android:fontFamily="@font/notosans_cjkkr_medium"
+        android:includeFontPadding="false"
+        android:text="@string/mission_card_context_confirm"
+        android:textColor="@color/black_5"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
