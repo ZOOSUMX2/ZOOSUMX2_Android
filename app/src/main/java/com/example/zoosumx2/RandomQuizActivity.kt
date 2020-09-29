@@ -44,10 +44,12 @@ class RandomQuizActivity : AppCompatActivity() {
             if(correct_answer.isSelected||wrong_answer.isSelected){
                 if(correct_answer.isSelected){
                     val intent = Intent(this, RandomquizCorrectActivity::class.java)
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent)
                 }
                 else{
                     val intent = Intent(this, RandomquizWrongActivity::class.java)
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent)
                 }
             }

@@ -73,29 +73,4 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         //Toast.makeText(activity!!.applicationContext, items.title, Toast.LENGTH_LONG).show()
     }
 
-    /*
-    // 퀴즈 출제 버튼
-    button_makequiz_home.setOnClickListener {
-        val intent = Intent(context, MakequizActivity::class.java)
-        startActivity(intent)
-    }
-
-    // 주민 출제 퀴즈 버튼
-    button_residentquiz_home.setOnClickListener {
-        val intent = Intent(context, ResidentQuizActivity::class.java)
-        startActivity(intent)
-    }
-
-    //새로 추가
-    //랜덤 퀴즈 버튼
-    button_randomquiz.setOnClickListener {
-        val intent = Intent(context, RandomQuizActivity::class.java)
-        startActivity(intent)
-    }
-
-    //재활용 인증 버튼
-    button_recycle_step.setOnClickListener {
-        val intent = Intent(context, ConfirmRecycleActivity::class.java)
-        startActivity(intent)
-    }*/
 }

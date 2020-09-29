@@ -11,6 +11,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +49,7 @@ class PhotoActivity : AppCompatActivity() {
         }
 
         //카메라 연동
-        val open_camera = findViewById<Button>(R.id.btn_open_camera)
+        val open_camera = findViewById<TextView>(R.id.btn_open_camera)
         open_camera.setOnClickListener{
             takeCapture() //기본 카메라 앱 실행
         }
