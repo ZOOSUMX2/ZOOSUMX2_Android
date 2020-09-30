@@ -74,7 +74,8 @@
                     android:includeFontPadding="false"
                     android:text="님의 "
                     android:textColor="@color/colorText"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -92,7 +93,8 @@
                     android:includeFontPadding="false"
                     android:text="섬"
                     android:textColor="@color/colorText"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -123,7 +125,8 @@
                         android:includeFontPadding="false"
                         android:text="나의 순위"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -152,7 +155,8 @@
                         android:includeFontPadding="false"
                         android:text="미션 현황"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -180,7 +184,8 @@
                         android:includeFontPadding="false"
                         android:text="포인트"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -194,15 +199,9 @@
                             android:includeFontPadding="false"
                             android:text="23 "
                             android:textColor="@color/colorText"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            app:drawableRightCompat="@drawable/mypage_coin" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="1.5sp"
-                            android:contentDescription="@string/image"
-                            android:src="@drawable/mypage_coin" />
                     </LinearLayout>
                 </LinearLayout>
 

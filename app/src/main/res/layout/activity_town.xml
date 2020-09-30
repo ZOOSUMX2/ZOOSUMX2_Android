@@ -38,6 +38,7 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:text="@string/mytown_ranking"
+        tools:ignore="HardcodedText"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="16sp" />

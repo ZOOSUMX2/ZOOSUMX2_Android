@@ -40,7 +40,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="다음"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -74,7 +75,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="님 만나서 반가워요!"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -89,7 +91,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="현재 어느 지역에 거주하시나요?"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/region_edit"
@@ -103,7 +106,8 @@
         android:includeFontPadding="false"
         android:text="행정구 입력"
         android:textColor="@color/friendly_green"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
     <View
         android:layout_width="164.5sp"
@@ -126,7 +130,8 @@
         android:includeFontPadding="false"
         android:text="분리수거 방침은 지역마다 다르기에\n거주지에 맞는 분리배출 정보와 소식을 알려드려요"
         android:textColor="@color/colorSoftGray"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:layout_width="wrap_content"

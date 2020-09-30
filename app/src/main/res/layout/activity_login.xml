@@ -34,7 +34,8 @@
         android:paddingEnd="24sp"
         android:paddingRight="24sp"
         android:text="카카오 계정으로 로그인"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
 
     <!--구글 로그인 버튼-->
     <Button
@@ -54,7 +55,8 @@
         android:paddingEnd="24sp"
         android:paddingRight="24sp"
         android:text="구글 계정으로 로그인"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
 
     <!--네이버 로그인 버튼-->
     <Button
@@ -75,6 +77,7 @@
         android:paddingRight="24sp"
         android:text="네이버 아이디로 로그인"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

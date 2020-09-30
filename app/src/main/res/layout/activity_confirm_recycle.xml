@@ -55,7 +55,8 @@
         android:includeFontPadding="false"
         android:text="아래 단계를 따라가며 재활용 쓰레기를\n올바르게 처리하고 다른 사람에게 인증합니다"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:id="@+id/confirm_step_checkbox"
@@ -207,6 +208,7 @@
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:text="인증사진 찍기"
         android:textColor="@color/colorText"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

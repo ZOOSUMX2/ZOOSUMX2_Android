@@ -41,7 +41,8 @@
         android:includeFontPadding="false"
         android:text="사진 등록"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/photo_ment_sub"
@@ -55,7 +56,8 @@
         android:includeFontPadding="false"
         android:text="올바르게 처리한 재활용품을 촬영하여\n다른 사람에게 확인 받으세요."
         android:textColor="@color/colorWhite"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
 
     <ImageView
         android:id="@+id/square_photo"
@@ -89,7 +91,8 @@
         android:includeFontPadding="false"
         android:text="사진 촬영하기"
         android:textColor="@color/take_photo"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/photo_ment_select"
@@ -103,7 +106,8 @@
         android:includeFontPadding="false"
         android:text="누구에게 확인 받을까요?"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:id="@+id/confirm_step_btn"
@@ -119,6 +123,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="155dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="10sp"
             android:layout_marginRight="10sp"
             android:background="@drawable/send_photo_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
@@ -126,7 +131,8 @@
             android:includeFontPadding="false"
             android:text="친구에게"
             android:textColor="@color/friendly_green"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/confirm_to_resident"
@@ -138,7 +144,8 @@
             android:includeFontPadding="false"
             android:text="지역 주민에게"
             android:textColor="@color/friendly_green"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
 </RelativeLayout>

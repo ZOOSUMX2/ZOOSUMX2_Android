@@ -28,7 +28,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="확인"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <LinearLayout
@@ -108,7 +109,8 @@
             android:includeFontPadding="false"
             android:text="나의 최종 포인트 :"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +132,8 @@
             android:includeFontPadding="false"
             android:text="P"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 

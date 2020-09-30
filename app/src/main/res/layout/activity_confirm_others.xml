@@ -46,7 +46,8 @@
         android:includeFontPadding="false"
         android:text="확인 요청"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/photo_ment_sub"
@@ -133,7 +134,8 @@
             android:includeFontPadding="false"
             android:text="부족해요"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <Button
             style="?android:attr/borderlessButtonStyle"
@@ -145,7 +147,8 @@
             android:includeFontPadding="false"
             android:text="잘 하셨어요"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
 
     </LinearLayout>
