@@ -39,8 +39,6 @@ class BottomFragment(): BottomSheetDialogFragment() {
         recyclerView.setHasFixedSize(true)
 
 
-
-
         return view
     }
 

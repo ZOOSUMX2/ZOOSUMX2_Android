@@ -53,7 +53,7 @@
     <!-- button color -->
     <item>
         <shape>
-            <solid android:color="@color/colorWhite" />
+            <solid android:color="@color/colorDivision" />
 
             <corners android:radius="10dp" />
         </shape>
