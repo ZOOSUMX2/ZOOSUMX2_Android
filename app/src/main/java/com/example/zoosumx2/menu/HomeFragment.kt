@@ -2,20 +2,14 @@ package com.example.zoosumx2.menu
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
-
-    //Todo: 전역변수 정의
-    //Fixme:
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,10 +22,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        home_mission.setOnClickListener{
+        home_mission.setOnClickListener {
             val transaction = activity!!.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_main,MissionFragment())
+            transaction.replace(R.id.frame_main, MissionFragment())
             transaction.commit()
+        }
+
+        // 포인트 클릭
+        linearlayout_mypoint_home.setOnClickListener {
+            val intent = Intent(context, PointActivity::class.java)
+            startActivity(intent)
         }
 
 

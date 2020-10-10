@@ -170,6 +170,7 @@
 
                 <!--포인트-->
                 <LinearLayout
+                    android:id="@+id/linearlayout_mypoint_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
