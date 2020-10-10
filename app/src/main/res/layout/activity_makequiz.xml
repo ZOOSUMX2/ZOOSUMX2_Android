@@ -97,9 +97,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:lineSpacingExtra="8dp"
+                android:lineSpacingExtra="9dp"
                 android:text="@string/news_content"
-                android:textSize="13sp" />
+                android:textSize="14sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -143,6 +143,7 @@
                 app:counterMaxLength="60">
 
                 <EditText
+                    android:id="@+id/edittext_question_makequiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/question"
@@ -161,6 +162,7 @@
                 app:counterMaxLength="40">
 
                 <EditText
+                    android:id="@+id/edittext_correctans_makequiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/correct_answer"
@@ -179,6 +181,7 @@
                 app:counterMaxLength="40">
 
                 <EditText
+                    android:id="@+id/edittext_wrongans_makequiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints=""
