@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/resident_second"
+        android:id="@+id/textview_header_resident_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
@@ -67,7 +67,7 @@
         android:id="@+id/resident_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resident_second"
+        android:layout_below="@+id/textview_header_resident_quiz"
         android:layout_marginStart="19sp"
         android:layout_marginLeft="19sp"
         android:layout_marginTop="56sp"
@@ -114,6 +114,7 @@
         android:textSize="12sp" />
 
     <LinearLayout
+        android:id="@+id/linearlayout_example_button_resident_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

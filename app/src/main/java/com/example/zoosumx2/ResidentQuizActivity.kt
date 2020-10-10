@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 
@@ -17,7 +18,9 @@ class ResidentQuizActivity : AppCompatActivity() {
 
         val correctAns = findViewById<Button>(R.id.button_correct_answer_quiz)
         val wrongAns = findViewById<Button>(R.id.button_wrong_answer_quiz)
+        val header = findViewById<TextView>(R.id.textview_header_resident_quiz)
 
+        // 선지 둘 중에 하나만 선택되도록
         correctAns.setOnClickListener {
             if (wrongAns.isSelected) {
                 wrongAns.isSelected = false
@@ -46,14 +49,27 @@ class ResidentQuizActivity : AppCompatActivity() {
         val submitAns = findViewById<Button>(R.id.button_check_answer_resident_quiz)
         submitAns.setOnClickListener {
 
-            // 정답을 선택한 경우
-            if (correctAns.isSelected) {
+            if (correctAns.isSelected || wrongAns.isSelected) {
+                // 정답을 선택한 경우
+                if (correctAns.isSelected) {
+                    header.text = "정답이에요!"
+                    correctAns.setBackgroundColor(ContextCompat.getColor(this, R.color.lively_blue))
+                }
+                // 오답을 선택한 경우
+                else {
+//                val intent = Intent(this, WrongAnsActivity::class.java)
+//                startActivity(intent)
+                    header.text = "정답이... 아니에요"
+                    wrongAns.setBackgroundColor(ContextCompat.getColor(this, R.color.joyful_orange))
+                }
 
-            }
-            // 오답을 선택한 경우
-            else if (wrongAns.isSelected) {
-                val intent = Intent(this, WrongAnsActivity::class.java)
-                startActivity(intent)
+                submitAns.text = "리워드 확인"
+
+                // 리워드 확인 버튼 클릭 이벤트
+                submitAns.setOnClickListener {
+                    val intent = Intent(this, GetRewardActivity::class.java)
+                    startActivity(intent)
+                }
             }
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
             else {
