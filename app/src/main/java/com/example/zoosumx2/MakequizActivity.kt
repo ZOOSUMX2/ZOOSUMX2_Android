@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 
 class MakequizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +28,17 @@ class MakequizActivity : AppCompatActivity() {
             if (correctExam.text.toString().trim().isNotEmpty()) {
                 if (wrongExam.text.toString().trim().isNotEmpty()) {
                     makeQuizButton.isEnabled = true
+                } else {
+                    makeQuizButton.isEnabled = false
+                    Toast.makeText(applicationContext, "오답이 될 선지를 입력해주세요", Toast.LENGTH_LONG).show()
                 }
+            } else {
+                makeQuizButton.isEnabled = false
+                Toast.makeText(applicationContext, "정답이 될 선지를 입력해주세요", Toast.LENGTH_LONG).show()
             }
         } else {
             makeQuizButton.isEnabled = false
+            Toast.makeText(applicationContext, "문제를 입력해주세요", Toast.LENGTH_LONG).show()
         }
 
         // 퀴즈 출제 버튼 클릭 이벤트

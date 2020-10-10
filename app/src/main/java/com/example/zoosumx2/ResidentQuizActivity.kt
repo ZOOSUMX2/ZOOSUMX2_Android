@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 class ResidentQuizActivity : AppCompatActivity() {
@@ -46,13 +47,18 @@ class ResidentQuizActivity : AppCompatActivity() {
         submitAns.setOnClickListener {
 
             // 정답을 선택한 경우
-            if(correctAns.isSelected) {
+            if (correctAns.isSelected) {
 
             }
             // 오답을 선택한 경우
-            else {
+            else if (wrongAns.isSelected) {
                 val intent = Intent(this, WrongAnsActivity::class.java)
                 startActivity(intent)
+            }
+            // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
+            else {
+                submitAns.isEnabled = false
+                Toast.makeText(applicationContext, "정답을 선택해주세요", Toast.LENGTH_LONG).show()
             }
         }
 
