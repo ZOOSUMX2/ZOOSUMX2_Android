@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativelayout_store"
     android:layout_width="match_parent"
@@ -42,7 +43,7 @@
 
     <LinearLayout
         android:id="@+id/linearlayout_mycoin_store"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout_bar_store"
         android:layout_marginEnd="16sp"
@@ -50,28 +51,28 @@
         android:gravity="end"
         android:orientation="horizontal">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <!--includeFontPadding = "false" : noto font 작용 시 발생하는 상하여백 제거-->
         <TextView
+            android:id="@+id/textview_mycoin_store"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-5dp"
             android:layout_marginEnd="8sp"
             android:layout_marginRight="8sp"
             android:layout_marginBottom="-5dp"
+            android:drawablePadding="5sp"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="@string/current_coin"
             android:textAlignment="center"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image"
-            android:scaleType="centerInside"
-            android:src="@drawable/mypage_coin" />
+            android:textSize="16sp"
+            app:drawableRightCompat="@drawable/mypage_coin" />
 
     </LinearLayout>
 

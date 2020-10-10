@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
+import android.widget.TextView
 
 class StoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,13 @@ class StoreActivity : AppCompatActivity() {
 
             // back button 클릭 시 현재 activity 종료하고 이전 화면(마이페이지)으로 돌아감
             finish()
+        }
+
+        // 포인트 클릭 시 나의 포인트 내역 페이지로 이동
+        val myCoin = findViewById<TextView>(R.id.textview_mycoin_store)
+        myCoin.setOnClickListener {
+            val intent = Intent(this, PointActivity::class.java)
+            startActivity(intent)
         }
 
         val on5 = findViewById<ImageButton>(R.id.imagebutton_onnuri5000_store)
