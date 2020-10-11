@@ -19,7 +19,7 @@
         android:textSize="16sp" />
 
     <LinearLayout
-        android:id="@+id/linearlayout_first"
+        android:id="@+id/linearlayout_first_mypage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_mypage"
@@ -31,9 +31,11 @@
         android:gravity="start"
         android:orientation="horizontal">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <!--progressbar 삽입-->
 
@@ -48,12 +50,25 @@
                 app:civ_border_width="3.5dp"
                 app:civ_circle_background_color="@color/colorCircleFill" />
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notosans_cjkkr_bold"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/level"
+                android:textAlignment="center"
+                android:textColor="@color/friendly_green"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="top"
             android:layout_marginStart="20sp"
             android:layout_marginLeft="20sp"
             android:orientation="vertical">
@@ -109,22 +124,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12sp"
-                android:background="@drawable/rounded_rectangle"
                 android:gravity="start|center"
-                android:orientation="horizontal"
-                android:paddingLeft="10sp"
-                android:paddingTop="3sp"
-                android:paddingRight="10sp"
-                android:paddingBottom="3sp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8sp"
-                    android:layout_marginRight="8sp"
                     android:fontFamily="@font/notosanscjkkr_regular"
-                    android:includeFontPadding="false"
-                    android:text="나의 포인트"
+                    android:text="주섬주섬과 함께한 지 "
                     android:textColor="@color/colorText"
                     android:textSize="14sp"
                     tools:ignore="HardcodedText" />
@@ -132,63 +139,30 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4sp"
-                    android:layout_marginRight="4sp"
-                    android:fontFamily="@font/notosans_cjkkr_medium"
-                    android:includeFontPadding="false"
-                    android:text="10"
-                    android:textColor="@color/colorText"
-                    android:textSize="16sp" />
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:text="7"
+                    android:textColor="@color/friendly_green"
+                    android:textSize="14sp" />
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:src="@drawable/mypage_coin" />
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:text="일째"
+                    android:textColor="@color/colorText"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearlayout_level_mypage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_first"
-        android:layout_marginStart="56sp"
-        android:layout_marginLeft="56sp"
-        android:layout_marginTop="9sp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_bold"
-            android:gravity="center_horizontal"
-            android:includeFontPadding="false"
-            android:text="@string/level"
-            android:textAlignment="center"
-            android:textColor="@color/friendly_green"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:gravity="center_horizontal"
-            android:includeFontPadding="false"
-            android:text="@string/experience"
-            android:textAlignment="center"
-            android:textColor="@color/colorSoftGray"
-            android:textSize="12sp" />
-    </LinearLayout>
-
     <View
         android:id="@+id/view_first_mypage"
         android:layout_width="match_parent"
         android:layout_height="7sp"
-        android:layout_below="@+id/linearlayout_level_mypage"
+        android:layout_below="@+id/linearlayout_first_mypage"
         android:layout_marginTop="18sp"
         android:background="@color/colorWhite" />
 
