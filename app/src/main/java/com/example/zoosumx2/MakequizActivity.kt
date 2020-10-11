@@ -30,15 +30,16 @@ class MakequizActivity : AppCompatActivity() {
                     makeQuizButton.isEnabled = true
                 } else {
                     makeQuizButton.isEnabled = false
-                    Toast.makeText(applicationContext, "오답이 될 선지를 입력해주세요", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "오답이 될 선지를 입력해주세요", Toast.LENGTH_SHORT)
+                        .show()
                 }
             } else {
                 makeQuizButton.isEnabled = false
-                Toast.makeText(applicationContext, "정답이 될 선지를 입력해주세요", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "정답이 될 선지를 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         } else {
             makeQuizButton.isEnabled = false
-            Toast.makeText(applicationContext, "문제를 입력해주세요", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "문제를 입력해주세요", Toast.LENGTH_SHORT).show()
         }
 
         // 퀴즈 출제 버튼 클릭 이벤트

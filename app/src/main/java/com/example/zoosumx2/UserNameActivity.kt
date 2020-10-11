@@ -23,9 +23,8 @@ class UserNameActivity : AppCompatActivity() {
             intent.putExtra("user_name", userName_edit.text.toString())
             if (!TextUtils.isEmpty(userName_edit.getText())) {
                 startActivity(intent)
-            }
-            else{
-                Toast.makeText(applicationContext,"이름을 입력해주세요", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(applicationContext, "이름을 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
     }
