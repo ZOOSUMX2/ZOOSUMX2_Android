@@ -41,7 +41,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="완료"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -75,7 +76,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="에서는"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -90,7 +92,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="분리배출을 할 때마다 나만의\n섬을 가꾸어 나갈 수 있어요"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:id="@+id/islandName_ment_third"
@@ -144,7 +147,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="을 정해주세요"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -178,7 +182,8 @@
                 android:textColorHint="@color/friendly_green"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
 
             <View
                 android:layout_width="164.5sp"
@@ -195,18 +200,38 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="섬"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="80sp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/process_percent" />
+        android:layout_marginStart="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="60sp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="51sp"
+            android:layout_height="46sp"
+            android:contentDescription="@string/image"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/islandname" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7sp"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:text="100%"
+            android:textColor="@color/friendly_green"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText"
+            android:layout_marginStart="7sp" />
+    </LinearLayout>
 
 </RelativeLayout>

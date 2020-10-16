@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +30,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="다음"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -62,7 +64,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="에 오신것을 환영해요!"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
@@ -76,7 +79,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:text="이름을 알려주실래요?"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
 
     <EditText
@@ -94,7 +98,8 @@
         android:includeFontPadding="false"
         android:inputType="textPersonName"
         android:textColorHint="@color/friendly_green"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
 
     <View
         android:layout_width="164.5sp"
@@ -105,14 +110,33 @@
         android:layout_marginTop="6sp"
         android:background="@color/friendly_green" />
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginLeft="20sp"
         android:layout_marginBottom="60sp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/process_percent_35" />
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="51sp"
+            android:layout_height="46sp"
+            android:contentDescription="@string/image"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/username" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7sp"
+            android:layout_marginLeft="7sp"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:text="35%"
+            android:textColor="@color/gray_text"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
 
 </RelativeLayout>

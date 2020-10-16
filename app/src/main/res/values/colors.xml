@@ -20,5 +20,6 @@
     <color name="take_photo">#b9eecf</color>
     <color name="black_2">#f2f2f2</color>
     <color name="lively_blue">#1a71ff</color>
+    <color name="gray_text">#bfbfbf</color>
 
 </resources>

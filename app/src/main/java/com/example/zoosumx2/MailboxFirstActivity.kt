@@ -3,11 +3,22 @@ package com.example.zoosumx2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MailboxFirstActivity : AppCompatActivity() {
+
+
+    var firestore: FirebaseFirestore? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mailbox_first)
+
+        // 초기화
+        firestore = FirebaseFirestore.getInstance()
+
 
         val button = findViewById<ImageButton>(R.id.imagebutton_back_mailbox_first)
         button.setOnClickListener {

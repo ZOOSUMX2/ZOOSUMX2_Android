@@ -20,6 +20,8 @@ class UserNameActivity : AppCompatActivity() {
         val nextButton = findViewById<Button>(R.id.userName_button_next)
         nextButton.setOnClickListener {
             val intent = Intent(this, GetRegionActivity::class.java)
+
+            // 다음 액티비티에 사용자 이름 넘겨줌
             intent.putExtra("user_name", userName_edit.text.toString())
             if (!TextUtils.isEmpty(userName_edit.getText())) {
                 startActivity(intent)

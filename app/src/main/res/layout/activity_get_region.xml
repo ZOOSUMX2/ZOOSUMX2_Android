@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -133,14 +134,33 @@
         android:textSize="12sp"
         tools:ignore="HardcodedText" />
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="80sp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/process_percent_75" />
+        android:layout_marginStart="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="60sp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="51sp"
+            android:layout_height="46sp"
+            android:contentDescription="@string/image"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/getregion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7sp"
+            android:layout_marginLeft="7sp"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:text="75%"
+            android:textColor="@color/gray_text"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
 
 </RelativeLayout>

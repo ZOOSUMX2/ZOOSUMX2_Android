@@ -25,7 +25,7 @@ class TownActivity : AppCompatActivity() {
             RankingData(10, "penguin", "고*균", 8, 1430)
         )
 
-        val mainAdapter = MainAdapter(this, rankingList)
+        val mainAdapter = RankingAdapter(this, rankingList)
         recyclerview_mypage_ranking.adapter = mainAdapter
 
         val lm = LinearLayoutManager(this)

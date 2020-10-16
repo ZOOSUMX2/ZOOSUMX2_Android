@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MainAdapter(val context: Context, val rankingList: ArrayList<RankingData>) :
-    RecyclerView.Adapter<MainAdapter.Holder>() {
+class RankingAdapter(val context: Context, val rankingList: ArrayList<RankingData>) :
+    RecyclerView.Adapter<RankingAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.ranking_list_item, parent, false)

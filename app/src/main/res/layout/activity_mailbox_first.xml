@@ -52,7 +52,7 @@
 
     <!--텍스트로 나중에 변환하기-->
     <View
-        android:id="@+id/textview_headline_contents"
+        android:id="@+id/textview_header_mailbox_first"
         android:layout_width="match_parent"
         android:layout_height="150sp"
         android:layout_marginTop="104sp" />
@@ -60,7 +60,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="340sp"
-        android:layout_below="@+id/textview_headline_contents"
+        android:layout_below="@+id/textview_header_mailbox_first"
         android:layout_marginLeft="60sp"
         android:layout_marginRight="60sp">
 
@@ -71,6 +71,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textview_info_mailbox_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanscjkkr_regular"
@@ -91,6 +92,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/textview_context_mailbox_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28sp"
