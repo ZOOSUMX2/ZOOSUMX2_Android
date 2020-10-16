@@ -1,20 +1,15 @@
 package com.example.zoosumx2
 
-import android.content.Intent
-import android.graphics.Color
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.HorizontalScrollView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zoosumx2.adapter.RegionAdapter
 import com.example.zoosumx2.model.RegionData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.region_bottom_sheet_dialog.*
-import kotlinx.android.synthetic.main.region_item.*
 
 
 class BottomFragment(): BottomSheetDialogFragment() {

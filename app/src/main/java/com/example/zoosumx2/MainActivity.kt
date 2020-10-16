@@ -1,14 +1,13 @@
 package com.example.zoosumx2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.zoosumx2.menu.HomeFragment
 import com.example.zoosumx2.menu.MailboxFragment
 import com.example.zoosumx2.menu.MypageFragment
+import com.example.zoosumx2.menu.PagerHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         navigation.setOnNavigationItemSelectedListener(this)
 
         // 홈 화면으로 초기화 -> 홈 아이콘 색상만 friendly_green
-        supportFragmentManager.beginTransaction().replace(R.id.frame_main, HomeFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_main, PagerHomeFragment()).commit()
         navigation.menu.getItem(1).isChecked = true
 
     }
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.button_home -> {
                 val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.frame_main, HomeFragment())
+                transaction.replace(R.id.frame_main, PagerHomeFragment())
                 transaction.commit()
                 return true
             }

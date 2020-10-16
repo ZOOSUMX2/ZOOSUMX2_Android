@@ -222,7 +222,7 @@
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="16sp"
-            android:layout_marginTop="98dp"
+            android:layout_marginTop="78dp"
             android:layout_marginRight="16sp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/image"
@@ -235,7 +235,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="140sp"
             android:layout_marginLeft="140sp"
-            android:layout_marginTop="100sp"
+            android:layout_marginTop="80sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble1" />
 
@@ -245,7 +245,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
             android:layout_marginLeft="10sp"
-            android:layout_marginTop="250sp"
+            android:layout_marginTop="230sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble2" />
 

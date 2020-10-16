@@ -16,6 +16,15 @@ import com.example.zoosumx2.model.MissionItem
 
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
+    fun newInstance():MissionFragment{
+        val args=Bundle()
+
+        val frag=MissionFragment()
+        frag.arguments=args
+
+        return frag
+    }
+
     private var arrayList:ArrayList<MissionItem> ?= null
     private var gridView: GridView?= null
     private var missionAdapter: MissionAdapter?= null
