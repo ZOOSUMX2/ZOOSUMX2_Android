@@ -49,20 +49,21 @@ class ResidentQuizActivity : AppCompatActivity() {
         val submitAns = findViewById<Button>(R.id.button_check_answer_resident_quiz)
         submitAns.setOnClickListener {
 
+            // 둘 중 하나의 답을 선택한 경우
             if (correctAns.isSelected || wrongAns.isSelected) {
-                submitAns.isEnabled = true
+                //submitAns.isEnabled = true
 
                 // 정답을 선택한 경우
                 if (correctAns.isSelected) {
                     header.text = "정답이에요!"
-                    correctAns.setBackgroundColor(ContextCompat.getColor(this, R.color.lively_blue))
+                    correctAns.setBackgroundResource(R.drawable.random_correct_correct_color)
+                    correctAns.setTextColor(Color.WHITE)
                 }
                 // 오답을 선택한 경우
                 else {
-//                val intent = Intent(this, WrongAnsActivity::class.java)
-//                startActivity(intent)
                     header.text = "정답이... 아니에요"
-                    wrongAns.setBackgroundColor(ContextCompat.getColor(this, R.color.joyful_orange))
+                    wrongAns.setBackgroundResource(R.drawable.random_wrong_correct_color)
+                    wrongAns.setTextColor(Color.WHITE)
                 }
 
                 submitAns.text = "리워드 확인"
@@ -75,7 +76,6 @@ class ResidentQuizActivity : AppCompatActivity() {
             }
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
             else {
-                submitAns.isEnabled = false
                 Toast.makeText(applicationContext, "정답을 선택해주세요", Toast.LENGTH_LONG).show()
             }
         }
