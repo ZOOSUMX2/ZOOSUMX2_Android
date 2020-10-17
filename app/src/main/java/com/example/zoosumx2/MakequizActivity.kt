@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import com.example.zoosumx2.model.UserDTO
-import com.example.zoosumx2.model.UserQuizDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,7 +24,6 @@ class MakequizActivity : AppCompatActivity() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        //var userQuizInfo = UserQuizDTO()
         val userInfo = UserDTO()
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
 
@@ -47,23 +45,18 @@ class MakequizActivity : AppCompatActivity() {
             if (question.text.toString().trim().isNotEmpty()) {
                 if (correctExam.text.toString().trim().isNotEmpty()) {
                     if (wrongExam.text.toString().trim().isNotEmpty()) {
-                        // Todo : 사용자가 작성한 정보 저장
-//                        userQuizInfo.title = question.text.toString()
-//                        userQuizInfo.option1 = correctExam.text.toString()
-//                        userQuizInfo.option2 = wrongExam.text.toString()
-//                        userQuizInfo.creator = creator
 
                         // 리워드 제공
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                             ?.update("rewardPoint", FieldValue.increment(3))
 
                         // firestore에 사용자 정보 업데이트
-                        //fbFirestore?.collection("userQuiz")?.add(userQuizInfo)
-
                         // 서버 타임스탬프
                         val updates = hashMapOf<String, Any>(
                             "creationTimestamp" to FieldValue.serverTimestamp()
                         )
+
+                        // Todo : creator 정보 userInfo.nickname.toString()에서 안불러와짐
 
                         val userQuizInfo = hashMapOf(
                             "title" to question.text.toString(),
@@ -74,11 +67,6 @@ class MakequizActivity : AppCompatActivity() {
                         )
 
                         fbFirestore?.collection("userQuiz")?.add(userQuizInfo) // document id 자동 생성
-//                        fbFirestore?.collection("userQuiz")?.document(fbAuth?.uid.toString())?.update("title", userQuizInfo.title.toString())
-//                        fbFirestore?.collection("userQuiz")?.document(fbAuth?.uid.toString())?.update("option1", userQuizInfo.option1.toString())
-//                        fbFirestore?.collection("userQuiz")?.document(fbAuth?.uid.toString())?.update("option2", userQuizInfo.option2.toString())
-//                        fbFirestore?.collection("userQuiz")?.document(fbAuth?.uid.toString())?.update("creator", userQuizInfo.creator.toString())
-                        //fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update("rewardPoint", userInfo.rewardPoint)
 
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)

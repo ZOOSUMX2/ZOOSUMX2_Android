@@ -9,12 +9,21 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ResidentQuizActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resident_quiz)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
 
         val correctAns = findViewById<Button>(R.id.button_correct_answer_quiz)
         val wrongAns = findViewById<Button>(R.id.button_wrong_answer_quiz)
@@ -58,12 +67,21 @@ class ResidentQuizActivity : AppCompatActivity() {
                     header.text = "정답이에요!"
                     correctAns.setBackgroundResource(R.drawable.random_correct_correct_color)
                     correctAns.setTextColor(Color.WHITE)
+
+                    // 정답 리워드 제공
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rewardPoint", FieldValue.increment(2))
                 }
+
                 // 오답을 선택한 경우
                 else {
                     header.text = "정답이... 아니에요"
                     wrongAns.setBackgroundResource(R.drawable.random_wrong_correct_color)
                     wrongAns.setTextColor(Color.WHITE)
+
+                    // 오답 리워드 제공
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rewardPoint", FieldValue.increment(1))
                 }
 
                 submitAns.text = "리워드 확인"
