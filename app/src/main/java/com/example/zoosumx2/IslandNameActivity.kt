@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
@@ -32,33 +33,29 @@ class IslandNameActivity : AppCompatActivity() {
         val userInfo = UserDTO()
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
 
-        val islandName = findViewById<EditText>(R.id.edittext_islandName_edit)
-
         val nextButton = findViewById<Button>(R.id.islandName_button_next)
         nextButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("user_info_count", 1.toString())
 
-            userInfo.islandName = islandName.text.toString()
+            val islandName = findViewById<EditText>(R.id.edittext_islandName_edit)
+            if (islandName.text.toString().trim().isNotEmpty()) {
+                //intent.putExtra("user_info_count", 1.toString())
 
-            // firestore에 사용자 정보 업데이트
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                ?.update("islandName", userInfo.islandName.toString())
+                userInfo.islandName = islandName.text.toString()
 
-            startActivity(intent)
+                // firestore에 사용자 정보 업데이트
+                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                    ?.update("islandName", userInfo.islandName.toString())
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(applicationContext, "섬 이름을 입력해주세요", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        if (islandName.text.toString().trim().isNotEmpty()) {
-            nextButton.isEnabled = true // 섬 이름 입력했을 시에만 다음 버튼 활성
-        }
-
-        if(intent.hasExtra("user_region")){
-            region_edit.text = intent.getStringExtra("user_region")
-            userInfo.addressRegion = region_edit.text.toString()
-
-            // firestore에 사용자 정보 업데이트
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update("addressRegion", userInfo.addressRegion.toString())
-        }
+//        if(intent.hasExtra("user_region")){
+//            region_edit.text = intent.getStringExtra("user_region")
+//        }
 
 //        if(intent.hasExtra("user_name")){
 //            islandName_user_name.text = intent.getStringExtra("user_name")
