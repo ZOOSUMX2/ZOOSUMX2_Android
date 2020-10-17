@@ -54,12 +54,8 @@ class GetRegionActivity : AppCompatActivity() {
 
         //bottom sheet dialog
         region_edit.setOnClickListener{
-            var bottomFragment = BottomFragment()
+            val bottomFragment = BottomFragment()
             bottomFragment.show(supportFragmentManager,"TAG")
         }
     }
-
-
-
-
 }

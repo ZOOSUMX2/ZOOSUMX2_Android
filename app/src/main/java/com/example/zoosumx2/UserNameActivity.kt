@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_user_name.*
 
@@ -27,6 +28,10 @@ class UserNameActivity : AppCompatActivity() {
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
         //userInfo.nickname = userName_edit.text.toString()
 
+        val updates = hashMapOf<String, Any>(
+            "creationTimestamp" to FieldValue.serverTimestamp()
+        )
+
         //사용자 이름
 
         val nextButton = findViewById<Button>(R.id.userName_button_next)
@@ -37,8 +42,9 @@ class UserNameActivity : AppCompatActivity() {
             intent.putExtra("user_name", userName_edit.text.toString())
             userInfo.nickname = userName_edit.text.toString()
 
-            // firestore에 사용자 정보 업로
+            // firestore에 사용자 정보 업로드
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.set(userInfo)
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(updates)
 
 
             if (!TextUtils.isEmpty(userName_edit.getText())) {
