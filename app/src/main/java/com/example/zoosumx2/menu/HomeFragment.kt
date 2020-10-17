@@ -7,9 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     fun newInstance(): HomeFragment {
         val args = Bundle()
@@ -37,8 +42,20 @@ class HomeFragment : Fragment() {
             transaction.commit()
         }*/
 
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                textview_username_home?.text = documentSnapshot.data?.get("nickname").toString()
+                textview_island_name_home?.text =
+                    documentSnapshot.data?.get("islandName").toString()
+                textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
+            }
+
         // 포인트 클릭
-        linearlayout_mypoint_home.setOnClickListener {
+        linearlayout_mypoint_home?.setOnClickListener {
             val intent = Intent(context, PointActivity::class.java)
             startActivity(intent)
         }

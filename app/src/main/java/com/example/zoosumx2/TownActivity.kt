@@ -3,13 +3,34 @@ package com.example.zoosumx2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_town.*
 
 class TownActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_town)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
+        val myranking = findViewById<TextView>(R.id.textview_myranking_town)
+        val username = findViewById<TextView>(R.id.textview_username_town)
+        val myexp = findViewById<TextView>(R.id.textview_myexp_town)
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                username.text = documentSnapshot.data?.get("nickname").toString()
+                myexp.text = documentSnapshot.data?.get("exo").toString()
+            }
 
         // Todo : 현재는 하드코딩, 이후에 데이터 받아와서 처리하는것으로 수정
         val rankingList = arrayListOf<RankingData>(

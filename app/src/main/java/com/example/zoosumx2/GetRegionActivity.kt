@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
@@ -24,22 +25,21 @@ class GetRegionActivity : AppCompatActivity() {
         fbFirestore = FirebaseFirestore.getInstance()
 
         val userInfo = UserDTO()
-        //userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
-
-//        if(intent.hasExtra("user_name")){
-//            show_user_name.text = intent.getStringExtra("user_name")
-//        }
-
+        val userName = findViewById<TextView>(R.id.textview_username_get_region)
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                userName.text = documentSnapshot.data?.get("nickname").toString()
+            }
 
         val nextButton = findViewById<Button>(R.id.region_button_next)
-        nextButton.setOnClickListener{
+        nextButton.setOnClickListener {
             val intent = Intent(this, IslandNameActivity::class.java)
-            intent.putExtra("username",getIntent())
             startActivity(intent)
         }
 
         val backButton = findViewById<ImageButton>(R.id.region_button_back)
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             val intent = Intent(this, UserNameActivity::class.java)
             startActivity(intent)
         }

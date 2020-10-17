@@ -58,7 +58,7 @@
 
         <!--includeFontPadding = "false" : noto font 작용 시 발생하는 상하여백 제거-->
         <TextView
-            android:id="@+id/textview_mycoin_store"
+            android:id="@+id/textview_mypoint_store"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-5dp"
@@ -69,9 +69,11 @@
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="@string/current_coin"
+            android:paddingTop="3sp"
+            android:paddingBottom="3sp"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textSize="18sp"
+            app:drawableEndCompat="@drawable/mypage_coin"
             app:drawableRightCompat="@drawable/mypage_coin" />
 
     </LinearLayout>

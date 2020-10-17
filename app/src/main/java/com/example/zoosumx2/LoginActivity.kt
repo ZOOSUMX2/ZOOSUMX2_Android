@@ -36,13 +36,6 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        // 카카오 로그인 기능 구현 후 제거할 부분
-        val kakaoButton = findViewById<Button>(R.id.button_kakao_login)
-        kakaoButton.setOnClickListener {
-            val intent = Intent(this, UserNameActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     // 로그인 한 적이 있는지 확인

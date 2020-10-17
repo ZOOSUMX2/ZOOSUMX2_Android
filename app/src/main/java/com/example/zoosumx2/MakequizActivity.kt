@@ -58,11 +58,18 @@ class MakequizActivity : AppCompatActivity() {
 
                         // Todo : creator 정보 userInfo.nickname.toString()에서 안불러와짐
 
+                        var userName: String? = null
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                                if (documentSnapshot == null) return@addSnapshotListener
+                                userName = documentSnapshot.data?.get("nickname").toString()
+                            }
+
                         val userQuizInfo = hashMapOf(
                             "title" to question.text.toString(),
                             "option1" to correctExam.text.toString(),
                             "option2" to wrongExam.text.toString(),
-                            "creator" to userInfo.nickname.toString(),
+                            "creator" to userName,
                             "creationTimestamp" to updates
                         )
 

@@ -2,15 +2,11 @@ package com.example.zoosumx2
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_get_region.*
 
 class IslandNameActivity : AppCompatActivity() {
 
@@ -33,6 +29,13 @@ class IslandNameActivity : AppCompatActivity() {
         val userInfo = UserDTO()
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
 
+        val userName = findViewById<TextView>(R.id.textview_username_island_name)
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                userName.text = documentSnapshot.data?.get("nickname").toString()
+            }
+
         val nextButton = findViewById<Button>(R.id.islandName_button_next)
         nextButton.setOnClickListener {
 
@@ -52,14 +55,5 @@ class IslandNameActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "섬 이름을 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
-
-//        if(intent.hasExtra("user_region")){
-//            region_edit.text = intent.getStringExtra("user_region")
-//        }
-
-//        if(intent.hasExtra("user_name")){
-//            islandName_user_name.text = intent.getStringExtra("user_name")
-//        }
-
     }
 }

@@ -38,7 +38,8 @@
         android:text="포인트 내역"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:id="@+id/linearlayout_mypoint_point"
@@ -64,16 +65,17 @@
             android:includeFontPadding="false"
             android:text="나의 포인트"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
+            android:id="@+id/textview_mypoint_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4sp"
             android:layout_marginRight="4sp"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
-            android:text="10"
             android:textColor="@color/colorText"
             android:textSize="16sp" />
 

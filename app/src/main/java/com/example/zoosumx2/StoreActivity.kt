@@ -8,11 +8,20 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class StoreActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
 
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         val fadeIn2 = AnimationUtils.loadAnimation(this, R.anim.fade_in2)
@@ -26,7 +35,13 @@ class StoreActivity : AppCompatActivity() {
         }
 
         // 포인트 클릭 시 나의 포인트 내역 페이지로 이동
-        val myCoin = findViewById<TextView>(R.id.textview_mycoin_store)
+        val myCoin = findViewById<TextView>(R.id.textview_mypoint_store)
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                myCoin.text = documentSnapshot.data?.get("rewardPoint").toString()
+            }
+
         myCoin.setOnClickListener {
             val intent = Intent(this, PointActivity::class.java)
             startActivity(intent)
