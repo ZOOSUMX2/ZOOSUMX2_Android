@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingActivity : AppCompatActivity() {
@@ -34,10 +36,13 @@ class SettingActivity : AppCompatActivity() {
         //initializing firebase authentication object
         auth = FirebaseAuth.getInstance()
 
-        // 로그아웃
+        // 로그아웃ƒ
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+
+            // Todo : 재로그인 시에 예전에 로그인하였던 구글 계정으로 자동 로그인 되는 것 방지
+
             startActivity(Intent(this, LoginActivity::class.java))
         }
 

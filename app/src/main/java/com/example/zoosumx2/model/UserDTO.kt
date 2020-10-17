@@ -3,17 +3,18 @@ package com.example.zoosumx2.model
 import java.sql.Timestamp
 
 data class UserDTO(
-    val addressCity: String,
-    val addressRegion: String,
-    val creationTimestamp: String,
-    val exp: Number,
-    val islandName: String,
-    val lastSignInTimestamp: Timestamp,
-    val level: Number,
-    val nickname: String,
-    val profilePhoto: String,
-    val registeredBy: String,
-    val rewardPoint: String,
-    val uid: String,
-    val withdraw: String
-)
+    val addressCity: String? = null,
+    var addressRegion: String? = null,
+    val creationTimestamp: Timestamp? = Timestamp(0),
+    var exp: Number? = 0,
+    var islandName: String? = null,
+    val lastSignInTimestamp: Timestamp? = Timestamp(0),
+    val level: Number? = 0,
+    var nickname: String? = null,
+    val profilePhoto: String? = null,
+    val registeredBy: String? = null,
+    val rewardPoint: String? = null,
+    var uid: String? = null,
+    val withdraw: String? = null) {
+
+}

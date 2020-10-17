@@ -11,15 +11,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    fun newInstance():HomeFragment{
-        val args=Bundle()
-
-        val frag=HomeFragment()
-        frag.arguments=args
-
-        return frag
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,11 +22,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*home_mission.setOnClickListener {
+        home_mission.setOnClickListener {
             val transaction = activity!!.supportFragmentManager.beginTransaction()
             transaction.replace(R.id.frame_main, MissionFragment())
             transaction.commit()
-        }*/
+        }
 
         // 포인트 클릭
         linearlayout_mypoint_home.setOnClickListener {

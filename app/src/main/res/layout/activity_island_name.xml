@@ -170,7 +170,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/edittext_userName_edit"
+                android:id="@+id/edittext_islandName_edit"
                 android:layout_width="164.5dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
