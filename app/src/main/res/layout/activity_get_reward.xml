@@ -60,7 +60,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
-            android:text="2"
             android:textColor="@color/joyful_orange"
             android:textSize="24sp" />
 
@@ -88,6 +87,7 @@
         android:src="@drawable/image_getcoin" />
 
     <LinearLayout
+        android:id="@+id/linearlayout_final_point_get_reward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -114,18 +114,17 @@
             tools:ignore="HardcodedText" />
 
         <TextView
+            android:id="@+id/textview_final_reward_get_reward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4sp"
             android:layout_marginRight="4sp"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
-            android:text="10"
             android:textColor="@color/joyful_orange"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textview_finalpoint_getreward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4sp"
