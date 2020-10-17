@@ -50,6 +50,8 @@ class ResidentQuizActivity : AppCompatActivity() {
         submitAns.setOnClickListener {
 
             if (correctAns.isSelected || wrongAns.isSelected) {
+                submitAns.isEnabled = true
+
                 // 정답을 선택한 경우
                 if (correctAns.isSelected) {
                     header.text = "정답이에요!"
