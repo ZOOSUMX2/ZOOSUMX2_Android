@@ -5,13 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.view.Window
 import android.widget.Button
-import androidx.core.content.ContextCompat.startActivity
 
 class ConfirmRecycleDialog(context: Context) {
     private val dlg = Dialog(context)
     private lateinit var btnOk : Button
 
-    fun start(){
+    fun start(context: Context){
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.confirm_recycle_dialog)
         dlg.setCancelable(false)
@@ -19,6 +18,7 @@ class ConfirmRecycleDialog(context: Context) {
         btnOk = dlg.findViewById(R.id.confirm_ok)
         btnOk.setOnClickListener{
             dlg.dismiss()
+            (context as PhotoActivity).finish()
         }
         dlg.show()
     }

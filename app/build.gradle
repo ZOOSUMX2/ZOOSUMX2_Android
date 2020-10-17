@@ -54,4 +54,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'//인디케이터 오픈소스
+    implementation "com.kakao.sdk:v2-user:2.0.0"
 }

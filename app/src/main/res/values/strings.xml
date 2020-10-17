@@ -41,4 +41,6 @@
     <string name="mission_card_context_resident_quiz">동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!</string>
     <string name="mission_card_context_send_quiz">분리배출에 대한 이야기를\n읽고, 동네 주민들에게\n직접 문제를 내 볼까요?</string>
     <string name="mission_card_context_random_quiz">분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!</string>
+
+    <string name="kakao_app_key">4e50b407032508e73f0024e851a1dbcc</string>
 </resources>

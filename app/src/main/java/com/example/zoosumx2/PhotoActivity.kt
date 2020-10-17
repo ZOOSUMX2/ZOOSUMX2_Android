@@ -78,7 +78,7 @@ class PhotoActivity : AppCompatActivity() {
         sendButton.setOnClickListener{
             if(send_permission){
                 val dlg = ConfirmRecycleDialog(this)
-                dlg.start()
+                dlg.start(this)
             }
             else{
                 Toast.makeText(this, "사진을 등록해주세요.", Toast.LENGTH_LONG).show()

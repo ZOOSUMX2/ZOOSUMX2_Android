@@ -3,7 +3,7 @@ package com.example.zoosumx2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -13,7 +13,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.kakao.sdk.auth.LoginClient
+import com.kakao.sdk.auth.model.OAuthToken
 import kotlinx.android.synthetic.main.activity_login.*
+import com.kakao.sdk.common.util.Utility
 
 class LoginActivity : AppCompatActivity() {
     var auth: FirebaseAuth? = null
@@ -26,8 +29,23 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        //kakao login을 위한 키 해시
+        var keyHash = Utility.getKeyHash(this)
+        Log.d("KEY_HASH", keyHash)
+
+        button_kakao_login.setOnClickListener {
+            kakaoLogin()
+        }
+
         button_google_login.setOnClickListener {
             googleLogin()
+        }
+
+        //임의로 연결
+        button_naver_login.setOnClickListener {
+            val intent = Intent(this, UserNameActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -109,5 +127,24 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    fun kakaoLogin(){
+        val callback:(OAuthToken?,Throwable?)->Unit={token, error->
+            if(error!=null){
+                //Log.e(TAG, "로그인 실패", error)
+            }
+            else if(token!=null){
+                //Log.i(TAG, "로그인 성공 ${token.accessToken}")
+            }
+        }
+
+        if(LoginClient.instance.isKakaoTalkLoginAvailable(applicationContext)){
+            LoginClient.instance.loginWithKakaoTalk(applicationContext,callback=callback)
+        }
+        else{
+            LoginClient.instance.loginWithKakaoAccount(applicationContext, callback=callback)
+        }
+
     }
 }
