@@ -60,10 +60,11 @@ class ResidentQuizActivity : AppCompatActivity() {
 
             // 둘 중 하나의 답을 선택한 경우
             if (correctAns.isSelected || wrongAns.isSelected) {
-                //submitAns.isEnabled = true
+                val checkAns: Boolean
 
                 // 정답을 선택한 경우
                 if (correctAns.isSelected) {
+                    checkAns = true
                     header.text = "정답이에요!"
                     correctAns.setBackgroundResource(R.drawable.random_correct_correct_color)
                     correctAns.setTextColor(Color.WHITE)
@@ -75,6 +76,7 @@ class ResidentQuizActivity : AppCompatActivity() {
 
                 // 오답을 선택한 경우
                 else {
+                    checkAns = false
                     header.text = "정답이... 아니에요"
                     wrongAns.setBackgroundResource(R.drawable.random_wrong_correct_color)
                     wrongAns.setTextColor(Color.WHITE)
@@ -89,6 +91,11 @@ class ResidentQuizActivity : AppCompatActivity() {
                 // 리워드 확인 버튼 클릭 이벤트
                 submitAns.setOnClickListener {
                     val intent = Intent(this, GetRewardActivity::class.java)
+                    if (checkAns) {
+                        intent.putExtra("reward", 2)
+                    } else {
+                        intent.putExtra("reward", 1)
+                    }
                     startActivity(intent)
                 }
             }

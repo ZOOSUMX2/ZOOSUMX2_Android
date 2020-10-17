@@ -70,6 +70,7 @@ class MakequizActivity : AppCompatActivity() {
 
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)
+                        intent.putExtra("reward", 3)
                         startActivity(intent)
 
                     } else {

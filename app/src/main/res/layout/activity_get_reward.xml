@@ -55,6 +55,7 @@
             tools:ignore="HardcodedText" />
 
         <TextView
+            android:id="@+id/textview_reward_get_reward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosans_cjkkr_bold"
