@@ -7,7 +7,7 @@
         android:icon="@drawable/mailbox"
         android:title="우편함"
         app:showAsAction="always" />
-    ...
+
     <item
         android:id="@+id/button_home"
         android:enabled="true"
