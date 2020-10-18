@@ -5,10 +5,10 @@
     <item>
         <shape>
             <padding
-                android:bottom="3dp"
-                android:left="3dp"
-                android:right="3dp"
-                android:top="3dp" />
+                android:bottom="7dp"
+                android:left="7dp"
+                android:right="7dp"
+                android:top="7dp" />
 
             <solid android:color="#00CCCCCC" />
 
@@ -18,12 +18,25 @@
     <item>
         <shape>
             <padding
-                android:bottom="3dp"
-                android:left="3dp"
-                android:right="3dp"
-                android:top="3dp" />
+                android:bottom="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="5dp" />
 
-            <solid android:color="#10CCCCCC" />
+            <solid android:color="#07CCCCCC" />
+
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:bottom="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="5dp" />
+
+            <solid android:color="#12CCCCCC" />
 
             <corners android:radius="30dp" />
         </shape>
@@ -36,37 +49,13 @@
                 android:right="3dp"
                 android:top="3dp" />
 
-            <solid android:color="#20CCCCCC" />
+            <solid android:color="#18CCCCCC" />
 
             <corners android:radius="30dp" />
         </shape>
     </item>
-    <item>
-        <shape>
-            <padding
-                android:bottom="3dp"
-                android:left="3dp"
-                android:right="3dp"
-                android:top="3dp" />
 
-            <solid android:color="#30CCCCCC" />
 
-            <corners android:radius="30dp" />
-        </shape>
-    </item>
-    <item>
-        <shape>
-            <padding
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp"
-                android:top="1dp" />
-
-            <solid android:color="#40CCCCCC" />
-
-            <corners android:radius="30dp" />
-        </shape>
-    </item>
 
     <!-- Background -->
     <item>

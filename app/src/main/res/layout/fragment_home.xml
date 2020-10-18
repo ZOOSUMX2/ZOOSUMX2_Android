@@ -34,12 +34,13 @@
                 app:civ_border_width="5dp"
                 app:civ_circle_background_color="@color/colorCircleFill" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/img_plus"
                 android:layout_width="34.8sp"
                 android:layout_height="46.6sp"
                 android:layout_gravity="bottom|end"
-                android:src="@drawable/medal_silver" />
+                android:src="@drawable/medal_silver"
+                android:contentDescription="@string/image" />
         </FrameLayout>
 
         <LinearLayout
@@ -47,7 +48,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20sp"
-            android:layout_marginLeft="20sp"
             android:orientation="vertical">
 
             <!--DB 연결 후 수정할 부분-->
@@ -224,7 +224,6 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="5sp"
                             android:src="@drawable/mypage_coin"
                             android:contentDescription="@string/image"
                             android:layout_marginStart="5sp" />
@@ -260,7 +259,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="140sp"
-            android:layout_marginLeft="140sp"
             android:layout_marginTop="80sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble1" />
@@ -270,7 +268,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
-            android:layout_marginLeft="10sp"
             android:layout_marginTop="230sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble2" />
