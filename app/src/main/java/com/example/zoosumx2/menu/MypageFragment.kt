@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +37,7 @@ class MypageFragment : Fragment() {
                 textview_username_mypage?.text = documentSnapshot.data?.get("nickname").toString()
                 textview_island_name_mypage?.text =
                     documentSnapshot.data?.get("islandName").toString()
+                textview_mylevel_mypage?.text = documentSnapshot.data?.get("level").toString()
             }
 
         // 포인트 내역

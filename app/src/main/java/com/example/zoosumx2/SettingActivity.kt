@@ -10,14 +10,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SettingActivity : AppCompatActivity() {
+
     var auth: FirebaseAuth? = null
     var googleSignInClient: GoogleSignInClient? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+
+        fbFirestore = FirebaseFirestore.getInstance()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -48,6 +53,10 @@ class SettingActivity : AppCompatActivity() {
         // 회원탈퇴
         val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
         withdrawal.setOnClickListener {
+            // firestore 내 사용자 정보 삭제
+            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
+
+            // 구글 로그인 계정 삭제
             auth?.currentUser?.delete()
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
