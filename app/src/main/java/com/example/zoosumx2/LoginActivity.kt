@@ -30,18 +30,20 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         //kakao login을 위한 키 해시
-        var keyHash = Utility.getKeyHash(this)
-        Log.d("KEY_HASH", keyHash)
+        /*var keyHash = Utility.getKeyHash(this)
+        Log.d("KEY_HASH", keyHash)*/
 
+        //kakao login
         button_kakao_login.setOnClickListener {
             kakaoLogin()
         }
 
+        //google login
         button_google_login.setOnClickListener {
             googleLogin()
         }
 
-        //임의로 연결
+        //임의로 UserName Activity 연결
         button_naver_login.setOnClickListener {
             val intent = Intent(this, UserNameActivity::class.java)
             startActivity(intent)
