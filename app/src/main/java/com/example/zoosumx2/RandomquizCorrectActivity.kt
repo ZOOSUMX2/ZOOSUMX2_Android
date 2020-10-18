@@ -5,8 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RandomquizCorrectActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +30,12 @@ class RandomquizCorrectActivity : AppCompatActivity() {
         val button_next = findViewById<Button>(R.id.random_quiz_correct_next)
         button_next.setOnClickListener{
             val intent = Intent(this, GetRewardActivity::class.java)
+
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.update("rewardPoint", FieldValue.increment(2))
+
+            intent.putExtra("reward", 2)
+
             startActivity(intent)
         }
     }

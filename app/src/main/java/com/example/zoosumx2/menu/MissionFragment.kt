@@ -50,10 +50,10 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
         var arrayList:ArrayList<MissionItem> = ArrayList()
 
-        arrayList.add(MissionItem(R.drawable.you_wrong, "재활용 인증", "재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"))
-        arrayList.add(MissionItem(R.drawable.you_right, "주민 출제 퀴즈", "동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"))
-        arrayList.add(MissionItem(R.drawable.you_wrong, "퀴즈 출제하기", "분리배출에 대한 이야기를\n읽고, 동네 주민들에게\n직접 문제를 내 볼까요?"))
-        arrayList.add(MissionItem(R.drawable.you_right, "상식 퀴즈", "분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!"))
+        arrayList.add(MissionItem(R.drawable.icon_confirmrecycle, "재활용 인증", "재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"))
+        arrayList.add(MissionItem(R.drawable.icon_residentquiz, "주민 출제 퀴즈", "동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"))
+        arrayList.add(MissionItem(R.drawable.icon_makequiz, "퀴즈 출제하기", "분리배출에 대한 이야기를\n읽고, 동네 주민들에게\n직접 문제를 내 볼까요?"))
+        arrayList.add(MissionItem(R.drawable.icon_randomquiz, "상식 퀴즈", "분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!"))
 
         return arrayList
     }
