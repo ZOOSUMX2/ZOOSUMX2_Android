@@ -23,9 +23,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_confirm_others.*
+import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.io.FileOutputStream
@@ -35,6 +38,9 @@ import java.util.*
 import java.util.jar.Manifest
 
 class PhotoActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     val CAMERA_PERMISSION = arrayOf(android.Manifest.permission.CAMERA)
     val STORAGE_PERMISSION = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -50,6 +56,10 @@ class PhotoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
 
         // status bar 색상 변경
         val window = this.window
@@ -74,6 +84,11 @@ class PhotoActivity : AppCompatActivity() {
 
 
         //지역 주민에게 인증 받기, dialog 호출
+        /*val PhotoInfo = hashMapOf(
+            "missionTitle" to confirm_title.text.toString(),
+            "missionContent" to confirm_ment_sub.text.toString(),
+        )*/
+
         val sendButton = findViewById<Button>(R.id.confirm_to_resident)
         sendButton.setOnClickListener{
             if(send_permission){
@@ -85,6 +100,8 @@ class PhotoActivity : AppCompatActivity() {
             }
 
         }
+
+        //Todo: 친구에게 인증 받기
     }
 
     fun isPermitted(permissions:Array<String>): Boolean{
