@@ -10,13 +10,23 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 
 class ConfirmRecycleActivity : AppCompatActivity() {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_recycle)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
 
         // status bar 색상 변경
         val window = this.window
@@ -84,6 +94,16 @@ class ConfirmRecycleActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             if(checkbox_s1.isChecked&&checkbox_s2.isChecked&&checkbox_s3.isChecked){
                 val intent = Intent(this, PhotoActivity::class.java)
+
+                // Todo: 사용자 소셜 로그인 없이 저장하여 불완전한 상태. 소셜 로그인 통해서 다시 해보기
+                val RecycleInfo = hashMapOf(
+                    "missionTitle" to confirm_title.text.toString(),
+                    "missionContent" to confirm_ment_sub.text.toString(),
+                )
+
+                fbFirestore?.collection("users")?.document(fbAuth.toString())
+                    ?.collection("mission")?.document()?.collection("missionDetail")?.document("recycle")?.set(RecycleInfo)
+
                 startActivity(intent)
             } else{
                 nextButton.isSelected = false
