@@ -18,6 +18,9 @@ class RandomquizCorrectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_randomquiz_correct)
 
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
         val correct_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
         val wrong_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
 

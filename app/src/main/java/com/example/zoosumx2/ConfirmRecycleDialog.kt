@@ -18,6 +18,10 @@ class ConfirmRecycleDialog(context: Context) {
     private lateinit var btnOk : Button
 
     fun start(context: Context) {
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.confirm_recycle_dialog)
         dlg.setCancelable(false)
