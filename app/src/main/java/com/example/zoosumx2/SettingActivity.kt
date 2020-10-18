@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import com.google.android.gms.auth.api.Auth
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingActivity : AppCompatActivity() {
@@ -36,7 +35,7 @@ class SettingActivity : AppCompatActivity() {
         //initializing firebase authentication object
         auth = FirebaseAuth.getInstance()
 
-        // 로그아웃ƒ
+        // 로그아웃
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -47,11 +46,15 @@ class SettingActivity : AppCompatActivity() {
         }
 
         // 회원탈퇴
-//        val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
-//        withdrawal.setOnClickListener {
-//            FirebaseAuth.getInstance().currentUser?.delete()
-//            startActivity(Intent(this, LoginActivity::class.java))
-//            finish()
-//        }
+        val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
+        withdrawal.setOnClickListener {
+            auth?.currentUser?.delete()
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "정상적으로 탈퇴되었습니", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                }
+        }
     }
 }
