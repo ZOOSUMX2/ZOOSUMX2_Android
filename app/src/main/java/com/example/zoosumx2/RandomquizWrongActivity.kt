@@ -21,24 +21,28 @@ class RandomquizWrongActivity : AppCompatActivity() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        val correct_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
-        val wrong_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
+        // 오답 리워드 제공
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.update("rewardPoint", FieldValue.increment(1))
 
-        correct_answer.isSelected=true
-        correct_answer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+        val correctAnswer = findViewById<Button>(R.id.button_correct_answer_quiz)
+        val wrongAnswer = findViewById<Button>(R.id.button_wrong_answer_quiz)
 
-        wrong_answer.isSelected=false
-        wrong_answer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+        correctAnswer.isSelected = true
+        correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
 
-        val button_next = findViewById<Button>(R.id.random_quiz_wrong_next)
-        button_next.setOnClickListener{
+        wrongAnswer.isSelected = false
+        wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+
+        val buttonNext = findViewById<Button>(R.id.random_quiz_wrong_next)
+        buttonNext.setOnClickListener {
             val intent = Intent(this, GetRewardActivity::class.java)
 
+            // 상식 퀴즈 미션 완료 -> 경험치 10 증가
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                ?.update("rewardPoint", FieldValue.increment(1))
+                ?.update("exp", FieldValue.increment(10))
 
             intent.putExtra("reward", 1)
-
             startActivity(intent)
         }
 

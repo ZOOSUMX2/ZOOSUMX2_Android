@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
@@ -40,18 +41,23 @@ class RandomQuizActivity : AppCompatActivity() {
             wrong_answer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
         }
 
-        nextButton.setOnClickListener{
-            if(correct_answer.isSelected||wrong_answer.isSelected){
-                if(correct_answer.isSelected){
+        nextButton.setOnClickListener {
+            // 둘 중에 하나의 답을 고른 경우
+            if (correct_answer.isSelected || wrong_answer.isSelected) {
+                // 정답을 선택한 경우
+                if (correct_answer.isSelected) {
                     val intent = Intent(this, RandomquizCorrectActivity::class.java)
-                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent)
                 }
-                else{
+                // 오답을 선택한 경우
+                else {
                     val intent = Intent(this, RandomquizWrongActivity::class.java)
-                    intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent)
                 }
+            }
+            // 아무것도 선택하지 않은 경우 -> 다음 액티비티로 넘어갈 수 없음
+            else {
+                Toast.makeText(applicationContext, "정답을 선택해주세요", Toast.LENGTH_LONG).show()
             }
         }
     }

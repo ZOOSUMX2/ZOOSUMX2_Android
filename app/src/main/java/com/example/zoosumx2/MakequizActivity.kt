@@ -78,6 +78,11 @@ class MakequizActivity : AppCompatActivity() {
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)
                         intent.putExtra("reward", 3)
+
+                        // 퀴즈 출제 미션 완료 -> 경험치 10 증가
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("exp", FieldValue.increment(10))
+
                         startActivity(intent)
 
                     } else {

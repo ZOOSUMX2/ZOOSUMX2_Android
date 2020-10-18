@@ -86,7 +86,7 @@ class ResidentQuizActivity : AppCompatActivity() {
                         ?.update("rewardPoint", FieldValue.increment(1))
                 }
 
-                submitAns.text = "리워드 확인"
+                submitAns.text = "리워드 확인" // 정답 확인 버튼을 리워드 확인 버튼으로 변경
 
                 // 리워드 확인 버튼 클릭 이벤트
                 submitAns.setOnClickListener {
@@ -96,6 +96,11 @@ class ResidentQuizActivity : AppCompatActivity() {
                     } else {
                         intent.putExtra("reward", 1)
                     }
+
+                    // 주민 출제 퀴즈 미션 완료 -> 경험치 10 증가
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("exp", FieldValue.increment(10))
+
                     startActivity(intent)
                 }
             }
