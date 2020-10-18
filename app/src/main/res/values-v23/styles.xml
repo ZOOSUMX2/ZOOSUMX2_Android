@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorMain</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimations</item>
 
         <!--Status Bar 배경색-->
         <item name="android:statusBarColor">@color/colorMain</item>
@@ -13,5 +14,12 @@
         <!--Status Bar 글자색-->
         <item name="android:windowLightStatusBar">true</item>
 
+    </style>
+
+    <style name="ActivityAnimations" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in4</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out4</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in4</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out4</item>
     </style>
 </resources>

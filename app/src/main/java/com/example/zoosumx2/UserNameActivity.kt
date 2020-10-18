@@ -49,7 +49,7 @@ class UserNameActivity : AppCompatActivity() {
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(updates)
 
 
-            if (!TextUtils.isEmpty(userName_edit.getText())) {
+            if (!TextUtils.isEmpty(userName_edit.text)) {
                 startActivity(intent)
                 val text = findViewById<RelativeLayout>(R.id.relativelayout_text_user_name)
                 val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
