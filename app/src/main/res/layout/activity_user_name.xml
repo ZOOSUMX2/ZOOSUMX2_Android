@@ -14,7 +14,6 @@
         android:layout_marginTop="30dp"
         android:gravity="center">
 
-
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -35,89 +34,88 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/userName_ment_first"
+    <RelativeLayout
+        android:id="@+id/relativelayout_text_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
-        android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="40sp"
+        android:gravity="start">
+
+        <LinearLayout
+            android:id="@+id/userName_ment_first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/notosans_cjkkr_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="12sp"
+                android:text="주섬주섬"
+                android:textColor="@color/friendly_green"
+                android:textSize="24sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_cjkkr_bold"
+                android:includeFontPadding="false"
+                android:text="에 오신것을 환영해요!"
+                android:textSize="24sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/userName_ment_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_below="@+id/userName_ment_first"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
-            android:lineSpacingExtra="12sp"
-            android:text="주섬주섬"
-            android:textColor="@color/friendly_green"
+            android:text="이름을 알려주실래요?"
             android:textSize="24sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/userName_edit"
+            android:layout_width="164.5dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:layout_below="@+id/userName_ment_second"
+            android:layout_marginTop="55dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:hint="이름 입력"
+            android:importantForAutofill="no"
             android:includeFontPadding="false"
-            android:text="에 오신것을 환영해요!"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/friendly_green"
             android:textSize="24sp"
             tools:ignore="HardcodedText" />
 
-    </LinearLayout>
+        <View
+            android:layout_width="164.5sp"
+            android:layout_height="2sp"
+            android:layout_below="@+id/userName_edit"
+            android:layout_marginTop="6sp"
+            android:background="@color/friendly_green" />
 
-    <TextView
-        android:id="@+id/userName_ment_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userName_ment_first"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:fontFamily="@font/notosans_cjkkr_bold"
-        android:includeFontPadding="false"
-        android:text="이름을 알려주실래요?"
-        android:textSize="24sp"
-        tools:ignore="HardcodedText" />
-
-
-    <EditText
-        android:id="@+id/userName_edit"
-        android:layout_width="164.5dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userName_ment_second"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="55dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="@font/notosanscjkkr_regular"
-        android:hint="이름 입력"
-        android:importantForAutofill="no"
-        android:includeFontPadding="false"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/friendly_green"
-        android:textSize="24sp"
-        tools:ignore="HardcodedText" />
-
-    <View
-        android:layout_width="164.5sp"
-        android:layout_height="2sp"
-        android:layout_below="@+id/userName_edit"
-        android:layout_marginStart="20sp"
-        android:layout_marginLeft="20sp"
-        android:layout_marginTop="6sp"
-        android:background="@color/friendly_green" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20sp"
-        android:layout_marginLeft="20sp"
         android:layout_marginBottom="60sp"
-        android:gravity="left"
+        android:gravity="start"
         android:orientation="horizontal">
 
         <com.airbnb.lottie.LottieAnimationView
@@ -131,7 +129,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7sp"
-            android:layout_marginLeft="7sp"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:text="35%"
             android:textColor="@color/gray_text"

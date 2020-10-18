@@ -29,7 +29,7 @@ class GetRewardActivity : AppCompatActivity() {
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
 
         // 리워드 포인트 애니메이션
-        fun startAnimation() {
+        fun rewardAnimation() {
             val animator = ValueAnimator.ofInt(
                 intent.getIntExtra("reward", 0) + 4,
                 intent.getIntExtra("reward", 0)
@@ -47,7 +47,7 @@ class GetRewardActivity : AppCompatActivity() {
                 finalReward.text = documentSnapshot.data?.get("rewardPoint").toString()
             }
 
-        startAnimation()
+        rewardAnimation()
         finalPoint.startAnimation(fadeIn)
 
         val nextButton = findViewById<Button>(R.id.get_reward_next)

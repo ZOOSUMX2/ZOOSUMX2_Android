@@ -3,7 +3,9 @@ package com.example.zoosumx2
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
@@ -49,6 +51,10 @@ class UserNameActivity : AppCompatActivity() {
 
             if (!TextUtils.isEmpty(userName_edit.getText())) {
                 startActivity(intent)
+                val text = findViewById<RelativeLayout>(R.id.relativelayout_text_user_name)
+                val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+                text.startAnimation(fadeOut)
+
             } else {
                 Toast.makeText(applicationContext, "이름을 입력해주세요", Toast.LENGTH_SHORT).show()
             }

@@ -34,7 +34,6 @@ class StoreActivity : AppCompatActivity() {
             finish()
         }
 
-        // 포인트 클릭 시 나의 포인트 내역 페이지로 이동
         val myCoin = findViewById<TextView>(R.id.textview_mypoint_store)
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
@@ -42,6 +41,7 @@ class StoreActivity : AppCompatActivity() {
                 myCoin.text = documentSnapshot.data?.get("rewardPoint").toString()
             }
 
+        // 포인트 클릭 시 나의 포인트 내역 페이지로 이동
         myCoin.setOnClickListener {
             val intent = Intent(this, PointActivity::class.java)
             startActivity(intent)
