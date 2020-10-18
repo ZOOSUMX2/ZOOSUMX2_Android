@@ -3,7 +3,6 @@ package com.example.zoosumx2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -16,7 +15,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.model.OAuthToken
 import kotlinx.android.synthetic.main.activity_login.*
-import com.kakao.sdk.common.util.Utility
 
 class LoginActivity : AppCompatActivity() {
     var auth: FirebaseAuth? = null

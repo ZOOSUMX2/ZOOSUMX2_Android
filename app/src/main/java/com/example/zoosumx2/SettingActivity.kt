@@ -5,20 +5,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import com.google.android.gms.auth.api.Auth
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SettingActivity : AppCompatActivity() {
+
     var auth: FirebaseAuth? = null
     var googleSignInClient: GoogleSignInClient? = null
+    var fbFirestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+
+        fbFirestore = FirebaseFirestore.getInstance()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -36,7 +40,7 @@ class SettingActivity : AppCompatActivity() {
         //initializing firebase authentication object
         auth = FirebaseAuth.getInstance()
 
-        // 로그아웃ƒ
+        // 로그아웃
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -47,11 +51,19 @@ class SettingActivity : AppCompatActivity() {
         }
 
         // 회원탈퇴
-//        val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
-//        withdrawal.setOnClickListener {
-//            FirebaseAuth.getInstance().currentUser?.delete()
-//            startActivity(Intent(this, LoginActivity::class.java))
-//            finish()
-//        }
+        val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
+        withdrawal.setOnClickListener {
+            // firestore 내 사용자 정보 삭제
+            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
+
+            // 구글 로그인 계정 삭제
+            auth?.currentUser?.delete()
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "정상적으로 탈퇴되었습니", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                }
+        }
     }
 }
