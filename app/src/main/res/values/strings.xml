@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">ZOOSUMX2</string>
+    <string name="app_name">주섬주</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="이번주_분리배출_미션">이번주 분리배출 미션</string>
     <string name="quest_count">0/4</string>
-    <string name="퀴즈_출제">퀴즈 출제</string>
+    <string name="퀴즈_출제">퀴즈 출제</string>섬
     <string name="news_headline">친환경은 배달되지 않아요</string>
     <string name="news_origin">출처 녹색연합</string>
     <string name="news_content">전 세계에서 생산된 플라스틱 폐기물의 47%가 포장재입니다. 음식 포장에 사용된 일회용 플라스틱

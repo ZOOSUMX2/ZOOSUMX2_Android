@@ -10,9 +10,9 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/zoosumx2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/zoosumx2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".GlobalApplication">
@@ -31,8 +31,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PagerHomeActivity"></activity>
-        <activity android:name=".HomeActivity" />
         <activity
             android:name=".WrongAnsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
