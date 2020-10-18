@@ -3,15 +3,20 @@ package com.example.zoosumx2
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_random_quiz.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.random.Random
 
@@ -20,6 +25,7 @@ class RandomQuizActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random_quiz)
@@ -36,12 +42,25 @@ class RandomQuizActivity : AppCompatActivity() {
         var wrong_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
         val nextButton = findViewById<Button>(R.id.random_quiz_next)
 
-//        val random_answer_num = Random.nextInt(2)
-//        if(random_answer_num==0){
-//            correct_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
-//            wrong_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
-//        }
+        //정답 문항의 자리 랜덤으로 교환
+        val random_answer_num = Random.nextInt(2)
+        if(random_answer_num==0){
+            correct_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
+            wrong_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
+        }
 
+
+        //DB에서 문제 및 문항 가져오기
+        //해당 달의 숫자가 이름인 문서에 저장한 문제를 가져옴
+        //문제가 길어질 경우 줄 바꿈은 DB 저장 시 bb를 사용함
+        val weekly: String = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"))
+        fbFirestore?.collection("senseQuiz")?.document(weekly)
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                random_quiz_main_ment?.text = documentSnapshot.data?.get("title").toString().replace("bb","\n")
+                correct_answer?.text = documentSnapshot.data?.get("option1").toString()
+                wrong_answer?.text = documentSnapshot.data?.get("option2").toString()
+            }
 
 
         correct_answer.setOnClickListener{
