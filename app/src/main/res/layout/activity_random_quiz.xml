@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/resident_second"
+        android:id="@+id/random_quiz_main_ment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_resident"
@@ -65,13 +65,26 @@
         android:id="@+id/random_quiz_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resident_second"
+        android:layout_below="@+id/random_quiz_main_ment"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
         android:contentDescription="@string/image"
         android:src="@drawable/bottle" />
 
+    <TextView
+        android:id="@+id/random_quiz_sub_ment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearlayout_randomquiz"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5sp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="16sp" />
+
     <LinearLayout
+        android:id="@+id/linearlayout_randomquiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
