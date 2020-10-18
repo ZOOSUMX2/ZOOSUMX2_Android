@@ -36,15 +36,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*home_mission.setOnClickListener {
-            val transaction = activity!!.supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_main, MissionFragment())
-            transaction.commit()
-        }*/
-
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
+        // firestore에서 데이터 가져온 후 textview에 띄우기
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
@@ -54,7 +49,7 @@ class HomeFragment : Fragment() {
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
             }
 
-        // 포인트 클릭
+        // 포인트 클릭 이벤트
         linearlayout_mypoint_home?.setOnClickListener {
             val intent = Intent(context, PointActivity::class.java)
             startActivity(intent)

@@ -134,7 +134,6 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
-                        android:text="850"
                         android:textColor="@color/colorText"
                         android:textSize="14sp" />
                 </LinearLayout>
