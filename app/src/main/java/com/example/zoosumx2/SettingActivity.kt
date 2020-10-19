@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -64,6 +65,18 @@ class SettingActivity : AppCompatActivity() {
                         startActivity(Intent(this, LoginActivity::class.java))
                     }
                 }
+        }
+
+        // 문의하기
+        val ask = findViewById<LinearLayout>(R.id.linearlayout_ask_setting)
+        ask.setOnClickListener {
+            val email = Intent(Intent.ACTION_SEND)
+            email.type = "plain/text"
+            val address = arrayOf("aerimforest98@gmail.com")
+            email.putExtra(Intent.EXTRA_EMAIL, address)
+            email.putExtra(Intent.EXTRA_SUBJECT, "주섬주섬 문의사항")
+            email.putExtra(Intent.EXTRA_TEXT, "문의사항을 자세하게 입력해주세요\n\n")
+            startActivity(email)
         }
     }
 }

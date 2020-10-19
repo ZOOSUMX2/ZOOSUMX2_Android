@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
@@ -55,7 +54,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="로그아웃"
@@ -91,10 +89,115 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="회원탈퇴"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <!--요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_withdrawal_setting"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
+
+    <!--문의하기-->
+    <LinearLayout
+        android:id="@+id/linearlayout_ask_setting"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearlayout_withdrawal_setting"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="문의하기"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <!--요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_withdrawal_setting"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
+
+    <!--개인정보 처리방침-->
+    <LinearLayout
+        android:id="@+id/linearlayout_policy_setting"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearlayout_ask_setting"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="개인정보 처리방침"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <!--요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/linearlayout_withdrawal_setting"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:background="@color/colorDivision" />
+
+
+    <!--개발자 정보-->
+    <LinearLayout
+        android:id="@+id/linearlayout_about_dev_setting"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearlayout_policy_setting"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center_vertical"
+            android:text="개발자 정보"
             android:textSize="16sp"
             tools:ignore="HardcodedText" />
 

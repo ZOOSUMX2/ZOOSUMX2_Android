@@ -35,11 +35,11 @@
                 app:civ_circle_background_color="@color/colorCircleFill" />
 
             <ImageView
-                android:id="@+id/img_plus"
-                android:layout_width="34.8sp"
-                android:layout_height="46.6sp"
+                android:id="@+id/imageview_medal_home"
+                android:layout_width="32.8sp"
+                android:layout_height="44.6sp"
                 android:layout_gravity="bottom|end"
-                android:src="@drawable/medal_silver"
+                android:src="@drawable/icon_level1"
                 android:contentDescription="@string/image" />
         </FrameLayout>
 
