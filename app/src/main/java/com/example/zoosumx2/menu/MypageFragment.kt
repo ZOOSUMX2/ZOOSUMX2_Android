@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
-
 class MypageFragment : Fragment() {
 
     var fbAuth: FirebaseAuth? = null
@@ -37,6 +36,14 @@ class MypageFragment : Fragment() {
                 textview_username_mypage?.text = documentSnapshot.data?.get("nickname").toString()
                 textview_island_name_mypage?.text =
                     documentSnapshot.data?.get("islandName").toString()
+                textview_next_level_mypage?.text =
+                    (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
+
+                //val currentDate: Calendar = Calendar.getInstance() //오늘 날짜 가져오기
+                //val today = currentDate.timeInMillis /86400000
+                //val creationDay = documentSnapshot.data?.get("creationTimestamp").toString().toInt()/86400000
+
+                //textview_ranking_town.text = ((creationDay-today).toString())
 
                 // 경험치에 따라 레벨 측정
                 val exp = documentSnapshot.data?.get("exp").toString().toInt()
@@ -49,15 +56,52 @@ class MypageFragment : Fragment() {
                     else -> 5
                 }
 
-                // 레벨 업 된 경우
-//                if(level != documentSnapshot.data?.get("level")) {
-//
-//                }
+                // Todo : 레벨 업 -> 다이얼로그 띄우고 홈 화면 이동
 
                 textview_mylevel_mypage?.text = level.toString()
                 // firestore에 사용자 레벨 저장
                 fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                     ?.update("level", level)
+            }
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                val level = documentSnapshot.data?.get("level").toString().toInt()
+
+                val min = when (level) {
+                    1 -> 0
+                    2 -> 100
+                    3 -> 300
+                    4 -> 600
+                    else -> 1000
+                }
+
+                val max = when (level) {
+                    1 -> 99
+                    2 -> 299
+                    3 -> 599
+                    4 -> 999
+                    else -> 1000
+                }
+
+                val progressBar = this.progressbar_mypage
+                progressBar.max = max
+
+                var tmp = 0
+                Thread {
+                    while (tmp <= (exp - min)) {
+                        try {
+                            tmp += 3
+                            Thread.sleep(30)
+                        } catch (e: InterruptedException) {
+                            e.printStackTrace()
+                        }
+                        // 프로그래스바 업데이트
+                        progressBar.progress = tmp
+                    }
+                }.start()
             }
 
         // 포인트 내역
