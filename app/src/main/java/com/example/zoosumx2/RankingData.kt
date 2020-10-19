@@ -1,3 +1,11 @@
 package com.example.zoosumx2
 
-data class RankingData(val ranking:Int, val profileImg:String, val name:String, val level:Int, val exp:Int)
+data class RankingData(
+    val addressRegion: String? = null,
+    val exp: Int = 0,
+    val level: Int = 0,
+    val nickname: String? = null,
+    val profilePhoto: String? = null
+) {
+
+}

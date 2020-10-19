@@ -46,6 +46,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     implementation 'com.google.firebase:firebase-firestore:21.7.1' // Firestore 연결
+    // FirebaseUI for Cloud Firestore
+    implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.airbnb.android:lottie:3.0.7'
     // lottie
