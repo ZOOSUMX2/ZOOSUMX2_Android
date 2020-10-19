@@ -105,16 +105,33 @@ class PhotoActivity : AppCompatActivity() {
                 }
                 Toast.makeText(this, "사진을 주민들에게 보내는 중입니다..", Toast.LENGTH_SHORT).show()
 
-                //Todo: DB에 정보 저장, 이름을 찾지 못하는 중
+
+                //Todo: DB에 정보 저장
                 //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
                 Handler().postDelayed({
+                    //재활용 사진이 저장된 URL 다운로드
+                    val trashPhotoDownloadURL:String? = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
+                        Log.e("Photo Url download:","success")
+                    }.addOnFailureListener {
+                        Log.e("Photo Url download:","failure")
+                    }.toString()
+
+
+                    //재활용 사진 및 미션 정보 DB에 업로드
+                    val RecyclePhotoInfo = hashMapOf(
+                        "isApproved" to false,
+                        "sentTimestamp" to timestamp,
+                        "photo" to trashPhotoDownloadURL
+                    )
+                    fbFirestore?.collection("users")?.document(fbAuth.toString())
+                        ?.collection("mission")?.document()?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
+
                     //리워드 지급 및 리워드 액티비티 연결
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(2))
 
                     val intent = Intent(this, GetRewardActivity::class.java)
                     intent.putExtra("reward", 2)
-                    intent.putExtra("curPhotoPath",curPhotoPath)
                     startActivity(intent)
                 },10000)
 
@@ -122,18 +139,6 @@ class PhotoActivity : AppCompatActivity() {
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
             }
-
-
-
-            val RecyclePhotoInfo = hashMapOf(
-                "isApproved" to false,
-                "sentTimestamp" to timestamp
-                //"photo" to trashPhotoURL
-            )
-
-            fbFirestore?.collection("users")?.document(fbAuth.toString())
-                ?.collection("mission")?.document()?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
-
         }
 
         //Todo: 친구에게 인증 받기

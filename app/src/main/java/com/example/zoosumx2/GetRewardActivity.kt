@@ -27,20 +27,6 @@ class GetRewardActivity : AppCompatActivity() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
-        val storage = Firebase.storage
-        val storageRef = storage.reference
-        var curPhotoPath: String? = null
-
-        if(intent.hasExtra("curPhotoPath")){
-            curPhotoPath = intent.getStringExtra("curPhotoPath")
-        }
-        var file = Uri.fromFile(File(curPhotoPath))
-
-        storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
-            Log.e("Photo Url download:","success")
-        }.addOnFailureListener {
-            Log.e("Photo Url download:","failure")
-        }.toString()
 
 
         val finalPoint = findViewById<LinearLayout>(R.id.linearlayout_final_point_get_reward)
