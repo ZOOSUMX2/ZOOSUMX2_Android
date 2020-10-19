@@ -37,7 +37,22 @@ class MypageFragment : Fragment() {
                 textview_username_mypage?.text = documentSnapshot.data?.get("nickname").toString()
                 textview_island_name_mypage?.text =
                     documentSnapshot.data?.get("islandName").toString()
-                textview_mylevel_mypage?.text = documentSnapshot.data?.get("level").toString()
+
+                // 경험치에 따라 레벨 측정
+                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+
+                val level = when {
+                    (exp in 0..99) -> 1
+                    (exp in 100..299) -> 2
+                    (exp in 300..599) -> 3
+                    (exp in 600..999) -> 4
+                    else -> 5
+
+                }
+                textview_mylevel_mypage?.text = level.toString()
+                // firestore에 사용자 레벨 저장
+                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                    ?.update("level", level)
             }
 
         // 포인트 내역

@@ -60,7 +60,7 @@ class SettingActivity : AppCompatActivity() {
             auth?.currentUser?.delete()
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "정상적으로 탈퇴되었습니", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, LoginActivity::class.java))
                     }
                 }
