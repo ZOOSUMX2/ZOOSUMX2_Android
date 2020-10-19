@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="306dp"
+    android:layout_height="268dp">
+
+    <TextView
+        android:id="@+id/textview_check_revoke_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:text="회원 탈퇴 확인"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_check_revoke_dialog"
+        android:layout_marginTop="20sp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="정말 주섬주섬을\n떠나실건가요?😥"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel_revoke_dialog"
+            android:layout_width="114dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="186dp"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/confirm_dialog_button_shape"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:gravity="center"
+            android:text="취소하기"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/button_ok_revoke_dialog"
+            android:layout_width="114dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="186dp"
+            android:background="@drawable/confirm_dialog_button_shape"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:gravity="center"
+            android:text="탈퇴하기"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+    </LinearLayout>
+
+</RelativeLayout>
