@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -91,15 +92,20 @@
         <activity
             android:name=".RandomQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RandomquizCorrectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RandomquizWrongActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".UserNameActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:authorities="com.example.zoosumx2.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>
