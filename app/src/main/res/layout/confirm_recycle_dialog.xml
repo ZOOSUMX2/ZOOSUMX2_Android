@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="306dp"
     android:layout_height="268dp">
@@ -9,37 +8,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="118.5dp"
-        android:layout_marginLeft="118.5dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:text="확인 요청"
         android:textColor="@color/colorText"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearlayout_first_confirm_recycle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_username_confirm_recycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text=""
+            android:textColor="@color/colorText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="님의 이웃이 미션을 완료하고"
+            android:textColor="@color/colorText"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_first_confirm_recycle"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
-        android:text="수아님의 이웃이 미션을 완료하고\n인증을 기다리고 있습니다.\n올바르게 했는지 확인해주세요."
+        android:includeFontPadding="false"
+        android:text="인증을 기다리고 있습니다.\n올바르게 했는지 확인해주세요."
         android:textColor="@color/colorText"
         android:textSize="16sp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/confirm_ok"
         android:layout_width="114dp"
         android:layout_height="48dp"
         android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
         android:layout_marginTop="186dp"
         android:background="@drawable/confirm_dialog_button_shape"
         android:fontFamily="@font/notosans_cjkkr_bold"
@@ -47,8 +71,6 @@
         android:text="확인하기"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -47,8 +47,13 @@ class MypageFragment : Fragment() {
                     (exp in 300..599) -> 3
                     (exp in 600..999) -> 4
                     else -> 5
-
                 }
+
+                // 레벨 업 된 경우
+//                if(level != documentSnapshot.data?.get("level")) {
+//
+//                }
+
                 textview_mylevel_mypage?.text = level.toString()
                 // firestore에 사용자 레벨 저장
                 fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
