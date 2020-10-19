@@ -12,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -64,6 +65,7 @@ class PhotoActivity : AppCompatActivity() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
+        val storageRef = storage.reference
 
 
         // status bar 색상 변경
@@ -87,7 +89,6 @@ class PhotoActivity : AppCompatActivity() {
             if(send_permission){
 
                 //파이어베이스 스토리지에 업로드
-                val storageRef = storage.reference
                 val recyclesRef = storageRef.child("turtle.png")
                 val recycleImagesRef = recyclesRef.child("images/turtle.png")
                 recyclesRef.name==recycleImagesRef.name
@@ -102,22 +103,44 @@ class PhotoActivity : AppCompatActivity() {
                 }.addOnSuccessListener { taskSnapshot ->
                     Log.e("Photo Upload:","success")
                 }
+                Toast.makeText(this, "사진을 주민들에게 보내는 중입니다..", Toast.LENGTH_SHORT).show()
 
-                //리워드 지급 및 리워드 액티비티 연결
-                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    ?.update("rewardPoint", FieldValue.increment(2))
+                //Todo: DB에 정보 저장, 이름을 찾지 못하는 중
+                //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
+                Handler().postDelayed({
+                    //리워드 지급 및 리워드 액티비티 연결
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rewardPoint", FieldValue.increment(2))
 
-                val intent = Intent(this, GetRewardActivity::class.java)
-                intent.putExtra("reward", 2)
-                startActivity(intent)
+                    val intent = Intent(this, GetRewardActivity::class.java)
+                    intent.putExtra("reward", 2)
+                    intent.putExtra("curPhotoPath",curPhotoPath)
+                    startActivity(intent)
+                },10000)
+
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
             }
 
+
+
+            val RecyclePhotoInfo = hashMapOf(
+                "isApproved" to false,
+                "sentTimestamp" to timestamp
+                //"photo" to trashPhotoURL
+            )
+
+            fbFirestore?.collection("users")?.document(fbAuth.toString())
+                ?.collection("mission")?.document()?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
+
         }
 
         //Todo: 친구에게 인증 받기
+        confirm_to_friend.setOnClickListener {
+
+        }
+
     }
 
     //사진 촬영
