@@ -58,7 +58,8 @@ class TownActivity : AppCompatActivity() {
         // townRanking의 문서를 불러온 뒤 RankingData로 변환해서 ArrayList에 담음
         init {
             // 용산구 주민 중 1~100등의 정보 가져옴
-            fbFirestore?.collection("users")?.whereEqualTo("addressRegion", "용산구")?.limit(100)
+            fbFirestore?.collection("users")?.whereEqualTo("addressRegion", "용산구")
+                ?.orderBy("exp", Query.Direction.DESCENDING)?.limit(100)
                 ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                     // ArrayList 비워줌
                     townRanking.clear()
@@ -66,7 +67,9 @@ class TownActivity : AppCompatActivity() {
                     if (querySnapshot != null) {
                         for (snapshot in querySnapshot.documents) {
                             val item = snapshot.toObject(RankingData::class.java)
-                            townRanking.add(item!!)
+                            if (item != null) {
+                                townRanking.add(item)
+                            }
                         }
                     }
                     notifyDataSetChanged()
