@@ -93,6 +93,7 @@ class TownActivity : AppCompatActivity() {
             viewHolder.textview_name_town.text = townRanking[position].nickname
             viewHolder.textview_level_town.text = townRanking[position].level.toString()
             viewHolder.textview_exp_town.text = townRanking[position].exp.toString()
+            viewHolder.textview_ranking_town.text = (position + 1).toString()
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
