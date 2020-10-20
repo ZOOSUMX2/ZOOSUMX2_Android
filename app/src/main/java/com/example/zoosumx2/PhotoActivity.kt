@@ -19,6 +19,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.example.zoosumx2.model.ResidentConfirmSubDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -121,6 +122,9 @@ class PhotoActivity : AppCompatActivity() {
                     val trashPhotoDownloadURL:String? = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
                         Log.e("Photo Url download:","success")
                         Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
+                        //다이얼로그 호출
+                        val dlg = ResidentConfirmSubDialog(this)
+                        dlg.start(this)
                     }.addOnFailureListener {
                         Log.e("Photo Url download:","failure")
                     }.toString()
@@ -136,19 +140,7 @@ class PhotoActivity : AppCompatActivity() {
                     )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
-
-                    //리워드 지급 및 리워드 액티비티 연결
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("rewardPoint", FieldValue.increment(2))
-                    //경험치 증가
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("exp", FieldValue.increment(10))
-
-                    val intent = Intent(this, GetRewardActivity::class.java)
-                    intent.putExtra("reward", 2)
-                    startActivity(intent)
-                },8000)
-
+                },10000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
@@ -213,16 +205,9 @@ class PhotoActivity : AppCompatActivity() {
                             }
                         }
                         // 메시지 보내기에 성공할 경우 리워드 화면 연결
-                        val intent = Intent(this, GetRewardActivity::class.java)
-                        intent.putExtra("reward",3)
-                        //리워드 증가
-                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                            ?.update("rewardPoint", FieldValue.increment(3))
-                        //경험치 증가
-                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                            ?.update("exp", FieldValue.increment(10))
-
-                        startActivity(intent)
+                        //다이얼로그 호출
+                        val dlg = FriendConfirmSubDialog(this)
+                        dlg.start(this)
                     }
                 }
             }
