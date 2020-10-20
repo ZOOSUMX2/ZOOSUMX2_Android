@@ -31,10 +31,10 @@ class TownActivity : AppCompatActivity() {
         recyclerview_mypage_ranking.layoutManager = LinearLayoutManager(this)
         recyclerview_mypage_ranking.setHasFixedSize(true) // recyclerview 크기 고정
 
-        //val myranking = findViewById<TextView>(R.id.textview_myranking_town)
         val username = findViewById<TextView>(R.id.textview_username_town)
         val myexp = findViewById<TextView>(R.id.textview_myexp_town)
         val mylevel = findViewById<TextView>(R.id.textview_mylevel_town)
+        val myranking = findViewById<TextView>(R.id.textview_myranking_town)
 
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
@@ -42,6 +42,7 @@ class TownActivity : AppCompatActivity() {
                 username.text = documentSnapshot.data?.get("nickname").toString()
                 myexp.text = documentSnapshot.data?.get("exp").toString()
                 mylevel.text = documentSnapshot.data?.get("level").toString()
+                myranking.text = documentSnapshot.data?.get("rank").toString()
             }
 
         val button = findViewById<ImageButton>(R.id.imagebutton_back_town)
@@ -59,7 +60,7 @@ class TownActivity : AppCompatActivity() {
         init {
             // 용산구 주민 중 1~100등의 정보 가져옴
             fbFirestore?.collection("users")?.whereEqualTo("addressRegion", "용산구")
-                ?.orderBy("exp", Query.Direction.DESCENDING)?.limit(100)
+                ?.orderBy("exp", Query.Direction.DESCENDING)
                 ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                     // ArrayList 비워줌
                     townRanking.clear()
@@ -94,8 +95,13 @@ class TownActivity : AppCompatActivity() {
             viewHolder.textview_level_town.text = townRanking[position].level.toString()
             viewHolder.textview_exp_town.text = townRanking[position].exp.toString()
             viewHolder.textview_ranking_town.text = (position + 1).toString()
-        }
 
+            if (townRanking[position].uid.toString() == fbAuth?.uid.toString()) {
+                // firestore에 내 순위 업데이트
+                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                    ?.update("rank", (position + 1))
+            }
+        }
         // 리사이클러뷰의 아이템 총 개수 반환
         override fun getItemCount(): Int {
             return townRanking.size

@@ -87,7 +87,9 @@ class MypageFragment : Fragment() {
                 }
 
                 val progressBar = this.progressbar_mypage
-                progressBar.max = max
+                if (progressBar != null) {
+                    progressBar.max = max
+                }
 
                 var tmp = 0
                 Thread {

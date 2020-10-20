@@ -15,7 +15,8 @@ data class UserDTO(
     var registeredBy: String? = null,
     var rewardPoint: Int? = 0,
     var uid: String? = null,
-    var withdraw: String? = null
+    var withdraw: String? = null,
+    var rank: Int? = 0
 ) {
 
 }

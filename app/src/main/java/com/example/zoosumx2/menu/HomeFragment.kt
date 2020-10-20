@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
                 textview_island_name_home?.text =
                     documentSnapshot.data?.get("islandName").toString()
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
+                textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
             }
 
         // 포인트 클릭 이벤트
