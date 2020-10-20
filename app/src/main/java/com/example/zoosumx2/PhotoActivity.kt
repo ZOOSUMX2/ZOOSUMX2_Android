@@ -112,15 +112,15 @@ class PhotoActivity : AppCompatActivity() {
                 }.addOnSuccessListener { taskSnapshot ->
                     Log.e("Photo Upload:", "success")
                 }
-                Toast.makeText(this, "사진을 주민들에게 보내는 중입니다.. 약 7초의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "사진을 주민들에게 보내는 중이에요! 약간의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
 
 
-                //Todo: DB에 정보 저장
                 //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
                 Handler().postDelayed({
                     //재활용 사진이 저장된 URL 다운로드
                     val trashPhotoDownloadURL:String? = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
                         Log.e("Photo Url download:","success")
+                        Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
                     }.addOnFailureListener {
                         Log.e("Photo Url download:","failure")
                     }.toString()
@@ -140,11 +140,14 @@ class PhotoActivity : AppCompatActivity() {
                     //리워드 지급 및 리워드 액티비티 연결
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(2))
+                    //경험치 증가
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("exp", FieldValue.increment(10))
 
                     val intent = Intent(this, GetRewardActivity::class.java)
                     intent.putExtra("reward", 2)
                     startActivity(intent)
-                },10000)
+                },8000)
 
             }
             else{
@@ -156,7 +159,7 @@ class PhotoActivity : AppCompatActivity() {
         //DB에 업로드 하지 않음
         confirm_to_friend.setOnClickListener {
             if(sendPermission){
-                Toast.makeText(this, "메시지를 작성하는 중입니다. 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "메시지를 작성하는 중이에요! 약간의 시간이 소요될 수 있어요.", Toast.LENGTH_SHORT).show()
                 LinkClient.instance.uploadImage(scaledFile){imageUploadResult, error ->
                     if(error!=null){
                         Log.e("Kakao server upload","failed", error)
@@ -164,56 +167,64 @@ class PhotoActivity : AppCompatActivity() {
                     else if(imageUploadResult!=null){
                         Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
                         PhotoURLKakao = imageUploadResult.infos.original.url
-                    }
-                }
 
-                Handler().postDelayed({
-                    //고정 카카오 피드 메시지 작성
-                    val defaultFeed = FeedTemplate(
-                        content = Content(
-                            title = "재활용 인증 요청이 도착했어요!",
-                            description = "섬이 깨끗해질 수 있도록, 친구의 분리배출 결과를 확인해주세요!",
-                            imageUrl = PhotoURLKakao,
-                            link = Link(
-                                webUrl = "https://www.zoosum.site/",
-                                mobileWebUrl = "https://www.zoosum.site/"
-                            )
-                        ),
-                        buttons = listOf(
-                            Button(
-                                "주섬주섬 구경하기",
-                                Link(
+                        //고정 카카오 피드 메시지 작성
+                        val defaultFeed = FeedTemplate(
+                            content = Content( //Todo: 카카오 링크 메시지 문구 수정하기
+                                title = "재활용 인증 요청이 도착했어요!",
+                                description = "섬이 깨끗해질 수 있도록, 친구의 분리배출 결과를 확인해주세요!",
+                                imageUrl = PhotoURLKakao,
+                                link = Link(
                                     webUrl = "https://www.zoosum.site/",
                                     mobileWebUrl = "https://www.zoosum.site/"
                                 )
                             ),
-                            Button(
-                                "앱 설치하기",
-                                Link( //임시로 홈페이지 주소 연결
-                                    webUrl = "https://www.zoosum.site/",
-                                    mobileWebUrl = "https://www.zoosum.site/"
+                            buttons = listOf(
+                                Button(
+                                    "주섬주섬 홈",
+                                    Link(
+                                        webUrl = "https://www.zoosum.site/",
+                                        mobileWebUrl = "https://www.zoosum.site/"
+                                    )
+                                ),
+                                Button(
+                                    "앱 설치하기",
+                                    Link( //임시로 홈페이지 주소 연결
+                                        webUrl = "https://www.zoosum.site/",
+                                        mobileWebUrl = "https://www.zoosum.site/"
+                                    )
                                 )
                             )
                         )
-                    )
 
+                        //메시지 보내기
+                        LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error ->
+                            if(error!=null){
+                                Log.e("kakao link sending","failed", error)
+                                Toast.makeText(this, "카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
+                            }
+                            else if(linkResult!=null){
+                                Log.d("kakao link sending","successed ${linkResult.intent}")
+                                startActivity(linkResult.intent)
 
-                    //메시지 보내기
-                    LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error ->
-                        if(error!=null){
-                            Log.e("kakao link sending","failed", error)
-                            Toast.makeText(this, "카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
+                                //카카오 링크로 보내기에 성공했지만 아래 경고 메시지가 있으면 일부 컨텐츠 오작동 가능성 있음
+                                Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
+                                Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
+                            }
                         }
-                        else if(linkResult!=null){
-                            Log.d("kakao link sending","successed ${linkResult.intent}")
-                            startActivity(linkResult.intent)
+                        // 메시지 보내기에 성공할 경우 리워드 화면 연결
+                        val intent = Intent(this, GetRewardActivity::class.java)
+                        intent.putExtra("reward",3)
+                        //리워드 증가
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("rewardPoint", FieldValue.increment(3))
+                        //경험치 증가
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("exp", FieldValue.increment(10))
 
-                            //카카오 링크로 보내기에 성공했지만 아래 경고 메시지가 있으면 일부 컨텐츠 오작동 가능성 있음
-                            Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
-                            Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
-                        }
+                        startActivity(intent)
                     }
-                },10000)
+                }
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
@@ -279,7 +290,7 @@ class PhotoActivity : AppCompatActivity() {
     //startActivityforResult를 통해서 기본 카메라 앱으로부터 받아온 사진 결과값
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        Toast.makeText(this, "사진을 압축 중입니다. 시간이 소요될 수 있습니다!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "사진을 압축 중이에요. 약간의 시간이 소요될 수 있어요!", Toast.LENGTH_SHORT).show()
 
         //이미지를 성공적으로 가져온 경우
         if (requestCode == requestImageCapture && resultCode == Activity.RESULT_OK) {
