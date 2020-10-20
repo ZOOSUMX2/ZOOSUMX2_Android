@@ -31,9 +31,9 @@ class LoginActivity : AppCompatActivity() {
         /*var keyHash = Utility.getKeyHash(this)
         Log.d("KEY_HASH", keyHash)*/
 
-        //kakao login
-        button_kakao_login.setOnClickListener {
-            kakaoLogin()
+        //email login
+        email_login_button.setOnClickListener {
+            emailLogin()
         }
 
         //google login
@@ -41,12 +41,6 @@ class LoginActivity : AppCompatActivity() {
             googleLogin()
         }
 
-        //임의로 UserName Activity 연결
-        button_naver_login.setOnClickListener {
-            val intent = Intent(this, UserNameActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -129,22 +123,43 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun kakaoLogin(){
-        val callback:(OAuthToken?,Throwable?)->Unit={token, error->
-            if(error!=null){
-                //Log.e(TAG, "로그인 실패", error)
+    fun createAndLoginEmail(){
+        auth?.createUserWithEmailAndPassword(email_login_edittext.text.toString(),password_login_edittext.text.toString())
+            ?.addOnCompleteListener { task->
+                if (task.isSuccessful){
+                    //아이디 생성이 성공했을 경우
+                    Toast.makeText(this,"로그인 성공",Toast.LENGTH_SHORT).show()
+                    moveUserNamePage(auth?.currentUser)
+            } else if(task.exception?.message.isNullOrEmpty()){
+                    //회원가입 중 에러가 발생했을 경우
+                    Toast.makeText(this,task.exception!!.message,Toast.LENGTH_SHORT).show()
+                } else{
+                    signinEmail()
+                }
             }
-            else if(token!=null){
-                //Log.i(TAG, "로그인 성공 ${token.accessToken}")
-            }
-        }
-
-        if(LoginClient.instance.isKakaoTalkLoginAvailable(applicationContext)){
-            LoginClient.instance.loginWithKakaoTalk(applicationContext,callback=callback)
-        }
-        else{
-            LoginClient.instance.loginWithKakaoAccount(applicationContext, callback=callback)
-        }
-
     }
+
+    //이메일과 패스워드가 올바르게 입력되었는지 확인
+    fun emailLogin(){
+        if(email_login_edittext.text.toString().isNullOrEmpty()||password_login_edittext.text.toString().isNullOrEmpty()){
+            Toast.makeText(this,"이메일과 비밀번호를 입력해주세요.",Toast.LENGTH_SHORT).show()
+        } else{
+            createAndLoginEmail()
+        }
+    }
+
+    //이메일로 로그인 메소드
+    fun signinEmail(){
+        auth?.signInWithEmailAndPassword(email_login_edittext.text.toString(),password_login_edittext.text.toString())
+            ?.addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    //로그인 성공 및 다음 페이지 호출
+                    moveMainPage(auth?.currentUser)
+                } else{
+                    //로그인 실패
+                    Toast.makeText(this,task.exception!!.message,Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
 }

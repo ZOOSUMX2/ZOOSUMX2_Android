@@ -16,25 +16,63 @@
         android:contentDescription="@string/image"
         android:src="@drawable/zoosum_typelogo" />
 
-    <!--카카오 로그인 버튼-->
-    <Button
-        android:id="@+id/button_kakao_login"
-        style="@style/Widget.AppCompat.Button.Borderless"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55sp"
-        android:layout_marginLeft="36sp"
-        android:layout_marginTop="200sp"
-        android:layout_marginRight="36sp"
-        android:background="@drawable/login_kakao"
-        android:drawableStart="@drawable/login_kakao_icon"
-        android:fontFamily="@font/notosans_cjkkr_bold"
-        android:paddingStart="24sp"
-        android:paddingLeft="24sp"
-        android:paddingEnd="24sp"
-        android:paddingRight="24sp"
-        android:text="카카오 계정으로 로그인"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_marginTop="200.4dp"
+        android:layout_marginHorizontal="36dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
+
+            <EditText
+                android:id="@+id/email_login_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:includeFontPadding="false"
+                android:textColorHint="@color/friendly_green"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textSize="14sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
+
+            <EditText
+                android:id="@+id/password_login_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:includeFontPadding="false"
+                android:textColorHint="@color/friendly_green"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textSize="14sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/email_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="@string/signinemail"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosans_cjkkr_bold" />
+
+    </LinearLayout>
 
     <!--구글 로그인 버튼-->
     <Button
@@ -56,25 +94,5 @@
         android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
-    <!--네이버 로그인 버튼-->
-    <Button
-        android:id="@+id/button_naver_login"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="match_parent"
-        android:layout_height="55sp"
-        android:layout_marginLeft="36sp"
-        android:layout_marginTop="13sp"
-        android:layout_marginRight="36sp"
-        android:background="@drawable/login_naver"
-        android:drawableStart="@drawable/login_naver_icon"
-        android:fontFamily="@font/notosans_cjkkr_bold"
-        android:paddingStart="24sp"
-        android:paddingLeft="24sp"
-        android:paddingEnd="24sp"
-        android:paddingRight="24sp"
-        android:text="네이버 아이디로 로그인"
-        android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
 
 </LinearLayout>

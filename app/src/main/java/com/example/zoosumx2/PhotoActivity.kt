@@ -26,6 +26,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
+import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
 import java.io.FileOutputStream
@@ -40,6 +41,9 @@ class PhotoActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
     val storage = Firebase.storage
+
+    var missionTitle: String?=null
+    var missionContent: String?=null
 
     private val requestImageCapture = 1 //카메라 사진 촬영 요청코드
     private lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
@@ -56,6 +60,13 @@ class PhotoActivity : AppCompatActivity() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
         val storageRef = storage.reference
+
+        if(intent.hasExtra("missionTitle")){
+            missionTitle=intent.getStringExtra("missionTitle")
+        }
+        if(intent.hasExtra("missionContent")){
+            missionContent=intent.getStringExtra("missionContent")
+        }
 
 
         // status bar 색상 변경
@@ -109,12 +120,14 @@ class PhotoActivity : AppCompatActivity() {
 
                     //재활용 사진 및 미션 정보 DB에 업로드
                     val RecyclePhotoInfo = hashMapOf(
+                        "missionTitle" to missionTitle,
+                        "missionContent" to missionContent,
                         "isApproved" to false,
                         "sentTimestamp" to timestamp,
                         "photo" to trashPhotoDownloadURL
                     )
-                    fbFirestore?.collection("users")?.document(fbAuth.toString())
-                        ?.collection("mission")?.document()?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
 
                     //리워드 지급 및 리워드 액티비티 연결
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())

@@ -94,17 +94,8 @@ class ConfirmRecycleActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             if (checkboxS1.isChecked && checkboxS2.isChecked && checkboxS3.isChecked) {
                 val intent = Intent(this, PhotoActivity::class.java)
-
-                // Todo: 사용자 소셜 로그인 없이 저장하여 불완전한 상태. 소셜 로그인 통해서 다시 해보기
-                val RecycleInfo = hashMapOf(
-                    "missionTitle" to confirm_title.text.toString(),
-                    "missionContent" to confirm_ment_sub.text.toString(),
-                )
-
-                fbFirestore?.collection("users")?.document(fbAuth.toString())
-                    ?.collection("mission")?.document()?.collection("missionDetail")
-                    ?.document("recycle")?.set(RecycleInfo)
-
+                intent.putExtra("missionTitle",confirm_title.text.toString())
+                intent.putExtra("missionContent",confirm_ment_sub.text.toString())
                 startActivity(intent)
             } else{
                 nextButton.isSelected = false
