@@ -52,8 +52,11 @@ class PhotoActivity : AppCompatActivity() {
 
     private val requestImageCapture = 1 //카메라 사진 촬영 요청코드
     private lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
+    private lateinit var scaledFile: File //카카오 서버에 전송하기 위해 용량 조절된 사진
+    private lateinit var PhotoURLKakao: String //카카오 서버에 업로드 된 사진의 URL
 
     private var sendPermission = false //사진이 등록되지 않을 경우 0
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -150,41 +153,27 @@ class PhotoActivity : AppCompatActivity() {
         }
 
         //친구에게 인증
-        //Todo: 2) img url을 저렇게 넣는 게 아니거나
+        //DB에 업로드 하지 않음
         confirm_to_friend.setOnClickListener {
             if(sendPermission){
-                //파이어베이스 스토리지에 업로드
-                val recyclesRef = storageRef.child("turtle.png")
-                val recycleImagesRef = recyclesRef.child("images/turtle.png")
-                recyclesRef.name == recycleImagesRef.name
-                recyclesRef.path == recycleImagesRef.path
-
-                val file = Uri.fromFile(File(curPhotoPath))
-                val trashRef = storageRef.child("images/${file.lastPathSegment}")
-                val uploadTask = trashRef.putFile(file)
-
-                uploadTask.addOnFailureListener {
-                    Log.e("Photo Upload:", "failure")
-                }.addOnSuccessListener { taskSnapshot ->
-                    Log.e("Photo Upload:", "success")
+                Toast.makeText(this, "메시지를 작성하는 중입니다. 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
+                LinkClient.instance.uploadImage(scaledFile){imageUploadResult, error ->
+                    if(error!=null){
+                        Log.e("Kakao server upload","failed", error)
+                    }
+                    else if(imageUploadResult!=null){
+                        Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
+                        PhotoURLKakao = imageUploadResult.infos.original.url
+                    }
                 }
-                Toast.makeText(this, "메시지를 준비 중입니다.. 약 7초의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
 
                 Handler().postDelayed({
-                    //재활용 사진이 저장된 URL 다운로드
-                    val trashPhotoDownloadURL:String = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
-                        Log.e("Photo Url download:","success")
-                    }.addOnFailureListener {
-                        Log.e("Photo Url download:","failure")
-                    }.toString()
-
-
                     //고정 카카오 피드 메시지 작성
                     val defaultFeed = FeedTemplate(
                         content = Content(
                             title = "재활용 인증 요청이 도착했어요!",
                             description = "섬이 깨끗해질 수 있도록, 친구의 분리배출 결과를 확인해주세요!",
-                            imageUrl = trashPhotoDownloadURL,
+                            imageUrl = PhotoURLKakao,
                             link = Link(
                                 webUrl = "https://www.zoosum.site/",
                                 mobileWebUrl = "https://www.zoosum.site/"
@@ -290,6 +279,7 @@ class PhotoActivity : AppCompatActivity() {
     //startActivityforResult를 통해서 기본 카메라 앱으로부터 받아온 사진 결과값
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        Toast.makeText(this, "사진을 압축 중입니다. 시간이 소요될 수 있습니다!", Toast.LENGTH_SHORT).show()
 
         //이미지를 성공적으로 가져온 경우
         if (requestCode == requestImageCapture && resultCode == Activity.RESULT_OK) {
@@ -302,6 +292,12 @@ class PhotoActivity : AppCompatActivity() {
 
             if (Build.VERSION.SDK_INT < 28) { //안드로이드 9.0 보다 낮을 경우
                 bitmap = MediaStore.Images.Media.getBitmap(contentResolver, Uri.fromFile(file))
+                //카카오링크 전송을 위해 사이즈 조정하여 카카오 서버에 업로드
+                scaledFile = File(applicationContext.cacheDir,"sample.png")
+                val scaledStream = FileOutputStream(scaledFile)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
+                scaledStream.close()
+
                 val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 846, false)
                 square_photo.setImageBitmap(scaledBitmap)
             } else {
@@ -310,6 +306,12 @@ class PhotoActivity : AppCompatActivity() {
                     Uri.fromFile(file)
                 )
                 bitmap = ImageDecoder.decodeBitmap(decode)
+                //카카오링크 전송을 위해 사이즈 조정하여 카카오 서버에 업로드
+                scaledFile = File(applicationContext.cacheDir,"sample.png")
+                val scaledStream = FileOutputStream(scaledFile)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
+                scaledStream.close()
+
                 val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 846, false)
                 square_photo.setImageBitmap(scaledBitmap)
             }
@@ -317,27 +319,6 @@ class PhotoActivity : AppCompatActivity() {
             confirm_to_friend.setTextColor(ContextCompat.getColor(this, R.color.friendly_green))
             confirm_to_resident.isSelected = true
             confirm_to_resident.setTextColor(ContextCompat.getColor(this, R.color.friendly_green))
-
-            //savePhoto(bitmap)
         }
-    }
-
-    //갤러리에 저장
-    private fun savePhoto(bitmap: Bitmap) {
-        val folderPath = Environment.getExternalStorageDirectory().absolutePath + "/Pictures/"
-        val fileName = "${timestamp}.jpeg"
-        val folder = File(folderPath)
-
-        if(!folder.isDirectory){
-            folder.mkdirs()
-        }
-
-        val out = FileOutputStream(folderPath + fileName)
-
-        val storageRef = storage.reference
-        //val recyclesRef = storageRef.child("")
-
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
-        Toast.makeText(this, "사진이 앨범에 저장되었습니다.", Toast.LENGTH_SHORT).show()
     }
 }
