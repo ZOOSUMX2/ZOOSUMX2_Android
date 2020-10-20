@@ -1,13 +1,10 @@
-package com.example.zoosumx2.model
+package com.example.zoosumx2
 
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.view.Window
 import android.widget.Button
-import com.example.zoosumx2.GetRewardActivity
-import com.example.zoosumx2.PhotoActivity
-import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
