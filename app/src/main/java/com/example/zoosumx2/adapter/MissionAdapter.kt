@@ -1,5 +1,6 @@
 package com.example.zoosumx2.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.example.zoosumx2.model.MissionItem
 class MissionAdapter(var context: Context, var arrayList: ArrayList<MissionItem>):BaseAdapter() {
 
     override fun getItem(position: Int): Any {
-        return arrayList.get(position)
+        return arrayList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -23,14 +24,15 @@ class MissionAdapter(var context: Context, var arrayList: ArrayList<MissionItem>
         return arrayList.size
     }
 
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
-        var view:View = View.inflate(context, R.layout.mission_card_item, null)
-        var icons:ImageView = view.findViewById(R.id.mission_card_image)
-        var title:TextView = view.findViewById(R.id.mission_card_title)
-        var context:TextView = view.findViewById(R.id.mission_card_context)
+        val view: View = View.inflate(context, R.layout.mission_card_item, null)
+        val icons: ImageView = view.findViewById(R.id.mission_card_image)
+        val title: TextView = view.findViewById(R.id.mission_card_title)
+        val context: TextView = view.findViewById(R.id.mission_card_context)
 
-        var listItem:MissionItem = arrayList.get(position)
+        val listItem: MissionItem = arrayList[position]
 
         icons.setImageResource(listItem.icons!!)
         title.text = listItem.title

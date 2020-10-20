@@ -19,7 +19,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:adjustViewBounds="true"
             android:background="@color/friendly_green"
             android:contentDescription="@string/image"

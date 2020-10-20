@@ -5,9 +5,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zoosumx2.GetRegionActivity
 import com.example.zoosumx2.R
@@ -41,9 +39,9 @@ class RegionAdapter: RecyclerView.Adapter<Holder>() {
                 holder.itemView.region_item.setTextColor(Color.parseColor("#ffffff"))
             }
 
-            val intent = Intent(holder.itemView?.context, GetRegionActivity::class.java)
-            intent.putExtra("user_region",holder.itemView.region_item.text.toString())
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            val intent = Intent(holder.itemView.context, GetRegionActivity::class.java)
+            intent.putExtra("user_region", holder.itemView.region_item.text.toString())
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 

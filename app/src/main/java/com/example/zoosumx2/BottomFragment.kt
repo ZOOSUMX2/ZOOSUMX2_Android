@@ -19,26 +19,25 @@ class BottomFragment(): BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-        val view = inflater.inflate(R.layout.region_bottom_sheet_dialog,container,false)
+        val view = inflater.inflate(R.layout.region_bottom_sheet_dialog, container, false)
 
-        var data:MutableList<RegionData> = setData()
-        var adapter = RegionAdapter()
-        var recyclerView = view.findViewById<RecyclerView>(R.id.region_item_grid)
+        val data: MutableList<RegionData> = setData()
+        val adapter = RegionAdapter()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.region_item_grid)
         adapter.regionData = data
         recyclerView.adapter = adapter
         //recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext,8)
 
-        val gridLayoutManager = GridLayoutManager(activity!!.applicationContext,3)
+        val gridLayoutManager = GridLayoutManager(activity!!.applicationContext, 3)
         gridLayoutManager.orientation = GridLayoutManager.HORIZONTAL
         recyclerView.layoutManager = gridLayoutManager
         recyclerView.setHasFixedSize(true)
 
-
         return view
     }
 
-    fun setData():MutableList<RegionData>{
-        var data:MutableList<RegionData> = mutableListOf()
+    private fun setData(): MutableList<RegionData> {
+        val data: MutableList<RegionData> = mutableListOf()
         /*for(num in 1..24){
             var regiondata = RegionData(num.toString())
             data.add(regiondata)
@@ -68,13 +67,6 @@ class BottomFragment(): BottomSheetDialogFragment() {
         data.add(RegionData("도봉구"))
         data.add(RegionData("강서구"))
 
-
-
         return data
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 }

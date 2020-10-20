@@ -9,9 +9,6 @@ import androidx.viewpager.widget.ViewPager
 import com.example.zoosumx2.R
 import com.example.zoosumx2.adapter.PagerAdapter
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-import kotlinx.android.synthetic.main.fragment_pager_home.*
-
 
 class PagerHomeFragment : Fragment() {
 
@@ -24,9 +21,9 @@ class PagerHomeFragment : Fragment() {
 
         val pagerAdapter = PagerAdapter(childFragmentManager)
         val pager: ViewPager = view.findViewById<ViewPager>(R.id.view_pager)
-        val dots_indicator = view.findViewById<DotsIndicator>(R.id.indicator)
+        val dotsIndicator = view.findViewById<DotsIndicator>(R.id.indicator)
         pager.adapter = pagerAdapter
-        dots_indicator.setViewPager(pager)
+        dotsIndicator.setViewPager(pager)
 
         return view
     }

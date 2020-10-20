@@ -1,6 +1,5 @@
 package com.example.zoosumx2
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -14,10 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_random_quiz.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.random.Random
 
 class RandomQuizActivity : AppCompatActivity() {
@@ -34,21 +31,20 @@ class RandomQuizActivity : AppCompatActivity() {
         fbFirestore = FirebaseFirestore.getInstance()
 
         val backButton = findViewById<ImageButton>(R.id.random_quiz_back)
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             finish()
         }
 
-        var correct_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
-        var wrong_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
+        var correctAnswer = findViewById<Button>(R.id.button_correct_answer_quiz)
+        var wrongAnswer = findViewById<Button>(R.id.button_wrong_answer_quiz)
         val nextButton = findViewById<Button>(R.id.random_quiz_next)
 
         //정답 문항의 자리 랜덤으로 교환
-        val random_answer_num = Random.nextInt(2)
-        if(random_answer_num==0){
-            correct_answer = findViewById<Button>(R.id.button_wrong_answer_quiz)
-            wrong_answer = findViewById<Button>(R.id.button_correct_answer_quiz)
+        val randomAnswerNum = Random.nextInt(2)
+        if (randomAnswerNum == 0) {
+            correctAnswer = findViewById<Button>(R.id.button_wrong_answer_quiz)
+            wrongAnswer = findViewById<Button>(R.id.button_correct_answer_quiz)
         }
-
 
         //DB에서 문제 및 문항 가져오기
         //해당 달의 숫자가 이름인 문서에 저장한 문제를 가져옴
@@ -57,61 +53,61 @@ class RandomQuizActivity : AppCompatActivity() {
         fbFirestore?.collection("senseQuiz")?.document(weekly)
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
-                random_quiz_main_ment?.text = documentSnapshot.data?.get("title").toString().replace("bb","\n")
-                correct_answer?.text = documentSnapshot.data?.get("option1").toString()
-                wrong_answer?.text = documentSnapshot.data?.get("option2").toString()
+                random_quiz_main_ment?.text =
+                    documentSnapshot.data?.get("title").toString().replace("bb", "\n")
+                correctAnswer?.text = documentSnapshot.data?.get("option1").toString()
+                wrongAnswer?.text = documentSnapshot.data?.get("option2").toString()
             }
 
 
-        correct_answer.setOnClickListener{
-            if(wrong_answer.isSelected){
-                wrong_answer.isSelected=false
-                wrong_answer.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+        correctAnswer.setOnClickListener {
+            if (wrongAnswer.isSelected) {
+                wrongAnswer.isSelected = false
+                wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorText))
             }
-                correct_answer.isSelected=true
-                correct_answer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            correctAnswer.isSelected = true
+            correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
         }
 
-        wrong_answer.setOnClickListener {
-            if (correct_answer.isSelected) {
-                correct_answer.isSelected = false
-                correct_answer.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+        wrongAnswer.setOnClickListener {
+            if (correctAnswer.isSelected) {
+                correctAnswer.isSelected = false
+                correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorText))
             }
-            wrong_answer.isSelected = true
-            wrong_answer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            wrongAnswer.isSelected = true
+            wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
         }
 
-        var answer_checked: Boolean = false
+        var answerChecked = false
 
-        nextButton.setOnClickListener{
-            random_quiz_next.text="리워드 확인"
+        nextButton.setOnClickListener {
+            random_quiz_next.text = "리워드 확인"
 
-            if(correct_answer.isSelected||wrong_answer.isSelected){
-                if(correct_answer.isSelected){
-                    answer_checked = true
-                    random_quiz_main_ment.text="정답이에요!"
+            if (correctAnswer.isSelected || wrongAnswer.isSelected) {
+                if (correctAnswer.isSelected) {
+                    answerChecked = true
+                    random_quiz_main_ment?.text = "정답이에요!"
                     random_quiz_image.setImageResource(R.drawable.you_right)
-                    random_quiz_sub_ment.text="페트병 버리는 방법 잘 알고 계시네요!"
-                    correct_answer.setBackgroundResource(R.drawable.random_correct_correct_color)
-                    correct_answer.setTextColor(Color.WHITE)
+                    random_quiz_sub_ment?.text = "페트병 버리는 방법 잘 알고 계시네요!"
+                    correctAnswer.setBackgroundResource(R.drawable.random_correct_correct_color)
+                    correctAnswer.setTextColor(Color.WHITE)
 
-                    wrong_answer.setBackgroundResource(R.drawable.random_correct_wrong_color)
-                    wrong_answer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+                    wrongAnswer.setBackgroundResource(R.drawable.random_correct_wrong_color)
+                    wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
 
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(2))
 
-                }
-                else{
-                    answer_checked = false
-                    random_quiz_main_ment.text="정답이...아니에요"
+                } else {
+                    answerChecked = false
+                    random_quiz_main_ment?.text = "정답이...아니에요"
                     random_quiz_image.setImageResource(R.drawable.you_wrong)
-                    random_quiz_sub_ment.text="다 마신 페트병은 이렇게 버려야 해요!"
-                    wrong_answer.setBackgroundResource(R.drawable.random_wrong_correct_color)
-                    wrong_answer.setTextColor(Color.WHITE)
+                    random_quiz_sub_ment?.text = "다 마신 페트병은 이렇게 버려야 해요!"
+                    wrongAnswer.setBackgroundResource(R.drawable.random_wrong_correct_color)
+                    wrongAnswer.setTextColor(Color.WHITE)
 
-                    correct_answer.setBackgroundResource(R.drawable.random_wrong_wrong_color)
-                    correct_answer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+                    correctAnswer.setBackgroundResource(R.drawable.random_wrong_wrong_color)
+                    correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
 
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(1))
@@ -122,10 +118,9 @@ class RandomQuizActivity : AppCompatActivity() {
             nextButton.setOnClickListener {
                 val intent = Intent(this, GetRewardActivity::class.java)
 
-                if(answer_checked){
+                if (answerChecked) {
                     intent.putExtra("reward", 2)
-                }
-                else{
+                } else {
                     intent.putExtra("reward", 1)
                 }
                 startActivity(intent)

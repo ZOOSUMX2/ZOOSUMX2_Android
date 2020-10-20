@@ -3,8 +3,6 @@ package com.example.zoosumx2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.TextView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MailboxFirstActivity : AppCompatActivity() {

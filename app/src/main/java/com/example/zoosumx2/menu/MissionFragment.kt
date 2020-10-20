@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import com.example.zoosumx2.*
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
@@ -48,7 +47,7 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
     private fun setDataList() : ArrayList<MissionItem>{
 
-        var arrayList:ArrayList<MissionItem> = ArrayList()
+        val arrayList: ArrayList<MissionItem> = ArrayList()
 
         arrayList.add(MissionItem(R.drawable.icon_confirmrecycle, "재활용 인증", "재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"))
         arrayList.add(MissionItem(R.drawable.icon_residentquiz, "주민 출제 퀴즈", "동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"))
@@ -60,7 +59,7 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-        var items: MissionItem = arrayList!!.get(position)
+        val items: MissionItem = arrayList!!.get(position)
         when(items.title){
             "재활용 인증" -> {
                 val intent = Intent(context, ConfirmRecycleActivity::class.java)

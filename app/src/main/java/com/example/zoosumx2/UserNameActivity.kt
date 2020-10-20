@@ -28,14 +28,12 @@ class UserNameActivity : AppCompatActivity() {
 
         val userInfo = UserDTO()
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기
-        //userInfo.nickname = userName_edit.text.toString()
 
         val updates = hashMapOf<String, Any>(
             "creationTimestamp" to FieldValue.serverTimestamp()
         )
 
         //사용자 이름
-
         val nextButton = findViewById<Button>(R.id.userName_button_next)
         nextButton.setOnClickListener {
             val intent = Intent(this, GetRegionActivity::class.java)

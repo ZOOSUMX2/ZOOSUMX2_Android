@@ -1,13 +1,10 @@
 package com.example.zoosumx2
 
-import android.Manifest.permission.CAMERA
-import android.Manifest.permission_group.CAMERA
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
-import android.graphics.Matrix
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,13 +13,10 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -32,16 +26,12 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
-import kotlinx.android.synthetic.main.activity_confirm_others.*
-import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
-import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.jar.Manifest
 
 class PhotoActivity : AppCompatActivity() {
 
@@ -51,10 +41,10 @@ class PhotoActivity : AppCompatActivity() {
     var fbFirestore: FirebaseFirestore? = null
     val storage = Firebase.storage
 
-    val REQUEST_IMAGE_CAPTURE = 1 //카메라 사진 촬영 요청코드
-    lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
+    private val requestImageCapture = 1 //카메라 사진 촬영 요청코드
+    private lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
 
-    var send_permission = false //사진이 등록되지 않을 경우 0
+    private var sendPermission = false //사진이 등록되지 않을 경우 0
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,22 +76,22 @@ class PhotoActivity : AppCompatActivity() {
 
         //주민에게 인증
         confirm_to_resident.setOnClickListener{
-            if(send_permission){
+            if (sendPermission) {
 
                 //파이어베이스 스토리지에 업로드
                 val recyclesRef = storageRef.child("turtle.png")
                 val recycleImagesRef = recyclesRef.child("images/turtle.png")
-                recyclesRef.name==recycleImagesRef.name
-                recyclesRef.path==recycleImagesRef.path
+                recyclesRef.name == recycleImagesRef.name
+                recyclesRef.path == recycleImagesRef.path
 
-                var file = Uri.fromFile(File(curPhotoPath))
+                val file = Uri.fromFile(File(curPhotoPath))
                 val trashRef = storageRef.child("images/${file.lastPathSegment}")
-                var uploadTask = trashRef.putFile(file)
+                val uploadTask = trashRef.putFile(file)
 
-                uploadTask.addOnFailureListener{
-                    Log.e("Photo Upload:","failure")
+                uploadTask.addOnFailureListener {
+                    Log.e("Photo Upload:", "failure")
                 }.addOnSuccessListener { taskSnapshot ->
-                    Log.e("Photo Upload:","success")
+                    Log.e("Photo Upload:", "success")
                 }
                 Toast.makeText(this, "사진을 주민들에게 보내는 중입니다..", Toast.LENGTH_SHORT).show()
 
@@ -165,13 +155,14 @@ class PhotoActivity : AppCompatActivity() {
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                    startActivityForResult(takePictureIntent, requestImageCapture)
                 }
             }
         }
     }
 
     //이미지 파일 생성
+    @SuppressLint("SimpleDateFormat")
     private fun createImageFile(): File? {
         timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -206,20 +197,19 @@ class PhotoActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         //이미지를 성공적으로 가져온 경우
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK){
+        if (requestCode == requestImageCapture && resultCode == Activity.RESULT_OK) {
             val bitmap: Bitmap
             val file = File(curPhotoPath)
 
-            camera_icon.visibility = View.INVISIBLE
+            camera_icon?.visibility = View.INVISIBLE
             btn_open_camera.visibility = View.INVISIBLE
-            send_permission = true
+            sendPermission = true
 
-            if(Build.VERSION.SDK_INT<28){ //안드로이드 9.0 보다 낮을 경우
+            if (Build.VERSION.SDK_INT < 28) { //안드로이드 9.0 보다 낮을 경우
                 bitmap = MediaStore.Images.Media.getBitmap(contentResolver, Uri.fromFile(file))
                 val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 956, 846, false)
                 square_photo.setImageBitmap(scaledBitmap)
-            }
-            else{
+            } else {
                 val decode = ImageDecoder.createSource(
                     this.contentResolver,
                     Uri.fromFile(file)
@@ -250,7 +240,7 @@ class PhotoActivity : AppCompatActivity() {
         val out = FileOutputStream(folderPath + fileName)
 
         val storageRef = storage.reference
-        val recyclesRef = storageRef.child("")
+        //val recyclesRef = storageRef.child("")
 
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
         Toast.makeText(this, "사진이 앨범에 저장되었습니다.", Toast.LENGTH_SHORT).show()
