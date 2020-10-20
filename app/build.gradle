@@ -59,6 +59,7 @@ dependencies {
 
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'//인디케이터 오픈소스
     implementation "com.kakao.sdk:v2-user:2.0.0"
+    implementation "com.kakao.sdk:v2-link:2.0.4"
 
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.0'
 }

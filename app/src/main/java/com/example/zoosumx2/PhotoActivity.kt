@@ -26,6 +26,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
+import com.kakao.sdk.link.LinkClient
+import com.kakao.sdk.template.model.Button
+import com.kakao.sdk.template.model.Content
+import com.kakao.sdk.template.model.FeedTemplate
+import com.kakao.sdk.template.model.Link
 import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 import kotlinx.android.synthetic.main.activity_photo.*
 import java.io.File
@@ -104,7 +109,7 @@ class PhotoActivity : AppCompatActivity() {
                 }.addOnSuccessListener { taskSnapshot ->
                     Log.e("Photo Upload:", "success")
                 }
-                Toast.makeText(this, "사진을 주민들에게 보내는 중입니다..", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "사진을 주민들에게 보내는 중입니다.. 약 7초의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
 
 
                 //Todo: DB에 정보 저장
@@ -144,9 +149,86 @@ class PhotoActivity : AppCompatActivity() {
             }
         }
 
-        //Todo: 친구에게 인증 받기
+        //친구에게 인증
+        //Todo: 2) img url을 저렇게 넣는 게 아니거나
         confirm_to_friend.setOnClickListener {
+            if(sendPermission){
+                //파이어베이스 스토리지에 업로드
+                val recyclesRef = storageRef.child("turtle.png")
+                val recycleImagesRef = recyclesRef.child("images/turtle.png")
+                recyclesRef.name == recycleImagesRef.name
+                recyclesRef.path == recycleImagesRef.path
 
+                val file = Uri.fromFile(File(curPhotoPath))
+                val trashRef = storageRef.child("images/${file.lastPathSegment}")
+                val uploadTask = trashRef.putFile(file)
+
+                uploadTask.addOnFailureListener {
+                    Log.e("Photo Upload:", "failure")
+                }.addOnSuccessListener { taskSnapshot ->
+                    Log.e("Photo Upload:", "success")
+                }
+                Toast.makeText(this, "메시지를 준비 중입니다.. 약 7초의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT).show()
+
+                Handler().postDelayed({
+                    //재활용 사진이 저장된 URL 다운로드
+                    val trashPhotoDownloadURL:String = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
+                        Log.e("Photo Url download:","success")
+                    }.addOnFailureListener {
+                        Log.e("Photo Url download:","failure")
+                    }.toString()
+
+
+                    //고정 카카오 피드 메시지 작성
+                    val defaultFeed = FeedTemplate(
+                        content = Content(
+                            title = "재활용 인증 요청이 도착했어요!",
+                            description = "섬이 깨끗해질 수 있도록, 친구의 분리배출 결과를 확인해주세요!",
+                            imageUrl = trashPhotoDownloadURL,
+                            link = Link(
+                                webUrl = "https://www.zoosum.site/",
+                                mobileWebUrl = "https://www.zoosum.site/"
+                            )
+                        ),
+                        buttons = listOf(
+                            Button(
+                                "주섬주섬 구경하기",
+                                Link(
+                                    webUrl = "https://www.zoosum.site/",
+                                    mobileWebUrl = "https://www.zoosum.site/"
+                                )
+                            ),
+                            Button(
+                                "앱 설치하기",
+                                Link( //임시로 홈페이지 주소 연결
+                                    webUrl = "https://www.zoosum.site/",
+                                    mobileWebUrl = "https://www.zoosum.site/"
+                                )
+                            )
+                        )
+                    )
+
+
+                    //메시지 보내기
+                    LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error ->
+                        if(error!=null){
+                            Log.e("kakao link sending","failed", error)
+                            Toast.makeText(this, "카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
+                        }
+                        else if(linkResult!=null){
+                            Log.d("kakao link sending","successed ${linkResult.intent}")
+                            startActivity(linkResult.intent)
+
+                            //카카오 링크로 보내기에 성공했지만 아래 경고 메시지가 있으면 일부 컨텐츠 오작동 가능성 있음
+                            Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
+                            Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
+                        }
+                    }
+                },10000)
+            }
+            else{
+                Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
+            }
         }
 
     }
@@ -220,7 +302,7 @@ class PhotoActivity : AppCompatActivity() {
 
             if (Build.VERSION.SDK_INT < 28) { //안드로이드 9.0 보다 낮을 경우
                 bitmap = MediaStore.Images.Media.getBitmap(contentResolver, Uri.fromFile(file))
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 956, 846, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 846, false)
                 square_photo.setImageBitmap(scaledBitmap)
             } else {
                 val decode = ImageDecoder.createSource(
@@ -228,7 +310,7 @@ class PhotoActivity : AppCompatActivity() {
                     Uri.fromFile(file)
                 )
                 bitmap = ImageDecoder.decodeBitmap(decode)
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 956, 846, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 846, false)
                 square_photo.setImageBitmap(scaledBitmap)
             }
             confirm_to_friend.isSelected = true
