@@ -190,21 +190,23 @@ class PhotoActivity : AppCompatActivity() {
                         LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error ->
                             if(error!=null){
                                 Log.e("kakao link sending","failed", error)
-                                Toast.makeText(this, "카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this, "카카오톡이 설치되어 있지 않거나, 카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
                             }
                             else if(linkResult!=null){
                                 Log.d("kakao link sending","successed ${linkResult.intent}")
                                 startActivity(linkResult.intent)
+
+                                // 메시지 보내기에 성공할 경우 리워드 화면 연결
+                                //다이얼로그 호출
+                                val dlg = FriendConfirmSubDialog(this)
+                                dlg.start(this)
 
                                 //카카오 링크로 보내기에 성공했지만 아래 경고 메시지가 있으면 일부 컨텐츠 오작동 가능성 있음
                                 Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
                                 Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
                             }
                         }
-                        // 메시지 보내기에 성공할 경우 리워드 화면 연결
-                        //다이얼로그 호출
-                        val dlg = FriendConfirmSubDialog(this)
-                        dlg.start(this)
+
                     }
                 }
             }
