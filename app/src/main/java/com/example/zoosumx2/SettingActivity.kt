@@ -1,6 +1,7 @@
 package com.example.zoosumx2
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
@@ -76,6 +77,16 @@ class SettingActivity : AppCompatActivity() {
             email.putExtra(Intent.EXTRA_SUBJECT, "주섬주섬 문의사항")
             email.putExtra(Intent.EXTRA_TEXT, "문의사항을 자세하게 입력해주세요\n\n")
             startActivity(email)
+        }
+
+        // 개인정보 처리방침
+        val policy = findViewById<LinearLayout>(R.id.linearlayout_policy_setting)
+        policy.setOnClickListener {
+            val url = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.notion.so/3ad045e053a44d43b28b08880820bbe1")
+            )
+            startActivity(url)
         }
     }
 }

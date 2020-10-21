@@ -1,7 +1,7 @@
 package com.example.zoosumx2
 
+import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -116,19 +116,20 @@ class PhotoActivity : AppCompatActivity() {
                 //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
                 Handler().postDelayed({
                     //재활용 사진이 저장된 URL 다운로드
-                    val trashPhotoDownloadURL:String? = storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
-                        Log.e("Photo Url download:","success")
-                        Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
-                        //다이얼로그 호출
-                        val dlg = ResidentConfirmSubDialog(this)
-                        dlg.start(this)
-                    }.addOnFailureListener {
-                        Log.e("Photo Url download:","failure")
-                    }.toString()
+                    val trashPhotoDownloadURL: String? =
+                        storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
+                            Log.e("Photo Url download:", "success")
+                            Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
+                            //다이얼로그 호출
+                            val dlg = ResidentConfirmSubDialog(this)
+                            dlg.start(this)
+                        }.addOnFailureListener {
+                            Log.e("Photo Url download:", "failure")
+                        }.toString()
 
 
                     //재활용 사진 및 미션 정보 DB에 업로드
-                    val RecyclePhotoInfo = hashMapOf(
+                    val recyclePhotoInfo = hashMapOf(
                         "missionTitle" to missionTitle,
                         "missionContent" to missionContent,
                         "isApproved" to false,
@@ -136,8 +137,9 @@ class PhotoActivity : AppCompatActivity() {
                         "photo" to trashPhotoDownloadURL
                     )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.collection("mission")?.document(fbAuth?.uid.toString())?.collection("missionDetail")?.document("recycle")?.set(RecyclePhotoInfo)
-                },10000)
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo)
+                }, 10000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
@@ -264,7 +266,7 @@ class PhotoActivity : AppCompatActivity() {
             .setPermissionListener(permission)
             .setRationaleMessage("카메라 앱을 사용하시려면 권한을 허용해주세요.")
             .setDeniedMessage("권한을 거부하셨습니다. [앱 설정] -> [권한] 항목에서 허용해주세요.")
-            .setPermissions(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA)
+            .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
             .check()
     }
 
@@ -275,7 +277,7 @@ class PhotoActivity : AppCompatActivity() {
         Toast.makeText(this, "사진을 압축 중이에요. 약간의 시간이 소요될 수 있어요!", Toast.LENGTH_SHORT).show()
 
         //이미지를 성공적으로 가져온 경우
-        if (requestCode == requestImageCapture && resultCode == Activity.RESULT_OK) {
+        if (requestCode == requestImageCapture && resultCode == RESULT_OK) {
             val bitmap: Bitmap
             val file = File(curPhotoPath)
 

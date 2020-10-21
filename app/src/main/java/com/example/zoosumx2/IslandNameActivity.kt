@@ -1,7 +1,9 @@
 package com.example.zoosumx2
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
@@ -36,13 +38,21 @@ class IslandNameActivity : AppCompatActivity() {
                 userName.text = documentSnapshot.data?.get("nickname").toString()
             }
 
+        fun closeKeyboard() {
+            val view = this.currentFocus
+            if (view != null) {
+                val inputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        }
+
         val nextButton = findViewById<Button>(R.id.islandName_button_next)
         nextButton.setOnClickListener {
 
             val islandName = findViewById<EditText>(R.id.edittext_islandName_edit)
             if (islandName.text.toString().trim().isNotEmpty()) {
-                //intent.putExtra("user_info_count", 1.toString())
-
+                closeKeyboard() // 키보드 내려가게
                 userInfo.islandName = islandName.text.toString()
 
                 // firestore에 사용자 정보 업데이트
