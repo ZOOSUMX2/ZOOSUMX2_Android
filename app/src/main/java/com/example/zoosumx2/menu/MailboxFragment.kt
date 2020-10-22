@@ -1,6 +1,7 @@
 package com.example.zoosumx2.menu
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,13 +40,19 @@ class MailboxFragment : Fragment() {
         recyclerview_mailbox_mailbox?.adapter = MailboxAdapter()
         recyclerview_mailbox_mailbox?.layoutManager = LinearLayoutManager(context)
         recyclerview_mailbox_mailbox?.setHasFixedSize(true) // recyclerview 크기 고정
+        val spaceDecoration = VerticalSpaceItemDecoration(-70)
+        recyclerview_mailbox_mailbox?.addItemDecoration(spaceDecoration)
+    }
 
-//        // 뉴스 클릭
-//        linearlayout_mailbox_mailbox_list_item.setOnClickListener {
-//            val intent = Intent(context, MailboxFirstActivity::class.java)
-//            startActivity(intent)
-//        }
+    inner class VerticalSpaceItemDecoration(private val verticalSpaceHeight: Int) :
+        RecyclerView.ItemDecoration() {
 
+        override fun getItemOffsets(
+            outRect: Rect, view: View, parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            outRect.bottom = verticalSpaceHeight
+        }
     }
 
     inner class MailboxAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -55,21 +62,28 @@ class MailboxFragment : Fragment() {
         // townRanking의 문서를 불러온 뒤 MailboxDTO로 변환해서 ArrayList에 담음
         init {
             // 사용자의 지역구 뉴스를 가져옴
-            fbFirestore?.collection("news")?.whereEqualTo("addressCity", "용산구")
-                ?.orderBy("issueDate", Query.Direction.DESCENDING)
-                ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                    // ArrayList 비워줌
-                    mailBox.clear()
+            var gu: String?
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    if (documentSnapshot == null) return@addSnapshotListener
+                    gu = documentSnapshot.data?.get("addressRegion").toString()
 
-                    if (querySnapshot != null) {
-                        for (snapshot in querySnapshot.documents) {
-                            val item = snapshot.toObject(MailboxDTO::class.java)
-                            if (item != null) {
-                                mailBox.add(item)
+                    fbFirestore?.collection("news")?.whereEqualTo("addressCity", gu.toString())
+                        ?.orderBy("issueDate", Query.Direction.DESCENDING)
+                        ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                            // ArrayList 비워줌
+                            mailBox.clear()
+
+                            if (querySnapshot != null) {
+                                for (snapshot in querySnapshot.documents) {
+                                    val item = snapshot.toObject(MailboxDTO::class.java)
+                                    if (item != null) {
+                                        mailBox.add(item)
+                                    }
+                                }
                             }
+                            notifyDataSetChanged()
                         }
-                    }
-                    notifyDataSetChanged()
                 }
         }
 
@@ -99,7 +113,7 @@ class MailboxFragment : Fragment() {
             // recyclerview click listener -> 기사 상세화면
             viewHolder.setOnClickListener {
                 val intent = Intent(context, NewsActivity::class.java)
-                intent.putExtra("header", mailBox[position].title.toString().replace("bb", "\n"))
+                intent.putExtra("header", mailBox[position].title.toString())
                 intent.putExtra("date", mailBox[position].issueDate.toString())
                 intent.putExtra("guOffice", mailBox[position].addressCity.toString())
                 intent.putExtra("content", mailBox[position].contents.toString())

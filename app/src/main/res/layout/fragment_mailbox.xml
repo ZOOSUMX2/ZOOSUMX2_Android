@@ -17,75 +17,11 @@
         android:textColor="@color/colorText"
         android:textSize="16sp" />
 
-
-    <!--    <ScrollView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@+id/textview_mailbox"-->
-    <!--        android:layout_marginBottom="100sp"-->
-    <!--        android:background="@color/colorMain"-->
-    <!--        android:fadingEdge="horizontal"-->
-    <!--        android:fadingEdgeLength="100sp"-->
-    <!--        android:requiresFadingEdge="vertical">-->
-
-    <!--        <LinearLayout-->
-    <!--            android:id="@+id/text"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="vertical">-->
-
-    <!--            <ImageButton-->
-    <!--                android:id="@+id/imagebutton_news1_mailbox"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginBottom="-20sp"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@color/colorMain"-->
-    <!--                android:contentDescription="@string/image"-->
-    <!--                android:scaleType="fitCenter"-->
-    <!--                android:src="@drawable/mailbox_background" />-->
-
-    <!--            <ImageButton-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginTop="-20sp"-->
-    <!--                android:layout_marginBottom="-20sp"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@color/colorMain"-->
-    <!--                android:contentDescription="@string/image"-->
-    <!--                android:scaleType="fitCenter"-->
-    <!--                android:src="@drawable/mailbox_background" />-->
-
-    <!--            <ImageButton-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginTop="-20sp"-->
-    <!--                android:layout_marginBottom="-20sp"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@color/colorMain"-->
-    <!--                android:contentDescription="@string/image"-->
-    <!--                android:scaleType="fitCenter"-->
-    <!--                android:src="@drawable/mailbox_background" />-->
-
-    <!--            <ImageButton-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_marginTop="-20sp"-->
-    <!--                android:layout_marginBottom="-20sp"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                android:background="@color/colorMain"-->
-    <!--                android:contentDescription="@string/image"-->
-    <!--                android:scaleType="fitCenter"-->
-    <!--                android:src="@drawable/mailbox3" />-->
-
-    <!--        </LinearLayout>-->
-    <!--    </ScrollView>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_mailbox_mailbox"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/textview_mailbox"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_mailbox"
         android:scrollbarFadeDuration="0"
         android:scrollbarSize="5dp"
         android:scrollbarThumbVertical="@color/colorSoftGray"
