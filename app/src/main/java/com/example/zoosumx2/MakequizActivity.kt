@@ -65,14 +65,16 @@ class MakequizActivity : AppCompatActivity() {
                                 userName = documentSnapshot.data?.get("nickname").toString()
                             }
 
+                        val adopt = false // 채택 여부(false : 채택 전, true : 채택)
                         val userQuizInfo = hashMapOf(
                             "title" to question.text.toString(),
-                            "option1" to correctExam.text.toString(),
-                            "option2" to wrongExam.text.toString(),
+                            "correctAns" to correctExam.text.toString(),
+                            "wrongAns" to wrongExam.text.toString(),
                             "creator" to userName,
-                            "creationTimestamp" to updates
+                            "creatorId" to fbAuth?.uid.toString(),
+                            "creationTimestamp" to updates,
+                            "adopt" to adopt
                         )
-
                         fbFirestore?.collection("userQuiz")?.add(userQuizInfo) // document id 자동 생성
 
                         // 모두 입력한 경우 리워드 액티비티로 이동

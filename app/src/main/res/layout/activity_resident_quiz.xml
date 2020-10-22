@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:fontFamily="@font/notosans_cjkkr_medium"
+            android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:lineSpacingExtra="12sp"
             android:text="Q. "
@@ -85,17 +85,17 @@
             tools:ignore="HardcodedText" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textview_question_resident_quiz"
+            android:layout_width="280sp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
-            android:text="플라스틱 용기의 대안으로 부상했지만\n사실상 재활용이 불가능한 플라스틱은?"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/resident_4"
+        android:id="@+id/textview_examiner_residen_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resident_third"
@@ -104,7 +104,6 @@
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center_horizontal"
         android:includeFontPadding="false"
-        android:text="서울시 용산구 권*엽님 출제"
         android:textColor="@color/colorSoftGray"
         android:textSize="12sp" />
 
@@ -126,7 +125,6 @@
             android:layout_marginBottom="-15sp"
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:text="@string/resident_correct_answer"
             android:textColor="@color/colorText"
             android:textSize="16sp" />
 
@@ -137,7 +135,6 @@
             android:layout_gravity="center"
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:text="@string/resident_wrong_answer"
             android:textColor="@color/colorText"
             android:textSize="16sp" />
     </LinearLayout>

@@ -5,14 +5,18 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.zoosumx2.model.UserQuizDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.auth.User
+import kotlinx.android.synthetic.main.activity_random_quiz.*
 import kotlin.random.Random
 
 class ResidentQuizActivity : AppCompatActivity() {
@@ -30,6 +34,7 @@ class ResidentQuizActivity : AppCompatActivity() {
 
         var correctAns = findViewById<Button>(R.id.button_correct_answer_quiz)
         var wrongAns = findViewById<Button>(R.id.button_wrong_answer_quiz)
+        val question = findViewById<TextView>(R.id.textview_question_resident_quiz)
         val header = findViewById<TextView>(R.id.textview_header_resident_quiz)
 
         //정답 문항의 자리 랜덤으로 교환
@@ -38,6 +43,16 @@ class ResidentQuizActivity : AppCompatActivity() {
             correctAns = findViewById(R.id.button_wrong_answer_quiz)
             wrongAns = findViewById(R.id.button_correct_answer_quiz)
         }
+
+        fbFirestore?.collection("userQuiz")?.whereEqualTo("adopt", true)
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                for (snapshot in documentSnapshot) {
+                    question.text = snapshot.getString("title").toString().replace("bb", "\n")
+                    correctAns.text = snapshot.getString("correctAns").toString()
+                    wrongAns.text = snapshot.getString("wrongAns").toString()
+                }
+            }
 
         // 선지 둘 중에 하나만 선택되도록
         correctAns.setOnClickListener {
