@@ -55,7 +55,7 @@
             android:name=".PointActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MailboxFirstActivity"
+            android:name=".NewsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingActivity"

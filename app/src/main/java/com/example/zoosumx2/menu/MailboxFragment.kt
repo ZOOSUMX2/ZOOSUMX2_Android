@@ -14,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_mailbox.*
-import kotlinx.android.synthetic.main.mailbox_list_item.*
 import kotlinx.android.synthetic.main.mailbox_list_item.view.*
 
 
@@ -97,7 +96,15 @@ class MailboxFragment : Fragment() {
             viewHolder.textview_guoffice_mailbox_list_item?.text =
                 mailBox[position].addressCity.toString()
 
-            // Todo : recyclerview click listener 추가
+            // recyclerview click listener -> 기사 상세화면
+            viewHolder.setOnClickListener {
+                val intent = Intent(context, NewsActivity::class.java)
+                intent.putExtra("header", mailBox[position].title.toString().replace("bb", "\n"))
+                intent.putExtra("date", mailBox[position].issueDate.toString())
+                intent.putExtra("guOffice", mailBox[position].addressCity.toString())
+                intent.putExtra("content", mailBox[position].contents.toString())
+                startActivity(intent)
+            }
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
