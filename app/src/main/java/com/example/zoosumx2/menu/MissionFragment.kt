@@ -2,6 +2,7 @@ package com.example.zoosumx2.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,16 @@ import android.widget.GridView
 import com.example.zoosumx2.*
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import kotlinx.android.synthetic.main.activity_random_quiz.*
+import kotlinx.android.synthetic.main.mission_card_item.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
@@ -34,6 +45,11 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mission, container, false)
 
+        //if(arguments?.getInt("weekFlag")==1){
+        //    mission_card_banner.setBackgroundResource(R.drawable.mission_card_banner_challenge)
+        //}
+        //mission_card_banner.setBackgroundResource(R.drawable.mission_card_banner_wait)
+
         gridView = view.findViewById(R.id.gridview_mission_card)
         arrayList = ArrayList()
         arrayList = setDataList()
@@ -43,6 +59,8 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
         return view
     }
+
+
 
     private fun setDataList() : ArrayList<MissionItem>{
 

@@ -2,6 +2,7 @@ package com.example.zoosumx2.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,10 @@ import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -55,5 +59,35 @@ class HomeFragment : Fragment() {
             val intent = Intent(context, PointActivity::class.java)
             startActivity(intent)
         }
+
+        //미션 시작 날짜 및 초기화 날짜 계산
+        val today: Calendar = Calendar.getInstance()
+        val todayWeek:Int = today.get(Calendar.WEEK_OF_YEAR)
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+
+                if(documentSnapshot.data?.get("creationTimestamp")!=todayWeek){
+                    //만일 오늘 날짜의 이번 년도 주차 수가 DB에 저장되어 있는 이번 년도 주차 수와 다르다면, 즉 새로운 주가 시작된 경우
+                    //1) DB의 주차(creationTimestamp) 업데이트
+                    val weekData = hashMapOf("creationTimestamp" to todayWeek)
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.set(weekData, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+                        ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+
+                    //2) missionFragemt로 flag 보내기
+                    MissionFragment().apply {
+                        arguments = Bundle().apply {
+                            putInt("weekFlag",1) //flag가 1이면 새로운 주가 시작된 것, mission 수행 상태 초기화하기
+                        }
+                    }
+                }
+                else{
+                    Log.d("compare week","success and same")
+                }
+            }
     }
 }

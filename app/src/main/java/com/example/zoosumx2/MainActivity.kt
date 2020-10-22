@@ -1,18 +1,32 @@
 package com.example.zoosumx2
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.menu.MailboxFragment
 import com.example.zoosumx2.menu.MypageFragment
 import com.example.zoosumx2.menu.PagerHomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
 
         // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)

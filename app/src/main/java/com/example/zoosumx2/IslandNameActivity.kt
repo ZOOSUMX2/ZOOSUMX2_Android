@@ -3,12 +3,18 @@ package com.example.zoosumx2
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import java.lang.Integer.parseInt
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.Calendar.WEEK_OF_YEAR
 
 class IslandNameActivity : AppCompatActivity() {
 
@@ -27,6 +33,17 @@ class IslandNameActivity : AppCompatActivity() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
+
+        //사용자가 처음 가입할 당시가 몇 주차인지 DB에 저장
+        val today: Calendar = Calendar.getInstance()
+        val todayWeek:Int = today.get(WEEK_OF_YEAR)
+
+        val weekData = hashMapOf("creationTimestamp" to todayWeek)
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.set(weekData, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+            ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+
 
         val userInfo = UserDTO()
         userInfo.uid = fbAuth?.uid.toString() // 로그인한 사용자 id 받아오기

@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
@@ -138,7 +139,7 @@ class PhotoActivity : AppCompatActivity() {
                     )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())
-                        ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo)
+                        ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo, SetOptions.merge())
                 }, 10000)
             }
             else{
