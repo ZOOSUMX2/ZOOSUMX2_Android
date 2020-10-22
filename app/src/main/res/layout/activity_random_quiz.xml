@@ -54,7 +54,6 @@
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:gravity="center_horizontal"
         android:includeFontPadding="false"
-        android:text="@string/random_quiz"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="24sp" />
@@ -100,7 +99,6 @@
             android:layout_marginBottom="-15sp"
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:text="@string/random_correct"
             android:textColor="@color/colorText"
             android:textSize="16sp" />
 
@@ -111,7 +109,6 @@
             android:layout_gravity="center"
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
-            android:text="@string/random_wrong"
             android:textColor="@color/colorText"
             android:textSize="16sp" />
     </LinearLayout>
