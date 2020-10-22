@@ -58,22 +58,29 @@ class TownActivity : AppCompatActivity() {
 
         // townRanking의 문서를 불러온 뒤 RankingData로 변환해서 ArrayList에 담음
         init {
-            // 용산구 주민 중 1~100등의 정보 가져옴
-            fbFirestore?.collection("users")?.whereEqualTo("addressRegion", "용산구")
-                ?.orderBy("exp", Query.Direction.DESCENDING)
-                ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                    // ArrayList 비워줌
-                    townRanking.clear()
+            // 사용자의 지역구 주민의 정보 가져옴
+            var gu: String?
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    if (documentSnapshot == null) return@addSnapshotListener
+                    gu = documentSnapshot.data?.get("addressRegion").toString()
 
-                    if (querySnapshot != null) {
-                        for (snapshot in querySnapshot.documents) {
-                            val item = snapshot.toObject(RankingData::class.java)
-                            if (item != null) {
-                                townRanking.add(item)
+                    fbFirestore?.collection("users")?.whereEqualTo("addressRegion", gu.toString())
+                        ?.orderBy("exp", Query.Direction.DESCENDING)
+                        ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                            // ArrayList 비워줌
+                            townRanking.clear()
+
+                            if (querySnapshot != null) {
+                                for (snapshot in querySnapshot.documents) {
+                                    val item = snapshot.toObject(RankingData::class.java)
+                                    if (item != null) {
+                                        townRanking.add(item)
+                                    }
+                                }
                             }
+                            notifyDataSetChanged()
                         }
-                    }
-                    notifyDataSetChanged()
                 }
         }
 
