@@ -57,7 +57,7 @@ class MailboxFragment : Fragment() {
         init {
             // 사용자의 지역구 뉴스를 가져옴
             fbFirestore?.collection("news")?.whereEqualTo("addressCity", "용산구")
-                //?.orderBy("issueDate", Query.Direction.DESCENDING)
+                ?.orderBy("issueDate", Query.Direction.DESCENDING)
                 ?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                     // ArrayList 비워줌
                     mailBox.clear()
@@ -92,9 +92,12 @@ class MailboxFragment : Fragment() {
                 mailBox[position].title.toString().replace("bb", "\n")
             viewHolder.textview_summary_mailbox_list_item?.text =
                 mailBox[position].summary.toString().replace("bb", "\n")
-            //viewHolder.textview_timestamp_mailbox_list_item.text = mailBox[position].issueDate.toString()
+            viewHolder.textview_timestamp_mailbox_list_item.text =
+                mailBox[position].issueDate.toString()
             viewHolder.textview_guoffice_mailbox_list_item?.text =
                 mailBox[position].addressCity.toString()
+
+            // Todo : recyclerview click listener 추가
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
