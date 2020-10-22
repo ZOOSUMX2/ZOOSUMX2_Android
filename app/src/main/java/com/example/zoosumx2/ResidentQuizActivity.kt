@@ -1,5 +1,6 @@
 package com.example.zoosumx2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -12,12 +13,14 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.random.Random
 
 class ResidentQuizActivity : AppCompatActivity() {
 
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resident_quiz)
@@ -25,9 +28,16 @@ class ResidentQuizActivity : AppCompatActivity() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        val correctAns = findViewById<Button>(R.id.button_correct_answer_quiz)
-        val wrongAns = findViewById<Button>(R.id.button_wrong_answer_quiz)
+        var correctAns = findViewById<Button>(R.id.button_correct_answer_quiz)
+        var wrongAns = findViewById<Button>(R.id.button_wrong_answer_quiz)
         val header = findViewById<TextView>(R.id.textview_header_resident_quiz)
+
+        //정답 문항의 자리 랜덤으로 교환
+        val randomAnswerNum = Random.nextInt(2)
+        if (randomAnswerNum == 0) {
+            correctAns = findViewById(R.id.button_wrong_answer_quiz)
+            wrongAns = findViewById(R.id.button_correct_answer_quiz)
+        }
 
         // 선지 둘 중에 하나만 선택되도록
         correctAns.setOnClickListener {

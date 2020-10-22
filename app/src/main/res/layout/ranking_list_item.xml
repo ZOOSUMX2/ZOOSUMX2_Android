@@ -63,7 +63,7 @@
         android:layout_width="60sp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:gravity="start"
         android:orientation="vertical">
 
         <LinearLayout

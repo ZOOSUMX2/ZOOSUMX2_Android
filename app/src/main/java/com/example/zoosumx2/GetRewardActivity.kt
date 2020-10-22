@@ -33,7 +33,7 @@ class GetRewardActivity : AppCompatActivity() {
         // 리워드 포인트 애니메이션
         fun rewardAnimation() {
             val animator = ValueAnimator.ofInt(
-                intent.getIntExtra("reward", 0) + 4,
+                intent.getIntExtra("reward", 0) + 8,
                 intent.getIntExtra("reward", 0)
             )
             animator.duration = 1200 // 1 seconds

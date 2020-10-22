@@ -1,11 +1,13 @@
 package com.example.zoosumx2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -22,6 +24,7 @@ class RandomQuizActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    @SuppressLint("CutPasteId")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +45,8 @@ class RandomQuizActivity : AppCompatActivity() {
         //정답 문항의 자리 랜덤으로 교환
         val randomAnswerNum = Random.nextInt(2)
         if (randomAnswerNum == 0) {
-            correctAnswer = findViewById<Button>(R.id.button_wrong_answer_quiz)
-            wrongAnswer = findViewById<Button>(R.id.button_correct_answer_quiz)
+            correctAnswer = findViewById(R.id.button_wrong_answer_quiz)
+            wrongAnswer = findViewById(R.id.button_correct_answer_quiz)
         }
 
         //DB에서 문제 및 문항 가져오기
@@ -113,6 +116,10 @@ class RandomQuizActivity : AppCompatActivity() {
                         ?.update("rewardPoint", FieldValue.increment(1))
 
                 }
+            }
+            // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
+            else {
+                Toast.makeText(applicationContext, "정답을 선택해주세요", Toast.LENGTH_LONG).show()
             }
 
             nextButton.setOnClickListener {
