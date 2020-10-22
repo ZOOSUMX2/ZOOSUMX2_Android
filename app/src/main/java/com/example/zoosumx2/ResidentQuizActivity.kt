@@ -47,6 +47,7 @@ class ResidentQuizActivity : AppCompatActivity() {
                     question.text = snapshot.getString("title").toString().replace("bb", "\n")
                     correctAns.text = snapshot.getString("correctAns").toString()
                     wrongAns.text = snapshot.getString("wrongAns").toString()
+
                 }
             }
 
@@ -120,7 +121,14 @@ class ResidentQuizActivity : AppCompatActivity() {
 
                     // 주민 출제 퀴즈 미션 완료 -> 경험치 10 증가
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("exp", FieldValue.increment(10))
+                        ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                            if (documentSnapshot == null) return@addSnapshotListener
+                            val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                            if (exp < 1000) {
+                                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                                    ?.update("exp", FieldValue.increment(10))
+                            }
+                        }
 
                     startActivity(intent)
                 }

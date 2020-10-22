@@ -1,5 +1,6 @@
 package com.example.zoosumx2.menu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ class MypageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mypage, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,8 +38,12 @@ class MypageFragment : Fragment() {
                 textview_username_mypage?.text = documentSnapshot.data?.get("nickname").toString()
                 textview_island_name_mypage?.text =
                     documentSnapshot.data?.get("islandName").toString()
-                textview_next_level_mypage?.text =
-                    (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
+                if (documentSnapshot.data?.get("level").toString() == "5") {
+                    textview_next_level_mypage?.text = "Max"
+                } else {
+                    textview_next_level_mypage?.text =
+                        (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
+                }
 
                 //val currentDate: Calendar = Calendar.getInstance() //오늘 날짜 가져오기
                 //val today = currentDate.timeInMillis /86400000
@@ -67,7 +73,7 @@ class MypageFragment : Fragment() {
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
-                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                var exp = documentSnapshot.data?.get("exp").toString().toInt()
                 val level = documentSnapshot.data?.get("level").toString().toInt()
 
                 val min = when (level) {
@@ -83,12 +89,23 @@ class MypageFragment : Fragment() {
                     2 -> 299
                     3 -> 599
                     4 -> 999
-                    else -> 1000
+                    else -> 1500
+                }
+
+                val sleep = when (level) {
+                    1 -> 30
+                    2 -> 25
+                    3 -> 20
+                    4 -> 15
+                    else -> 10
                 }
 
                 val progressBar = this.progressbar_mypage
                 if (progressBar != null) {
-                    progressBar.max = max
+                    progressBar.max = max - min
+                }
+                if (level == 5) {
+                    exp = 1500
                 }
 
                 var tmp = 0
@@ -96,7 +113,7 @@ class MypageFragment : Fragment() {
                     while (tmp <= (exp - min)) {
                         try {
                             tmp += 3
-                            Thread.sleep(30)
+                            Thread.sleep(sleep.toLong())
                         } catch (e: InterruptedException) {
                             e.printStackTrace()
                         }
