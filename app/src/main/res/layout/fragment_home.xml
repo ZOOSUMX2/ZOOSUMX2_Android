@@ -39,8 +39,8 @@
                 android:layout_width="32.8sp"
                 android:layout_height="44.6sp"
                 android:layout_gravity="bottom|end"
-                android:src="@drawable/icon_level1"
-                android:contentDescription="@string/image" />
+                android:contentDescription="@string/image"
+                android:src="@drawable/icon_level1" />
         </FrameLayout>
 
         <LinearLayout
@@ -100,7 +100,7 @@
 
             <LinearLayout
                 android:layout_width="225sp"
-                android:layout_height="61sp"
+                android:layout_height="65sp"
                 android:layout_marginTop="12sp"
                 android:background="@drawable/rounded_rectangle2"
                 android:baselineAligned="false"
@@ -121,11 +121,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2sp"
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:text="나의 순위"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -135,7 +136,7 @@
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:textColor="@color/colorText"
-                        android:textSize="14sp" />
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <!--미션 현황-->
@@ -151,11 +152,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2sp"
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:text="미션 현황"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="HardcodedText" />
 
                     <LinearLayout
@@ -164,14 +166,14 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textview_complet_mission_home"
+                            android:id="@+id/textview_complete_mission_home"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:text="1"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -180,7 +182,7 @@
                             android:includeFontPadding="false"
                             android:text=" / 4"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp"
+                            android:textSize="15sp"
                             tools:ignore="HardcodedText" />
 
                     </LinearLayout>
@@ -199,11 +201,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2sp"
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:text="포인트"
                         android:textColor="@color/black_5"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         tools:ignore="HardcodedText" />
 
                     <LinearLayout
@@ -218,14 +221,14 @@
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/mypage_coin"
+                            android:layout_marginStart="5sp"
                             android:contentDescription="@string/image"
-                            android:layout_marginStart="5sp" />
+                            android:src="@drawable/mypage_coin" />
 
                     </LinearLayout>
                 </LinearLayout>

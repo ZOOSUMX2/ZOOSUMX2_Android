@@ -55,7 +55,7 @@
         android:includeFontPadding="false"
         android:text="올바르게 처리한 재활용품을 촬영하여\n다른 사람에게 확인 받으세요."
         android:textColor="@color/colorWhite"
-        android:textSize="12sp"
+        android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
     <ImageView
@@ -92,7 +92,7 @@
         android:includeFontPadding="false"
         android:text="사진 촬영하기"
         android:textColor="@color/take_photo"
-        android:textSize="12sp"
+        android:textSize="13sp"
         tools:ignore="HardcodedText" />
 
     <TextView

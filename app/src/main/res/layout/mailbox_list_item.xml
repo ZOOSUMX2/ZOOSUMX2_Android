@@ -15,7 +15,7 @@
         android:src="@drawable/stamp" />
 
     <LinearLayout
-        android:layout_width="180sp"
+        android:layout_width="wrap_content"
         android:layout_marginTop="55sp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -39,7 +39,7 @@
             android:includeFontPadding="false"
             android:textAlignment="textStart"
             android:textColor="@color/black_5"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,14 +53,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5sp"
                 android:textColor="@color/colorSoftGray"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textview_guoffice_mailbox_list_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSoftGray"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
