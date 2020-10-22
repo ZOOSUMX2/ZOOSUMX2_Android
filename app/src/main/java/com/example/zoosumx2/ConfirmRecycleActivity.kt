@@ -103,8 +103,4 @@ class ConfirmRecycleActivity : AppCompatActivity() {
         }
 
     }
-
-
-
-
 }

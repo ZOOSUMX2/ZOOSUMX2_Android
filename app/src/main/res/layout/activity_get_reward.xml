@@ -96,10 +96,10 @@
         android:background="@drawable/rounded_rectangle_reward"
         android:gravity="start|center"
         android:orientation="horizontal"
-        android:paddingLeft="10sp"
-        android:paddingTop="3sp"
-        android:paddingRight="10sp"
-        android:paddingBottom="3sp">
+        android:paddingLeft="15sp"
+        android:paddingTop="5sp"
+        android:paddingRight="15sp"
+        android:paddingBottom="5sp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,7 +109,7 @@
             android:includeFontPadding="false"
             android:text="나의 최종 포인트 :"
             android:textColor="@color/colorText"
-            android:textSize="14sp"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -120,7 +120,7 @@
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
             android:textColor="@color/joyful_orange"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
             android:includeFontPadding="false"
             android:text="P"
             android:textColor="@color/colorText"
-            android:textSize="16sp"
+            android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>

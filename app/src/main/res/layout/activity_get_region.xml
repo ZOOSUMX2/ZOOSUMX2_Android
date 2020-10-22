@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:adjustViewBounds="true"
             android:background="@color/colorMain"
             android:contentDescription="@string/image"
@@ -53,7 +52,6 @@
         android:layout_below="@+id/textview_resident"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
@@ -85,7 +83,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/region_ment_first"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:focusableInTouchMode="true"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
@@ -99,7 +96,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/region_ment_second"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="55dp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:includeFontPadding="false"
@@ -113,7 +109,6 @@
         android:layout_height="2sp"
         android:layout_below="@+id/region_edit"
         android:layout_marginStart="20sp"
-        android:layout_marginLeft="20sp"
         android:layout_marginTop="6sp"
         android:background="@color/friendly_green" />
 
@@ -123,13 +118,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/region_edit"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:includeFontPadding="false"
         android:text="분리수거 방침은 지역마다 다르기에\n거주지에 맞는 분리배출 정보와 소식을 알려드려요"
         android:textColor="@color/colorSoftGray"
-        android:textSize="12sp"
+        android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
     <LinearLayout
@@ -137,7 +131,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20sp"
-        android:layout_marginLeft="20sp"
         android:layout_marginBottom="60sp"
         android:gravity="start"
         android:orientation="horizontal">
@@ -153,7 +146,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7sp"
-            android:layout_marginLeft="7sp"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:text="75%"
             android:textColor="@color/gray_text"

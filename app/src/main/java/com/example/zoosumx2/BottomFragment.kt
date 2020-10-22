@@ -1,6 +1,5 @@
 package com.example.zoosumx2
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.zoosumx2.adapter.RegionAdapter
 import com.example.zoosumx2.model.RegionData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
 
 class BottomFragment(): BottomSheetDialogFragment() {
 

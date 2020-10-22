@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_get_region.*
 
-
 class GetRegionActivity : AppCompatActivity() {
 
     var fbAuth : FirebaseAuth? = null

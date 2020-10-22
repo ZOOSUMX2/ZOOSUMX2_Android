@@ -91,7 +91,7 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textview_gooffice_news"
@@ -100,7 +100,7 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -113,7 +113,7 @@
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="4sp"
                 android:textColor="@color/black_6"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>

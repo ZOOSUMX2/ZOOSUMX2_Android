@@ -7,7 +7,6 @@ import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ConfirmRecycleDialog(context: Context) {
@@ -42,7 +41,7 @@ class ConfirmRecycleDialog(context: Context) {
         btnOk.setOnClickListener {
             dlg.dismiss()
             val intent = Intent((context as PhotoActivity), MainActivity::class.java)
-            (context as PhotoActivity).startActivity(intent)
+            context.startActivity(intent)
         }
     }
 }

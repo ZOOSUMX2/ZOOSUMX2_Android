@@ -12,7 +12,6 @@ import com.example.zoosumx2.*
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
 
-
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
 
     fun newInstance():MissionFragment{

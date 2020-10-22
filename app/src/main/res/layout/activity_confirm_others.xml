@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:background="@color/colorMain"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="완료"
