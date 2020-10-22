@@ -69,25 +69,17 @@ class MakequizActivity : AppCompatActivity() {
                             "creationTimestamp" to FieldValue.serverTimestamp()
                         )
 
-                        var userName: String?
-                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                                if (documentSnapshot == null) return@addSnapshotListener
-                                userName = documentSnapshot.data?.get("nickname").toString()
-
-                                val adopt = false // 채택 여부(false : 채택 전, true : 채택)
-                                val userQuizInfo = hashMapOf(
-                                    "title" to question.text.toString(),
-                                    "correctAns" to correctExam.text.toString(),
-                                    "wrongAns" to wrongExam.text.toString(),
-                                    "creator" to userName,
-                                    "creatorId" to fbAuth?.uid.toString(),
-                                    "creationTimestamp" to updates,
-                                    "adopt" to adopt
-                                )
-                                fbFirestore?.collection("userQuiz")
-                                    ?.add(userQuizInfo) // document id 자동 생성
-                            }
+                        val adopt = false // 채택 여부(false : 채택 전, true : 채택)
+                        val userQuizInfo = hashMapOf(
+                            "title" to question.text.toString(),
+                            "correctAns" to correctExam.text.toString(),
+                            "wrongAns" to wrongExam.text.toString(),
+                            "creatorId" to fbAuth?.uid.toString(),
+                            "creationTimestamp" to updates,
+                            "adopt" to adopt
+                        )
+                        fbFirestore?.collection("userQuiz")
+                            ?.add(userQuizInfo) // document id 자동 생성
 
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)
@@ -104,7 +96,6 @@ class MakequizActivity : AppCompatActivity() {
                                         ?.update("exp", FieldValue.increment(10))
                                 }
                             }
-
                         startActivity(intent)
 
                     } else {
