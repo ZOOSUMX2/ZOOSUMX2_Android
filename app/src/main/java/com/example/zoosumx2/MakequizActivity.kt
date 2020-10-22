@@ -3,14 +3,12 @@ package com.example.zoosumx2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
+import android.widget.*
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class MakequizActivity : AppCompatActivity() {
 
@@ -32,6 +30,21 @@ class MakequizActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             finish()
         }
+
+        val header = findViewById<TextView>(R.id.textview_header_makequiz)
+        val origin = findViewById<TextView>(R.id.textview_origin_makequiz)
+        val content = findViewById<TextView>(R.id.textview_content_makequiz)
+
+        fbFirestore?.collection("newsForUserQuiz")
+            ?.orderBy("creationTime", Query.Direction.DESCENDING)
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                for (snapshot in documentSnapshot) {
+                    header.text = snapshot.getString("title").toString().replace("bb", "\n")
+                    origin.text = snapshot.getString("origin").toString()
+                    content.text = snapshot.getString("contents").toString().replace("bb", "\n")
+                }
+            }
 
         val makeQuizButton = findViewById<Button>(R.id.button_makequiz_button_makequiz)
         val question = findViewById<EditText>(R.id.edittext_question_makequiz)
@@ -56,26 +69,25 @@ class MakequizActivity : AppCompatActivity() {
                             "creationTimestamp" to FieldValue.serverTimestamp()
                         )
 
-                        // Todo : creator 정보 userInfo.nickname.toString()에서 안불러와짐
-
-                        var userName: String? = null
+                        var userName: String?
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                                 if (documentSnapshot == null) return@addSnapshotListener
                                 userName = documentSnapshot.data?.get("nickname").toString()
-                            }
 
-                        val adopt = false // 채택 여부(false : 채택 전, true : 채택)
-                        val userQuizInfo = hashMapOf(
-                            "title" to question.text.toString(),
-                            "correctAns" to correctExam.text.toString(),
-                            "wrongAns" to wrongExam.text.toString(),
-                            "creator" to userName,
-                            "creatorId" to fbAuth?.uid.toString(),
-                            "creationTimestamp" to updates,
-                            "adopt" to adopt
-                        )
-                        fbFirestore?.collection("userQuiz")?.add(userQuizInfo) // document id 자동 생성
+                                val adopt = false // 채택 여부(false : 채택 전, true : 채택)
+                                val userQuizInfo = hashMapOf(
+                                    "title" to question.text.toString(),
+                                    "correctAns" to correctExam.text.toString(),
+                                    "wrongAns" to wrongExam.text.toString(),
+                                    "creator" to userName,
+                                    "creatorId" to fbAuth?.uid.toString(),
+                                    "creationTimestamp" to updates,
+                                    "adopt" to adopt
+                                )
+                                fbFirestore?.collection("userQuiz")
+                                    ?.add(userQuizInfo) // document id 자동 생성
+                            }
 
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)

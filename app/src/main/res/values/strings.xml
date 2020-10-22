@@ -4,15 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="이번주_분리배출_미션">이번주 분리배출 미션</string>
     <string name="quest_count">0/4</string>
-    <string name="퀴즈_출제">퀴즈 출제</string>섬
-    <string name="news_headline">친환경은 배달되지 않아요</string>
-    <string name="news_origin">출처 녹색연합</string>
-    <string name="news_content">전 세계에서 생산된 플라스틱 폐기물의 47%가 포장재입니다. 음식 포장에 사용된 일회용 플라스틱
-        용기는 현재 100% 재활용할 수 없 습니다. 이물질을 완전히 제거하기 어렵고, 이물질을 깨끗이 씻는다 고 하더라도 처리 시설에서
-        다른 재활용품 쓰레기들과 섞여 오염될 수도 있습니다. UNEP에 의하면 매년 플라스틱 쓰레기를 먹고 죽는 바다새가 100만 마리,
-        고래나 바다표범, 바다소 등 보호해야 할 해양 포유동물이 10만 마리나 된다고 합니다. 생산 단계에서부터 플라스 틱 사용을 줄이고,
-        적절한 제도와 대안이 마련된다면 플라스틱을 먹 고 죽은 동물의 뉴스를 전해 듣는 고통도 줄어들겠지요?</string>
-    <string name="quiz_explanation"><u>위의 환경 소식 내용을 바탕으로</u> 퀴즈를 출제하여\n다음 주 주민 출제 퀴즈로 채택되면 리워드를 드려요</string>
+    <string name="퀴즈_출제">퀴즈 출제</string>
+    <string name="quiz_explanation"><u>위의 환경 소식 내용을 바탕으로</u> 퀴즈를 출제하여\n다음 주 주민 출제 퀴즈로 채택되면 리워드를 드려요!</string>
     <string name="question">문제를 입력하세요</string>
     <string name="correct_answer">정답이 될 선지를 입력하세요</string>
     <string name="wrong_answer">오답이 될 선지를 입력하세요</string>
