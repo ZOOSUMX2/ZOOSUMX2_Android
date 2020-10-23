@@ -88,5 +88,15 @@ class SettingActivity : AppCompatActivity() {
             )
             startActivity(url)
         }
+
+        // 서비스 이용약관
+        val terms = findViewById<LinearLayout>(R.id.linearlayout_terms_setting)
+        terms.setOnClickListener {
+            val url = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.notion.so/2b9fb2ee9c1445de83447ebd5c4737d9")
+            )
+            startActivity(url)
+        }
     }
 }
