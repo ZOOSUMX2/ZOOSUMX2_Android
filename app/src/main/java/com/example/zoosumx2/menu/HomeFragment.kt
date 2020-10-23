@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -52,6 +51,14 @@ class HomeFragment : Fragment() {
                     documentSnapshot.data?.get("islandName").toString()
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
+
+                when (documentSnapshot.data?.get("level").toString().toInt()) {
+                    1 -> imageview_medal_home?.setImageResource(R.drawable.icon_level1)
+                    2 -> imageview_medal_home?.setImageResource(R.drawable.icon_level2)
+                    3 -> imageview_medal_home?.setImageResource(R.drawable.icon_level3)
+                    4 -> imageview_medal_home?.setImageResource(R.drawable.icon_level4)
+                    else -> imageview_medal_home?.setImageResource(R.drawable.icon_level5)
+                }
             }
 
         // 포인트 클릭 이벤트

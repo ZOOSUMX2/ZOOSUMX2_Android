@@ -42,6 +42,7 @@ class SettingActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // 로그아웃
+        // Todo : 로그아웃 다이얼로그
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -52,6 +53,7 @@ class SettingActivity : AppCompatActivity() {
         }
 
         // 회원탈퇴
+        // Todo : 회원탈퇴 다이얼로그
         val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
         withdrawal.setOnClickListener {
             // firestore 내 사용자 정보 삭제
