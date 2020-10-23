@@ -1,5 +1,6 @@
 package com.example.zoosumx2.menu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_mailbox.*
+import kotlinx.android.synthetic.main.mailbox_list_item.*
 import kotlinx.android.synthetic.main.mailbox_list_item.view.*
 
 
@@ -117,6 +119,11 @@ class MailboxFragment : Fragment() {
                 intent.putExtra("date", mailBox[position].issueDate.toString())
                 intent.putExtra("guOffice", mailBox[position].addressCity.toString())
                 intent.putExtra("content", mailBox[position].contents.toString())
+
+                // new 제거
+                viewHolder.textview_new_mailbox_list_item.text = null
+                viewHolder.textview_new_mailbox_list_item.setBackgroundResource(R.drawable.mailbox_clicked_new)
+
                 startActivity(intent)
             }
         }
