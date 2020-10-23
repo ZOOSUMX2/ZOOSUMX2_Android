@@ -72,18 +72,18 @@ class HomeFragment : Fragment() {
                 if(documentSnapshot.data?.get("creationTimestamp")!=todayWeek){
                     //만일 오늘 날짜의 이번 년도 주차 수가 DB에 저장되어 있는 이번 년도 주차 수와 다르다면, 즉 새로운 주가 시작된 경우
                     //1) DB의 주차(creationTimestamp) 업데이트
-                    val weekData = hashMapOf("creationTimestamp" to todayWeek)
+                    //2) mission 수행 관련 DB 값 수정
+                    val missionFlag = hashMapOf(
+                        "creationTimeStamp" to todayWeek,
+                        "missionMakingQuiz" to false,
+                        "missionRecycle" to false,
+                        "missionSenseQuiz" to false,
+                        "missionUserQuiz" to false
+                    )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())
-                        ?.set(weekData, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+                        ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
                         ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
-
-                    //2) missionFragemt로 flag 보내기
-                    MissionFragment().apply {
-                        arguments = Bundle().apply {
-                            putInt("weekFlag",1) //flag가 1이면 새로운 주가 시작된 것, mission 수행 상태 초기화하기
-                        }
-                    }
                 }
                 else{
                     Log.d("compare week","success and same")
