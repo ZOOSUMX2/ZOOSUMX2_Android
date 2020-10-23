@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -14,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_random_quiz.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -86,6 +88,15 @@ class RandomQuizActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             random_quiz_next.text = "리워드 확인"
 
+            //firestore의 mission 수행 여부 true로 변경
+            val missionFlag = hashMapOf(
+                "missionSenseQuiz" to "true"
+            )
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.collection("mission")?.document(fbAuth?.uid.toString())
+                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+
             if (correctAnswer.isSelected || wrongAnswer.isSelected) {
                 if (correctAnswer.isSelected) {
                     answerChecked = true
@@ -123,6 +134,7 @@ class RandomQuizActivity : AppCompatActivity() {
             }
 
             nextButton.setOnClickListener {
+
                 val intent = Intent(this, GetRewardActivity::class.java)
 
                 if (answerChecked) {

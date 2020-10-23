@@ -11,9 +11,22 @@ import android.widget.GridView
 import com.example.zoosumx2.*
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_home.*
+import java.security.KeyStore
 import kotlin.collections.ArrayList
 
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
+
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
+    var missionMakingQuizFlag: String? = null
+    var missionRecycleFlag: String? = null
+    var missionSenseQuizFlag: String? = null
+    var missionUserQuizFlag: String? = null
+
 
     fun newInstance():MissionFragment{
         val args=Bundle()
@@ -35,10 +48,18 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mission, container, false)
 
-        //if(arguments?.getInt("weekFlag")==1){
-        //    mission_card_banner.setBackgroundResource(R.drawable.mission_card_banner_challenge)
-        //}
-        //mission_card_banner.setBackgroundResource(R.drawable.mission_card_banner_wait)
+        fbAuth = FirebaseAuth.getInstance()
+        fbFirestore = FirebaseFirestore.getInstance()
+
+        // firestore에서 데이터 가져와서 미션 수행가능여부 결정하기
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                if (documentSnapshot == null) return@addSnapshotListener
+                missionMakingQuizFlag = documentSnapshot.data?.get("missionMakingQuiz").toString()
+                missionRecycleFlag = documentSnapshot.data?.get("missionRecycle").toString()
+                missionSenseQuizFlag = documentSnapshot.data?.get("missionSenseQuiz").toString()
+                missionUserQuizFlag = documentSnapshot.data?.get("missionUserQuiz").toString()
+            }
 
         gridView = view.findViewById(R.id.gridview_mission_card)
         arrayList = ArrayList()
@@ -69,20 +90,49 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         val items: MissionItem = arrayList!!.get(position)
         when(items.title){
             "재활용 인증" -> {
-                val intent = Intent(context, ConfirmRecycleActivity::class.java)
-                startActivity(intent)
+                if(missionRecycleFlag=="false"){
+                    val intent = Intent(context, ConfirmRecycleActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    //다이얼로그 호출
+                    val dlg = MissionRejectDialog(requireContext())
+                    dlg.start(requireContext())
+                }
             }
             "주민 출제 퀴즈" -> {
-                val intent = Intent(context, ResidentQuizActivity::class.java)
-                startActivity(intent)
+                if(missionUserQuizFlag=="false"){
+                    val intent = Intent(context, ResidentQuizActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    //다이얼로그 호출
+                    val dlg = MissionRejectDialog(requireContext())
+                    dlg.start(requireContext())
+                }
+
             }
             "퀴즈 출제하기" -> {
-                val intent = Intent(context, MakequizActivity::class.java)
-                startActivity(intent)
+                if(missionMakingQuizFlag=="false"){
+                    val intent = Intent(context, MakequizActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    //다이얼로그 호출
+                    val dlg = MissionRejectDialog(requireContext())
+                    dlg.start(requireContext())
+                }
             }
             "상식 퀴즈" -> {
-                val intent = Intent(context, RandomQuizActivity::class.java)
-                startActivity(intent)
+                if(missionSenseQuizFlag=="false"){
+                    val intent = Intent(context, RandomQuizActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    //다이얼로그 호출
+                    val dlg = MissionRejectDialog(requireContext())
+                    dlg.start(requireContext())
+                }
             }
         }
         //Toast.makeText(activity!!.applicationContext, items.title, Toast.LENGTH_LONG).show()

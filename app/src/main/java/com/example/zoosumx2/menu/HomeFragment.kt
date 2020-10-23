@@ -69,16 +69,16 @@ class HomeFragment : Fragment() {
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
 
-                if(documentSnapshot.data?.get("creationTimestamp")!=todayWeek){
+                if(documentSnapshot.data?.get("creationTimestamp").toString()!=todayWeek.toString()){
                     //만일 오늘 날짜의 이번 년도 주차 수가 DB에 저장되어 있는 이번 년도 주차 수와 다르다면, 즉 새로운 주가 시작된 경우
                     //1) DB의 주차(creationTimestamp) 업데이트
                     //2) mission 수행 관련 DB 값 수정
                     val missionFlag = hashMapOf(
                         "creationTimeStamp" to todayWeek,
-                        "missionMakingQuiz" to false,
-                        "missionRecycle" to false,
-                        "missionSenseQuiz" to false,
-                        "missionUserQuiz" to false
+                        "missionMakingQuiz" to "false",
+                        "missionRecycle" to "false",
+                        "missionSenseQuiz" to "false",
+                        "missionUserQuiz" to "false"
                     )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())

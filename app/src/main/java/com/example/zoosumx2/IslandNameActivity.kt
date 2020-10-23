@@ -38,10 +38,16 @@ class IslandNameActivity : AppCompatActivity() {
         val today: Calendar = Calendar.getInstance()
         val todayWeek:Int = today.get(WEEK_OF_YEAR)
 
-        val weekData = hashMapOf("creationTimestamp" to todayWeek)
+        val weekData = hashMapOf(
+            "creationTimestamp" to todayWeek,
+            "missionMakingQuiz" to "false", //첫 가입 시 미션 수행 여부 전부 false로 초기화
+            "missionRecycle" to "false",
+            "missionSenseQuiz" to "false",
+            "missionUserQuiz" to "false"
+        )
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.collection("mission")?.document(fbAuth?.uid.toString())
-            ?.set(weekData, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+            ?.set(weekData)?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
             ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
 
 

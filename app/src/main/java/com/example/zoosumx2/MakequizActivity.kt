@@ -3,12 +3,14 @@ package com.example.zoosumx2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.SetOptions
 
 class MakequizActivity : AppCompatActivity() {
 
@@ -84,6 +86,15 @@ class MakequizActivity : AppCompatActivity() {
                         // 모두 입력한 경우 리워드 액티비티로 이동
                         val intent = Intent(this, GetRewardActivity::class.java)
                         intent.putExtra("reward", 3)
+
+                        //firestore의 mission 수행 여부 true로 변경
+                        val missionFlag = hashMapOf(
+                            "missionMakingQuiz" to "true"
+                        )
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.collection("mission")?.document(fbAuth?.uid.toString())
+                            ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+                            ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
 
                         // 퀴즈 출제 미션 완료 -> 경험치 10 증가
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())

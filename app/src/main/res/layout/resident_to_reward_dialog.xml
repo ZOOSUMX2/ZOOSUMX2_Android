@@ -36,7 +36,7 @@
         android:id="@+id/confirm_ok"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_rectangle_green"
         android:fontFamily="@font/notosans_cjkkr_bold"

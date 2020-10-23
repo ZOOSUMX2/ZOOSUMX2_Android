@@ -5,44 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/friend_to_reward_title"
+        android:id="@+id/mission_reject_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:text="재활용 인증 메시지 전송 완료!"
+        android:text="이미 미션을 수행 완료했어요:("
         android:textColor="@color/colorText"
         android:textSize="18sp"
         tools:ignore="HardcodedText"
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/friend_to_reward_content"
-        android:layout_below="@+id/friend_to_reward_title"
+        android:id="@+id/mission_reject_content"
+        android:layout_below="@+id/mission_reject_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="아래의 버튼을 눌러\n리워드를 수령하세요."
+        android:text="다음 주에 미션이\n시작되기를 기다려주세요!"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"/>
 
     <Button
-        android:layout_below="@+id/friend_to_reward_content"
-        android:id="@+id/confirm_ok"
+        android:layout_below="@+id/mission_reject_content"
+        android:id="@+id/ok_btn"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/rounded_rectangle_green"
+        android:background="@drawable/rounded_rectangle_orange"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
-        android:text="리워드 확인하기"
-        android:paddingHorizontal="15dp"
+        android:text="확인하기"
+        android:paddingHorizontal="30dp"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         tools:ignore="HardcodedText" />

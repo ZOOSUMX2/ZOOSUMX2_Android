@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -13,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlin.random.Random
 
 class ResidentQuizActivity : AppCompatActivity() {
@@ -79,6 +81,15 @@ class ResidentQuizActivity : AppCompatActivity() {
         // 정답확인 버튼 클릭 이벤트
         val submitAns = findViewById<Button>(R.id.button_check_answer_resident_quiz)
         submitAns.setOnClickListener {
+            //firestore의 mission 수행 여부 true로 변경
+            val missionFlag = hashMapOf(
+                "missionUserQuiz" to "true"
+            )
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.collection("mission")?.document(fbAuth?.uid.toString())
+                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+
 
             // 둘 중 하나의 답을 선택한 경우
             if (correctAns.isSelected || wrongAns.isSelected) {
