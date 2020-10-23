@@ -1,6 +1,5 @@
 package com.example.zoosumx2.menu
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -16,9 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_mailbox.*
-import kotlinx.android.synthetic.main.mailbox_list_item.*
 import kotlinx.android.synthetic.main.mailbox_list_item.view.*
-
 
 class MailboxFragment : Fragment() {
 
