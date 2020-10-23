@@ -24,7 +24,7 @@
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="정말 주섬주섬을\n떠나실건가요?😥"
+        android:text="정말 주섬주섬을\n떠나실건가요...?"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         tools:ignore="HardcodedText" />

@@ -2,7 +2,6 @@ package com.example.zoosumx2.menu
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,15 +11,6 @@ import android.widget.GridView
 import com.example.zoosumx2.*
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import kotlinx.android.synthetic.main.activity_random_quiz.*
-import kotlinx.android.synthetic.main.mission_card_item.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{

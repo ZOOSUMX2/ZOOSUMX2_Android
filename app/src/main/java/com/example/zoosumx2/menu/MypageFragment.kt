@@ -93,11 +93,11 @@ class MypageFragment : Fragment() {
                 }
 
                 val sleep = when (level) {
-                    1 -> 30
+                    1 -> 40
                     2 -> 25
-                    3 -> 20
-                    4 -> 15
-                    else -> 10
+                    3 -> 15
+                    4 -> 10
+                    else -> 5
                 }
 
                 val progressBar = this.progressbar_mypage
@@ -113,7 +113,7 @@ class MypageFragment : Fragment() {
                     while (tmp <= (exp - min)) {
                         try {
                             tmp += 3
-                            Thread.sleep(sleep.toLong())
+                            Thread.sleep((sleep).toLong())
                         } catch (e: InterruptedException) {
                             e.printStackTrace()
                         }
