@@ -13,8 +13,6 @@ import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_home.*
-import java.security.KeyStore
 import kotlin.collections.ArrayList
 
 class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
@@ -90,48 +88,44 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         val items: MissionItem = arrayList!!.get(position)
         when(items.title){
             "재활용 인증" -> {
-                if(missionRecycleFlag=="false"){
+                if (missionRecycleFlag == "false") {
                     val intent = Intent(context, ConfirmRecycleActivity::class.java)
                     startActivity(intent)
-                }
-                else{
+                } else {
                     //다이얼로그 호출
                     val dlg = MissionRejectDialog(requireContext())
-                    dlg.start(requireContext())
+                    dlg.start()
                 }
             }
             "주민 출제 퀴즈" -> {
-                if(missionUserQuizFlag=="false"){
+                if (missionUserQuizFlag == "false") {
                     val intent = Intent(context, ResidentQuizActivity::class.java)
                     startActivity(intent)
-                }
-                else{
+                } else {
                     //다이얼로그 호출
                     val dlg = MissionRejectDialog(requireContext())
-                    dlg.start(requireContext())
+                    dlg.start()
                 }
 
             }
             "퀴즈 출제하기" -> {
-                if(missionMakingQuizFlag=="false"){
+                if (missionMakingQuizFlag == "false") {
                     val intent = Intent(context, MakequizActivity::class.java)
                     startActivity(intent)
-                }
-                else{
+                } else {
                     //다이얼로그 호출
                     val dlg = MissionRejectDialog(requireContext())
-                    dlg.start(requireContext())
+                    dlg.start()
                 }
             }
             "상식 퀴즈" -> {
-                if(missionSenseQuizFlag=="false"){
+                if (missionSenseQuizFlag == "false") {
                     val intent = Intent(context, RandomQuizActivity::class.java)
                     startActivity(intent)
-                }
-                else{
+                } else {
                     //다이얼로그 호출
                     val dlg = MissionRejectDialog(requireContext())
-                    dlg.start(requireContext())
+                    dlg.start()
                 }
             }
         }
