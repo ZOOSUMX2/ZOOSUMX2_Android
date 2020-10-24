@@ -244,23 +244,24 @@
         android:layout_below="@+id/linearlayout_myinfo_home">
 
         <ImageView
+            android:id="@+id/imageview_island_home"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="16sp"
-            android:layout_marginTop="78dp"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="16sp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/image"
-            android:src="@drawable/island" />
+            android:src="@drawable/icon_trashsum8" />
 
         <!--말풍선은 visibility로 조절-->
         <ImageView
             android:id="@+id/speech_bubble1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140sp"
-            android:layout_marginTop="80sp"
+            android:layout_marginStart="150sp"
+            android:layout_marginTop="70sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble1" />
 
@@ -269,7 +270,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
-            android:layout_marginTop="230sp"
+            android:layout_marginTop="140sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble2" />
 

@@ -53,9 +53,25 @@ class HomeFragment : Fragment() {
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
                 textview_complete_mission_home?.text =
                     ((documentSnapshot.data?.get("mission").toString().toInt()) % 4).toString()
+                val exp = documentSnapshot.data?.get("exp").toString().toInt()
 
                 when (documentSnapshot.data?.get("level").toString().toInt()) {
-                    1 -> imageview_medal_home?.setImageResource(R.drawable.icon_level1)
+                    1 -> {
+                        imageview_medal_home?.setImageResource(R.drawable.icon_level1)
+                        when {
+                            (exp in 0..0) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum8)
+                            (exp in 1..10) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum7)
+                            (exp in 11..20) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum5)
+                            (exp in 21..30) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum4)
+                            (exp in 31..40) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum2)
+                            (exp in 41..50) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum1)
+                            (exp in 51..60) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum0)
+                            (exp in 61..70) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum1)
+                            (exp in 71..80) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum2)
+                            (exp in 81..90) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum3)
+                            (exp in 91..99) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum4)
+                        }
+                    }
                     2 -> imageview_medal_home?.setImageResource(R.drawable.icon_level2)
                     3 -> imageview_medal_home?.setImageResource(R.drawable.icon_level3)
                     4 -> imageview_medal_home?.setImageResource(R.drawable.icon_level4)
