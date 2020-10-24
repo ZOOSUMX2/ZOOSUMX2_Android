@@ -93,20 +93,34 @@ class MakequizActivity : AppCompatActivity() {
                         )
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                             ?.collection("mission")?.document(fbAuth?.uid.toString())
-                            ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-                            ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+                            ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
+                                Log.d(
+                                    "Set WeekNumber to DB",
+                                    "DocumentSnapshot successfully written!"
+                                )
+                            }
+                            ?.addOnFailureListener { e ->
+                                Log.w(
+                                    "Set WeekNumber to DB",
+                                    "Error writing document",
+                                    e
+                                )
+                            }
 
                         // 퀴즈 출제 미션 완료 -> 경험치 10 증가
-                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                                if (documentSnapshot == null) return@addSnapshotListener
-                                val exp = documentSnapshot.data?.get("exp").toString().toInt()
-                                if (exp < 1000) {
-                                    fbFirestore?.collection("users")
-                                        ?.document(fbAuth?.uid.toString())
-                                        ?.update("exp", FieldValue.increment(10))
-                                }
-                            }
+//                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+//                            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+//                                if (documentSnapshot == null) return@addSnapshotListener
+//                                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+//                                if (exp < 1000) {
+//                                    fbFirestore?.collection("users")
+//                                        ?.document(fbAuth?.uid.toString())
+//                                        ?.update("exp", FieldValue.increment(10))
+//                                }
+//                                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+//                                    ?.update("exp", FieldValue.increment(10))
+//                            }
+
                         startActivity(intent)
 
                     } else {

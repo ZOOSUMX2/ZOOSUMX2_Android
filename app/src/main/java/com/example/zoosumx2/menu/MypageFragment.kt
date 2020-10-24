@@ -35,21 +35,19 @@ class MypageFragment : Fragment() {
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
-                textview_username_mypage?.text = documentSnapshot.data?.get("nickname").toString()
+                textview_username_mypage?.text =
+                    documentSnapshot.data?.get("nickname").toString() // 이름
                 textview_island_name_mypage?.text =
-                    documentSnapshot.data?.get("islandName").toString()
+                    documentSnapshot.data?.get("islandName").toString() // 섬 이름
+                textview_mylevel_mypage?.text =
+                    documentSnapshot.data?.get("level").toString() // 현재 레벨
+                // 다음 레벨
                 if (documentSnapshot.data?.get("level").toString() == "5") {
                     textview_next_level_mypage?.text = "Max"
                 } else {
                     textview_next_level_mypage?.text =
                         (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
                 }
-
-                //val currentDate: Calendar = Calendar.getInstance() //오늘 날짜 가져오기
-                //val today = currentDate.timeInMillis /86400000
-                //val creationDay = documentSnapshot.data?.get("creationTimestamp").toString().toInt()/86400000
-
-                //textview_ranking_town.text = ((creationDay-today).toString())
 
                 // 경험치에 따라 레벨 측정
                 val exp = documentSnapshot.data?.get("exp").toString().toInt()
@@ -61,8 +59,6 @@ class MypageFragment : Fragment() {
                     (exp in 600..999) -> 4
                     else -> 5
                 }
-
-                // Todo : 레벨 업 -> 다이얼로그 띄우고 홈 화면 이동
 
                 textview_mylevel_mypage?.text = level.toString()
                 // firestore에 사용자 레벨 저장

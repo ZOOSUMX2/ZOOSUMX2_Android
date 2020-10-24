@@ -3,18 +3,22 @@ package com.example.zoosumx2
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class GetRewardActivity : AppCompatActivity() {
 
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
+    var exp = 0
+    var currentLevel = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,9 @@ class GetRewardActivity : AppCompatActivity() {
                 if (documentSnapshot == null) return@addSnapshotListener
                 finalReward.text = documentSnapshot.data?.get("rewardPoint").toString()
             }
+
+//        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+//            ?.update("exp", FieldValue.increment(10))
 
         rewardAnimation()
         finalPoint.startAnimation(fadeIn)

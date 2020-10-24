@@ -9,7 +9,7 @@ data class UserDTO(
     var exp: Int? = 0,
     var islandName: String? = null,
     var lastSignInTimestamp: Timestamp? = Timestamp(0),
-    var level: Int? = 0,
+    var level: Int? = 1,
     var nickname: String? = null,
     var profilePhoto: String? = null,
     var registeredBy: String? = null,

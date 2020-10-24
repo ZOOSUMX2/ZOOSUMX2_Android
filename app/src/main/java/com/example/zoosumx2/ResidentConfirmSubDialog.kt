@@ -43,7 +43,13 @@ class ResidentConfirmSubDialog(context: Context) {
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
                 ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+                ?.addOnFailureListener { e ->
+                    Log.w(
+                        "Set WeekNumber to DB",
+                        "Error writing document",
+                        e
+                    )
+                }
 
             val intent = Intent((context as PhotoActivity), GetRewardActivity::class.java)
             intent.putExtra("reward", 2)
@@ -51,10 +57,11 @@ class ResidentConfirmSubDialog(context: Context) {
             //리워드 증가
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(
                 "rewardPoint",
-                FieldValue.increment(2))
+                FieldValue.increment(2)
+            )
             //경험치 증가
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                ?.update("exp", FieldValue.increment(10))
+//            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+//                ?.update("exp", FieldValue.increment(10))
             context.startActivity(intent)
         }
     }
