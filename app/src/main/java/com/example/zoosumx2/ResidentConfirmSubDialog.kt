@@ -3,6 +3,8 @@ package com.example.zoosumx2
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.Window
 import android.widget.Button
@@ -26,6 +28,7 @@ class ResidentConfirmSubDialog(context: Context) {
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.resident_to_reward_dialog)
         dlg.setCancelable(false)
+        dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         btnOk = dlg.findViewById(R.id.confirm_ok)
         dlg.show()
@@ -52,7 +55,7 @@ class ResidentConfirmSubDialog(context: Context) {
             //경험치 증가
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.update("exp", FieldValue.increment(10))
-            (context as PhotoActivity).startActivity(intent)
+            context.startActivity(intent)
         }
     }
 }

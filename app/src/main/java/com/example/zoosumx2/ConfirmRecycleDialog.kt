@@ -3,6 +3,8 @@ package com.example.zoosumx2
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
@@ -34,6 +36,7 @@ class ConfirmRecycleDialog(context: Context) {
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.confirm_recycle_dialog)
         dlg.setCancelable(false)
+        dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         btnOk = dlg.findViewById(R.id.confirm_ok)
         dlg.show()
