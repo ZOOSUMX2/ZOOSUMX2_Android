@@ -1,4 +1,4 @@
-package com.example.zoosumx2
+package com.example.zoosumx2.Dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -7,7 +7,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
+import com.example.zoosumx2.ConfirmOthersActivity
+import com.example.zoosumx2.MainActivity
+import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

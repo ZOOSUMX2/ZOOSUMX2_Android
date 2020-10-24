@@ -1,4 +1,4 @@
-package com.example.zoosumx2
+package com.example.zoosumx2.Dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -8,12 +8,15 @@ import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.Window
 import android.widget.Button
+import com.example.zoosumx2.GetRewardActivity
+import com.example.zoosumx2.PhotoActivity
+import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
-class ResidentConfirmSubDialog(context: Context) {
+class FriendConfirmSubDialog(context: Context) {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
@@ -26,7 +29,7 @@ class ResidentConfirmSubDialog(context: Context) {
         fbFirestore = FirebaseFirestore.getInstance()
 
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dlg.setContentView(R.layout.resident_to_reward_dialog)
+        dlg.setContentView(R.layout.friend_to_reward_dialog)
         dlg.setCancelable(false)
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 

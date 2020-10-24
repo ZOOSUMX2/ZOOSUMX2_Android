@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import com.example.zoosumx2.*
+import com.example.zoosumx2.Dialog.MissionRejectDialog
 import com.example.zoosumx2.adapter.MissionAdapter
 import com.example.zoosumx2.model.MissionItem
 import com.google.firebase.auth.FirebaseAuth
