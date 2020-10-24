@@ -18,7 +18,6 @@ class ConfirmRecycleDialog(context: Context) {
 
     private val dlg = Dialog(context)
     private lateinit var btnOk: Button
-    private lateinit var userName: TextView
 
     fun start(context: Context) {
 

@@ -123,25 +123,12 @@ class PhotoActivity : AppCompatActivity() {
                         "missionTitle" to missionTitle,
                         "missionContent" to missionContent,
                         "isApproved" to false,
-                        "sentTimestamp" to timestamp
+                        "sentTimestamp" to timestamp,
+                        "photo" to "${file.lastPathSegment}"
                     )
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())
                         ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo, SetOptions.merge())
-
-                    //재활용 사진이 저장된 URL 다운로드
-                        storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener { result ->
-                            Log.e("Photo Url download:", "success")
-                            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                                ?.collection("mission")?.document(fbAuth?.uid.toString())
-                                ?.update("photo", result.toString())
-                            Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
-                            //다이얼로그 호출
-                            val dlg = ResidentConfirmSubDialog(this)
-                            dlg.start(this)
-                        }.addOnFailureListener {
-                            Log.e("Photo Url download:", "failure")
-                        }.toString()
 
 
                     //재활용 사진 및 정보 <받는 사람의> DB에 업로드
@@ -245,8 +232,11 @@ class PhotoActivity : AppCompatActivity() {
                                 Log.w("isReceived sending", "Error getting documents: ", exception)
                             } }
                     }
+                    //다이얼로그 호출
+                    val dlg = ResidentConfirmSubDialog(this)
+                    dlg.start(this)
 
-                }, 15000)
+                }, 17000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()

@@ -177,6 +177,7 @@
         android:layout_marginTop="53dp">
 
         <Button
+            android:id="@+id/confirm_others_reject"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="136dp"
             android:layout_height="52dp"
@@ -191,6 +192,7 @@
             android:layout_marginRight="28dp" />
 
         <Button
+            android:id="@+id/confirm_others_approve"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="136dp"
             android:layout_height="52dp"
