@@ -48,7 +48,7 @@ class SettingActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
 
             // Todo : 재로그인 시에 예전에 로그인하였던 구글 계정으로 자동 로그인 되는 것 방지
-            Toast.makeText(this, "로그아웃 되었습니다", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
@@ -63,7 +63,7 @@ class SettingActivity : AppCompatActivity() {
             auth?.currentUser?.delete()
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, LoginActivity::class.java))
                     }
                 }

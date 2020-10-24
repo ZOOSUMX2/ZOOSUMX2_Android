@@ -56,6 +56,7 @@ class GetRewardActivity : AppCompatActivity() {
                 if (documentSnapshot == null) return@addSnapshotListener
                 finalReward.text = documentSnapshot.data?.get("rewardPoint").toString()
                 val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                val currentLevel = documentSnapshot.data?.get("level").toString().toInt()
 
                 // 여기서부터 추가함
                 // 레벨 계산
@@ -67,17 +68,44 @@ class GetRewardActivity : AppCompatActivity() {
                     else -> 5
                 }
 
-                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    ?.update("level", newLevel)
+                rewardAnimation()
+                finalPoint.startAnimation(fadeIn)
+
+                val nextButton = findViewById<Button>(R.id.get_reward_next)
+                nextButton.setOnClickListener {
+                    if (currentLevel != newLevel) {
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("level", newLevel)
+
+                        // 레벨 업 다이얼로그
+                        //val dlg = LevelUpDialog(this)
+                        //dlg.start()
+
+                    }
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+                }
+
+//                if(currentLevel != newLevel) {
+//                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+//                        ?.update("level", newLevel)
+//
+//                    // 레벨 업 다이얼로그
+//                    val dlg = LevelUpDialog(this)
+//                    dlg.start(this)
+//                }
             }
 
-        rewardAnimation()
-        finalPoint.startAnimation(fadeIn)
-
-        val nextButton = findViewById<Button>(R.id.get_reward_next)
-        nextButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+//        rewardAnimation()
+//        finalPoint.startAnimation(fadeIn)
+//
+//        val nextButton = findViewById<Button>(R.id.get_reward_next)
+//        nextButton.setOnClickListener {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }

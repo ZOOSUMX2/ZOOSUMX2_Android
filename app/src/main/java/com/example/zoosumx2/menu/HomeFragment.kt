@@ -51,6 +51,8 @@ class HomeFragment : Fragment() {
                     documentSnapshot.data?.get("islandName").toString()
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
+                textview_complete_mission_home?.text =
+                    ((documentSnapshot.data?.get("mission").toString().toInt()) % 4).toString()
 
                 when (documentSnapshot.data?.get("level").toString().toInt()) {
                     1 -> imageview_medal_home?.setImageResource(R.drawable.icon_level1)
