@@ -79,12 +79,6 @@ class HomeFragment : Fragment() {
                 }
             }
 
-        // 포인트 클릭 이벤트
-        linearlayout_mypoint_home?.setOnClickListener {
-            val intent = Intent(context, PointActivity::class.java)
-            startActivity(intent)
-        }
-
         //미션 시작 날짜 및 초기화 날짜 계산
         val today: Calendar = Calendar.getInstance()
         val todayWeek:Int = today.get(Calendar.WEEK_OF_YEAR)

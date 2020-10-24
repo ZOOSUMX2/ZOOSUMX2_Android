@@ -136,7 +136,7 @@
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:textColor="@color/colorText"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <!--미션 현황-->
@@ -172,7 +172,7 @@
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:textColor="@color/colorText"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
                             android:includeFontPadding="false"
                             android:text=" / 4"
                             android:textColor="@color/colorText"
-                            android:textSize="15sp"
+                            android:textSize="14sp"
                             tools:ignore="HardcodedText" />
 
                     </LinearLayout>
@@ -220,12 +220,13 @@
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:textColor="@color/colorText"
-                            android:textSize="15sp" />
+                            android:textSize="14sp" />
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="5sp"
+                            android:layout_marginTop="2.5sp"
                             android:contentDescription="@string/image"
                             android:src="@drawable/mypage_coin" />
 

@@ -119,12 +119,6 @@ class MypageFragment : Fragment() {
                 }.start()
             }
 
-        // 포인트 내역
-        linearlayout_point_mypage.setOnClickListener {
-            val intent = Intent(context, PointActivity::class.java)
-            startActivity(intent)
-        }
-
         // 주섬주섬 상점
         linearlayout_store_mypage.setOnClickListener {
             val intent = Intent(context, StoreActivity::class.java)
