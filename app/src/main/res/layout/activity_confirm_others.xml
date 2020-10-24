@@ -58,7 +58,7 @@
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="권*엽님이 재활용품 처리를 완료했어요\n아래 방법에 따라 올바르게 했는지 확인해주세요"
+        android:text="완료된 재활용 사진입니다\n아래 방법에 따라 올바르게 했는지 확인해주세요"
         android:textColor="@color/black_5"
         android:textSize="12sp" />
 
@@ -83,34 +83,87 @@
         android:layout_marginTop="28dp"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:paddingBottom="12dp"
-            android:text="내용물을 깨끗이 비우세요"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:paddingBottom="12dp"
-            android:text="라벨을 분리하세요"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/checkbox_checked"
+                android:layout_marginRight="10dp"
+                />
 
-        <TextView
+            <TextView
+                android:id="@+id/confirm_others_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="내용물을 깨끗이 비우세요"
+                android:textColor="@color/colorText"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosanscjkkr_regular"
-            android:includeFontPadding="false"
-            android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
-            android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/checkbox_checked"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/confirm_others_step2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="라벨을 분리하세요"
+                android:textColor="@color/colorText"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="2dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/checkbox_checked"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/confirm_others_step3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
+                android:textColor="@color/colorText"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+
+
+
 
     </LinearLayout>
 
@@ -125,22 +178,23 @@
 
         <Button
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:background="@drawable/send_photo_selector"
+            android:layout_width="136dp"
+            android:layout_height="52dp"
+            android:background="@drawable/rounded_rectangle2"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="부족해요"
             android:textColor="@color/colorText"
             android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:layout_marginRight="28dp" />
 
         <Button
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="175dp"
-            android:layout_height="60dp"
-            android:background="@drawable/send_photo_selector"
+            android:layout_width="136dp"
+            android:layout_height="52dp"
+            android:background="@drawable/rounded_rectangle2"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
             android:includeFontPadding="false"

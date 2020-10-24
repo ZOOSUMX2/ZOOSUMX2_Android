@@ -28,6 +28,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
+        //재활용 인증 요청이 와있을 경우 다이얼로그를 띄우기(다이얼로그 -> 액티비티)
+        //1) 재활용 인증 요청이 도착했는지 확인
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                if(documentSnapshot.data?.get("isReceivedRecycle")!=null){
+                    //다이얼로그 호출
+                    val dlg = ConfirmRecycleDialog(this)
+                    dlg.start(this)
+                }
+            }
+
         // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)
 

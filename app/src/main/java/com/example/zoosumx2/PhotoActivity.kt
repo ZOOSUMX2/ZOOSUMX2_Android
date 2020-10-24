@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -37,6 +38,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.random.Random
 
 class PhotoActivity : AppCompatActivity() {
 
@@ -116,10 +118,23 @@ class PhotoActivity : AppCompatActivity() {
 
                 //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
                 Handler().postDelayed({
+                    //재활용 사진 및 미션 정보 DB에 업로드
+                    val recyclePhotoInfo = hashMapOf(
+                        "missionTitle" to missionTitle,
+                        "missionContent" to missionContent,
+                        "isApproved" to false,
+                        "sentTimestamp" to timestamp
+                    )
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo, SetOptions.merge())
+
                     //재활용 사진이 저장된 URL 다운로드
-                    val trashPhotoDownloadURL: String? =
-                        storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener {
+                        storageRef.child("images/${file.lastPathSegment}").downloadUrl.addOnSuccessListener { result ->
                             Log.e("Photo Url download:", "success")
+                            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                                ?.collection("mission")?.document(fbAuth?.uid.toString())
+                                ?.update("photo", result.toString())
                             Toast.makeText(this, "이웃 주민들에게 편지를 발송했어요!", Toast.LENGTH_LONG).show()
                             //다이얼로그 호출
                             val dlg = ResidentConfirmSubDialog(this)
@@ -129,18 +144,109 @@ class PhotoActivity : AppCompatActivity() {
                         }.toString()
 
 
-                    //재활용 사진 및 미션 정보 DB에 업로드
-                    val recyclePhotoInfo = hashMapOf(
-                        "missionTitle" to missionTitle,
-                        "missionContent" to missionContent,
-                        "isApproved" to false,
-                        "sentTimestamp" to timestamp,
-                        "photo" to trashPhotoDownloadURL
-                    )
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.collection("mission")?.document(fbAuth?.uid.toString())
-                        ?.collection("missionDetail")?.document("recycle")?.set(recyclePhotoInfo, SetOptions.merge())
-                }, 10000)
+                    //재활용 사진 및 정보 <받는 사람의> DB에 업로드
+                    val randomFlag: ArrayList<String> = ArrayList() //랜덤으로 뽑아올 필드 값 문자열 세팅
+                    randomFlag.add("uid")
+                    randomFlag.add("addressRegion")
+                    randomFlag.add("exp")
+
+                    val randomInsertArray: ArrayList<String> = ArrayList() //실제 firestore 접근을 위해 넣을 필드 값
+
+                    for(i in 1..3){
+                        var tempInt: Int = Random.nextInt(randomFlag.size)
+                        randomInsertArray.add(randomFlag[tempInt])
+                        randomFlag.removeAt(tempInt)
+                        if(randomFlag.isEmpty())
+                            break
+                    }
+
+                    val randomDescendingFlag: Int = Random.nextInt(8)
+                    val usersRef = fbFirestore?.collection("users")
+
+                    when(randomDescendingFlag){
+                        0 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        1 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        2 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[2])?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        3 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        4 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[2])?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        5 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[1])
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        6 -> { usersRef?.orderBy(randomInsertArray[0])
+                            ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                        7 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.get()?.addOnSuccessListener { result ->
+                                for(document in result){
+                                    fbFirestore?.collection("users")?.document(document.get("uid").toString())
+                                        ?.collection("mission")?.document(document.get("uid").toString())?.update("isReceivedRecycle",fbAuth?.uid.toString())
+                                }
+                            }?.addOnFailureListener { exception ->
+                                Log.w("isReceived sending", "Error getting documents: ", exception)
+                            } }
+                    }
+
+                }, 15000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()

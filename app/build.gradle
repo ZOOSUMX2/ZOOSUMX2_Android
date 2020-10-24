@@ -62,4 +62,5 @@ dependencies {
     implementation "com.kakao.sdk:v2-link:2.0.4"
 
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.0'
+    implementation 'com.firebaseui:firebase-ui-storage:6.2.0'
 }

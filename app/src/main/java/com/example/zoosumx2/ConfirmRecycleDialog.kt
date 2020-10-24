@@ -25,25 +25,17 @@ class ConfirmRecycleDialog(context: Context) {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        userName = dlg.findViewById(R.id.textview_username_confirm_recycle)
-
-        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                if (documentSnapshot == null) return@addSnapshotListener
-                userName.text = documentSnapshot.data?.get("nickname").toString()
-            }
-
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.confirm_recycle_dialog)
         dlg.setCancelable(false)
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        btnOk = dlg.findViewById(R.id.confirm_ok)
+        btnOk = dlg.findViewById(R.id.confirm_others_ok)
         dlg.show()
 
         btnOk.setOnClickListener {
             dlg.dismiss()
-            val intent = Intent((context as PhotoActivity), MainActivity::class.java)
+            val intent = Intent((context as MainActivity), ConfirmOthersActivity::class.java)
             context.startActivity(intent)
         }
     }

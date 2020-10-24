@@ -22,7 +22,7 @@
         android:includeFontPadding="false"
 
         android:layout_marginTop="12dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="110dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
