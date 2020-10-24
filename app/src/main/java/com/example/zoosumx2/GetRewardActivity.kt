@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
@@ -17,8 +18,6 @@ class GetRewardActivity : AppCompatActivity() {
 
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
-    var exp = 0
-    var currentLevel = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,14 +46,30 @@ class GetRewardActivity : AppCompatActivity() {
             animator.start()
         }
 
+        // 경험치 제공
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.update("exp", FieldValue.increment(10))
+
+        // 나의 최종 포인트 띄워줌
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
                 finalReward.text = documentSnapshot.data?.get("rewardPoint").toString()
-            }
+                val exp = documentSnapshot.data?.get("exp").toString().toInt()
 
-//        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-//            ?.update("exp", FieldValue.increment(10))
+                // 여기서부터 추가함
+                // 레벨 계산
+                val newLevel = when {
+                    (exp in 0..99) -> 1
+                    (exp in 100..299) -> 2
+                    (exp in 300..599) -> 3
+                    (exp in 600..999) -> 4
+                    else -> 5
+                }
+
+                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                    ?.update("level", newLevel)
+            }
 
         rewardAnimation()
         finalPoint.startAnimation(fadeIn)
