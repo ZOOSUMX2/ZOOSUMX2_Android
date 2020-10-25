@@ -142,27 +142,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textview_comment_mypage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanscjkkr_regular"
-                    android:text="주섬주섬과 함께한 지 "
-                    android:textColor="@color/colorText"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:id="@+id/textview_days_mypage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:textColor="@color/friendly_green"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:text="일째"
+                    android:text="아직 섬에 쓰레기가 많네요 :("
                     android:textColor="@color/colorText"
                     android:textSize="14sp"
                     tools:ignore="HardcodedText" />
