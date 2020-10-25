@@ -1,6 +1,5 @@
 package com.example.zoosumx2.menu
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -42,6 +41,8 @@ class HomeFragment : Fragment() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
+        var completeMission: Int
+
         // firestore에서 데이터 가져온 후 textview에 띄우기
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
@@ -51,8 +52,14 @@ class HomeFragment : Fragment() {
                     documentSnapshot.data?.get("islandName").toString()
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
-                textview_complete_mission_home?.text =
-                    ((documentSnapshot.data?.get("mission").toString().toInt()) % 4).toString()
+
+                if ((documentSnapshot.data?.get("mission").toString().toInt() % 4) == 0) {
+                    completeMission = 4
+                } else {
+                    completeMission = documentSnapshot.data?.get("mission").toString().toInt() % 4
+                }
+                textview_complete_mission_home?.text = completeMission.toString()
+
                 val exp = documentSnapshot.data?.get("exp").toString().toInt()
 
                 when (documentSnapshot.data?.get("level").toString().toInt()) {

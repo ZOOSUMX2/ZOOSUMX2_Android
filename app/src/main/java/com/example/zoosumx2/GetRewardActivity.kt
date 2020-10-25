@@ -84,15 +84,14 @@ class GetRewardActivity : AppCompatActivity() {
                             ?.update("level", newLevel)
 
                         // 레벨 업 다이얼로그
-//                        val dlg = LevelUpDialog(this)
-//                        dlg.start(this)
-
+                        val dlg = LevelUpDialog(this)
+                        dlg.start(this)
                     }
                     //val dlg = LevelUpDialog(this)
                     //dlg.start()
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    //val intent = Intent(this, MainActivity::class.java)
+                    //startActivity(intent)
                 }
 
 //                if(currentLevel != newLevel) {

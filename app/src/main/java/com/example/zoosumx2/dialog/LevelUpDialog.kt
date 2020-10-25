@@ -7,6 +7,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
+import androidx.core.content.contentValuesOf
+import com.example.zoosumx2.ConfirmOthersActivity
 import com.example.zoosumx2.GetRewardActivity
 import com.example.zoosumx2.MainActivity
 import com.example.zoosumx2.R
@@ -16,7 +18,7 @@ class LevelUpDialog(context: Context) {
     private val dlg = Dialog(context)
     private lateinit var btnOk: Button
 
-    fun start() {
+    fun start(context: Context) {
 
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dlg.setContentView(R.layout.level_up_dialog)
@@ -28,6 +30,8 @@ class LevelUpDialog(context: Context) {
 
         btnOk.setOnClickListener {
             dlg.dismiss()
+            val intent = Intent((context as GetRewardActivity), MainActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }
