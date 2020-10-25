@@ -56,6 +56,15 @@ class ConfirmOthersActivity : AppCompatActivity() {
                     }
             }
 
+        fbFirestore?.collection("users")?.document(senderUID!!)
+            ?.collection("mission")?.document(senderUID!!)
+            ?.collection("missionDetail")?.document("recycle")
+            ?.addSnapshotListener{documentSnapshot, firebaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                confirm_others_step1.text = documentSnapshot.data?.get("missionStep1").toString().replace("bb"," ").replace("Step1", "")
+                confirm_others_step2.text = documentSnapshot.data?.get("missionStep2").toString().replace("bb"," ").replace("Step2", "")
+                confirm_others_step3.text = documentSnapshot.data?.get("missionStep3").toString().replace("bb"," ").replace("Step3", "")
+            }
 
         confirm_others_approve.setOnClickListener {
             //다이얼로그 호출

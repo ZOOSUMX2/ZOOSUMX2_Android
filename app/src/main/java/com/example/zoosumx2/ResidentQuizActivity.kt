@@ -46,11 +46,11 @@ class ResidentQuizActivity : AppCompatActivity() {
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
                 for (snapshot in documentSnapshot) {
-                    question.text = snapshot.getString("title").toString().replace("bb", "\n")
-                    correctAns.text = snapshot.getString("correctAns").toString()
-                    wrongAns.text = snapshot.getString("wrongAns").toString()
+                question.text = snapshot.getString("title").toString().replace("bb", "\n")
+                correctAns.text = snapshot.getString("correctAns").toString()
+                wrongAns.text = snapshot.getString("wrongAns").toString()
 
-                }
+            }
             }
 
         // 선지 둘 중에 하나만 선택되도록

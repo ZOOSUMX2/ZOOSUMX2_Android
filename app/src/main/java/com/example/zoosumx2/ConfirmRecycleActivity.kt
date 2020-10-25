@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_confirm_recycle.*
 
 class ConfirmRecycleActivity : AppCompatActivity() {
@@ -27,6 +28,29 @@ class ConfirmRecycleActivity : AppCompatActivity() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
+
+        fbFirestore?.collection("RecycleSteps")?.whereEqualTo("new", true)
+            ?.addSnapshotListener{documentSnapshot, firebaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                for (snapshot in documentSnapshot) {
+                    confirm_title.text = snapshot.getString("missionTitle").toString().replace("bb", "\n")
+                    text_step1.text = snapshot.getString("missionStep1").toString().replace("bb", "\n")
+                    text_step2.text = snapshot.getString("missionStep2").toString().replace("bb", "\n")
+                    text_step3.text = snapshot.getString("missionStep3").toString().replace("bb", "\n")
+
+                    //DB에서 받아온 Step들 다시 users 아래의 필드에 저장하기
+                    val RecycleStepInfo = hashMapOf(
+                        "missionTitle" to snapshot.getString("missionTitle").toString().replace("\n", "bb"),
+                        "missionStep1" to snapshot.getString("missionStep1").toString().replace("\n", "bb"),
+                        "missionStep2" to snapshot.getString("missionStep2").toString().replace("\n", "bb"),
+                        "missionStep3" to snapshot.getString("missionStep3").toString().replace("\n", "bb")
+                    )
+
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.collection("missionDetail")?.document("recycle")?.set(RecycleStepInfo, SetOptions.merge())
+                }
+            }
 
         // status bar 색상 변경
         val window = this.window

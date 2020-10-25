@@ -50,9 +50,6 @@ class PhotoActivity : AppCompatActivity() {
     var fbFirestore: FirebaseFirestore? = null
     val storage = Firebase.storage
 
-    var missionTitle: String?=null
-    var missionContent: String?=null
-
     private val requestImageCapture = 1 //카메라 사진 촬영 요청코드
     private lateinit var curPhotoPath: String //문자열 형태의 사진 경로 값
     private lateinit var scaledFile: File //카카오 서버에 전송하기 위해 용량 조절된 사진
@@ -71,13 +68,6 @@ class PhotoActivity : AppCompatActivity() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
         val storageRef = storage.reference
-
-        if(intent.hasExtra("missionTitle")){
-            missionTitle=intent.getStringExtra("missionTitle")
-        }
-        if(intent.hasExtra("missionContent")){
-            missionContent=intent.getStringExtra("missionContent")
-        }
 
 
         // status bar 색상 변경
@@ -122,8 +112,6 @@ class PhotoActivity : AppCompatActivity() {
                 Handler().postDelayed({
                     //재활용 사진 및 미션 정보 DB에 업로드
                     val recyclePhotoInfo = hashMapOf(
-                        "missionTitle" to missionTitle,
-                        "missionContent" to missionContent,
                         "isApproved" to false,
                         "sentTimestamp" to timestamp,
                         "photo" to "${file.lastPathSegment}"
