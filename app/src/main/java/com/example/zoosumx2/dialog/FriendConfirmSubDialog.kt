@@ -1,4 +1,4 @@
-package com.example.zoosumx2.Dialog
+package com.example.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context

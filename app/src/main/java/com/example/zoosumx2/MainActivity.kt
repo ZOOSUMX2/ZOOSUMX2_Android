@@ -3,7 +3,8 @@ package com.example.zoosumx2
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.zoosumx2.Dialog.ConfirmRecycleDialog
+import com.example.zoosumx2.dialog.ApproveToRewardDialog
+import com.example.zoosumx2.dialog.ConfirmRecycleDialog
 import com.example.zoosumx2.menu.MailboxFragment
 import com.example.zoosumx2.menu.MypageFragment
 import com.example.zoosumx2.menu.PagerHomeFragment
@@ -37,7 +38,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
 
         // 보낸 재활용 인증 사진에 대한 승인이 된 경우 다이얼로그와 리워드 출력(다이얼로그 -> 리워드 액티비티)
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.collection("missionDetail")?.document("recycle")
+            ?.addSnapshotListener{documentSnapshot, firebaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                if(documentSnapshot.data?.get("isApproved").toString().toBoolean()){
+                    //isApproved 필드 false로 변경
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.collection("missionDetail")?.document("recycle")?.update("isApproved", false)
 
+                    //다이얼로그 호출
+                    val dlg = ApproveToRewardDialog(this)
+                    dlg.start(this)
+                }
+            }
 
 
         // 네비게이션바에 리스너 부착

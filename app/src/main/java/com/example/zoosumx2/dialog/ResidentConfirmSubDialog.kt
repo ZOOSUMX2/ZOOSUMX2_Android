@@ -1,4 +1,4 @@
-package com.example.zoosumx2.Dialog
+package com.example.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Window
 import android.widget.Button
 import com.example.zoosumx2.GetRewardActivity
+import com.example.zoosumx2.MainActivity
 import com.example.zoosumx2.PhotoActivity
 import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +38,6 @@ class ResidentConfirmSubDialog(context: Context) {
         dlg.show()
 
         btnOk.setOnClickListener {
-            dlg.dismiss()
 
             //firestore의 mission 수행 여부 true로 변경
             val missionFlag = hashMapOf(
@@ -54,17 +54,8 @@ class ResidentConfirmSubDialog(context: Context) {
                     )
                 }
 
-            val intent = Intent((context as PhotoActivity), GetRewardActivity::class.java)
-            intent.putExtra("reward", 2)
-
-            //리워드 증가
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(
-                "rewardPoint",
-                FieldValue.increment(2)
-            )
-            //경험치 증가
-//            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-//                ?.update("exp", FieldValue.increment(10))
+            dlg.dismiss()
+            val intent = Intent((context as PhotoActivity), MainActivity::class.java)
             context.startActivity(intent)
         }
     }

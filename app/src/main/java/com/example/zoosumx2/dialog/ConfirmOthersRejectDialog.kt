@@ -1,4 +1,4 @@
-package com.example.zoosumx2.Dialog
+package com.example.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -13,16 +13,17 @@ import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
 
-class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
+
+class ConfirmOthersRejectDialog(context: Context, senderUID: String) {
+
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
     private val dlg = Dialog(context)
     private lateinit var btnOk: Button
     private val senderUID = senderUID
-    private var nextFlag:Boolean = false
+    private var nextFlag: Boolean = false
 
     fun start(context: Context){
 
@@ -30,7 +31,7 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
         fbFirestore = FirebaseFirestore.getInstance()
 
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dlg.setContentView(R.layout.confirm_others_approve_dialog)
+        dlg.setContentView(R.layout.confirm_others_reject_dialog)
         dlg.setCancelable(false)
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -45,19 +46,9 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
             "isReceivedRecycle" to FieldValue.delete()
         )
 
-        //2) 보낸 사용자의 isApproved 필드 값 true로 변환, 보낸 사용자의 whoApproved 필드에 인증해준 사용자의 uid 저장
         ReceivedRef?.update(updates)?.addOnCompleteListener {
-            val approvedInfo = hashMapOf(
-                "isApproved" to true,
-                "whoApproved" to fbAuth?.uid.toString()
-            )
-            fbFirestore?.collection("users")?.document(senderUID!!)
-                ?.collection("mission")?.document(senderUID!!)
-                ?.collection("missionDetail")?.document("recycle")
-                ?.set(approvedInfo, SetOptions.merge())?.addOnCompleteListener {
-                    btnOk.setBackgroundResource(R.drawable.rounded_rectangle_green)
-                    nextFlag = true
-                }
+            btnOk.setBackgroundResource(R.drawable.rounded_rectangle_green)
+            nextFlag = true
         }
 
         btnOk.setOnClickListener {
@@ -66,6 +57,5 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
                 context.startActivity(intent)
             }
         }
-
     }
 }

@@ -19,8 +19,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.zoosumx2.Dialog.FriendConfirmSubDialog
-import com.example.zoosumx2.Dialog.ResidentConfirmSubDialog
+import com.example.zoosumx2.dialog.FriendConfirmSubDialog
+import com.example.zoosumx2.dialog.ResidentConfirmSubDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -238,7 +238,7 @@ class PhotoActivity : AppCompatActivity() {
                     val dlg = ResidentConfirmSubDialog(this)
                     dlg.start(this)
 
-                }, 17000)
+                }, 15000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
@@ -408,7 +408,7 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 400, 446, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 600, 700, false)
                 square_photo.setImageBitmap(scaledBitmap)
             }
             confirm_to_friend.isSelected = true

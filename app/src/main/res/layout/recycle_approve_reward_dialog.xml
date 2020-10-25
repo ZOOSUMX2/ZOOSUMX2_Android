@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="306dp"
     android:layout_height="268dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/dialog_background">
 
     <TextView
@@ -10,9 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:text="재활용 인증 요청 전송 완료!"
+        android:text="주민에게 보낸 분리수거 사진이\n인증되었어요!"
+        android:gravity="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
@@ -27,13 +28,13 @@
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="인증이 완료되면\n리워드가 지급됩니다!"
+        android:text="올바른 방법으로\n분리수거를 진행하셨군요!"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/confirm_ok"
+        android:id="@+id/approve_to_reward_ok"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_below="@+id/resident_to_reward_content"
@@ -43,7 +44,7 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:paddingHorizontal="15dp"
-        android:text="홈으로 이동하기"
+        android:text="리워드 확인하기"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
