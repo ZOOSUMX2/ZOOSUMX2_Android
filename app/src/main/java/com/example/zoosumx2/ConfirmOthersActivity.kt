@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.zoosumx2.Dialog.ConfirmOthersApproveDialog
+import com.example.zoosumx2.Dialog.ConfirmOthersRejectDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -58,44 +60,17 @@ class ConfirmOthersActivity : AppCompatActivity() {
                     }
             }
 
-        //Todo: 가능하면 dialog 넣기
+
         confirm_others_approve.setOnClickListener {
-            Handler().postDelayed({
-                Toast.makeText(this, "승인 결과를 전송 중입니다. 시간이 소요될 수 있어요!", Toast.LENGTH_SHORT).show()
-                //2) 보낸 사용자의 isApproved 필드 값 true로 변환, 보낸 사용자의 whoApproved 필드에 인증해준 사용자의 uid 저장
-                val approvedInfo = hashMapOf(
-                    "isApproved" to true,
-                    "whoApproved" to fbAuth?.uid.toString()
-                )
-                fbFirestore?.collection("users")?.document(senderUID!!)
-                    ?.collection("mission")?.document(senderUID!!)
-                    ?.collection("missionDetail")?.document("recycle")
-                    ?.set(approvedInfo, SetOptions.merge())
-
-                //1) 현재 로그인한 사용자의 isReceivedRecycle 필드 값 null로 바꿈
-                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    ?.collection("mission")?.document(fbAuth?.uid.toString())
-                    ?.update("isReceivedRecycle", null)?.addOnSuccessListener {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-            }, 15000)
-
-
+            //다이얼로그 호출
+            val dlg = ConfirmOthersApproveDialog(this, senderUID!!)
+            dlg.start(this)
         }
 
         confirm_others_reject.setOnClickListener {
-            Toast.makeText(this, "본 재활용 결과를 승인하지 않았습니다. 결과를 전송하는 중입니다.", Toast.LENGTH_SHORT).show()
-            Handler().postDelayed({
-                //1) 현재 로그인한 사용자의 isReceivedRecycle 필드 값 null로 바꿈
-                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    ?.collection("mission")?.document(fbAuth?.uid.toString())
-                    ?.update("isReceivedRecycle", null)?.addOnSuccessListener {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-
-            }, 15000)
+            //다이얼로그 호출
+            val dlg = ConfirmOthersRejectDialog(this, senderUID!!)
+            dlg.start(this)
         }
 
     }
