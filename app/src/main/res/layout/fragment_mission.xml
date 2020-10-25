@@ -37,12 +37,12 @@
 
             <LinearLayout
                 android:id="@+id/mission_confirm_recycle"
-                android:layout_width="146dp"
-                android:layout_height="218dp"
+                android:layout_width="174dp"
+                android:layout_height="246dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/confirm_recycle_banner"
@@ -54,15 +54,15 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="110dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="73dp"
-                    android:layout_height="82dp"
-                    android:layout_marginStart="25dp"
+                    android:layout_width="88dp"
+                    android:layout_height="97dp"
+                    android:layout_marginStart="35dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/icon_recyclecertify"
                     android:layout_marginBottom="10dp"/>
@@ -75,7 +75,7 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="3dp"/>
 
@@ -87,19 +87,19 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:textColor="@color/black_5"
                     android:includeFontPadding="false"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/mission_user_quiz"
-                android:layout_width="146dp"
-                android:layout_height="218dp"
+                android:layout_width="174dp"
+                android:layout_height="246dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:id="@+id/user_quiz_banner"
@@ -111,15 +111,15 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="110dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="103dp"
-                    android:layout_height="102dp"
-                    android:layout_marginStart="17dp"
+                    android:layout_width="113dp"
+                    android:layout_height="112dp"
+                    android:layout_marginStart="25dp"
                     android:src="@drawable/icon_peoplequiz"
                     />
 
@@ -130,8 +130,9 @@
                     android:textSize="13sp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
+                    android:paddingTop="5dp"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="3dp"/>
 
@@ -143,7 +144,7 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:textColor="@color/black_5"
                     android:includeFontPadding="false"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"/>
 
             </LinearLayout>
@@ -158,12 +159,12 @@
 
             <LinearLayout
                 android:id="@+id/mission_making_quiz"
-                android:layout_width="146dp"
-                android:layout_height="218dp"
+                android:layout_width="174dp"
+                android:layout_height="246dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/making_quiz_banner"
@@ -175,15 +176,15 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="110dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="87dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_width="88dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="32dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/icon_quizmaking"
                     android:layout_marginBottom="5dp"/>
@@ -194,9 +195,10 @@
                     android:text="퀴즈 출제하기"
                     android:textSize="13sp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:paddingTop="5dp"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="3dp"/>
 
@@ -208,15 +210,15 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:textColor="@color/black_5"
                     android:includeFontPadding="false"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/mission_random_quiz"
-                android:layout_width="146dp"
-                android:layout_height="218dp"
+                android:layout_width="174dp"
+                android:layout_height="246dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp">
@@ -231,17 +233,16 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="110dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="103dp"
-                    android:layout_height="102dp"
-                    android:layout_marginStart="17dp"
-                    android:src="@drawable/icon_quiztest"
-                    />
+                    android:layout_width="120dp"
+                    android:layout_height="119dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/icon_quiztest" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -251,7 +252,7 @@
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="3dp"/>
 
@@ -263,7 +264,7 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:textColor="@color/black_5"
                     android:includeFontPadding="false"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"/>
 
             </LinearLayout>
