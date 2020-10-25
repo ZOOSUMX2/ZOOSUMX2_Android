@@ -80,7 +80,7 @@
             android:layout_below="@+id/userName_ment_first"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
-            android:text="이름을 알려주실래요?"
+            android:text="닉네임을 입력해주세요!"
             android:textSize="24sp"
             tools:ignore="HardcodedText" />
 
@@ -92,13 +92,14 @@
             android:layout_marginTop="55dp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/notosanscjkkr_regular"
-            android:hint="이름 입력"
+            android:hint="닉네임 입력"
             android:importantForAutofill="no"
             android:includeFontPadding="false"
             android:inputType="textPersonName"
             android:textColorHint="@color/friendly_green"
             android:textSize="24sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            android:maxLength="4" />
 
         <View
             android:layout_width="164.5sp"

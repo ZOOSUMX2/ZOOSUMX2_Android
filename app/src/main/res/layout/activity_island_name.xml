@@ -176,7 +176,8 @@
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText"
+                android:maxLength="6" />
 
             <View
                 android:layout_width="164.5sp"
