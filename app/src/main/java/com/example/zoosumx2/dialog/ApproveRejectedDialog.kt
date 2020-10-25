@@ -2,20 +2,16 @@ package com.example.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
-import com.example.zoosumx2.GetRewardActivity
-import com.example.zoosumx2.MainActivity
 import com.example.zoosumx2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
-
-class ApproveToRewardDialog(context: Context) {
+class ApproveRejectedDialog(context: Context) {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
@@ -27,12 +23,13 @@ class ApproveToRewardDialog(context: Context) {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
+
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dlg.setContentView(R.layout.recycle_approve_reward_dialog)
+        dlg.setContentView(R.layout.recycle_approve_rejected_dialog)
         dlg.setCancelable(false)
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        btnOk = dlg.findViewById(R.id.approve_to_reward_ok)
+        btnOk = dlg.findViewById(R.id.approve_rejected_ok)
         dlg.show()
 
         btnOk.setOnClickListener {
@@ -45,17 +42,8 @@ class ApproveToRewardDialog(context: Context) {
             )
             RecycleRef?.update(updates)
 
-            val intent = Intent((context as MainActivity), GetRewardActivity::class.java)
-            intent.putExtra("reward", 2)
-
             dlg.dismiss()
-
-            //리워드 증가
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(
-                "rewardPoint",
-                FieldValue.increment(2)
-            )
-            context.startActivity(intent)
         }
+
     }
 }

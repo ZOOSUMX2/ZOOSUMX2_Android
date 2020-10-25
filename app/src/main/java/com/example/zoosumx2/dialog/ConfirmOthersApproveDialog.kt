@@ -45,11 +45,12 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
             "isReceivedRecycle" to FieldValue.delete()
         )
 
-        //2) 보낸 사용자의 isApproved 필드 값 true로 변환, 보낸 사용자의 whoApproved 필드에 인증해준 사용자의 uid 저장
+        //2) 보낸 사용자의 isApproved 필드 값 true로 변환, 보낸 사용자의 whoApproved 필드에 인증해준 사용자의 uid 저장, 보낸 사용자의 confirmOk 필드 true 저장
         ReceivedRef?.update(updates)?.addOnCompleteListener {
             val approvedInfo = hashMapOf(
                 "isApproved" to true,
-                "whoApproved" to fbAuth?.uid.toString()
+                "whoApproved" to fbAuth?.uid.toString(),
+                "confirmOk" to true
             )
             fbFirestore?.collection("users")?.document(senderUID!!)
                 ?.collection("mission")?.document(senderUID!!)

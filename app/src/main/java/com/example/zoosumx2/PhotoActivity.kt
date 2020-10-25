@@ -57,6 +57,8 @@ class PhotoActivity : AppCompatActivity() {
 
     private var sendPermission = false //사진이 등록되지 않을 경우 0
 
+    private val limitInt: Long = 1
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -141,7 +143,7 @@ class PhotoActivity : AppCompatActivity() {
                     val usersRef = fbFirestore?.collection("users")
 
                     when(randomDescendingFlag){
-                        0 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(3)
+                        0 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -150,7 +152,7 @@ class PhotoActivity : AppCompatActivity() {
                             }?.addOnFailureListener { exception ->
                                 Log.w("isReceived sending", "Error getting documents: ", exception)
                             } }
-                        1 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(3)
+                        1 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -159,7 +161,7 @@ class PhotoActivity : AppCompatActivity() {
                             }?.addOnFailureListener { exception ->
                                 Log.w("isReceived sending", "Error getting documents: ", exception)
                             } }
-                        2 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[2])?.limit(3)
+                        2 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)?.orderBy(randomInsertArray[2])?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -168,7 +170,7 @@ class PhotoActivity : AppCompatActivity() {
                             }?.addOnFailureListener { exception ->
                                 Log.w("isReceived sending", "Error getting documents: ", exception)
                             } }
-                        3 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                        3 -> { usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -179,7 +181,7 @@ class PhotoActivity : AppCompatActivity() {
                             } }
                         4 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
                             ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
-                            ?.orderBy(randomInsertArray[2])?.limit(3)
+                            ?.orderBy(randomInsertArray[2])?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -190,7 +192,7 @@ class PhotoActivity : AppCompatActivity() {
                             } }
                         5 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
                             ?.orderBy(randomInsertArray[1])
-                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -201,7 +203,7 @@ class PhotoActivity : AppCompatActivity() {
                             } }
                         6 -> { usersRef?.orderBy(randomInsertArray[0])
                             ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
-                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())
@@ -212,7 +214,7 @@ class PhotoActivity : AppCompatActivity() {
                             } }
                         7 -> { usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
                             ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
-                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(3)
+                            ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)?.limit(limitInt)
                             ?.get()?.addOnSuccessListener { result ->
                                 for(document in result){
                                     fbFirestore?.collection("users")?.document(document.get("uid").toString())

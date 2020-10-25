@@ -54,6 +54,9 @@ class HomeFragment : Fragment() {
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
 
                 if ((documentSnapshot.data?.get("mission").toString().toInt() % 4) == 0) {
+                    if(documentSnapshot.data?.get("mission").toString().toInt()==0){
+                        completeMission = 0
+                    }
                     completeMission = 4
                 } else {
                     completeMission = documentSnapshot.data?.get("mission").toString().toInt() % 4
@@ -86,34 +89,5 @@ class HomeFragment : Fragment() {
                 }
             }
 
-        //미션 시작 날짜 및 초기화 날짜 계산
-        val today: Calendar = Calendar.getInstance()
-        val todayWeek:Int = today.get(Calendar.WEEK_OF_YEAR)
-
-        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-            ?.collection("mission")?.document(fbAuth?.uid.toString())
-            ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                if (documentSnapshot == null) return@addSnapshotListener
-
-                if(documentSnapshot.data?.get("creationTimestamp").toString()!=todayWeek.toString()){
-                    //만일 오늘 날짜의 이번 년도 주차 수가 DB에 저장되어 있는 이번 년도 주차 수와 다르다면, 즉 새로운 주가 시작된 경우
-                    //1) DB의 주차(creationTimestamp) 업데이트
-                    //2) mission 수행 관련 DB 값 수정
-                    val missionFlag = hashMapOf(
-                        "creationTimeStamp" to todayWeek,
-                        "missionMakingQuiz" to "false",
-                        "missionRecycle" to "false",
-                        "missionSenseQuiz" to "false",
-                        "missionUserQuiz" to "false"
-                    )
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.collection("mission")?.document(fbAuth?.uid.toString())
-                        ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-                        ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
-                }
-                else{
-                    Log.d("compare week","success and same")
-                }
-            }
     }
 }

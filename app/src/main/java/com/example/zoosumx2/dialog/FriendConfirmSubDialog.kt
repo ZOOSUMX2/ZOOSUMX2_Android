@@ -54,18 +54,24 @@ class FriendConfirmSubDialog(context: Context) {
                     )
                 }
 
-            val intent = Intent((context as PhotoActivity), GetRewardActivity::class.java)
-            intent.putExtra("reward", 2)
-
-            //리워드 증가
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(
-                "rewardPoint",
-                FieldValue.increment(2)
+            //카카오톡으로 보내기 수행 여부 true로 변경
+            val sendKakaoFlag = hashMapOf(
+                "sendKakao" to true
             )
-            //경험치 증가
-//            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-//                ?.update("exp", FieldValue.increment(10))
-            context.startActivity(intent)
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.collection("mission")?.document(fbAuth?.uid.toString())
+                ?.collection("missionDetail")?.document("recycle")
+                ?.set(sendKakaoFlag, SetOptions.merge())?.addOnCompleteListener {
+                    val intent = Intent((context as PhotoActivity), GetRewardActivity::class.java)
+                    intent.putExtra("reward", 2)
+
+                    //리워드 증가
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update(
+                        "rewardPoint",
+                        FieldValue.increment(2)
+                    )
+                    context.startActivity(intent)
+                }
         }
     }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="306dp"
+    android:layout_height="268dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/dialog_background">
+
+    <TextView
+        android:id="@+id/resident_to_reward_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:text="주민에게 보낸 분리수거 사진이\n인증 받지 못했어요"
+        android:gravity="center"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/resident_to_reward_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resident_to_reward_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/notosanscjkkr_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="다음 주 올바른 분리배출 인증에\n재도전 해주세요!"
+        android:textColor="@color/colorText"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/approve_rejected_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@+id/resident_to_reward_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_rectangle_orange"
+        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
+        android:paddingHorizontal="15dp"
+        android:text="홈으로 이동하기"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>
