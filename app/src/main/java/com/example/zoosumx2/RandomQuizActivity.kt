@@ -126,10 +126,6 @@ class RandomQuizActivity : AppCompatActivity() {
                     // 리워드 제공
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(1))
-                    // 미션 완료 개수 1 증가
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("mission", FieldValue.increment(1))
-
                 }
             }
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화

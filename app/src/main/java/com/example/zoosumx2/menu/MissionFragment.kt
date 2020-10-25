@@ -67,6 +67,8 @@ class MissionFragment : Fragment() , AdapterView.OnItemClickListener{
         gridView?.adapter = missionAdapter
         gridView?.onItemClickListener = this
 
+
+
         return view
     }
 

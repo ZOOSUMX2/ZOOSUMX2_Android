@@ -64,9 +64,6 @@ class MakequizActivity : AppCompatActivity() {
                         // 리워드 제공
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                             ?.update("rewardPoint", FieldValue.increment(3))
-                        // 미션 완료 개수 1 증가
-                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                            ?.update("mission", FieldValue.increment(1))
 
                         // firestore에 사용자 정보 업데이트
                         // 서버 타임스탬프

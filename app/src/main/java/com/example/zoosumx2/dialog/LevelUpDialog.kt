@@ -2,10 +2,13 @@ package com.example.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
+import com.example.zoosumx2.GetRewardActivity
+import com.example.zoosumx2.MainActivity
 import com.example.zoosumx2.R
 
 class LevelUpDialog(context: Context) {
@@ -21,11 +24,10 @@ class LevelUpDialog(context: Context) {
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         btnOk = dlg.findViewById(R.id.confirm_ok)
+        dlg.show()
+
         btnOk.setOnClickListener {
             dlg.dismiss()
-//            val intent = Intent((context as GetRewardActivity), MainActivity::class.java)
-//            context.startActivity(intent)
         }
-        dlg.show()
     }
 }

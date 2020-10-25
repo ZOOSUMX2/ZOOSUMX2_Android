@@ -3,13 +3,12 @@ package com.example.zoosumx2
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.zoosumx2.dialog.LevelUpDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -49,6 +48,9 @@ class GetRewardActivity : AppCompatActivity() {
         // 경험치 제공
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.update("exp", FieldValue.increment(10))
+        // 미션 완료 개수 1 증가
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.update("mission", FieldValue.increment(1))
 
         // 나의 최종 포인트 띄워줌
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
@@ -73,20 +75,24 @@ class GetRewardActivity : AppCompatActivity() {
 
                 val nextButton = findViewById<Button>(R.id.get_reward_next)
                 nextButton.setOnClickListener {
+
+                    //val dlg = LevelUpDialog(this)
+                    //dlg.start()
+
                     if (currentLevel != newLevel) {
                         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                             ?.update("level", newLevel)
 
                         // 레벨 업 다이얼로그
-                        //val dlg = LevelUpDialog(this)
-                        //dlg.start()
+//                        val dlg = LevelUpDialog(this)
+//                        dlg.start(this)
 
                     }
+                    //val dlg = LevelUpDialog(this)
+                    //dlg.start()
+
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-
-//                    val intent = Intent(this, MainActivity::class.java)
-//                    startActivity(intent)
                 }
 
 //                if(currentLevel != newLevel) {
@@ -98,14 +104,5 @@ class GetRewardActivity : AppCompatActivity() {
 //                    dlg.start(this)
 //                }
             }
-
-//        rewardAnimation()
-//        finalPoint.startAnimation(fadeIn)
-//
-//        val nextButton = findViewById<Button>(R.id.get_reward_next)
-//        nextButton.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
     }
 }

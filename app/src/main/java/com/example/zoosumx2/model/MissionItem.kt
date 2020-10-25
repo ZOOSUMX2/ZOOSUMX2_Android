@@ -1,14 +1,7 @@
 package com.example.zoosumx2.model
 
-class MissionItem {
+class MissionItem(var icons: Int?, var title: String?, var context: String?) {
 
-    var icons:Int ?= 0
-    var title:String ?= null
-    var context:String ?= null
+    var complete: String? = null
 
-    constructor(icons: Int?, title: String?, context: String?) {
-        this.icons = icons
-        this.title = title
-        this.context = context
-    }
 }

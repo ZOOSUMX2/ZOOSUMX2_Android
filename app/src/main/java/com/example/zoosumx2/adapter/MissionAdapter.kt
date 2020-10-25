@@ -37,7 +37,6 @@ class MissionAdapter(var context: Context, var arrayList: ArrayList<MissionItem>
         icons.setImageResource(listItem.icons!!)
         title.text = listItem.title
         context.text = listItem.context
-
         return view
     }
 

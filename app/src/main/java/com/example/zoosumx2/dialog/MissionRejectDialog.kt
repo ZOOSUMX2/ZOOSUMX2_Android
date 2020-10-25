@@ -21,10 +21,10 @@ class MissionRejectDialog(context: Context) {
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         btnOk = dlg.findViewById(R.id.ok_btn)
+        dlg.show()
 
         btnOk.setOnClickListener {
             dlg.dismiss()
         }
-        dlg.show()
     }
 }

@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
                         imageview_medal_home?.setImageResource(R.drawable.icon_level1)
                         when {
                             (exp in 0..0) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum8)
-                            (exp in 1..10) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum7)
+                            (exp in 1..10) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum6)
                             (exp in 11..20) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum5)
                             (exp in 21..30) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum4)
                             (exp in 31..40) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum2)

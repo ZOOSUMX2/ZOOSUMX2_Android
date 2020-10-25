@@ -105,9 +105,6 @@ class ResidentQuizActivity : AppCompatActivity() {
                     // 정답 리워드 제공
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.update("rewardPoint", FieldValue.increment(2))
-                    // 미션 완료 개수 1 증가
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("mission", FieldValue.increment(1))
                 }
 
                 // 오답을 선택한 경우

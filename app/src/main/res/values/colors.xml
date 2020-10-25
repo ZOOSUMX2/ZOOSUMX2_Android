@@ -22,5 +22,6 @@
     <color name="lively_blue">#1a71ff</color>
     <color name="gray_text">#bfbfbf</color>
     <color name="google">#4285F4</color>
+    <color name="mission_complete">#d9d9d9</color>
 
 </resources>
