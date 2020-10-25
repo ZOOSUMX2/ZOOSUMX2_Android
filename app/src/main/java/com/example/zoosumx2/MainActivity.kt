@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        //재활용 인증 요청이 와있을 경우 다이얼로그를 띄우기(다이얼로그 -> 액티비티)
-        //1) 재활용 인증 요청이 도착했는지 확인
+        // 재활용 인증 요청이 와있을 경우 다이얼로그를 출력(다이얼로그 -> 액티비티)
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.collection("mission")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
@@ -36,6 +35,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     dlg.start(this)
                 }
             }
+
+        // 보낸 재활용 인증 사진에 대한 승인이 된 경우 다이얼로그와 리워드 출력(다이얼로그 -> 리워드 액티비티)
+
+
 
         // 네비게이션바에 리스너 부착
         navigation.setOnNavigationItemSelectedListener(this)

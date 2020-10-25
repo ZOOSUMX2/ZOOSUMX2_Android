@@ -408,7 +408,7 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 700, 746, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 400, 446, false)
                 square_photo.setImageBitmap(scaledBitmap)
             }
             confirm_to_friend.isSelected = true
