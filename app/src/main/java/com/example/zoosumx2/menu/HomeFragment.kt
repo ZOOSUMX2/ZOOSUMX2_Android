@@ -65,6 +65,8 @@ class HomeFragment : Fragment() {
 
                 when (documentSnapshot.data?.get("level").toString().toInt()) {
                     1 -> {
+                        speech_bubble1?.visibility = View.INVISIBLE
+                        speech_bubble2?.visibility = View.INVISIBLE
                         imageview_medal_home?.setImageResource(R.drawable.icon_level1)
                         when {
                             (exp in 0..0) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum8)
@@ -75,12 +77,19 @@ class HomeFragment : Fragment() {
                             (exp in 41..50) -> imageview_island_home?.setImageResource(R.drawable.icon_trashsum1)
                             (exp in 51..60) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum0)
                             (exp in 61..70) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum1)
-                            (exp in 71..80) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum2)
-                            (exp in 81..90) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum3)
+                            (exp in 71..80) -> {
+                                imageview_island_home?.setImageResource(R.drawable.icon_cleansum2)
+                                speech_bubble1?.visibility = View.VISIBLE
+                            }
+                            (exp in 81..90) -> {
+                                imageview_island_home?.setImageResource(R.drawable.icon_cleansum3)
+                                speech_bubble2?.visibility = View.VISIBLE
+                            }
                             (exp in 91..99) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum4)
                         }
                     }
                     2 -> {
+                        imageview_island_home?.visibility = View.VISIBLE
                         imageview_medal_home?.setImageResource(R.drawable.icon_level2)
                         when {
                             (exp in 100..120) -> imageview_island_home?.setImageResource(R.drawable.level2_trashsum11)

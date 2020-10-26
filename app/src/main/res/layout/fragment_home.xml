@@ -254,15 +254,15 @@
             android:layout_marginRight="16sp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/image"
-            android:src="@drawable/icon_trashsum8" />
+            android:src="@drawable/icon_cleansum3" />
 
         <!--말풍선은 visibility로 조절-->
         <ImageView
             android:id="@+id/speech_bubble1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150sp"
-            android:layout_marginTop="70sp"
+            android:layout_marginStart="15sp"
+            android:layout_marginTop="85sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble1" />
 
@@ -270,8 +270,8 @@
             android:id="@+id/speech_bubble2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10sp"
-            android:layout_marginTop="140sp"
+            android:layout_marginStart="75sp"
+            android:layout_marginTop="45sp"
             android:contentDescription="@string/image"
             android:src="@drawable/speech_bubble2" />
 
