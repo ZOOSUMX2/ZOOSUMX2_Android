@@ -42,6 +42,9 @@ class ApproveRejectedDialog(context: Context) {
             )
             RecycleRef?.update(updates)
 
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.update("mission", FieldValue.increment(1))
+
             dlg.dismiss()
         }
 
