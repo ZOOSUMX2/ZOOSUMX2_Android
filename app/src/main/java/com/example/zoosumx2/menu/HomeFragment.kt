@@ -53,10 +53,11 @@ class HomeFragment : Fragment() {
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
 
-                if ((documentSnapshot.data?.get("mission").toString().toInt() % 4) == 0) {
-                    if(documentSnapshot.data?.get("mission").toString().toInt()==0){
-                        completeMission = 0
-                    }
+                if (documentSnapshot.data?.get("mission").toString().toInt() == 0) {
+                    completeMission = 0
+                } else if ((documentSnapshot.data?.get("mission").toString()
+                        .toInt() % 4) == 0
+                ) { // 4의 배수
                     completeMission = 4
                 } else {
                     completeMission = documentSnapshot.data?.get("mission").toString().toInt() % 4

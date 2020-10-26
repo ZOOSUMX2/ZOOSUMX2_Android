@@ -60,7 +60,6 @@ class GetRewardActivity : AppCompatActivity() {
                 val exp = documentSnapshot.data?.get("exp").toString().toInt()
                 val currentLevel = documentSnapshot.data?.get("level").toString().toInt()
 
-                // 여기서부터 추가함
                 // 레벨 계산
                 val newLevel = when {
                     (exp in 0..99) -> 1
@@ -76,16 +75,13 @@ class GetRewardActivity : AppCompatActivity() {
                 val nextButton = findViewById<Button>(R.id.get_reward_next)
                 nextButton.setOnClickListener {
 
-                    //val dlg = LevelUpDialog(this)
-                    //dlg.start()
-
-                    //if (currentLevel != newLevel) {
-                    //    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    //        ?.update("level", newLevel)
+                    if (currentLevel != newLevel) {
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("level", newLevel)
 
                         // 레벨 업 다이얼로그
-                   //     val dlg = LevelUpDialog(this)
-                   //     dlg.start(this)
+                        //     val dlg = LevelUpDialog(this)
+                        //     dlg.start(this)
                     }
                     //val dlg = LevelUpDialog(this)
                     //dlg.start()
@@ -93,15 +89,6 @@ class GetRewardActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
-
-//                if(currentLevel != newLevel) {
-//                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-//                        ?.update("level", newLevel)
-//
-//                    // 레벨 업 다이얼로그
-//                    val dlg = LevelUpDialog(this)
-//                    dlg.start(this)
-//                }
             }
     }
-//}
+}
