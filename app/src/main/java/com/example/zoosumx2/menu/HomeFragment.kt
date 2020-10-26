@@ -1,7 +1,6 @@
 package com.example.zoosumx2.menu
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -83,7 +80,14 @@ class HomeFragment : Fragment() {
                             (exp in 91..99) -> imageview_island_home?.setImageResource(R.drawable.icon_cleansum4)
                         }
                     }
-                    2 -> imageview_medal_home?.setImageResource(R.drawable.icon_level2)
+                    2 -> {
+                        imageview_medal_home?.setImageResource(R.drawable.icon_level2)
+                        when {
+                            (exp in 100..120) -> imageview_island_home?.setImageResource(R.drawable.level2_trashsum11)
+                            (exp in 121..140) -> imageview_island_home?.setImageResource(R.drawable.level2_trashsum7)
+                            (exp in 141..160) -> imageview_island_home?.setImageResource(R.drawable.level2_trashsum3)
+                        }
+                    }
                     3 -> imageview_medal_home?.setImageResource(R.drawable.icon_level3)
                     4 -> imageview_medal_home?.setImageResource(R.drawable.icon_level4)
                     else -> imageview_medal_home?.setImageResource(R.drawable.icon_level5)

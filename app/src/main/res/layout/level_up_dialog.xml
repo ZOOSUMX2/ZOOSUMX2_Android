@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="306dp"
     android:layout_height="268dp"
-    android:background="@drawable/dialog_background">
+    android:background="@drawable/dialog_background"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/mission_reject_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:text="Level up!"
         android:textColor="@color/colorText"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/mission_reject_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -38,7 +38,7 @@
         android:layout_height="48dp"
         android:layout_below="@+id/mission_reject_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_rectangle_green"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
