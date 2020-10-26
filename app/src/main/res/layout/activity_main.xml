@@ -15,7 +15,7 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="40sp"
+        android:layout_marginBottom="30sp"
         android:background="@drawable/bottom_navigation_bar"
         app:itemIconTint="@drawable/item_color"
         app:itemTextColor="@drawable/item_color"

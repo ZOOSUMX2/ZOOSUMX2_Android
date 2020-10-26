@@ -11,20 +11,21 @@
         android:id="@+id/textview_mission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="나의 미션 현황"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:fontFamily="@font/notosans_cjkkr_bold"
+        android:text="나의 미션 현황"
+        android:textColor="@color/colorText"
         android:textSize="16sp"
-        android:textColor="@color/colorText"/>
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textview_mission"
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_mission"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         android:weightSum="2">
 
@@ -32,63 +33,63 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_centerHorizontal="true">
+            android:weightSum="2">
 
             <LinearLayout
                 android:id="@+id/mission_confirm_recycle"
                 android:layout_width="154dp"
                 android:layout_height="226dp"
-                android:orientation="vertical"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginRight="8dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/confirm_recycle_banner"
                     android:layout_width="44dp"
                     android:layout_height="18dp"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/mission_card_banner_challenge"
+                    android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:background="@drawable/mission_card_banner_challenge"
-                    android:includeFontPadding="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="90dp"
-                    android:gravity="center"
-                    />
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="89dp"
                     android:layout_marginStart="27dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/icon_recyclecertify"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/icon_recyclecertify" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="재활용 인증"
-                    android:textSize="13sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
+                    android:text="재활용 인증"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"
-                    android:layout_marginBottom="3dp"/>
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/notosans_cjkkr_medium"
-                    android:textColor="@color/black_5"
-                    android:includeFontPadding="false"
                     android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"/>
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"
+                    android:textColor="@color/black_5"
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -96,56 +97,56 @@
                 android:id="@+id/mission_user_quiz"
                 android:layout_width="154dp"
                 android:layout_height="226dp"
-                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/user_quiz_banner"
                     android:layout_width="44dp"
                     android:layout_height="18dp"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/mission_card_banner_challenge"
+                    android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:background="@drawable/mission_card_banner_challenge"
-                    android:includeFontPadding="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="90dp"
-                    android:gravity="center"
-                    />
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
                 <ImageView
                     android:layout_width="103dp"
                     android:layout_height="102dp"
                     android:layout_marginStart="20dp"
-                    android:src="@drawable/icon_peoplequiz"
-                    />
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/icon_peoplequiz" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="주민 출제 퀴즈"
-                    android:textSize="13sp"
-                    android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/colorText"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="7dp"
-                    tools:ignore="HardcodedText"
-                    android:layout_marginBottom="3dp"/>
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:includeFontPadding="false"
+                    android:text="주민 출제 퀴즈"
+                    android:textColor="@color/colorText"
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/notosans_cjkkr_medium"
-                    android:textColor="@color/black_5"
-                    android:includeFontPadding="false"
                     android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"/>
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"
+                    android:textColor="@color/black_5"
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
         </LinearLayout>
@@ -154,64 +155,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_centerHorizontal="true">
+            android:weightSum="2">
 
             <LinearLayout
                 android:id="@+id/mission_making_quiz"
                 android:layout_width="154dp"
                 android:layout_height="226dp"
-                android:orientation="vertical"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
-                android:layout_marginRight="8dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/making_quiz_banner"
                     android:layout_width="44dp"
                     android:layout_height="18dp"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/mission_card_banner_challenge"
+                    android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:background="@drawable/mission_card_banner_challenge"
-                    android:includeFontPadding="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="90dp"
-                    android:gravity="center"
-                    />
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="92dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/icon_quizmaking"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/icon_quizmaking" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="퀴즈 출제하기"
-                    android:textSize="13sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
+                    android:text="퀴즈 출제하기"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"/>
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="분리배출에 대한 이야기를\n읽고, 동네 주민들에게\n직접 문제를 내 볼까요?"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/notosans_cjkkr_medium"
-                    android:textColor="@color/black_5"
-                    android:includeFontPadding="false"
                     android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"/>
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="분리배출에 대한 이야기를\n읽고, 동네 주민들에게\n직접 문제를 내 볼까요?"
+                    android:textColor="@color/black_5"
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -219,63 +220,56 @@
                 android:id="@+id/mission_random_quiz"
                 android:layout_width="154dp"
                 android:layout_height="226dp"
-                android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
-                android:elevation="40dp">
+                android:elevation="40dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/random_quiz_banner"
                     android:layout_width="44dp"
                     android:layout_height="18dp"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/mission_card_banner_challenge"
+                    android:fontFamily="@font/notosans_cjkkr_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:background="@drawable/mission_card_banner_challenge"
-                    android:includeFontPadding="false"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="90dp"
-                    android:gravity="center"
-                    />
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
                 <ImageView
                     android:layout_width="108dp"
                     android:layout_height="107dp"
                     android:layout_marginStart="15dp"
+                    android:contentDescription="@string/image"
                     android:src="@drawable/icon_quiztest" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="상식 퀴즈"
-                    android:textSize="13sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
+                    android:text="상식 퀴즈"
                     android:textColor="@color/colorText"
-                    android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"
-                    android:layout_marginBottom="3dp"/>
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/notosans_cjkkr_medium"
-                    android:textColor="@color/black_5"
-                    android:includeFontPadding="false"
                     android:layout_marginStart="16dp"
-                    tools:ignore="HardcodedText"/>
+                    android:fontFamily="@font/notosans_cjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:text="분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!"
+                    android:textColor="@color/black_5"
+                    android:textSize="10sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
-
-
-
 </RelativeLayout>
