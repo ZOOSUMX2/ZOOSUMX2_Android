@@ -83,9 +83,10 @@ class MissionFragment : Fragment(){
                             if(approvedWaitFlag != "true"){
                                 confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_wait)
                                 confirm_recycle_banner.text = "대기중"
+                            }else{
+                                confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                                confirm_recycle_banner.text = "완료"
                             }
-                            confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                            confirm_recycle_banner.text = "완료"
                         }else if(missionRecycleFlag == "true" && sendKakaoFlag == "true"){
                             confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
                             confirm_recycle_banner.text = "완료"

@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:text="재활용 인증 요청 전송 완료!"
+        android:text="재활용 인증 요청 전송중!"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
@@ -33,13 +33,13 @@
         tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/confirm_ok"
+        android:id="@+id/resident_to_reward_goHome"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_below="@+id/resident_to_reward_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/rounded_rectangle_green"
+        android:background="@drawable/cannot_go_photo"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:paddingHorizontal="15dp"
