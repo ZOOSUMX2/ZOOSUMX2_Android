@@ -165,20 +165,19 @@ class ResidentConfirmSubDialog(context: Context, curPhotoPath: String, timestamp
             }
         }
 
+        //firestore의 mission 수행 여부 true로 변경
+        val missionFlag = hashMapOf(
+            "missionRecycle" to "true"
+        )
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.collection("mission")?.document(fbAuth?.uid.toString())
+            ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
+                nextFlag = true
+                btnOk.setBackgroundResource(R.drawable.rounded_rectangle_orange)
+                title.text = "재활용 인증 요청 전송 완료!"
+            }
 
         btnOk.setOnClickListener {
-
-            //firestore의 mission 수행 여부 true로 변경
-            val missionFlag = hashMapOf(
-                "missionRecycle" to "true"
-            )
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                ?.collection("mission")?.document(fbAuth?.uid.toString())
-                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
-                    nextFlag = true
-                    btnOk.setBackgroundResource(R.drawable.rounded_rectangle_green)
-                    title.text = "재활용 인증 요청 전송 완료!"
-                }
             if(nextFlag){
                 dlg.dismiss()
                 val intent = Intent((context as PhotoActivity), MainActivity::class.java)

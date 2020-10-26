@@ -56,7 +56,7 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
                 ?.collection("mission")?.document(senderUID!!)
                 ?.collection("missionDetail")?.document("recycle")
                 ?.set(approvedInfo, SetOptions.merge())?.addOnCompleteListener {
-                    btnOk.setBackgroundResource(R.drawable.rounded_rectangle_green)
+                    btnOk.setBackgroundResource(R.drawable.rounded_rectangle_orange)
                     nextFlag = true
                 }
         }
