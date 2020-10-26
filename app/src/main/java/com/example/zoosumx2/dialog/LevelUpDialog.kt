@@ -25,7 +25,7 @@ class LevelUpDialog(context: Context) {
         dlg.setCancelable(false)
         dlg.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        btnOk = dlg.findViewById(R.id.confirm_ok)
+        btnOk = dlg.findViewById(R.id.ok_btn)
         dlg.show()
 
         btnOk.setOnClickListener {
