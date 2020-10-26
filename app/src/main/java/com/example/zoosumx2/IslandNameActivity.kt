@@ -10,9 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
-import java.lang.Integer.parseInt
-import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Calendar.WEEK_OF_YEAR
 

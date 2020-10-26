@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     if(documentSnapshot.data?.get("confirmOk").toString()=="false"){
                         //다이얼로그 호출
                         val dlg = ApproveRejectedDialog(this)
-                        dlg.start(this)
+                        dlg.start()
                     }
                 }
             }

@@ -25,10 +25,6 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        //kakao login을 위한 키 해시
-        /*var keyHash = Utility.getKeyHash(this)
-        Log.d("KEY_HASH", keyHash)*/
-
         //email login
         email_login_button?.setOnClickListener {
             emailLogin()

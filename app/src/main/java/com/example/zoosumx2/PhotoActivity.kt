@@ -57,6 +57,8 @@ class PhotoActivity : AppCompatActivity() {
 
     private var sendPermission = false //사진이 등록되지 않을 경우 0
 
+    private val limitInt: Long = 1
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,9 +91,197 @@ class PhotoActivity : AppCompatActivity() {
         //주민에게 인증
         confirm_to_resident.setOnClickListener{
             if (sendPermission) {
-                //다이얼로그 호출
-                val dlg = ResidentConfirmSubDialog(this, curPhotoPath, timestamp)
-                dlg.start(this)
+
+                //파이어베이스 스토리지에 업로드
+                val recyclesRef = storageRef.child("turtle.png")
+                //val recycleImagesRef = recyclesRef.child("images/turtle.png")
+                //recyclesRef.name == recycleImagesRef.name
+                //recyclesRef.path == recycleImagesRef.path
+
+                val file = Uri.fromFile(File(curPhotoPath))
+                val trashRef = storageRef.child("images/${file.lastPathSegment}")
+                val uploadTask = trashRef.putFile(file)
+
+                uploadTask.addOnFailureListener {
+                    //Log.e("Photo Upload:", "failure")
+                }.addOnSuccessListener { taskSnapshot ->
+                    //Log.e("Photo Upload:", "success")
+                }
+                Toast.makeText(this, "사진을 주민들에게 보내는 중이에요! 약간의 시간이 소요될 수 있습니다.", Toast.LENGTH_SHORT)
+                    .show()
+
+
+                //이미지 파일 업로드에 소요되는 시간을 벌기 위해 추가..
+                Handler().postDelayed({
+                    //재활용 사진 및 미션 정보 DB에 업로드
+                    val recyclePhotoInfo = hashMapOf(
+                        "isApproved" to false,
+                        "sentTimestamp" to timestamp,
+                        "photo" to "${file.lastPathSegment}"
+                    )
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.collection("mission")?.document(fbAuth?.uid.toString())
+                        ?.collection("missionDetail")?.document("recycle")
+                        ?.set(recyclePhotoInfo, SetOptions.merge())
+
+
+                    //재활용 사진 및 정보 <받는 사람의> DB에 업로드
+                    val randomFlag: ArrayList<String> = ArrayList() //랜덤으로 뽑아올 필드 값 문자열 세팅
+                    randomFlag.add("uid")
+                    randomFlag.add("addressRegion")
+                    randomFlag.add("exp")
+
+                    val randomInsertArray: ArrayList<String> =
+                        ArrayList() //실제 firestore 접근을 위해 넣을 필드 값
+
+                    for (i in 1..3) {
+                        val tempInt: Int = Random.nextInt(randomFlag.size)
+                        randomInsertArray.add(randomFlag[tempInt])
+                        randomFlag.removeAt(tempInt)
+                        if (randomFlag.isEmpty())
+                            break
+                    }
+
+                    val randomDescendingFlag: Int = Random.nextInt(8)
+                    val usersRef = fbFirestore?.collection("users")
+
+                    when (randomDescendingFlag) {
+                        0 -> {
+                            usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])
+                                ?.orderBy(randomInsertArray[2])?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        1 -> {
+                            usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[1])?.orderBy(randomInsertArray[2])
+                                ?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        2 -> {
+                            usersRef?.orderBy(randomInsertArray[0])
+                                ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[2])?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        3 -> {
+                            usersRef?.orderBy(randomInsertArray[0])?.orderBy(randomInsertArray[1])
+                                ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)
+                                ?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        4 -> {
+                            usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[2])?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        5 -> {
+                            usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[1])
+                                ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)
+                                ?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        6 -> {
+                            usersRef?.orderBy(randomInsertArray[0])
+                                ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)
+                                ?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                        7 -> {
+                            usersRef?.orderBy(randomInsertArray[0], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[1], Query.Direction.DESCENDING)
+                                ?.orderBy(randomInsertArray[2], Query.Direction.DESCENDING)
+                                ?.limit(limitInt)
+                                ?.get()?.addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        fbFirestore?.collection("users")
+                                            ?.document(document.get("uid").toString())
+                                            ?.collection("mission")
+                                            ?.document(document.get("uid").toString())
+                                            ?.update("isReceivedRecycle", fbAuth?.uid.toString())
+                                    }
+                                }?.addOnFailureListener { exception ->
+                                    //Log.w("isReceived sending", "Error getting documents: ", exception)
+                                }
+                        }
+                    }
+                    //다이얼로그 호출
+                    val dlg = ResidentConfirmSubDialog(this)
+                    dlg.start(this)
+
+                }, 15000)
             }
             else{
                 Toast.makeText(this, "먼저 사진을 등록해주세요.", Toast.LENGTH_LONG).show()
@@ -105,10 +295,10 @@ class PhotoActivity : AppCompatActivity() {
                 Toast.makeText(this, "메시지를 작성하는 중이에요! 약간의 시간이 소요될 수 있어요.", Toast.LENGTH_SHORT).show()
                 LinkClient.instance.uploadImage(scaledFile){imageUploadResult, error ->
                     if(error!=null){
-                        Log.e("Kakao server upload","failed", error)
+                        //Log.e("Kakao server upload","failed", error)
                     }
                     else if(imageUploadResult!=null){
-                        Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
+                        //Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
                         PhotoURLKakao = imageUploadResult.infos.original.url
 
                         //고정 카카오 피드 메시지 작성
@@ -141,13 +331,19 @@ class PhotoActivity : AppCompatActivity() {
                         )
 
                         //메시지 보내기
-                        LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error ->
-                            if(error!=null){
-                                Log.e("kakao link sending","failed", error)
-                                Toast.makeText(this, "카카오톡이 설치되어 있지 않거나, 카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
-                            }
-                            else if(linkResult!=null){
-                                Log.d("kakao link sending","successed ${linkResult.intent}")
+                        LinkClient.instance.defaultTemplate(
+                            applicationContext,
+                            defaultFeed
+                        ) { linkResult, error ->
+                            if (error != null) {
+                                //Log.e("kakao link sending","failed", error)
+                                Toast.makeText(
+                                    this,
+                                    "카카오톡이 설치되어 있지 않거나, 카카오톡을 실행하는 데 문제가 발생하였습니다.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            } else if (linkResult != null) {
+                                //Log.d("kakao link sending","successed ${linkResult.intent}")
                                 startActivity(linkResult.intent)
 
                                 // 메시지 보내기에 성공할 경우 리워드 화면 연결
@@ -156,8 +352,8 @@ class PhotoActivity : AppCompatActivity() {
                                 dlg.start(this)
 
                                 //카카오 링크로 보내기에 성공했지만 아래 경고 메시지가 있으면 일부 컨텐츠 오작동 가능성 있음
-                                Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
-                                Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
+                                //Log.w("kakao link sending", "Warning Msg: ${linkResult.warningMsg}")
+                                //Log.w("kakao link sending", "Argument Msg: ${linkResult.argumentMsg}")
                             }
                         }
 
@@ -247,7 +443,7 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 800, 846, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 200, 250, false)
                 square_photo.setImageBitmap(scaledBitmap)
             } else {
                 val decode = ImageDecoder.createSource(
@@ -261,7 +457,7 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 600, 700, false)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 200, 250, false)
                 square_photo.setImageBitmap(scaledBitmap)
             }
             confirm_to_friend.isSelected = true

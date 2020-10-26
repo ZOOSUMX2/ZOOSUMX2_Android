@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
-import com.example.zoosumx2.dialog.LevelUpDialog
-import com.example.zoosumx2.dialog.RevokeDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -44,7 +42,6 @@ class SettingActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // 로그아웃
-        // Todo : 로그아웃 다이얼로그
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -56,20 +53,18 @@ class SettingActivity : AppCompatActivity() {
         // 회원탈퇴
         val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
         withdrawal.setOnClickListener {
-            //val dlg = RevokeDialog(this)
-            //dlg.start(this)
 
-//            // firestore 내 사용자 정보 삭제
-//            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
-//
-//            // 구글 로그인 계정 삭제
-//            auth?.currentUser?.delete()
-//                ?.addOnCompleteListener { task ->
-//                    if (task.isSuccessful) {
-//                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
-//                        startActivity(Intent(this, LoginActivity::class.java))
-//                    }
-//                }
+            // firestore 내 사용자 정보 삭제
+            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
+
+            // 구글 로그인 계정 삭제
+            auth?.currentUser?.delete()
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                }
         }
 
         // 문의하기

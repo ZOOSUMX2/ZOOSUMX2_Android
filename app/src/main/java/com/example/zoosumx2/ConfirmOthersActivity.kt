@@ -9,7 +9,6 @@ import com.example.zoosumx2.dialog.ConfirmOthersApproveDialog
 import com.example.zoosumx2.dialog.ConfirmOthersRejectDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_confirm_others.*
@@ -43,18 +42,19 @@ class ConfirmOthersActivity : AppCompatActivity() {
                 fbFirestore?.collection("users")?.document(senderUID!!)
                     ?.collection("mission")?.document(senderUID!!)
                     ?.collection("missionDetail")?.document("recycle")
-                    ?.addSnapshotListener{documentSnapshot, firebaseFirestoreException ->
-                        if(documentSnapshot == null) return@addSnapshotListener
-                        val photoTitle: String = documentSnapshot.data?.get("photo").toString()
+                    ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                        //if(documentSnapshot == null) return@addSnapshotListener
+                        val photoTitle: String = documentSnapshot?.data?.get("photo").toString()
 
                         //가져온 사진을 imageView에 출력
                         val photoRef = storageRef.child("images/${photoTitle}")
 
-                        photoRef.downloadUrl.addOnSuccessListener {result ->
+                        photoRef.downloadUrl.addOnSuccessListener { result ->
                             Glide.with(this).load(result).into(imageView)
-                        }.addOnFailureListener {exception ->
-                            Log.d("pull trash image", "failure", exception)
                         }
+//                            .addOnFailureListener { exception ->
+//                            Log.d("pull trash image", "failure", exception)
+//                        }
                     }
             }
 
@@ -62,22 +62,28 @@ class ConfirmOthersActivity : AppCompatActivity() {
             ?.addSnapshotListener{documentSnapshot, firebaseFirestoreException ->
                 if(documentSnapshot == null) return@addSnapshotListener
                 for (snapshot in documentSnapshot) {
-                    confirm_title.text = snapshot.getString("missionTitle").toString().replace("bb", "\n")
-                    confirm_others_step1.text = snapshot.getString("missionStep1").toString().replace("bb"," ").replace("Step1", "")
-                    confirm_others_step2.text = snapshot.getString("missionStep2").toString().replace("bb"," ").replace("Step1", "")
-                    confirm_others_step3.text = snapshot.getString("missionStep3").toString().replace("bb"," ").replace("Step1", "")
+                    confirm_title.text =
+                        snapshot.getString("missionTitle").toString().replace("bb", "\n")
+                    confirm_others_step1?.text =
+                        snapshot.getString("missionStep1").toString().replace("bb", " ")
+                            .replace("Step1", "")
+                    confirm_others_step2?.text =
+                        snapshot.getString("missionStep2").toString().replace("bb", " ")
+                            .replace("Step1", "")
+                    confirm_others_step3?.text =
+                        snapshot.getString("missionStep3").toString().replace("bb", " ")
+                            .replace("Step1", "")
 
                 }
             }
 
-
-        confirm_others_approve.setOnClickListener {
+        confirm_others_approve?.setOnClickListener {
             //다이얼로그 호출
             val dlg = ConfirmOthersApproveDialog(this, senderUID!!)
             dlg.start(this)
         }
 
-        confirm_others_reject.setOnClickListener {
+        confirm_others_reject?.setOnClickListener {
             //다이얼로그 호출
             val dlg = ConfirmOthersRejectDialog(this, senderUID!!)
             dlg.start(this)

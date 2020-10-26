@@ -36,14 +36,14 @@ class ApproveToRewardDialog(context: Context) {
         dlg.show()
 
         btnOk.setOnClickListener {
-            val RecycleRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            val recycleRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
                 ?.collection("missionDetail")?.document("recycle")
 
             val updates = hashMapOf<String, Any>(
                 "confirmOk" to FieldValue.delete()
             )
-            RecycleRef?.update(updates)
+            recycleRef?.update(updates)
 
             val intent = Intent((context as MainActivity), GetRewardActivity::class.java)
             intent.putExtra("reward", 2)

@@ -15,16 +15,15 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
-class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
+class ConfirmOthersApproveDialog(context: Context, private val senderUID: String) {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
     private val dlg = Dialog(context)
     private lateinit var btnOk: Button
-    private val senderUID = senderUID
-    private var nextFlag:Boolean = false
+    private var nextFlag: Boolean = false
 
-    fun start(context: Context){
+    fun start(context: Context) {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
@@ -38,7 +37,7 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
         dlg.show()
 
         //1) 현재 로그인한 사용자의 isReceivedRecycle 필드 값 null로 바꿈
-        val ReceivedRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+        val receivedRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.collection("mission")?.document(fbAuth?.uid.toString())
 
         val updates = hashMapOf<String, Any>(
@@ -46,14 +45,14 @@ class ConfirmOthersApproveDialog(context: Context, senderUID: String) {
         )
 
         //2) 보낸 사용자의 isApproved 필드 값 true로 변환, 보낸 사용자의 whoApproved 필드에 인증해준 사용자의 uid 저장, 보낸 사용자의 confirmOk 필드 true 저장
-        ReceivedRef?.update(updates)?.addOnCompleteListener {
+        receivedRef?.update(updates)?.addOnCompleteListener {
             val approvedInfo = hashMapOf(
                 "isApproved" to true,
                 "whoApproved" to fbAuth?.uid.toString(),
                 "confirmOk" to true
             )
-            fbFirestore?.collection("users")?.document(senderUID!!)
-                ?.collection("mission")?.document(senderUID!!)
+            fbFirestore?.collection("users")?.document(senderUID)
+                ?.collection("mission")?.document(senderUID)
                 ?.collection("missionDetail")?.document("recycle")
                 ?.set(approvedInfo, SetOptions.merge())?.addOnCompleteListener {
                     btnOk.setBackgroundResource(R.drawable.rounded_rectangle_orange)

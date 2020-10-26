@@ -7,8 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
-import androidx.core.content.contentValuesOf
-import com.example.zoosumx2.ConfirmOthersActivity
 import com.example.zoosumx2.GetRewardActivity
 import com.example.zoosumx2.MainActivity
 import com.example.zoosumx2.R

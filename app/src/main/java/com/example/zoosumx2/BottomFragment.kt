@@ -24,7 +24,6 @@ class BottomFragment(): BottomSheetDialogFragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.region_item_grid)
         adapter.regionData = data
         recyclerView.adapter = adapter
-        //recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext,8)
 
         val gridLayoutManager = GridLayoutManager(activity!!.applicationContext, 3)
         gridLayoutManager.orientation = GridLayoutManager.HORIZONTAL

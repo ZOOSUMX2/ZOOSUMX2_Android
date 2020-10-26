@@ -18,7 +18,7 @@ class ApproveRejectedDialog(context: Context) {
     private val dlg = Dialog(context)
     private lateinit var btnOk: Button
 
-    fun start(context: Context){
+    fun start() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
@@ -33,14 +33,14 @@ class ApproveRejectedDialog(context: Context) {
         dlg.show()
 
         btnOk.setOnClickListener {
-            val RecycleRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            val recycleRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
                 ?.collection("missionDetail")?.document("recycle")
 
             val updates = hashMapOf<String, Any>(
                 "confirmOk" to FieldValue.delete()
             )
-            RecycleRef?.update(updates)
+            recycleRef?.update(updates)
 
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.update("mission", FieldValue.increment(1))
