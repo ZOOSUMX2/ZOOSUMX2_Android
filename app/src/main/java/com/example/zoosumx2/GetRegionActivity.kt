@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_get_region.*
 
@@ -43,12 +44,26 @@ class GetRegionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if(intent.hasExtra("user_region")){
+        if(intent.hasExtra("user_region")) {
             region_edit.text = intent.getStringExtra("user_region")
             userInfo.addressRegion = region_edit.text.toString()
 
             // firestore에 사용자 정보 업데이트
-            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())?.update("addressRegion", userInfo.addressRegion.toString())
+            fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                ?.update("addressRegion", userInfo.addressRegion.toString())
+
+            // 해당구 주민 수 1 증가
+            fbFirestore?.collection("region")
+                ?.document(intent.getStringExtra("user_region").toString())
+                ?.update("people", FieldValue.increment(1))
+
+            fbFirestore?.collection("region")
+                ?.document(intent.getStringExtra("user_region").toString())
+                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    if (documentSnapshot == null) return@addSnapshotListener
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rank", documentSnapshot.data?.get("people").toString().toInt())
+                }
         }
 
         //bottom sheet dialog
