@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/textview_mission"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -37,8 +37,8 @@
 
             <LinearLayout
                 android:id="@+id/mission_confirm_recycle"
-                android:layout_width="174dp"
-                android:layout_height="246dp"
+                android:layout_width="154dp"
+                android:layout_height="226dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
@@ -55,14 +55,14 @@
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginLeft="90dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="88dp"
-                    android:layout_height="97dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_width="80dp"
+                    android:layout_height="89dp"
+                    android:layout_marginStart="27dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/icon_recyclecertify"
                     android:layout_marginBottom="10dp"/>
@@ -94,8 +94,8 @@
 
             <LinearLayout
                 android:id="@+id/mission_user_quiz"
-                android:layout_width="174dp"
-                android:layout_height="246dp"
+                android:layout_width="154dp"
+                android:layout_height="226dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
@@ -112,14 +112,14 @@
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginLeft="90dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="113dp"
-                    android:layout_height="112dp"
-                    android:layout_marginStart="25dp"
+                    android:layout_width="103dp"
+                    android:layout_height="102dp"
+                    android:layout_marginStart="20dp"
                     android:src="@drawable/icon_peoplequiz"
                     />
 
@@ -130,9 +130,9 @@
                     android:textSize="13sp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
                     android:includeFontPadding="false"
-                    android:paddingTop="5dp"
                     android:textColor="@color/colorText"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="7dp"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="3dp"/>
 
@@ -159,8 +159,8 @@
 
             <LinearLayout
                 android:id="@+id/mission_making_quiz"
-                android:layout_width="174dp"
-                android:layout_height="246dp"
+                android:layout_width="154dp"
+                android:layout_height="226dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp"
@@ -177,15 +177,15 @@
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginLeft="90dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="88dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="80dp"
+                    android:layout_height="92dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
                     android:src="@drawable/icon_quizmaking"
                     android:layout_marginBottom="5dp"/>
 
@@ -195,11 +195,11 @@
                     android:text="퀴즈 출제하기"
                     android:textSize="13sp"
                     android:fontFamily="@font/notosans_cjkkr_bold"
-                    android:paddingTop="5dp"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorText"
                     android:layout_marginStart="16dp"
                     tools:ignore="HardcodedText"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="3dp"/>
 
                 <TextView
@@ -217,8 +217,8 @@
 
             <LinearLayout
                 android:id="@+id/mission_random_quiz"
-                android:layout_width="174dp"
-                android:layout_height="246dp"
+                android:layout_width="154dp"
+                android:layout_height="226dp"
                 android:orientation="vertical"
                 android:background="@drawable/mission_card_shape"
                 android:elevation="40dp">
@@ -234,14 +234,14 @@
                     android:background="@drawable/mission_card_banner_challenge"
                     android:includeFontPadding="false"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginLeft="90dp"
                     android:gravity="center"
                     />
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="119dp"
-                    android:layout_marginStart="25dp"
+                    android:layout_width="108dp"
+                    android:layout_height="107dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/icon_quiztest" />
 
                 <TextView
