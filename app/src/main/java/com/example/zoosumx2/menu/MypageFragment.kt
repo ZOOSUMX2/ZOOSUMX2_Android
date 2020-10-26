@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MypageFragment : Fragment() {
@@ -48,22 +49,13 @@ class MypageFragment : Fragment() {
                     textview_next_level_mypage?.text =
                         (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
                 }
-
-                // 경험치에 따라 레벨 측정
-                val exp = documentSnapshot.data?.get("exp").toString().toInt()
-
-                val level = when {
-                    (exp in 0..99) -> 1
-                    (exp in 100..299) -> 2
-                    (exp in 300..599) -> 3
-                    (exp in 600..999) -> 4
-                    else -> 5
+                when (documentSnapshot.data?.get("level").toString().toInt()) {
+                    1 -> textview_comment_mypage?.text = "섬이 드디어 새로운 주인을 찾았네요!"
+                    2 -> textview_comment_mypage?.text = "섬의 자연이 점점 되돌아오고 있나봐요"
+                    3 -> textview_comment_mypage?.text = "섬에 동물들이 놀러오는 소리가 들려요:)"
+                    4 -> textview_comment_mypage?.text = "넓고 아름다운 섬을 가꾸고 있는 요즘"
+                    else -> textview_comment_mypage?.text = "세상에서 제일 깨끗하고 아름다운 섬"
                 }
-
-                textview_mylevel_mypage?.text = level.toString()
-                // firestore에 사용자 레벨 저장
-                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                    ?.update("level", level)
             }
 
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())

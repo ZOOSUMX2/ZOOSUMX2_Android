@@ -25,7 +25,7 @@
         android:layout_below="@+id/textview_mypage"
         android:layout_marginStart="25sp"
         android:layout_marginTop="22sp"
-        android:layout_marginEnd="20sp"
+        android:layout_marginEnd="25sp"
         android:gravity="start"
         android:orientation="horizontal">
 
@@ -81,7 +81,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="180sp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_marginStart="20sp"
@@ -148,7 +148,7 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:text="아직 섬에 쓰레기가 많네요 :("
                     android:textColor="@color/colorText"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>
