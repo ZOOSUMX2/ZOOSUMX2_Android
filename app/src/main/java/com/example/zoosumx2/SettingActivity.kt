@@ -72,7 +72,7 @@ class SettingActivity : AppCompatActivity() {
         ask.setOnClickListener {
             val email = Intent(Intent.ACTION_SEND)
             email.type = "plain/text"
-            val address = arrayOf("aerimforest98@gmail.com")
+            val address = arrayOf("zoosumzoosum@gmail.com")
             email.putExtra(Intent.EXTRA_EMAIL, address)
             email.putExtra(Intent.EXTRA_SUBJECT, "주섬주섬 문의사항")
             email.putExtra(Intent.EXTRA_TEXT, "문의사항을 자세하게 입력해주세요\n\n")
