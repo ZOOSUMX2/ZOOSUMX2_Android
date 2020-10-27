@@ -50,7 +50,9 @@ class HomeFragment : Fragment() {
                 textview_mypoint_home?.text = documentSnapshot.data?.get("rewardPoint").toString()
                 textview_ranking_home?.text = documentSnapshot.data?.get("rank").toString()
 
-                if (documentSnapshot.data?.get("mission").toString().toInt() == 0) {
+                if (documentSnapshot.data?.get("mission") == null) {
+                    completeMission = 0
+                } else if (documentSnapshot.data?.get("mission").toString().toInt() == 0) {
                     completeMission = 0
                 } else if ((documentSnapshot.data?.get("mission").toString()
                         .toInt() % 4) == 0
@@ -61,9 +63,9 @@ class HomeFragment : Fragment() {
                 }
                 textview_complete_mission_home?.text = completeMission.toString()
 
-                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                val exp = documentSnapshot.data?.get("exp").toString().toIntOrNull()
 
-                when (documentSnapshot.data?.get("level").toString().toInt()) {
+                when (documentSnapshot.data?.get("level").toString().toIntOrNull()) {
                     1 -> {
                         speech_bubble1?.visibility = View.INVISIBLE
                         speech_bubble2?.visibility = View.INVISIBLE

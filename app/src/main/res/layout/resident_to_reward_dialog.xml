@@ -39,7 +39,7 @@
         android:layout_below="@+id/resident_to_reward_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/cannot_go_photo"
+        android:background="@drawable/rounded_rectangle_orange"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:paddingHorizontal="15dp"

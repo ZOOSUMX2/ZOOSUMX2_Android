@@ -46,9 +46,10 @@ class MypageFragment : Fragment() {
                     textview_next_level_mypage?.text = "Max"
                 } else {
                     textview_next_level_mypage?.text =
-                        (documentSnapshot.data?.get("level").toString().toInt() + 1).toString()
+                        (documentSnapshot.data?.get("level").toString().toIntOrNull()
+                            ?.plus(1)).toString()
                 }
-                when (documentSnapshot.data?.get("level").toString().toInt()) {
+                when (documentSnapshot.data?.get("level").toString().toIntOrNull()) {
                     1 -> textview_comment_mypage?.text = "섬이 드디어 새로운 주인을 찾았네요!"
                     2 -> textview_comment_mypage?.text = "섬의 자연이 점점 되돌아오고 있나봐요"
                     3 -> textview_comment_mypage?.text = "섬에 동물들이 놀러오는 소리가 들려요:)"
@@ -60,8 +61,8 @@ class MypageFragment : Fragment() {
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
-                var exp = documentSnapshot.data?.get("exp").toString().toInt()
-                val level = documentSnapshot.data?.get("level").toString().toInt()
+                var exp = documentSnapshot.data?.get("exp").toString().toIntOrNull()
+                val level = documentSnapshot.data?.get("level").toString().toIntOrNull()
 
                 val min = when (level) {
                     1 -> 0
@@ -97,15 +98,17 @@ class MypageFragment : Fragment() {
 
                 var tmp = 0
                 Thread {
-                    while (tmp <= (exp - min)) {
-                        try {
-                            tmp += 3
-                            Thread.sleep((sleep).toLong())
-                        } catch (e: InterruptedException) {
-                            e.printStackTrace()
+                    if (exp != null) {
+                        while (tmp <= (exp - min)) {
+                            try {
+                                tmp += 3
+                                Thread.sleep((sleep).toLong())
+                            } catch (e: InterruptedException) {
+                                e.printStackTrace()
+                            }
+                            // 프로그래스바 업데이트
+                            progressBar.progress = tmp
                         }
-                        // 프로그래스바 업데이트
-                        progressBar.progress = tmp
                     }
                 }.start()
             }
