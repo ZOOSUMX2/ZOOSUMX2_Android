@@ -43,6 +43,8 @@ class RandomQuizActivity : AppCompatActivity() {
         var correctAnswer = findViewById<Button>(R.id.button_correct_answer_quiz)
         var wrongAnswer = findViewById<Button>(R.id.button_wrong_answer_quiz)
         val nextButton = findViewById<Button>(R.id.random_quiz_next)
+        lateinit var correct_sub_ment: String
+        lateinit var wrong_sub_ment: String
 
         //정답 문항의 자리 랜덤으로 교환
         val randomAnswerNum = Random.nextInt(2)
@@ -62,6 +64,8 @@ class RandomQuizActivity : AppCompatActivity() {
                     documentSnapshot.data?.get("title").toString().replace("bb", "\n")
                 correctAnswer?.text = documentSnapshot.data?.get("option1").toString()
                 wrongAnswer?.text = documentSnapshot.data?.get("option2").toString()
+                correct_sub_ment = documentSnapshot.data?.get("correctSubMent").toString()
+                wrong_sub_ment = documentSnapshot.data?.get("wrongSubMent").toString()
             }
 
 
@@ -94,38 +98,31 @@ class RandomQuizActivity : AppCompatActivity() {
             )
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
-                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+                ?.set(missionFlag, SetOptions.merge())
 
             if (correctAnswer.isSelected || wrongAnswer.isSelected) {
                 if (correctAnswer.isSelected) {
                     answerChecked = true
                     random_quiz_main_ment?.text = "정답이에요!"
                     random_quiz_image.setImageResource(R.drawable.you_right)
-                    random_quiz_sub_ment?.text = "페트병 버리는 방법 잘 알고 계시네요!"
+
+                    random_quiz_sub_ment?.text = correct_sub_ment
                     correctAnswer.setBackgroundResource(R.drawable.random_correct_correct_color)
                     correctAnswer.setTextColor(Color.WHITE)
 
                     wrongAnswer.setBackgroundResource(R.drawable.random_correct_wrong_color)
                     wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
 
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("rewardPoint", FieldValue.increment(2))
-
                 } else {
                     answerChecked = false
                     random_quiz_main_ment?.text = "정답이...아니에요"
                     random_quiz_image.setImageResource(R.drawable.you_wrong)
-                    random_quiz_sub_ment?.text = "다 마신 페트병은 이렇게 버려야 해요!"
+                    random_quiz_sub_ment?.text = wrong_sub_ment
                     wrongAnswer.setBackgroundResource(R.drawable.random_wrong_correct_color)
                     wrongAnswer.setTextColor(Color.WHITE)
 
                     correctAnswer.setBackgroundResource(R.drawable.random_wrong_wrong_color)
                     correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
-
-                    // 리워드 제공
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("rewardPoint", FieldValue.increment(1))
                 }
             }
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
@@ -138,8 +135,13 @@ class RandomQuizActivity : AppCompatActivity() {
                 val intent = Intent(this, GetRewardActivity::class.java)
 
                 if (answerChecked) {
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rewardPoint", FieldValue.increment(2))
                     intent.putExtra("reward", 2)
                 } else {
+                    // 리워드 제공
+                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                        ?.update("rewardPoint", FieldValue.increment(1))
                     intent.putExtra("reward", 1)
                 }
                 startActivity(intent)
