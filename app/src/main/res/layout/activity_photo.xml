@@ -65,6 +65,7 @@
         android:layout_below="@+id/photo_ment_sub"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
+        android:scaleType="centerInside"
         android:background="@color/friendly_green"
         android:contentDescription="@string/image"
         android:src="@drawable/square_photo"
@@ -109,6 +110,15 @@
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/photo_here"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_below="@+id/photo_ment_sub"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:id="@+id/confirm_step_btn"

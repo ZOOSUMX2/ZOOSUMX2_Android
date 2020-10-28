@@ -28,7 +28,7 @@ class ConfirmOthersActivity : AppCompatActivity() {
         fbFirestore = FirebaseFirestore.getInstance()
 
         val storageRef = Firebase.storage.reference
-        val imageView = findViewById<ImageView>(R.id.photo_square_others)
+        val imageView = findViewById<ImageView>(R.id.photo_here)
 
         //현재 로그인한 사용자의 isReceivedRecycle 필드에 저장되어 있는 보낸 사용자의 uid 가져오기
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
@@ -41,9 +41,9 @@ class ConfirmOthersActivity : AppCompatActivity() {
                 fbFirestore?.collection("users")?.document(senderUID!!)
                     ?.collection("mission")?.document(senderUID!!)
                     ?.collection("missionDetail")?.document("recycle")
-                    ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    ?.addSnapshotListener { documentSnapshot2, firebaseFirestoreException2 ->
                         //if(documentSnapshot == null) return@addSnapshotListener
-                        val photoTitle: String = documentSnapshot?.data?.get("photo").toString()
+                        val photoTitle: String = documentSnapshot2?.data?.get("photo").toString()
 
                         //가져온 사진을 imageView에 출력
                         val photoRef = storageRef.child("images/${photoTitle}")

@@ -32,25 +32,24 @@
         android:includeFontPadding="false"
         android:text="완료된 재활용 사진입니다\n아래 방법에 따라 올바르게 했는지 확인해주세요"
         android:textColor="@color/black_5"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        tools:ignore="HardcodedText"/>
 
-    <ImageButton
-        android:id="@+id/photo_square_others"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/photo_here"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:layout_below="@+id/photo_ment_sub"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:background="@color/friendly_green"
-        android:contentDescription="@string/image"
-        android:src="@drawable/square_photo" />
+        android:scaleType="fitCenter"/>
 
 
     <LinearLayout
         android:id="@+id/confirm_others_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/photo_square_others"
+        android:layout_below="@+id/photo_here"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:orientation="vertical">
@@ -59,15 +58,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/checkbox_checked"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/confirm_others_step1"
@@ -76,6 +76,7 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="내용물을 깨끗이 비우세요"
+                tools:ignore="HardcodedText"
                 android:textColor="@color/colorText"
                 android:textSize="16sp" />
 
@@ -85,15 +86,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/checkbox_checked"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/confirm_others_step2"
@@ -102,6 +104,7 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="라벨을 분리하세요"
+                tools:ignore="HardcodedText"
                 android:textColor="@color/colorText"
                 android:textSize="16sp" />
 
@@ -110,15 +113,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/checkbox_checked"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_marginEnd="10dp"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/confirm_others_step3"
@@ -128,6 +132,7 @@
                 android:includeFontPadding="false"
                 android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
                 android:textColor="@color/colorText"
+                tools:ignore="HardcodedText"
                 android:textSize="16sp" />
 
         </LinearLayout>

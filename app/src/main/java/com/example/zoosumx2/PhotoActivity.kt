@@ -333,8 +333,8 @@ class PhotoActivity : AppCompatActivity() {
                         LinkClient.instance.defaultTemplate(
                             applicationContext,
                             defaultFeed
-                        ) { linkResult, error ->
-                            if (error != null) {
+                        ) { linkResult, error2 ->
+                            if (error2 != null) {
                                 //Log.e("kakao link sending","failed", error)
                                 Toast.makeText(
                                     this,
@@ -432,6 +432,7 @@ class PhotoActivity : AppCompatActivity() {
 
             camera_icon?.visibility = View.INVISIBLE
             btn_open_camera.visibility = View.INVISIBLE
+            square_photo.visibility = View.INVISIBLE
             sendPermission = true
 
             if (Build.VERSION.SDK_INT < 28) { //안드로이드 9.0 보다 낮을 경우
@@ -442,8 +443,8 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 200, 250, false)
-                square_photo.setImageBitmap(scaledBitmap)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 2000, 2500, false)
+                photo_here!!.setImageBitmap(scaledBitmap)
             } else {
                 val decode = ImageDecoder.createSource(
                     this.contentResolver,
@@ -456,8 +457,8 @@ class PhotoActivity : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, scaledStream)
                 scaledStream.close()
 
-                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 200, 250, false)
-                square_photo.setImageBitmap(scaledBitmap)
+                val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 2000, 2500, false)
+                photo_here!!.setImageBitmap(scaledBitmap)
             }
             confirm_to_friend.isSelected = true
             confirm_to_friend.setTextColor(ContextCompat.getColor(this, R.color.friendly_green))
