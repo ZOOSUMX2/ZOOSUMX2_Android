@@ -99,6 +99,16 @@ class SettingActivity : AppCompatActivity() {
             startActivity(email)
         }
 
+        // 개발자 정보
+        val about = findViewById<LinearLayout>(R.id.linearlayout_about_dev_setting)
+        about.setOnClickListener {
+            val url = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.notion.so/zoosum_zoosum-cea1eb0ac124472596699860543562ea")
+            )
+            startActivity(url)
+        }
+
         // 개인정보 처리방침
         val policy = findViewById<LinearLayout>(R.id.linearlayout_policy_setting)
         policy.setOnClickListener {

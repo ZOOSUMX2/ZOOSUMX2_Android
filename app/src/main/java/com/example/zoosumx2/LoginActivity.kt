@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
         // 이미 로그인 한 사용자인 경우
         if (account != null) {
-            moveUserNamePage(auth.currentUser) // 바로 MainActivity로 이동
+            moveMainPage(auth.currentUser) // 바로 MainActivity로 이동
         }
     }
 
