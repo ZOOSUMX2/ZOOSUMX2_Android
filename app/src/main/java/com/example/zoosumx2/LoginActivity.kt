@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         val account = GoogleSignIn.getLastSignedInAccount(this)
         // 이미 로그인 한 사용자인 경우
         if (account != null) {
-            moveMainPage(auth.currentUser) // 바로 MainActivity로 이동
+            moveUserNamePage(auth.currentUser) // 바로 MainActivity로 이동
         }
     }
 
@@ -82,7 +82,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // log in
-                    moveUserNamePage(task.result?.user)
+                    //moveMainPage(task.result?.user)
+                    moveUserNamePage(auth.currentUser)
                 } else {
                     // 에러 메세지 보여줌
                     Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
@@ -91,9 +92,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun moveMainPage(user: FirebaseUser?) {
-        // user가 있는 경우(로그인 한 경우)
+        // user가 있는 경우(로그인 한 적이 있는 경우)
         if (user != null) {
-            val intent = Intent(this, StoreActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

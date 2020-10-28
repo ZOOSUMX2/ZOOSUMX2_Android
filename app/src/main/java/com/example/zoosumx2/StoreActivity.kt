@@ -61,19 +61,19 @@ class StoreActivity : AppCompatActivity() {
 
         // 온누리 오천원권 클릭시 웹페이지 연결
         on5.setOnClickListener {
-            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/#footer"))
+            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/"))
             startActivity(url)
         }
 
         // 용산사랑상품권 만원권 클릭시 웹페이지 연결
         yong10.setOnClickListener {
-            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/#footer"))
+            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/"))
             startActivity(url)
         }
 
         // 용산사랑상품권 오만원권 클릭시 웹페이지 연결
         yong50.setOnClickListener {
-            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/#footer"))
+            val url = Intent(Intent.ACTION_VIEW, Uri.parse("https://zoosum.site/"))
             startActivity(url)
         }
 

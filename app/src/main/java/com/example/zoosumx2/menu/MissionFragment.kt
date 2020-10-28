@@ -59,36 +59,36 @@ class MissionFragment : Fragment(){
 
                         if (missionRecycleFlag == "true" && sendKakaoFlag != "true") {
                             if (approvedWaitFlag != "true") {
-                                confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_wait)
-                                confirm_recycle_banner.text = "대기중"
+                                confirm_recycle_banner?.setBackgroundResource(R.drawable.mission_card_banner_wait)
+                                confirm_recycle_banner?.text = "대기중"
                             } else {
-                                confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                                confirm_recycle_banner.text = "완료"
+                                confirm_recycle_banner?.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                                confirm_recycle_banner?.text = "완료"
                             }
                         } else if (missionRecycleFlag == "true" && sendKakaoFlag == "true") {
-                            confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                            confirm_recycle_banner.text = "완료"
+                            confirm_recycle_banner?.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                            confirm_recycle_banner?.text = "완료"
                         } else {
-                            confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_challenge)
-                            confirm_recycle_banner.text = "도전"
+                            confirm_recycle_banner?.setBackgroundResource(R.drawable.mission_card_banner_challenge)
+                            confirm_recycle_banner?.text = "도전"
                         }
 
-                        if(missionUserQuizFlag == "true"){
-                            user_quiz_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                            user_quiz_banner.text = "완료"
+                        if(missionUserQuizFlag == "true") {
+                            user_quiz_banner?.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                            user_quiz_banner?.text = "완료"
                         }
 
-                        if(missionMakingQuizFlag == "true"){
-                            making_quiz_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                            making_quiz_banner.text = "완료"
+                        if(missionMakingQuizFlag == "true") {
+                            making_quiz_banner?.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                            making_quiz_banner?.text = "완료"
                         }
 
-                        if(missionSenseQuizFlag == "true"){
-                            random_quiz_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
-                            random_quiz_banner.text = "완료"
+                        if(missionSenseQuizFlag == "true") {
+                            random_quiz_banner?.setBackgroundResource(R.drawable.mission_card_banner_complete)
+                            random_quiz_banner?.text = "완료"
                         }
 
-                        mission_confirm_recycle.setOnClickListener{
+                        mission_confirm_recycle?.setOnClickListener {
                             if (missionRecycleFlag == "false") {
                                 val intent = Intent(context, ConfirmRecycleActivity::class.java)
                                 startActivity(intent)
@@ -98,7 +98,7 @@ class MissionFragment : Fragment(){
                                 dlg.start()
                             }
                         }
-                        mission_user_quiz.setOnClickListener{
+                        mission_user_quiz?.setOnClickListener {
                             if (missionUserQuizFlag == "false") {
                                 val intent = Intent(context, ResidentQuizActivity::class.java)
                                 startActivity(intent)
@@ -108,7 +108,7 @@ class MissionFragment : Fragment(){
                                 dlg.start()
                             }
                         }
-                        mission_making_quiz.setOnClickListener{
+                        mission_making_quiz?.setOnClickListener {
                             if (missionMakingQuizFlag == "false") {
                                 val intent = Intent(context, MakequizActivity::class.java)
                                 startActivity(intent)
@@ -118,7 +118,7 @@ class MissionFragment : Fragment(){
                                 dlg.start()
                             }
                         }
-                        mission_random_quiz.setOnClickListener {
+                        mission_random_quiz?.setOnClickListener {
                             if (missionSenseQuizFlag == "false") {
                                 val intent = Intent(context, RandomQuizActivity::class.java)
                                 startActivity(intent)
