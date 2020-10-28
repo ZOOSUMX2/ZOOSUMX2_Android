@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.Window
 import android.widget.Button
 import com.example.zoosumx2.MainActivity
@@ -44,10 +43,10 @@ class ResidentConfirmSubDialog(context: Context) {
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
                 ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
-                    Log.d(
-                        "Set WeekNumber to DB",
-                        "DocumentSnapshot successfully written!"
-                    )
+//                    Log.d(
+//                        "Set WeekNumber to DB",
+//                        "DocumentSnapshot successfully written!"
+//                    )
                 }
 //                ?.addOnFailureListener { e ->
 //                    Log.w(

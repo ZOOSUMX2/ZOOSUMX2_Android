@@ -11,12 +11,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SettingActivity : AppCompatActivity() {
 
     var auth: FirebaseAuth? = null
-    var googleSignInClient: GoogleSignInClient? = null
+    private lateinit var googleSignInClient: GoogleSignInClient
     var fbFirestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,27 +45,51 @@ class SettingActivity : AppCompatActivity() {
         // 로그아웃
         val logout = findViewById<LinearLayout>(R.id.linearlayout_logout_setting)
         logout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            // firebase 로그아웃
+            auth!!.signOut()
+
+            // Google 로그아웃 -> 재로그인 시에 예전에 로그인 이력이 있는 Google 계정으로 자동 로그인되는 것을 방지
+            googleSignInClient.signOut().addOnCompleteListener(this) {
+            }
 
             Toast.makeText(this, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
         // 회원탈퇴
         val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
         withdrawal.setOnClickListener {
 
-            // firestore 내 사용자 정보 삭제
-            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
-
-            // 구글 로그인 계정 삭제
-            auth?.currentUser?.delete()
-                ?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    }
+            // 사용자가 속해 있던 구의 주민 수 1 감소
+            fbFirestore?.collection("users")?.document(auth?.uid.toString())
+                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    if (documentSnapshot == null) return@addSnapshotListener
+                    val region = documentSnapshot.data?.get("addressRegion").toString()
+                    fbFirestore?.collection("region")?.document(region)
+                        ?.update("people", FieldValue.increment(-1))
                 }
+
+            // firebase 로그아웃
+            auth!!.signOut()
+
+            googleSignInClient.revokeAccess().addOnCompleteListener(this) {
+                Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+            //finish()
+
+//            // firestore 내 사용자 정보 삭제
+//            fbFirestore?.collection("users")?.document(auth?.uid.toString())?.delete()
+//
+//            // 구글 로그인 계정 삭제
+//            auth?.currentUser?.delete()
+//                ?.addOnCompleteListener { task ->
+//                    if (task.isSuccessful) {
+//                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
+//                        startActivity(Intent(this, LoginActivity::class.java))
+//                    }
+//                }
         }
 
         // 문의하기

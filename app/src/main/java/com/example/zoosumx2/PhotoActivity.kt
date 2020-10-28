@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
@@ -93,7 +92,7 @@ class PhotoActivity : AppCompatActivity() {
             if (sendPermission) {
 
                 //파이어베이스 스토리지에 업로드
-                val recyclesRef = storageRef.child("turtle.png")
+                //val recyclesRef = storageRef.child("turtle.png")
                 //val recycleImagesRef = recyclesRef.child("images/turtle.png")
                 //recyclesRef.name == recycleImagesRef.name
                 //recyclesRef.path == recycleImagesRef.path

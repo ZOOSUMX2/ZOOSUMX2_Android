@@ -1,7 +1,6 @@
 package com.example.zoosumx2
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.zoosumx2.dialog.ApproveRejectedDialog
@@ -87,10 +86,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                         ?.collection("mission")?.document(fbAuth?.uid.toString())
                         ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
-                            Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!")
-                            val RecycleRef = fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                                ?.collection("mission")?.document(fbAuth?.uid.toString())
-                                ?.collection("missionDetail")?.document("recycle")
+                            //Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!")
+                            val recycleRef =
+                                fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                                    ?.collection("mission")?.document(fbAuth?.uid.toString())
+                                    ?.collection("missionDetail")?.document("recycle")
 
                             val updates = hashMapOf<String, Any>(
                                 "isApproved" to FieldValue.delete(),
@@ -98,13 +98,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                                 "sendKakao" to FieldValue.delete(),
                                 "whoApproved" to FieldValue.delete()
                             )
-                            RecycleRef?.update(updates)
+                            recycleRef?.update(updates)
                         }
-                        ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+                    //?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
                 }
-                else{
-                    Log.d("compare week","success and same")
-                }
+//                else{
+//                    Log.d("compare week","success and same")
+//                }
             }
 
 

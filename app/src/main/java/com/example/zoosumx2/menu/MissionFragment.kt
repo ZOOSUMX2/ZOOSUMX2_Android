@@ -69,7 +69,7 @@ class MissionFragment : Fragment(){
                             confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_complete)
                             confirm_recycle_banner.text = "완료"
                         } else {
-                            user_quiz_banner.setBackgroundResource(R.drawable.mission_card_banner_challenge)
+                            confirm_recycle_banner.setBackgroundResource(R.drawable.mission_card_banner_challenge)
                             confirm_recycle_banner.text = "도전"
                         }
 
