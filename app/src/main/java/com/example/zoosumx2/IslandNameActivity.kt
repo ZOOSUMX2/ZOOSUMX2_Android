@@ -44,8 +44,9 @@ class IslandNameActivity : AppCompatActivity() {
         )
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
             ?.collection("mission")?.document(fbAuth?.uid.toString())
-            ?.set(weekData)?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-            ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+            ?.set(weekData)
+//            ?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+//            ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
 
 
         val userInfo = UserDTO()

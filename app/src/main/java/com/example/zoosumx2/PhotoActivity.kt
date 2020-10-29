@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -23,8 +22,6 @@ import com.example.zoosumx2.dialog.FriendConfirmSubDialog
 import com.example.zoosumx2.dialog.ResidentConfirmSubDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
@@ -40,7 +37,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.random.Random
 
 class PhotoActivity : AppCompatActivity() {
 
@@ -107,10 +103,10 @@ class PhotoActivity : AppCompatActivity() {
                 Toast.makeText(this, "메시지를 작성하는 중이에요! 약간의 시간이 소요될 수 있어요.", Toast.LENGTH_SHORT).show()
                 LinkClient.instance.uploadImage(scaledFile){imageUploadResult, error ->
                     if(error!=null){
-                        Log.e("Kakao server upload","failed", error)
+                        //Log.e("Kakao server upload","failed", error)
                     }
                     else if(imageUploadResult!=null){
-                        Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
+//                        Log.i("Kakao server upload","success \n${imageUploadResult.infos.original}")
                         PhotoURLKakao = imageUploadResult.infos.original.url
 
                         //고정 카카오 피드 메시지 작성
@@ -145,11 +141,11 @@ class PhotoActivity : AppCompatActivity() {
                         //메시지 보내기
                         LinkClient.instance.defaultTemplate(applicationContext, defaultFeed){linkResult, error2 ->
                             if(error2!=null){
-                                Log.e("kakao link sending","failed", error2)
+//                                Log.e("kakao link sending","failed", error2)
                                 Toast.makeText(this, "카카오톡이 설치되어 있지 않거나, 카카오톡을 실행하는 데 문제가 발생하였습니다.", Toast.LENGTH_LONG).show()
                             }
                             else if(linkResult!=null){
-                                Log.d("kakao link sending","successed ${linkResult.intent}")
+//                                Log.d("kakao link sending","successed ${linkResult.intent}")
                                 startActivity(linkResult.intent)
 
                                 // 메시지 보내기에 성공할 경우 리워드 화면 연결

@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.Window
 import android.widget.Button
 import com.example.zoosumx2.GetRewardActivity
@@ -45,19 +44,7 @@ class FriendConfirmSubDialog(context: Context) {
             )
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
-                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener {
-                    Log.d(
-                        "Set WeekNumber to DB",
-                        "DocumentSnapshot successfully written!"
-                    )
-                }
-//                ?.addOnFailureListener { e ->
-//                    Log.w(
-//                        "Set WeekNumber to DB",
-//                        "Error writing document",
-//                        e
-//                    )
-//                }
+                ?.set(missionFlag, SetOptions.merge())
 
             //카카오톡으로 보내기 수행 여부 true로 변경
             val sendKakaoFlag = hashMapOf(

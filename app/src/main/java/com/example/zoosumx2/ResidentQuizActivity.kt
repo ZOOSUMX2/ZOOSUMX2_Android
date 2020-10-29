@@ -87,8 +87,9 @@ class ResidentQuizActivity : AppCompatActivity() {
             )
             fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
                 ?.collection("mission")?.document(fbAuth?.uid.toString())
-                ?.set(missionFlag, SetOptions.merge())?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
-                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
+                ?.set(missionFlag, SetOptions.merge())
+//                ?.addOnSuccessListener { Log.d("Set WeekNumber to DB", "DocumentSnapshot successfully written!") }
+//                ?.addOnFailureListener { e -> Log.w("Set WeekNumber to DB", "Error writing document", e) }
 
 
             // 둘 중 하나의 답을 선택한 경우
