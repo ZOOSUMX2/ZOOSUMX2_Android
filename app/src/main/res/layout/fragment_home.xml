@@ -244,7 +244,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
-        android:layout_marginTop="230sp"
+        android:layout_below="@+id/linearlayout_myinfo_home"
+        android:layout_marginTop="80sp"
         android:contentDescription="@string/image"
         android:src="@drawable/icon_cleansum3" />
 
