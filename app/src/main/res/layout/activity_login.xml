@@ -19,61 +19,61 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="110dp"
         android:orientation="vertical"
-        android:weightSum="2"
-        android:layout_marginTop="135.4dp"
-        android:layout_marginHorizontal="36dp">
+        android:weightSum="2">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
             <EditText
                 android:id="@+id/email_login_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:includeFontPadding="false"
-                android:textColorHint="@color/friendly_green"
+                android:autofillHints="no"
                 android:fontFamily="@font/notosanscjkkr_regular"
-                android:textSize="14sp"
-                android:autofillHints="no" />
+                android:hint="@string/email"
+                android:includeFontPadding="false"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/friendly_green"
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
             <EditText
                 android:id="@+id/password_login_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:includeFontPadding="false"
-                android:textColorHint="@color/friendly_green"
+                android:autofillHints="no"
                 android:fontFamily="@font/notosanscjkkr_regular"
-                android:textSize="14sp"
-                android:autofillHints="no" />
+                android:hint="@string/password"
+                android:includeFontPadding="false"
+                android:inputType="textPassword"
+                android:textColorHint="@color/friendly_green"
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/email_login_button"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:text="@string/signinemail"
-            android:textSize="14sp"
-            android:textColor="@color/colorWhite"
+            android:layout_marginTop="10dp"
             android:background="@drawable/login_button"
-            android:fontFamily="@font/notosans_cjkkr_bold" />
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:text="@string/signinemail"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -94,8 +94,8 @@
         android:paddingEnd="24sp"
         android:paddingRight="24sp"
         android:text="구글 계정으로 로그인"
-        android:textSize="14sp"
         android:textColor="@color/colorText"
+        android:textSize="14sp"
         tools:ignore="HardcodedText" />
 
 

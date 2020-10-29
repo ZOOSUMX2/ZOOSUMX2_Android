@@ -16,6 +16,11 @@
 
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="ActivityAnimations" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/fade_in4</item>
         <item name="android:activityOpenExitAnimation">@anim/fade_out4</item>

@@ -11,9 +11,9 @@
         android:id="@+id/linearlayout_myinfo_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16sp"
+        android:layout_marginStart="16sp"
         android:layout_marginTop="56sp"
-        android:layout_marginRight="16sp"
+        android:layout_marginEnd="16sp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -50,7 +50,6 @@
             android:layout_marginStart="20sp"
             android:orientation="vertical">
 
-            <!--DB 연결 후 수정할 부분-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -238,44 +237,33 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/island"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageview_island_home"
+        android:layout_width="320sp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearlayout_myinfo_home">
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="190sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/icon_cleansum3" />
 
-        <ImageView
-            android:id="@+id/imageview_island_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16sp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="16sp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/image"
-            android:src="@drawable/icon_cleansum3" />
+    <!--말풍선은 visibility로 조절-->
+    <ImageView
+        android:id="@+id/speech_bubble1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35sp"
+        android:layout_marginTop="230sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/speech_bubble1" />
 
-        <!--말풍선은 visibility로 조절-->
-        <ImageView
-            android:id="@+id/speech_bubble1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15sp"
-            android:layout_marginTop="85sp"
-            android:contentDescription="@string/image"
-            android:src="@drawable/speech_bubble1" />
-
-        <ImageView
-            android:id="@+id/speech_bubble2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75sp"
-            android:layout_marginTop="45sp"
-            android:contentDescription="@string/image"
-            android:src="@drawable/speech_bubble2" />
-
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/speech_bubble2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100sp"
+        android:layout_marginTop="200sp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/speech_bubble2" />
 
 </RelativeLayout>
