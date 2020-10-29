@@ -107,7 +107,7 @@ class MypageFragment : Fragment() {
                                 e.printStackTrace()
                             }
                             // 프로그래스바 업데이트
-                            progressBar.progress = tmp
+                            progressBar?.progress = tmp
                         }
                     }
                 }.start()
