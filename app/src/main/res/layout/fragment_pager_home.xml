@@ -27,7 +27,7 @@
             android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="133dp"
+            android:paddingBottom="108dp"
             app:dotsSize="8dp"
             app:dotsColor="@color/colorDivision"
             app:dotsCornerRadius="16dp"
@@ -35,7 +35,8 @@
             app:dotsWidthFactor="2.5"
             app:selectedDotColor="@color/colorSoftGray"
             app:progressMode="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            tools:ignore="ObsoleteLayoutParam" />
 
     </LinearLayout>
 
