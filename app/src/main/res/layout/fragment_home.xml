@@ -245,7 +245,7 @@
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
         android:layout_below="@+id/linearlayout_myinfo_home"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="50sp"
         android:contentDescription="@string/image"
         android:src="@drawable/icon_cleansum3" />
 
@@ -254,8 +254,8 @@
         android:id="@+id/speech_bubble1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35sp"
-        android:layout_marginTop="230sp"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="260sp"
         android:contentDescription="@string/image"
         android:src="@drawable/speech_bubble1" />
 
@@ -263,8 +263,8 @@
         android:id="@+id/speech_bubble2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100sp"
-        android:layout_marginTop="200sp"
+        android:layout_marginStart="85sp"
+        android:layout_marginTop="225sp"
         android:contentDescription="@string/image"
         android:src="@drawable/speech_bubble2" />
 
