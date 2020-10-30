@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.zoosumx2">
+    package="com.zoosumzoosum.zoosumx2">
 
     <!--    <queries>-->
     <!--        <package android:name="com.kakao.talk"/>-->
@@ -23,57 +23,64 @@
         android:roundIcon="@mipmap/zoosumx2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:name=".GlobalApplication">
+        android:name="com.zoosumzoosum.zoosumx2.GlobalApplication">
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="@string/kakao_app_key"/>
+            android:value="@string/kakao_app_key" />
 
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="oauth"
+
+                <data
+                    android:host="oauth"
                     android:scheme="kakao4e50b407032508e73f0024e851a1dbcc" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".PhotoActivity"
+        <activity
+            android:name="com.zoosumzoosum.zoosumx2.PhotoActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="kakaolink"
+
+                <data
+                    android:host="kakaolink"
                     android:scheme="kakao4e50b407032508e73f0024e851a1dbcc" />
 
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".PointActivity"
+            android:name="com.zoosumzoosum.zoosumx2.PointActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewsActivity"
+            android:name="com.zoosumzoosum.zoosumx2.NewsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SettingActivity"
+            android:name="com.zoosumzoosum.zoosumx2.SettingActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TownActivity"
+            android:name="com.zoosumzoosum.zoosumx2.TownActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".StoreActivity"
+            android:name="com.zoosumzoosum.zoosumx2.StoreActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ResidentQuizActivity"
+            android:name="com.zoosumzoosum.zoosumx2.ResidentQuizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MakequizActivity"
+            android:name="com.zoosumzoosum.zoosumx2.MakequizActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.zoosumzoosum.zoosumx2.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -82,37 +89,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.zoosumzoosum.zoosumx2.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.zoosumzoosum.zoosumx2.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ConfirmOthersActivity"
+            android:name="com.zoosumzoosum.zoosumx2.ConfirmOthersActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ConfirmRecycleActivity"
+            android:name="com.zoosumzoosum.zoosumx2.ConfirmRecycleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GetRegionActivity"
+            android:name="com.zoosumzoosum.zoosumx2.GetRegionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GetRewardActivity"
+            android:name="com.zoosumzoosum.zoosumx2.GetRewardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".IslandNameActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".RandomQuizActivity"
+            android:name="com.zoosumzoosum.zoosumx2.IslandNameActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".UserNameActivity"
+            android:name="com.zoosumzoosum.zoosumx2.RandomQuizActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.zoosumzoosum.zoosumx2.UserNameActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
-            android:authorities="com.example.zoosumx2.fileprovider"
+            android:authorities="com.zoosumzoosum.zoosumx2.fileprovider"
             android:name="androidx.core.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
