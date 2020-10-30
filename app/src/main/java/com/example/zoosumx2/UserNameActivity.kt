@@ -18,8 +18,12 @@ import kotlinx.android.synthetic.main.activity_user_name.*
 
 class UserNameActivity : AppCompatActivity() {
 
-    var fbAuth : FirebaseAuth? = null
-    var fbFirestore : FirebaseFirestore? = null
+    var fbAuth: FirebaseAuth? = null
+    var fbFirestore: FirebaseFirestore? = null
+
+    // 백 버튼 금지
+    override fun onBackPressed() {
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,5 +73,7 @@ class UserNameActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "이름을 입력해주세요", Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 }

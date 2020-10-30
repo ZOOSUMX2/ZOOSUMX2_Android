@@ -20,6 +20,9 @@ class ConfirmRecycleActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    // 백 버튼 금지
+    override fun onBackPressed() {
+    }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {

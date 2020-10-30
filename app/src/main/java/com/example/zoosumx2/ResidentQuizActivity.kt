@@ -22,6 +22,10 @@ class ResidentQuizActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    // 백 버튼 금지
+    override fun onBackPressed() {
+    }
+
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

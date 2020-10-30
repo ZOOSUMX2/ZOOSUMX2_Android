@@ -18,7 +18,11 @@ class ConfirmOthersActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
-    private var senderUID: String ?= null
+    private var senderUID: String? = null
+
+    // 백 버튼 금지
+    override fun onBackPressed() {
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

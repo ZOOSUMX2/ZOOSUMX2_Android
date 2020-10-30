@@ -17,6 +17,10 @@ class MakequizActivity : AppCompatActivity() {
     var fbAuth: FirebaseAuth? = null
     var fbFirestore: FirebaseFirestore? = null
 
+    // 백 버튼 금지
+    override fun onBackPressed() {
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_makequiz)
