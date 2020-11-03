@@ -119,7 +119,7 @@ class MailboxFragment : Fragment() {
 
                 // new 제거
                 viewHolder.textview_new_mailbox_list_item.text = null
-                viewHolder.textview_new_mailbox_list_item.setBackgroundResource(R.drawable.mailbox_clicked_new)
+                viewHolder.textview_new_mailbox_list_item.setBackgroundResource(R.color.transparent)
 
                 startActivity(intent)
             }

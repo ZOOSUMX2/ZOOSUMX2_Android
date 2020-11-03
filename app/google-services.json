@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "946692264237-hlm7ok07dt03ogfvnpokg0rnjvjrbkhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zoosumzoosum.zoosumx2",
+            "certificate_hash": "ab3195c63c937a3eb194bf2cf305fd8d32614bec"
+          }
+        },
+        {
+          "client_id": "946692264237-7fel6k0e7iu7uq3jk4dei228bpuvvpqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zoosumzoosum.zoosumx2",
+            "certificate_hash": "2226ab86392880290efe644843b48603a0b3a27b"
+          }
+        },
+        {
           "client_id": "946692264237-6eu8nmjc99i2nptqalpqb5grl55dvo1k.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -28,7 +44,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "946692264237-6eu8nmjc99i2nptqalpqb5grl55dvo1k.apps.googleusercontent.com",
+              "client_id": "946692264237-hnoikhrrbsdnbeiobs3v0tnindhaoijp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
