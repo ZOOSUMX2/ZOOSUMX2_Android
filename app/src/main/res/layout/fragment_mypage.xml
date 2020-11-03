@@ -9,10 +9,10 @@
     <TextView
         android:id="@+id/textview_mypage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="@string/mypage"
         android:textAlignment="center"
         android:textColor="@color/colorText"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview_mypage"
         android:layout_marginStart="25sp"
-        android:layout_marginTop="22sp"
+        android:layout_marginTop="15sp"
         android:layout_marginEnd="25sp"
         android:gravity="start"
         android:orientation="horizontal">

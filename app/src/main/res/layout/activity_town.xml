@@ -11,8 +11,8 @@
     <LinearLayout
         android:id="@+id/linearlayout_bar_mytown"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_vertical">
 
         <!--이전 버튼-->
@@ -32,8 +32,8 @@
     <TextView
         android:id="@+id/textview_headline_ranking"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:text="@string/mytown_ranking"

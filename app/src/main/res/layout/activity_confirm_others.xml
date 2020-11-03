@@ -10,10 +10,11 @@
     <TextView
         android:id="@+id/photo_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
         android:includeFontPadding="false"
         android:text="확인 요청"
         android:textColor="@color/colorText"
@@ -33,15 +34,15 @@
         android:text="완료된 재활용 사진입니다\n아래 방법에 따라 올바르게 했는지 확인해주세요"
         android:textColor="@color/black_5"
         android:textSize="12dp"
-        tools:ignore="HardcodedText,SpUsage"/>
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:id="@+id/photo_here"
         android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_below="@+id/photo_ment_sub"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
         tools:ignore="ContentDescription" />
 
@@ -58,16 +59,16 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/checkbox_checked"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="10dp"
+                android:src="@drawable/checkbox_checked"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -77,25 +78,25 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="내용물을 깨끗이 비우세요"
-                tools:ignore="HardcodedText,SpUsage"
                 android:textColor="@color/colorText"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/checkbox_checked"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="10dp"
+                android:src="@drawable/checkbox_checked"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -105,9 +106,9 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="라벨을 분리하세요"
-                tools:ignore="HardcodedText,SpUsage"
                 android:textColor="@color/colorText"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
         </LinearLayout>
 
@@ -118,11 +119,11 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_marginTop="2dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/checkbox_checked"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="10dp"
+                android:src="@drawable/checkbox_checked"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -133,14 +134,10 @@
                 android:includeFontPadding="false"
                 android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
                 android:textColor="@color/colorText"
-                tools:ignore="HardcodedText,SpUsage"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
         </LinearLayout>
-
-
-
-
 
 
     </LinearLayout>
@@ -159,6 +156,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="136dp"
             android:layout_height="52dp"
+            android:layout_marginRight="28dp"
             android:background="@drawable/rounded_rectangle2"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:gravity="center"
@@ -166,8 +164,7 @@
             android:text="부족해요"
             android:textColor="@color/colorText"
             android:textSize="16dp"
-            tools:ignore="HardcodedText,RtlHardcoded,SpUsage"
-            android:layout_marginRight="28dp" />
+            tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
 
         <Button
             android:id="@+id/confirm_others_approve"

@@ -10,8 +10,8 @@
     <LinearLayout
         android:id="@+id/linearlayout_bar_store"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_vertical">
 
         <!--이전 버튼-->
@@ -30,8 +30,8 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:text="우편함"
@@ -43,7 +43,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104sp"
+        android:layout_below="@+id/linearlayout_bar_store"
         android:background="@drawable/news_background"
         android:contentDescription="@string/image">
 
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout_bar_store"
         android:layout_marginLeft="60sp"
-        android:layout_marginTop="66sp"
+        android:layout_marginTop="55sp"
         android:layout_marginRight="60sp"
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:includeFontPadding="false"

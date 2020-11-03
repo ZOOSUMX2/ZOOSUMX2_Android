@@ -11,7 +11,7 @@
         android:id="@+id/general_first"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:gravity="center">
 
         <!--    이전 버튼-->
@@ -64,7 +64,7 @@
                 android:id="@+id/textview_header_makequiz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/notosans_cjkkr_bold"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"

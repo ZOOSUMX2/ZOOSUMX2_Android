@@ -9,8 +9,8 @@
     <LinearLayout
         android:id="@+id/linearlayout_bar_mytown"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_vertical">
 
         <!--이전 버튼-->
@@ -30,8 +30,8 @@
     <TextView
         android:id="@+id/textview_header_setting"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:text="환경설정"
@@ -215,7 +215,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_below="@+id/linearlayout_withdrawal_setting"
+        android:layout_below="@+id/linearlayout_policy_setting"
         android:layout_marginLeft="16sp"
         android:layout_marginRight="16sp"
         android:background="@color/colorDivision"

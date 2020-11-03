@@ -10,7 +10,7 @@
         android:id="@+id/textview_resident"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:gravity="center">
 
         <ImageButton
@@ -32,11 +32,12 @@
 
     <TextView
         android:id="@+id/photo_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
+        android:gravity="center"
         android:includeFontPadding="false"
         android:text="사진 등록"
         android:textColor="@color/colorWhite"
@@ -65,11 +66,10 @@
         android:layout_below="@+id/photo_ment_sub"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:scaleType="centerInside"
         android:background="@color/friendly_green"
         android:contentDescription="@string/image"
-        android:src="@drawable/square_photo"
-        />
+        android:scaleType="centerInside"
+        android:src="@drawable/square_photo" />
 
     <ImageView
         android:id="@+id/camera_icon"

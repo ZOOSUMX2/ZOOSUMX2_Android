@@ -12,7 +12,7 @@
         android:id="@+id/zoosum_textlogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="169sp"
+        android:layout_marginTop="150sp"
         android:contentDescription="@string/image"
         android:src="@drawable/zoosum_typelogo" />
 
