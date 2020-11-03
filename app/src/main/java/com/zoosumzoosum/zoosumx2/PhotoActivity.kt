@@ -181,7 +181,7 @@ class PhotoActivity : AppCompatActivity() {
                 photoFile?.also {
                     val photoURI: Uri = FileProvider.getUriForFile(
                         this,
-                        "com.example.zoosumx2.fileprovider",
+                        "com.zoosumzoosum.zoosumx2.fileprovider",
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
