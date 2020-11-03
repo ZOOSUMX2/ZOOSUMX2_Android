@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -12,7 +12,6 @@
         android:id="@+id/zoosum_textlogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150sp"
         android:contentDescription="@string/image"
         android:src="@drawable/zoosum_typelogo" />
 
@@ -70,7 +69,7 @@
             android:id="@+id/email_login_button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/login_button"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:text="@string/signinemail"

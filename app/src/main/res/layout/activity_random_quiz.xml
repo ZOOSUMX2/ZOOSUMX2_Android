@@ -45,77 +45,81 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/random_quiz_main_ment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview_resident"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/notosans_cjkkr_medium"
-        android:gravity="center_horizontal"
-        android:includeFontPadding="false"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="24dp"
-        tools:ignore="SpUsage" />
-
-    <ImageView
-        android:id="@+id/random_quiz_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/random_quiz_main_ment"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/bottle" />
-
-    <TextView
-        android:id="@+id/random_quiz_sub_ment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/linearlayout_randomquiz"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5sp"
-        android:fontFamily="@font/notosans_cjkkr_bold"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:textSize="16dp"
-        tools:ignore="SpUsage" />
-
     <LinearLayout
-        android:id="@+id/linearlayout_randomquiz"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="26sp"
-        android:layout_marginRight="26sp"
-        android:layout_marginBottom="60sp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textview_resident"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_correct_answer_quiz"
-            android:layout_width="340sp"
-            android:layout_height="105sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="-15sp"
-            android:background="@drawable/button_selector"
+        <TextView
+            android:id="@+id/random_quiz_main_ment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/notosans_cjkkr_medium"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
             android:textColor="@color/colorText"
+            android:textSize="24dp"
+            tools:ignore="SpUsage" />
+
+        <ImageView
+            android:id="@+id/random_quiz_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image"
+            android:src="@drawable/bottle" />
+
+        <TextView
+            android:id="@+id/random_quiz_sub_ment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
+            android:fontFamily="@font/notosans_cjkkr_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
             android:textSize="16dp"
             tools:ignore="SpUsage" />
 
-        <Button
-            android:id="@+id/button_wrong_answer_quiz"
-            android:layout_width="340sp"
-            android:layout_height="105sp"
-            android:layout_gravity="center"
-            android:background="@drawable/button_selector"
-            android:fontFamily="@font/notosans_cjkkr_medium"
-            android:textColor="@color/colorText"
-            android:textSize="16dp"
-            tools:ignore="SpUsage" />
+        <LinearLayout
+            android:id="@+id/linearlayout_randomquiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26sp"
+            android:layout_marginRight="26sp"
+            android:layout_marginBottom="60sp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_correct_answer_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="105sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="-15sp"
+                android:background="@drawable/button_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:textColor="@color/colorText"
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
+
+            <Button
+                android:id="@+id/button_wrong_answer_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="105sp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_selector"
+                android:fontFamily="@font/notosans_cjkkr_medium"
+                android:textColor="@color/colorText"
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

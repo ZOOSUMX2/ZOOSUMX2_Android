@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/colorSplash"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <!-- Don't worry about the id names I have named the id's with reference to the file name for consistency -->
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="250dp"
-        android:contentDescription="@string/image"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/splash_icon" />
-
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="500dp"
         android:layout_gravity="center"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="60dp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/textlogo_white" />
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_weight="6"
+            android:contentDescription="@string/image"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/splash_icon" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:contentDescription="@string/image"
+            android:src="@drawable/textlogo_white" />
+
+    </LinearLayout>
 
 </LinearLayout>
