@@ -37,10 +37,10 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:text="@string/mytown_ranking"
-        tools:ignore="HardcodedText"
+        tools:ignore="HardcodedText,SpUsage"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16dp" />
 
     <LinearLayout
         android:id="@+id/linearlayout_myinfo_ranking"
@@ -67,7 +67,8 @@
             android:gravity="center"
             android:includeFontPadding="false"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -99,7 +100,8 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,8 +112,8 @@
                 android:includeFontPadding="false"
                 android:text="(나)"
                 android:textColor="@color/colorWhite"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
         </LinearLayout>
 
         <!--포인트-->
@@ -135,8 +137,8 @@
                     android:includeFontPadding="false"
                     android:text="Lv."
                     android:textColor="@color/colorWhite"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_mylevel_town"
@@ -145,7 +147,8 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
+                    android:textSize="12dp"
+                    tools:ignore="SpUsage" />
             </LinearLayout>
 
             <LinearLayout
@@ -159,8 +162,8 @@
                     android:includeFontPadding="false"
                     android:text="Exp."
                     android:textColor="@color/colorWhite"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="12dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_myexp_town"
@@ -169,7 +172,8 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
+                    android:textSize="12dp"
+                    tools:ignore="SpUsage" />
             </LinearLayout>
 
         </LinearLayout>

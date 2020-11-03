@@ -37,8 +37,8 @@
         android:text="우편함"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -62,7 +62,8 @@
         android:includeFontPadding="false"
         android:textAlignment="textStart"
         android:textColor="@color/colorText"
-        android:textSize="24sp" />
+        android:textSize="24dp"
+        tools:ignore="SpUsage" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -91,7 +92,8 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="14sp" />
+                    android:textSize="14dp"
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_gooffice_news"
@@ -100,7 +102,8 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="14sp" />
+                    android:textSize="14dp"
+                    tools:ignore="SpUsage" />
 
             </LinearLayout>
 
@@ -113,7 +116,8 @@
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="4sp"
                 android:textColor="@color/black_6"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
 
         </LinearLayout>
     </ScrollView>

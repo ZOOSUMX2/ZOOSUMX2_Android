@@ -19,12 +19,12 @@
         android:includeFontPadding="false"
         android:text="나의 미션 현황"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
+        android:textSize="16dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,SpUsage" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -64,8 +64,8 @@
                     android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
                 <ImageView
                     android:layout_width="80dp"
@@ -85,8 +85,8 @@
                     android:includeFontPadding="false"
                     android:text="재활용 인증"
                     android:textColor="@color/colorText"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,8 +96,8 @@
                     android:includeFontPadding="false"
                     android:text="재활용 쓰레기를 올바르게\n처리하고, 주변 사람들에게\n인증하세요"
                     android:textColor="@color/black_5"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
             </LinearLayout>
 
@@ -122,8 +122,8 @@
                     android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
                 <ImageView
                     android:layout_width="103dp"
@@ -142,8 +142,8 @@
                     android:includeFontPadding="false"
                     android:text="주민 출제 퀴즈"
                     android:textColor="@color/colorText"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,8 +153,8 @@
                     android:includeFontPadding="false"
                     android:text="동네 주민들은 어떤\n문제를 냈을까? 궁금하면\n지금 바로 도전!"
                     android:textColor="@color/black_5"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
             </LinearLayout>
         </LinearLayout>
@@ -186,8 +186,8 @@
                     android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
                 <ImageView
                     android:layout_width="80dp"
@@ -208,8 +208,8 @@
                     android:includeFontPadding="false"
                     android:text="퀴즈 출제하기"
                     android:textColor="@color/colorText"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -244,8 +244,8 @@
                     android:includeFontPadding="false"
                     android:text="도전"
                     android:textColor="@color/colorWhite"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
                 <ImageView
                     android:layout_width="108dp"
@@ -263,8 +263,8 @@
                     android:includeFontPadding="false"
                     android:text="상식 퀴즈"
                     android:textColor="@color/colorText"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -274,8 +274,8 @@
                     android:includeFontPadding="false"
                     android:text="분리배출, 얼마나 알고\n계신가요? 퀴즈로 상식을\n확인해 보세요!"
                     android:textColor="@color/black_5"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:textSize="10dp"
+                    tools:ignore="HardcodedText,SmallSp,SpUsage" />
 
             </LinearLayout>
         </LinearLayout>

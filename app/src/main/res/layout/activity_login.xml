@@ -40,7 +40,8 @@
                 android:includeFontPadding="false"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/friendly_green"
-                android:textSize="14sp" />
+                android:textSize="14dp"
+                tools:ignore="SpUsage" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +61,8 @@
                 android:includeFontPadding="false"
                 android:inputType="textPassword"
                 android:textColorHint="@color/friendly_green"
-                android:textSize="14sp" />
+                android:textSize="14dp"
+                tools:ignore="SpUsage" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +75,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:text="@string/signinemail"
             android:textColor="@color/colorWhite"
-            android:textSize="14sp" />
+            android:textSize="14dp"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 
@@ -95,8 +98,8 @@
         android:paddingRight="24sp"
         android:text="구글 계정으로 로그인"
         android:textColor="@color/colorText"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="14dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 
 </LinearLayout>

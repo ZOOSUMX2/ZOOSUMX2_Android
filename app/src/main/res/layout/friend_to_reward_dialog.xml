@@ -14,8 +14,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:text="재활용 인증 메시지 전송 완료!"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/friend_to_reward_content"
@@ -29,8 +29,8 @@
         android:includeFontPadding="false"
         android:text="아래의 버튼을 눌러\n리워드를 수령하세요."
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/confirm_ok"
@@ -45,7 +45,7 @@
         android:paddingHorizontal="15dp"
         android:text="리워드 확인하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

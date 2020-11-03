@@ -14,8 +14,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:text="확인 요청"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 
     <TextView
@@ -28,8 +28,8 @@
         android:includeFontPadding="false"
         android:text="인증을 기다리는 요청이 있어요!\n올바르게 했는지 확인해주세요."
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/confirm_others_ok"
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:text="확인하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

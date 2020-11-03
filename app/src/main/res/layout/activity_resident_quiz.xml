@@ -43,7 +43,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="@string/check_answer"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14dp"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 
@@ -59,7 +60,8 @@
         android:text="@string/resident_made_quiz"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="24sp" />
+        android:textSize="24dp"
+        tools:ignore="SpUsage" />
 
     <LinearLayout
         android:id="@+id/resident_third"
@@ -81,8 +83,8 @@
             android:lineSpacingExtra="12sp"
             android:text="Q. "
             android:textColor="@color/friendly_green"
-            android:textSize="18sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="18dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/textview_question_resident_quiz"
@@ -90,7 +92,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
-            android:textSize="18sp" />
+            android:textSize="18dp"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 
@@ -105,7 +108,8 @@
         android:gravity="center_horizontal"
         android:includeFontPadding="false"
         android:textColor="@color/colorSoftGray"
-        android:textSize="12sp" />
+        android:textSize="12dp"
+        tools:ignore="SpUsage" />
 
     <LinearLayout
         android:id="@+id/linearlayout_example_button_resident_quiz"
@@ -126,7 +130,8 @@
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
 
         <Button
             android:id="@+id/button_wrong_answer_quiz"
@@ -136,7 +141,8 @@
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
 </RelativeLayout>

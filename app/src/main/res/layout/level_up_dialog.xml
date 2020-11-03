@@ -15,8 +15,8 @@
         android:includeFontPadding="false"
         android:text="Level up!"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/mission_reject_content"
@@ -30,8 +30,8 @@
         android:includeFontPadding="false"
         android:text="짝짝짝! 레벨업이 됐어요\n섬이 어떻게 바뀌었는지\n확인 해볼까요?"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/ok_btn"
@@ -46,7 +46,7 @@
         android:paddingHorizontal="30dp"
         android:text="확인하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

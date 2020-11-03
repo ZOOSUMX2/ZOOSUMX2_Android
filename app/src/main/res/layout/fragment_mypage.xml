@@ -16,7 +16,8 @@
         android:text="@string/mypage"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16dp"
+        tools:ignore="SpUsage" />
 
     <LinearLayout
         android:id="@+id/linearlayout_first_mypage"
@@ -63,8 +64,8 @@
                     android:text="Lv."
                     android:textAlignment="center"
                     android:textColor="@color/friendly_green"
-                    android:textSize="16sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="16dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_mylevel_mypage"
@@ -75,7 +76,8 @@
                     android:includeFontPadding="false"
                     android:textAlignment="center"
                     android:textColor="@color/friendly_green"
-                    android:textSize="16sp" />
+                    android:textSize="16dp"
+                    tools:ignore="SpUsage" />
             </LinearLayout>
 
         </LinearLayout>
@@ -101,7 +103,8 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:includeFontPadding="false"
                     android:textColor="@color/friendly_green"
-                    android:textSize="18sp" />
+                    android:textSize="18dp"
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,8 +113,8 @@
                     android:includeFontPadding="false"
                     android:text="님의 "
                     android:textColor="@color/colorText"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_island_name_mypage"
@@ -120,7 +123,8 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:includeFontPadding="false"
                     android:textColor="@color/friendly_green"
-                    android:textSize="18sp" />
+                    android:textSize="18dp"
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -129,8 +133,8 @@
                     android:includeFontPadding="false"
                     android:text="섬"
                     android:textColor="@color/colorText"
-                    android:textSize="18sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="18dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
             </LinearLayout>
 
@@ -148,8 +152,8 @@
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:text="아직 섬에 쓰레기가 많네요 :("
                     android:textColor="@color/colorText"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
             </LinearLayout>
 
@@ -179,8 +183,8 @@
                     android:text="Lv."
                     android:textAlignment="center"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="14dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_next_level_mypage"
@@ -191,7 +195,8 @@
                     android:includeFontPadding="false"
                     android:textAlignment="center"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="14sp" />
+                    android:textSize="14dp"
+                    tools:ignore="SpUsage" />
             </LinearLayout>
 
         </LinearLayout>
@@ -204,7 +209,8 @@
         android:layout_height="7sp"
         android:layout_below="@+id/linearlayout_first_mypage"
         android:layout_marginTop="18sp"
-        android:background="@color/colorWhite" />
+        android:background="@color/colorWhite"
+        tools:ignore="SmallSp" />
 
     <!--주섬주섬 상점-->
     <LinearLayout
@@ -222,8 +228,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="주섬주섬 상점"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -249,7 +255,8 @@
         android:layout_below="@+id/linearlayout_store_mypage"
         android:layout_marginLeft="16sp"
         android:layout_marginRight="16sp"
-        android:background="@color/colorDivision" />
+        android:background="@color/colorDivision"
+        tools:ignore="SmallSp" />
 
     <!--우리동네 랭킹-->
     <LinearLayout
@@ -267,8 +274,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="@string/mytown_ranking"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -294,7 +301,8 @@
         android:layout_below="@+id/linearlayout_town_mypage"
         android:layout_marginLeft="16sp"
         android:layout_marginRight="16sp"
-        android:background="@color/colorDivision" />
+        android:background="@color/colorDivision"
+        tools:ignore="SmallSp" />
 
     <!--환경설정-->
     <LinearLayout
@@ -312,8 +320,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:gravity="center_vertical"
             android:text="환경설정"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <!--    요소 두 가지를 각각 왼쪽, 오른족 끝에 정렬하기 위해 임의로 삽입-->
         <View
@@ -338,6 +346,7 @@
         android:layout_below="@+id/linearlayout_setting_mypage"
         android:layout_marginLeft="16sp"
         android:layout_marginRight="16sp"
-        android:background="@color/colorDivision" />
+        android:background="@color/colorDivision"
+        tools:ignore="SmallSp" />
 
 </RelativeLayout>

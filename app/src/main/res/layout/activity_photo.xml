@@ -40,8 +40,8 @@
         android:includeFontPadding="false"
         android:text="사진 등록"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/photo_ment_sub"
@@ -55,8 +55,8 @@
         android:includeFontPadding="false"
         android:text="올바르게 처리한 재활용품을 촬영하여\n다른 사람에게 확인 받으세요."
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="14dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:id="@+id/square_photo"
@@ -93,8 +93,8 @@
         android:includeFontPadding="false"
         android:text="사진 촬영하기"
         android:textColor="@color/take_photo"
-        android:textSize="13sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="13dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/photo_ment_select"
@@ -108,8 +108,8 @@
         android:includeFontPadding="false"
         android:text="누구에게 확인 받을까요?"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:id="@+id/photo_here"
@@ -141,8 +141,8 @@
             android:includeFontPadding="false"
             android:text="친구에게"
             android:textColor="@color/colorSoftGray"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <Button
             android:id="@+id/confirm_to_resident"
@@ -154,8 +154,8 @@
             android:includeFontPadding="false"
             android:text="지역 주민에게"
             android:textColor="@color/colorSoftGray"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
 </RelativeLayout>

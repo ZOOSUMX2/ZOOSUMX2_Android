@@ -29,8 +29,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="다음"
             android:textColor="@color/colorText"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
     </LinearLayout>
 
@@ -59,8 +59,8 @@
                 android:lineSpacingExtra="12sp"
                 android:text="주섬주섬"
                 android:textColor="@color/friendly_green"
-                android:textSize="24sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="24dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,8 +68,8 @@
                 android:fontFamily="@font/notosans_cjkkr_bold"
                 android:includeFontPadding="false"
                 android:text="에 오신것을 환영해요!"
-                android:textSize="24sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="24dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
         </LinearLayout>
 
@@ -81,8 +81,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:text="닉네임을 입력해주세요!"
-            android:textSize="24sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="24dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <EditText
             android:id="@+id/userName_edit"
@@ -97,8 +97,8 @@
             android:includeFontPadding="false"
             android:inputType="textPersonName"
             android:textColorHint="@color/friendly_green"
-            android:textSize="24sp"
-            tools:ignore="HardcodedText"
+            android:textSize="24dp"
+            tools:ignore="HardcodedText,SpUsage"
             android:maxLength="4" />
 
         <View
@@ -106,7 +106,8 @@
             android:layout_height="2sp"
             android:layout_below="@+id/userName_edit"
             android:layout_marginTop="6sp"
-            android:background="@color/friendly_green" />
+            android:background="@color/friendly_green"
+            tools:ignore="SmallSp" />
 
     </RelativeLayout>
 
@@ -133,8 +134,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:text="35%"
             android:textColor="@color/gray_text"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14dp"
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
 </RelativeLayout>

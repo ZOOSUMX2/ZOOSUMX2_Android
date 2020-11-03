@@ -23,7 +23,8 @@
         android:includeFontPadding="false"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16dp"
+        tools:ignore="SpUsage" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -55,7 +56,8 @@
             android:gravity="center"
             android:includeFontPadding="false"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
     </LinearLayout>
 
     <!--포인트-->
@@ -77,8 +79,8 @@
                 android:includeFontPadding="false"
                 android:text="Lv."
                 android:textColor="@color/colorText"
-                android:textSize="12sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:id="@+id/textview_level_town"
@@ -87,7 +89,8 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:textColor="@color/colorText"
-                android:textSize="12sp" />
+                android:textSize="12dp"
+                tools:ignore="SpUsage" />
         </LinearLayout>
 
         <LinearLayout
@@ -101,8 +104,8 @@
                 android:includeFontPadding="false"
                 android:text="Exp."
                 android:textColor="@color/colorText"
-                android:textSize="12sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:id="@+id/textview_exp_town"
@@ -111,7 +114,8 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:textColor="@color/colorText"
-                android:textSize="12sp" />
+                android:textSize="12dp"
+                tools:ignore="SpUsage" />
         </LinearLayout>
 
     </LinearLayout>

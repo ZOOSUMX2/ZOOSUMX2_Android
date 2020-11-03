@@ -73,8 +73,8 @@
                     android:includeFontPadding="false"
                     android:text="님의 "
                     android:textColor="@color/colorText"
-                    android:textSize="16sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="16dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_island_name_home"
@@ -83,7 +83,8 @@
                     android:fontFamily="@font/notosans_cjkkr_medium"
                     android:includeFontPadding="false"
                     android:textColor="@color/friendly_green"
-                    android:textSize="16sp" />
+                    android:textSize="16dp"
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -92,8 +93,8 @@
                     android:includeFontPadding="false"
                     android:text="섬"
                     android:textColor="@color/colorText"
-                    android:textSize="16sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="16dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
             </LinearLayout>
 
@@ -125,8 +126,8 @@
                         android:includeFontPadding="false"
                         android:text="나의 순위"
                         android:textColor="@color/black_5"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="12dp"
+                        tools:ignore="HardcodedText,SpUsage" />
 
                     <TextView
                         android:id="@+id/textview_ranking_home"
@@ -135,7 +136,8 @@
                         android:fontFamily="@font/notosanscjkkr_regular"
                         android:includeFontPadding="false"
                         android:textColor="@color/colorText"
-                        android:textSize="14sp" />
+                        android:textSize="14dp"
+                        tools:ignore="SpUsage" />
                 </LinearLayout>
 
                 <!--미션 현황-->
@@ -156,8 +158,8 @@
                         android:includeFontPadding="false"
                         android:text="미션 현황"
                         android:textColor="@color/black_5"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="12dp"
+                        tools:ignore="HardcodedText,SpUsage" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -171,7 +173,8 @@
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp" />
+                            android:textSize="14dp"
+                            tools:ignore="SpUsage" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -180,8 +183,8 @@
                             android:includeFontPadding="false"
                             android:text=" / 4"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp"
-                            tools:ignore="HardcodedText" />
+                            android:textSize="14dp"
+                            tools:ignore="HardcodedText,SpUsage" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -204,8 +207,8 @@
                         android:includeFontPadding="false"
                         android:text="포인트"
                         android:textColor="@color/black_5"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
+                        android:textSize="12dp"
+                        tools:ignore="HardcodedText,SpUsage" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -220,7 +223,8 @@
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:includeFontPadding="false"
                             android:textColor="@color/colorText"
-                            android:textSize="14sp" />
+                            android:textSize="14dp"
+                            tools:ignore="SpUsage" />
 
                         <ImageView
                             android:layout_width="match_parent"

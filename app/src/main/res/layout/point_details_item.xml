@@ -25,7 +25,8 @@
             android:includeFontPadding="false"
             android:text="재활용 인증미션 완료"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,7 +40,8 @@
                 android:includeFontPadding="false"
                 android:text="+ "
                 android:textColor="@color/joyful_orange"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:id="@+id/textview_point_point_details"
@@ -49,7 +51,8 @@
                 android:includeFontPadding="false"
                 android:text="3"
                 android:textColor="@color/joyful_orange"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,8 +61,8 @@
                 android:includeFontPadding="false"
                 android:text=" P"
                 android:textColor="@color/joyful_orange"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText"/>
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -83,7 +86,8 @@
             android:includeFontPadding="false"
             android:text="2020.08.31"
             android:textColor="@color/black_5"
-            android:textSize="12sp" />
+            android:textSize="12dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/textview_time_point_details"
@@ -93,7 +97,8 @@
             android:includeFontPadding="false"
             android:text="오후 3:02"
             android:textColor="@color/black_5"
-            android:textSize="12sp" />
+            android:textSize="12dp"
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
 </LinearLayout>

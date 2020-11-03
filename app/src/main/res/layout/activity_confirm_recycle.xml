@@ -40,7 +40,8 @@
         android:includeFontPadding="false"
         android:text="페트병 완벽하게 처리하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/confirm_ment_sub"
@@ -54,8 +55,8 @@
         android:includeFontPadding="false"
         android:text="아래 단계를 따라가며 재활용 쓰레기를\n올바르게 처리하고 다른 사람에게 인증합니다"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <LinearLayout
         android:id="@+id/confirm_step_checkbox"
@@ -99,7 +100,8 @@
                 android:includeFontPadding="false"
                 android:text="Step1\n내용물을 깨끗이 비우세요"
                 android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <View
                 android:layout_width="0dp"
@@ -142,7 +144,8 @@
                 android:includeFontPadding="false"
                 android:text="Step2\n라벨을 분리하세요"
                 android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <View
                 android:layout_width="0dp"
@@ -185,7 +188,8 @@
                 android:includeFontPadding="false"
                 android:text="Step3\n뚜껑을 닫고 발로 밟아\n부피를 줄이세요"
                 android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <View
                 android:layout_width="0dp"
@@ -198,7 +202,7 @@
     <Button
         android:id="@+id/confirm_recycle_next"
         android:layout_width="340dp"
-        android:layout_height="55sp"
+        android:layout_height="55dp"
         android:layout_below="@+id/confirm_step_checkbox"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -207,7 +211,7 @@
         android:fontFamily="@font/notosans_cjkkr_medium"
         android:text="인증사진 찍기"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

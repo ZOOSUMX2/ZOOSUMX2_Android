@@ -28,8 +28,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="확인"
             android:textColor="@color/colorText"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14dp"
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,11 +48,11 @@
             android:layout_gravity="start"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
-            android:lineSpacingExtra="12sp"
+            android:lineSpacingExtra="12dp"
             android:text="리워드 "
             android:textColor="@color/colorText"
-            android:textSize="24sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="24dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/textview_reward_get_reward"
@@ -61,7 +61,8 @@
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
             android:textColor="@color/joyful_orange"
-            android:textSize="24sp" />
+            android:textSize="24dp"
+            tools:ignore="SpUsage" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,11 +70,11 @@
             android:layout_gravity="start"
             android:fontFamily="@font/notosans_cjkkr_bold"
             android:includeFontPadding="false"
-            android:lineSpacingExtra="12sp"
+            android:lineSpacingExtra="12dp"
             android:text="포인트 획득!"
             android:textColor="@color/colorText"
-            android:textSize="24sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="24dp"
+            tools:ignore="HardcodedText,SpUsage" />
     </LinearLayout>
 
     <ImageView
@@ -92,46 +93,47 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65sp"
+        android:layout_marginBottom="65dp"
         android:background="@drawable/rounded_rectangle_reward"
         android:gravity="start|center"
         android:orientation="horizontal"
-        android:paddingLeft="15sp"
-        android:paddingTop="5sp"
-        android:paddingRight="15sp"
-        android:paddingBottom="5sp">
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8sp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:includeFontPadding="false"
             android:text="나의 최종 포인트 :"
             android:textColor="@color/colorText"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="15dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
         <TextView
             android:id="@+id/textview_final_reward_get_reward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4sp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
             android:textColor="@color/joyful_orange"
-            android:textSize="15sp" />
+            android:textSize="15dp"
+            tools:ignore="SpUsage" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4sp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:includeFontPadding="false"
             android:text="P"
             android:textColor="@color/colorText"
-            android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="15dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
     </LinearLayout>
 

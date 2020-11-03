@@ -24,10 +24,10 @@
             android:includeFontPadding="false"
             android:text="종로구"
             android:textColor="@color/colorText"
-            android:textSize="14sp"
+            android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,SpUsage" />
 
         <View
             android:layout_width="10dp"

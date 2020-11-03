@@ -14,8 +14,8 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:text="재활용 인증 요청 전송중!"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/resident_to_reward_content"
@@ -29,8 +29,8 @@
         android:includeFontPadding="false"
         android:text="인증이 완료되면\n리워드가 지급됩니다!"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/resident_to_reward_goHome"
@@ -45,7 +45,7 @@
         android:paddingHorizontal="15dp"
         android:text="홈으로 이동하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

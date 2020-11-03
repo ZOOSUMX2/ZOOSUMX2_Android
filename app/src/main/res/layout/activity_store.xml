@@ -38,7 +38,8 @@
         android:text="@string/store"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="16sp" />
+        android:textSize="16dp"
+        tools:ignore="SpUsage" />
 
     <LinearLayout
         android:id="@+id/linearlayout_mycoin_store"
@@ -69,9 +70,10 @@
             android:paddingTop="3sp"
             android:paddingBottom="3sp"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="18dp"
             app:drawableEndCompat="@drawable/mypage_coin"
-            app:drawableRightCompat="@drawable/mypage_coin" />
+            app:drawableRightCompat="@drawable/mypage_coin"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 

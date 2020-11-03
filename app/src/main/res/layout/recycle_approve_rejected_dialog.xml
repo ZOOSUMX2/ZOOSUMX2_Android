@@ -15,8 +15,8 @@
         android:text="주민에게 보낸 분리수거 사진이\n인증 받지 못했어요"
         android:gravity="center"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/resident_to_reward_content"
@@ -30,8 +30,8 @@
         android:includeFontPadding="false"
         android:text="다음 주 올바른 분리배출 인증에\n재도전 해주세요!"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/approve_rejected_ok"
@@ -46,7 +46,7 @@
         android:paddingHorizontal="15dp"
         android:text="홈으로 이동하기"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
 </RelativeLayout>

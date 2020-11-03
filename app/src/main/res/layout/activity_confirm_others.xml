@@ -17,8 +17,8 @@
         android:includeFontPadding="false"
         android:text="확인 요청"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/photo_ment_sub"
@@ -32,8 +32,8 @@
         android:includeFontPadding="false"
         android:text="완료된 재활용 사진입니다\n아래 방법에 따라 올바르게 했는지 확인해주세요"
         android:textColor="@color/black_5"
-        android:textSize="12sp"
-        tools:ignore="HardcodedText"/>
+        android:textSize="12dp"
+        tools:ignore="HardcodedText,SpUsage"/>
 
     <ImageView
         android:id="@+id/photo_here"
@@ -42,7 +42,8 @@
         android:layout_below="@+id/photo_ment_sub"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        tools:ignore="ContentDescription" />
 
 
     <LinearLayout
@@ -76,9 +77,9 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="내용물을 깨끗이 비우세요"
-                tools:ignore="HardcodedText"
+                tools:ignore="HardcodedText,SpUsage"
                 android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -104,9 +105,9 @@
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:includeFontPadding="false"
                 android:text="라벨을 분리하세요"
-                tools:ignore="HardcodedText"
+                tools:ignore="HardcodedText,SpUsage"
                 android:textColor="@color/colorText"
-                android:textSize="16sp" />
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -132,8 +133,8 @@
                 android:includeFontPadding="false"
                 android:text="뚜껑을 닫고 밟아 부피를 줄이세요"
                 android:textColor="@color/colorText"
-                tools:ignore="HardcodedText"
-                android:textSize="16sp" />
+                tools:ignore="HardcodedText,SpUsage"
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -164,8 +165,8 @@
             android:includeFontPadding="false"
             android:text="부족해요"
             android:textColor="@color/colorText"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText"
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,RtlHardcoded,SpUsage"
             android:layout_marginRight="28dp" />
 
         <Button
@@ -179,8 +180,8 @@
             android:includeFontPadding="false"
             android:text="잘 하셨어요"
             android:textColor="@color/colorText"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="HardcodedText,SpUsage" />
 
 
     </LinearLayout>

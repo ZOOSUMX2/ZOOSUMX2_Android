@@ -30,7 +30,8 @@
             android:includeFontPadding="false"
             android:textAlignment="textStart"
             android:textColor="@color/colorText"
-            android:textSize="16sp" />
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
 
         <TextView
             android:id="@+id/textview_summary_mailbox_list_item"
@@ -41,7 +42,8 @@
             android:includeFontPadding="false"
             android:textAlignment="textStart"
             android:textColor="@color/black_5"
-            android:textSize="13sp" />
+            android:textSize="13dp"
+            tools:ignore="SpUsage" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,14 +57,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5sp"
                 android:textColor="@color/colorSoftGray"
-                android:textSize="12sp" />
+                android:textSize="12dp"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:id="@+id/textview_guoffice_mailbox_list_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorSoftGray"
-                android:textSize="12sp" />
+                android:textSize="12dp"
+                tools:ignore="SpUsage" />
 
         </LinearLayout>
 
@@ -79,8 +83,8 @@
         android:text="NEW"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="9sp"
-        tools:ignore="HardcodedText,NotSibling"
+        android:textSize="9dp"
+        tools:ignore="HardcodedText,NotSibling,SpUsage"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="55sp"
         android:layout_marginTop="50sp" />

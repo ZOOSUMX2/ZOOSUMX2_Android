@@ -15,8 +15,8 @@
         android:text="회원 탈퇴 확인"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="18sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/textview_comment_revoke_dialog"
@@ -29,8 +29,8 @@
         android:includeFontPadding="false"
         android:text="정말 주섬주섬을\n떠나실건가요...?"
         android:textColor="@color/colorText"
-        android:textSize="16sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="16dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,8 +50,8 @@
             android:gravity="center"
             android:text="취소하기"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            tools:ignore="ButtonStyle,HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="ButtonStyle,HardcodedText,SpUsage" />
 
         <Button
             android:id="@+id/button_ok_revoke_dialog"
@@ -63,8 +63,8 @@
             android:gravity="center"
             android:text="탈퇴하기"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            tools:ignore="ButtonStyle,HardcodedText" />
+            android:textSize="16dp"
+            tools:ignore="ButtonStyle,HardcodedText,SpUsage" />
 
     </LinearLayout>
 

@@ -44,7 +44,8 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:text="@string/퀴즈_출제"
             android:textColor="@color/colorText"
-            android:textSize="14sp" />
+            android:textSize="14dp"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 
@@ -68,7 +69,8 @@
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="@color/colorText"
-                android:textSize="24sp" />
+                android:textSize="24dp"
+                tools:ignore="SpUsage" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -87,8 +89,8 @@
                     android:includeFontPadding="false"
                     android:text="출처 : "
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="13sp"
-                    tools:ignore="HardcodedText" />
+                    android:textSize="13dp"
+                    tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
                     android:id="@+id/textview_origin_makequiz"
@@ -98,7 +100,8 @@
                     android:gravity="end"
                     android:includeFontPadding="false"
                     android:textColor="@color/colorSoftGray"
-                    android:textSize="13sp" />
+                    android:textSize="13dp"
+                    tools:ignore="SpUsage" />
 
             </LinearLayout>
 
@@ -118,7 +121,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:lineSpacingExtra="9dp"
-                android:textSize="16sp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
 
             <View
                 android:layout_width="match_parent"
@@ -137,7 +141,8 @@
                 android:text="@string/please_make_quiz"
                 android:textAlignment="center"
                 android:textColor="@color/colorText"
-                android:textSize="20sp" />
+                android:textSize="20dp"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -148,7 +153,8 @@
                 android:text="@string/quiz_explanation"
                 android:textAlignment="center"
                 android:textColor="@color/colorGray"
-                android:textSize="14sp" />
+                android:textSize="14dp"
+                tools:ignore="SpUsage" />
 
             <!--문제 입력-->
             <com.google.android.material.textfield.TextInputLayout

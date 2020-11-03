@@ -17,7 +17,7 @@
         android:text="도전"
         android:textColor="@color/colorWhite"
         android:gravity="center"
-        android:textSize="10sp"
+        android:textSize="10dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:includeFontPadding="false"
         android:layout_marginTop="12dp"
@@ -25,7 +25,7 @@
         android:layout_marginEnd="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,SpUsage" />
 
     <ImageView
         android:id="@+id/mission_card_image"
@@ -47,12 +47,13 @@
         android:layout_below="@+id/mission_card_image"
         android:text="@string/mission_card_title_confirm"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:textSize="14sp"
+        android:textSize="14dp"
         android:textColor="@color/colorText"
         android:includeFontPadding="false"
         android:layout_marginTop="133dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpUsage" />
 
     <TextView
         android:id="@+id/mission_card_context"
@@ -65,10 +66,11 @@
         android:includeFontPadding="false"
         android:text="@string/mission_card_context_confirm"
         android:textColor="@color/black_5"
-        android:textSize="10sp"
+        android:textSize="10dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpUsage" />
 
 
 
