@@ -3,10 +3,7 @@ package com.zoosumzoosum.zoosumx2
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,6 +25,8 @@ class ConfirmRecycleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_recycle)
+
+        Toast.makeText(this, "재활용 순서에 알맞게 체크해주세요.", Toast.LENGTH_LONG).show()
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
@@ -85,8 +84,9 @@ class ConfirmRecycleActivity : AppCompatActivity() {
         //step1
         checkboxS1.setOnClickListener {
             if (!checkboxS2.isChecked && !checkboxS3.isChecked) {
-                checkboxS1.isChecked = true
-                textS1.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+                if(checkboxS1.isChecked){
+                    textS1.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+                } else {textS1.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))}
             }
             if (checkboxS2.isChecked || checkboxS3.isChecked) {
                 checkboxS1.isChecked = true
@@ -95,26 +95,34 @@ class ConfirmRecycleActivity : AppCompatActivity() {
 
         //step2
         checkboxS2.setOnClickListener {
-            if (checkboxS1.isChecked && !checkboxS3.isChecked) {
-                checkboxS2.isChecked = true
-                textS2.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+            if (!checkboxS1.isChecked) {
+                checkboxS2.isChecked = false
             }
-            checkboxS2.isChecked = checkboxS1.isChecked || checkboxS3.isChecked
+            else if(checkboxS3.isChecked){
+                checkboxS2.isChecked = true
+            }
+            if(checkboxS2.isChecked){
+                textS2.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+            } else {textS2.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))}
         }
 
         //step3
         checkboxS3.setOnClickListener {
             if (checkboxS1.isChecked && checkboxS2.isChecked) {
-                checkboxS3.isChecked = true
-                textS3.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+                if (checkboxS1.isChecked && checkboxS2.isChecked && checkboxS3.isChecked) {
+                    textS3.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+                    nextButton.isSelected = true
+                    nextButton.setTextColor(ContextCompat.getColor(this, R.color.colorText))
+                } else {
+                    textS3.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+                    nextButton.isSelected = false
+                    nextButton.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
+                }
             } else {
                 checkboxS3.isChecked = false
             }
 
-            if (checkboxS1.isChecked && checkboxS2.isChecked && checkboxS3.isChecked) {
-                nextButton.isSelected = true
-                nextButton.setTextColor(ContextCompat.getColor(this, R.color.colorText))
-            }
+
         }
 
 
