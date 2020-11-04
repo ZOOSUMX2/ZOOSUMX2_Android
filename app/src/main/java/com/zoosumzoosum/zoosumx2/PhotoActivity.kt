@@ -110,7 +110,7 @@ class PhotoActivity : AppCompatActivity() {
 
                         //고정 카카오 피드 메시지 작성
                         val defaultFeed = FeedTemplate(
-                            content = Content( //Todo: 카카오 링크 메시지 문구 수정하기
+                            content = Content(
                                 title = "재활용 인증 요청이 도착했어요!",
                                 description = "섬이 깨끗해질 수 있도록, 친구의 분리배출 결과를 확인해주세요!",
                                 imageUrl = PhotoURLKakao,
