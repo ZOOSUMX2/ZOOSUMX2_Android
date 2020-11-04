@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/textview_summary_mailbox_list_item"
-            android:layout_width="220dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:fontFamily="@font/notosanscjkkr_regular"

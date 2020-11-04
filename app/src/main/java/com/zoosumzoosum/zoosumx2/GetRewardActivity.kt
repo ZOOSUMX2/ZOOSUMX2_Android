@@ -61,7 +61,7 @@ class GetRewardActivity : AppCompatActivity() {
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
                 finalReward.text = documentSnapshot.data?.get("rewardPoint").toString()
-                val exp = documentSnapshot.data?.get("exp").toString().toInt()
+                val exp = documentSnapshot.data?.get("exp").toString().toIntOrNull()
                 val currentLevel = documentSnapshot.data?.get("level").toString().toInt()
 
                 // 레벨 계산
