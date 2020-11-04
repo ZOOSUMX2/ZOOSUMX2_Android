@@ -115,7 +115,7 @@
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:textColor="@color/colorText"
-            android:textSize="16dp"
+            android:textSize="14.5dp"
             tools:ignore="SpUsage" />
 
         <Button
@@ -126,7 +126,7 @@
             android:background="@drawable/button_selector"
             android:fontFamily="@font/notosans_cjkkr_medium"
             android:textColor="@color/colorText"
-            android:textSize="16dp"
+            android:textSize="14.5dp"
             tools:ignore="SpUsage" />
     </LinearLayout>
 

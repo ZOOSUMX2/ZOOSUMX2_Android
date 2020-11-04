@@ -73,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:paddingTop="20dp"
             android:contentDescription="@string/image"
             android:src="@drawable/bottle" />
 
@@ -105,7 +106,7 @@
                 android:background="@drawable/button_selector"
                 android:fontFamily="@font/notosans_cjkkr_medium"
                 android:textColor="@color/colorText"
-                android:textSize="16dp"
+                android:textSize="14.5dp"
                 tools:ignore="SpUsage" />
 
             <Button
@@ -116,7 +117,7 @@
                 android:background="@drawable/button_selector"
                 android:fontFamily="@font/notosans_cjkkr_medium"
                 android:textColor="@color/colorText"
-                android:textSize="16dp"
+                android:textSize="14.5dp"
                 tools:ignore="SpUsage" />
         </LinearLayout>
 
