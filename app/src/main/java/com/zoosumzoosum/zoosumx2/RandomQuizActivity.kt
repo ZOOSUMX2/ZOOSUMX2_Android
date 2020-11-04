@@ -3,12 +3,10 @@ package com.zoosumzoosum.zoosumx2
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +16,7 @@ import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_random_quiz.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 import kotlin.random.Random
 
 class RandomQuizActivity : AppCompatActivity() {
@@ -30,7 +29,6 @@ class RandomQuizActivity : AppCompatActivity() {
     }
 
     @SuppressLint("CutPasteId")
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random_quiz)
@@ -59,7 +57,8 @@ class RandomQuizActivity : AppCompatActivity() {
         //DB에서 문제 및 문항 가져오기
         //해당 달의 숫자가 이름인 문서에 저장한 문제를 가져옴
         //문제가 길어질 경우 줄 바꿈은 DB 저장 시 bb를 사용함
-        val weekly: String = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"))
+        val today: Calendar = Calendar.getInstance()
+        val weekly: String = ((today.get(Calendar.MONTH))+1).toString()
         fbFirestore?.collection("senseQuiz")?.document(weekly)
             ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
                 if (documentSnapshot == null) return@addSnapshotListener
