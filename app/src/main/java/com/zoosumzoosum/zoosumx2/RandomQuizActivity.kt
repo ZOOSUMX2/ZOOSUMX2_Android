@@ -89,7 +89,6 @@ class RandomQuizActivity : AppCompatActivity() {
             wrongAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
         }
 
-        var answerChecked = false
 
         nextButton.setOnClickListener {
             random_quiz_next.text = "리워드 확인"
@@ -103,6 +102,8 @@ class RandomQuizActivity : AppCompatActivity() {
                 ?.set(missionFlag, SetOptions.merge())
 
             if (correctAnswer.isSelected || wrongAnswer.isSelected) {
+                val answerChecked: Boolean
+
                 if (correctAnswer.isSelected) {
                     answerChecked = true
                     random_quiz_main_ment?.text = "정답이에요!"
@@ -126,28 +127,29 @@ class RandomQuizActivity : AppCompatActivity() {
                     correctAnswer.setBackgroundResource(R.drawable.random_wrong_wrong_color)
                     correctAnswer.setTextColor(ContextCompat.getColor(this, R.color.colorSoftGray))
                 }
+
+                nextButton.setOnClickListener {
+
+                    val intent = Intent(this, GetRewardActivity::class.java)
+
+                    if (answerChecked) {
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("rewardPoint", FieldValue.increment(2))
+                        intent.putExtra("reward", 2)
+                    } else {
+                        // 리워드 제공
+                        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+                            ?.update("rewardPoint", FieldValue.increment(1))
+                        intent.putExtra("reward", 1)
+                    }
+                    startActivity(intent)
+                }
             }
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
             else {
                 Toast.makeText(applicationContext, "정답을 선택해주세요", Toast.LENGTH_LONG).show()
             }
 
-            nextButton.setOnClickListener {
-
-                val intent = Intent(this, GetRewardActivity::class.java)
-
-                if (answerChecked) {
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("rewardPoint", FieldValue.increment(2))
-                    intent.putExtra("reward", 2)
-                } else {
-                    // 리워드 제공
-                    fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-                        ?.update("rewardPoint", FieldValue.increment(1))
-                    intent.putExtra("reward", 1)
-                }
-                startActivity(intent)
-            }
         }
     }
 }
