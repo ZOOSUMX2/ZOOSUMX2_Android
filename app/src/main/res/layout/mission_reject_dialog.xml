@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:text="이미 미션 수행을 완료했어요:("
+        android:text="이미 미션 수행을 완료했어요"
         android:textColor="@color/colorText"
         android:textSize="18dp"
         tools:ignore="HardcodedText,SpUsage"
