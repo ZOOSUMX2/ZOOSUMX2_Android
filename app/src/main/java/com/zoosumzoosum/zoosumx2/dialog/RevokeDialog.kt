@@ -2,13 +2,11 @@ package com.zoosumzoosum.zoosumx2.dialog
 
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zoosumzoosum.zoosumx2.*
 
