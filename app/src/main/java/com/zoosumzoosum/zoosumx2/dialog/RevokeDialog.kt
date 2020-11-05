@@ -20,7 +20,7 @@ class RevokeDialog(context: Context) {
     private lateinit var btnCancel: Button
     private lateinit var btnOk: Button
 
-    fun start(context: Context) {
+    fun start() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
@@ -42,25 +42,27 @@ class RevokeDialog(context: Context) {
         // 탈퇴하기 클릭
         btnOk.setOnClickListener {
             // 사용자가 속해 있던 구의 주민 수 1 감소
-            fbFirestore?.collection("users")?.document(fbAuth!!.uid.toString())
-                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                    if (documentSnapshot == null) return@addSnapshotListener
-                    val region = documentSnapshot.data?.get("addressRegion").toString()
-                    fbFirestore?.collection("region")?.document(region)
-                        ?.update("people", FieldValue.increment(-1))
-                }
-
-            // firestore 내 사용자 정보 삭제
-            fbFirestore?.collection("users")?.document(fbAuth!!.uid.toString())?.delete()
-
-            // 구글 로그인 계정 삭제
-            fbAuth!!.currentUser?.delete()
-                ?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val intent = Intent((context as SettingActivity), LoginActivity::class.java)
-                        context.startActivity(intent)
-                    }
-                }
+//            fbFirestore?.collection("users")?.document(fbAuth!!.uid.toString())
+//                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+//                    if (documentSnapshot == null) return@addSnapshotListener
+//                    val region = documentSnapshot.data?.get("addressRegion").toString()
+//                    fbFirestore?.collection("region")?.document(region)
+//                        ?.update("people", FieldValue.increment(-1))
+//                }
+//
+//            // firestore 내 사용자 정보 삭제
+//            fbFirestore?.collection("users")?.document(fbAuth!!.uid.toString())?.delete()
+//
+//            fbAuth!!.signOut()
+//
+//            // 구글 로그인 계정 삭제
+//            fbAuth?.currentUser?.delete()
+//                ?.addOnCompleteListener { task ->
+//                    if (task.isSuccessful) {
+//                        val intent = Intent((context as SettingActivity), LoginActivity::class.java)
+//                        context.startActivity(intent)
+//                    }
+//                }
         }
     }
 }

@@ -64,7 +64,7 @@ class SettingActivity : AppCompatActivity() {
 
             // 회원 탈퇴 다이얼로그
             val dlg = RevokeDialog(this)
-            dlg.start(this)
+            dlg.start()
         }
 
         // 문의하기
