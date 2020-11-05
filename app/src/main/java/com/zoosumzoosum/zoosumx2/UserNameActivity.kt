@@ -39,6 +39,14 @@ class UserNameActivity : AppCompatActivity() {
             "creationTimestamp" to FieldValue.serverTimestamp()
         )
 
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                if(documentSnapshot.data?.get("nickname")!=null){
+                    userName_edit.setText(documentSnapshot.data?.get("nickname").toString())
+                }
+            }
+
         fun closeKeyboard() {
             val view = this.currentFocus
             if (view != null) {

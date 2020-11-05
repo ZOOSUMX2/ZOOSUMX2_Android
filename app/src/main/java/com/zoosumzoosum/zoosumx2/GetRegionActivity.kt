@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zoosumzoosum.zoosumx2.model.UserDTO
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_get_region.*
+import kotlinx.android.synthetic.main.activity_user_name.*
 
 class GetRegionActivity : AppCompatActivity() {
 
@@ -36,10 +38,23 @@ class GetRegionActivity : AppCompatActivity() {
                 userName.text = documentSnapshot.data?.get("nickname").toString()
             }
 
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+                if(documentSnapshot.data?.get("addressRegion")!=null){
+                    region_edit.text = documentSnapshot.data?.get("addressRegion").toString()
+                }
+            }
+
         val nextButton = findViewById<Button>(R.id.region_button_next)
         nextButton.setOnClickListener {
-            val intent = Intent(this, IslandNameActivity::class.java)
-            startActivity(intent)
+            if(region_edit.text == "행정구 입력"){
+                Toast.makeText(applicationContext, "행정구를 선택해주세요", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(this, IslandNameActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         val backButton = findViewById<ImageButton>(R.id.region_button_back)

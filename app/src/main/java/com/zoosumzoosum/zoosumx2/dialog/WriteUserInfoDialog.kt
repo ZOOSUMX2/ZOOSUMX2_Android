@@ -38,7 +38,5 @@ class WriteUserInfoDialog(context: Context) {
             context.startActivity(intent)
         }
 
-
-
     }
 }

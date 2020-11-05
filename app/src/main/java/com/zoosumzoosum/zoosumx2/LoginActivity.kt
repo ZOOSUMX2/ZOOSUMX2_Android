@@ -49,12 +49,11 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val account = GoogleSignIn.getLastSignedInAccount(this)
         // 이미 로그인 한 사용자인 경우
-        if (account != null) {
+        if (auth.currentUser != null){
+            moveMainPage(auth.currentUser)
+        }
+        else if (account != null) {
             moveMainPage(auth.currentUser) // 바로 MainActivity로 이동
-
-            if (auth.currentUser != null){
-                moveMainPage(auth.currentUser)
-            }
         }
 
     }
