@@ -130,8 +130,8 @@ class PhotoActivity : AppCompatActivity() {
                                 Button(
                                     "앱 설치하기",
                                     Link( //임시로 홈페이지 주소 연결
-                                        webUrl = "https://www.zoosum.site/",
-                                        mobileWebUrl = "https://www.zoosum.site/"
+                                        webUrl = "https://play.google.com/store/apps/details?id=com.zoosumzoosum.zoosumx2",
+                                        mobileWebUrl = "https://play.google.com/store/apps/details?id=com.zoosumzoosum.zoosumx2"
                                     )
                                 )
                             )
