@@ -254,7 +254,7 @@
         android:layout_marginTop="50dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/image"
-        android:src="@drawable/icon_cleansum3" />
+        android:src="@drawable/icon_trashsum8" />
 
     <!--말풍선은 visibility로 조절-->
     <ImageView

@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import com.zoosumzoosum.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.zoosumzoosum.zoosumx2.dialog.ConfirmRecycleDialog
-import com.zoosumzoosum.zoosumx2.dialog.WriteUserInfoDialog
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -104,7 +102,7 @@ class HomeFragment : Fragment() {
                     }
                     3 -> imageview_medal_home?.setImageResource(R.drawable.icon_level3)
                     4 -> imageview_medal_home?.setImageResource(R.drawable.icon_level4)
-                    else -> imageview_medal_home?.setImageResource(R.drawable.icon_level5)
+                    5 -> imageview_medal_home?.setImageResource(R.drawable.icon_level5)
                 }
             }
 
