@@ -40,18 +40,6 @@ class HomeFragment : Fragment() {
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
 
-        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
-            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
-                if(documentSnapshot == null) return@addSnapshotListener
-
-                if(documentSnapshot.data?.get("nickname")==null
-                    || documentSnapshot.data?.get("addressRegion")==null
-                    || documentSnapshot.data?.get("islandName")==null){
-
-                    val dlg = WriteUserInfoDialog(requireContext())
-                    dlg.start(requireContext())
-                }
-            }
 
         var completeMission: Int
 

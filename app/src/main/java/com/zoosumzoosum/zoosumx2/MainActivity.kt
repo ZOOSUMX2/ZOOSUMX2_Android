@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.zoosumzoosum.zoosumx2.dialog.WriteUserInfoDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -32,6 +33,19 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+
+                if(documentSnapshot.data?.get("nickname")==null
+                    || documentSnapshot.data?.get("addressRegion")==null
+                    || documentSnapshot.data?.get("islandName")==null){
+
+                    val dlg = WriteUserInfoDialog(this)
+                    dlg.start(this)
+                }
+            }
 
         // 재활용 인증 요청이 와있을 경우 다이얼로그를 출력(다이얼로그 -> 액티비티)
         fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
