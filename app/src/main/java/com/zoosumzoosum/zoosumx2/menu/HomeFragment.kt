@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.zoosumzoosum.zoosumx2.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.zoosumzoosum.zoosumx2.dialog.ConfirmRecycleDialog
+import com.zoosumzoosum.zoosumx2.dialog.WriteUserInfoDialog
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -37,6 +39,19 @@ class HomeFragment : Fragment() {
 
         fbAuth = FirebaseAuth.getInstance()
         fbFirestore = FirebaseFirestore.getInstance()
+
+        fbFirestore?.collection("users")?.document(fbAuth?.uid.toString())
+            ?.addSnapshotListener{ documentSnapshot, firesbaseFirestoreException ->
+                if(documentSnapshot == null) return@addSnapshotListener
+
+                if(documentSnapshot.data?.get("nickname")==null
+                    || documentSnapshot.data?.get("addressRegion")==null
+                    || documentSnapshot.data?.get("islandName")==null){
+
+                    val dlg = WriteUserInfoDialog(requireContext())
+                    dlg.start(requireContext())
+                }
+            }
 
         var completeMission: Int
 

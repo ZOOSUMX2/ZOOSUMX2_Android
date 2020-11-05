@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="306dp"
     android:layout_height="268dp"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/dialog_background">
+    android:background="@drawable/dialog_background"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/resident_to_reward_title"
@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/notosans_cjkkr_bold"
-        android:text="주민에게 보낸 분리수거 사진이\n인증 받지 못했어요"
+        android:text="사용자 정보가\n아직 입력되지 않았어요"
         android:gravity="center"
         android:textColor="@color/colorText"
         android:textSize="18dp"
@@ -28,13 +28,13 @@
         android:fontFamily="@font/notosanscjkkr_regular"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="다음 주 올바른 분리배출 인증에\n재도전 해주세요!"
+        android:text="필요한 정보를 모두 입력한 뒤에\n다시 섬으로 돌아와주세요!"
         android:textColor="@color/colorText"
         android:textSize="16dp"
         tools:ignore="HardcodedText,SpUsage" />
 
     <Button
-        android:id="@+id/approve_rejected_ok"
+        android:id="@+id/userInfo_goback"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_below="@+id/resident_to_reward_content"
@@ -44,7 +44,7 @@
         android:fontFamily="@font/notosans_cjkkr_bold"
         android:gravity="center"
         android:paddingHorizontal="15dp"
-        android:text="홈으로 이동하기"
+        android:text="사용자 정보 입력하기"
         android:textColor="@color/colorWhite"
         android:textSize="16dp"
         tools:ignore="HardcodedText,SpUsage" />

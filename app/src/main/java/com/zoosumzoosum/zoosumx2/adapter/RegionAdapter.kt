@@ -42,7 +42,6 @@ class RegionAdapter : RecyclerView.Adapter<Holder>() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
-
     }
 }
 
