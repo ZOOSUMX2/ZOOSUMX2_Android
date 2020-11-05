@@ -11,8 +11,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.zoosumzoosum.zoosumx2.dialog.RevokeDialog
 
 class SettingActivity : AppCompatActivity() {
 
@@ -62,29 +62,9 @@ class SettingActivity : AppCompatActivity() {
         val withdrawal = findViewById<LinearLayout>(R.id.linearlayout_withdrawal_setting)
         withdrawal.setOnClickListener {
 
-            // 사용자가 속해 있던 구의 주민 수 1 감소
-            fbFirestore?.collection("users")?.document(auth.uid.toString())
-                ?.addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
-                    if (documentSnapshot == null) return@addSnapshotListener
-                    val region = documentSnapshot.data?.get("addressRegion").toString()
-                    fbFirestore?.collection("region")?.document(region)
-                        ?.update("people", FieldValue.increment(-1))
-                }
-
-            // firestore 내 사용자 정보 삭제
-            fbFirestore?.collection("users")?.document(auth.uid.toString())?.delete()
-
-            googleSignInClient.revokeAccess().addOnCompleteListener(this) {
-            }
-
-            // 구글 로그인 계정 삭제
-            auth.currentUser?.delete()
-                ?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "정상적으로 탈퇴되었습니다", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    }
-                }
+            // 회원 탈퇴 다이얼로그
+            val dlg = RevokeDialog(this)
+            dlg.start(this)
         }
 
         // 문의하기

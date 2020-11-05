@@ -34,10 +34,12 @@ class RevokeDialog(context: Context) {
         btnOk = dlg.findViewById(R.id.button_ok_revoke_dialog)
         dlg.show()
 
+        // 취소하기 클릭
         btnCancel.setOnClickListener {
             dlg.dismiss()
         }
 
+        // 탈퇴하기 클릭
         btnOk.setOnClickListener {
             // 사용자가 속해 있던 구의 주민 수 1 감소
             fbFirestore?.collection("users")?.document(fbAuth!!.uid.toString())
