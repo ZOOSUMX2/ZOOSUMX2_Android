@@ -1,6 +1,7 @@
-## ZOOSUMX2
+# ZOOSUMX2
 ![issue badge](https://img.shields.io/badge/platform-Android-brightgreen)
 
+## 주섬주섬 - 일상의 분리배출 도우미
 
 App service to encourage proper separation and discharge of MZ Generation ‒1 person households
 
