@@ -1,4 +1,4 @@
-# ZOOSUMX2
+# ZOOSUM ZOOSUM
 ![issue badge](https://img.shields.io/badge/platform-Android-brightgreen)
 
 ## 주섬주섬 - 일상의 분리배출 도우미
