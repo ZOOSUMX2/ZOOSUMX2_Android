@@ -5,6 +5,8 @@
 
 App service to encourage proper separation and discharge of MZ Generation ‒1 person households
 
+# 제 8회 K-해커톤 한국콘텐츠학회장상 
+
 
 
 MZ세대의 1인 가구를 위한 올바른 분리배출 유도 앱서비스
