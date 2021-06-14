@@ -8,7 +8,7 @@
 ##### App service to encourage proper separation and discharge of MZ Generation ‒1 person households  
 <br/><br/>
 ### 🎖&nbsp;&nbsp;Awards
-- 제 8회 K-해커톤 한국콘텐츠학회장상 수상  
+- 🥈&nbsp;&nbsp;제 8회 K-해커톤 한국콘텐츠학회장상 수상(2nd place)
 <br/>
 
 ### ♻️&nbsp;&nbsp;Website  
