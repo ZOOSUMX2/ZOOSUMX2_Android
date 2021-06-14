@@ -1,7 +1,7 @@
 # ZOOSUM ZOOSUM
 ![issue badge](https://img.shields.io/badge/platform-Android-brightgreen)
 
-<img width="50" alt="앱아이콘" src="https://user-images.githubusercontent.com/52696359/121898480-63ce0c80-cd5e-11eb-9068-193254714a86.png">  
+<img width="70" alt="앱아이콘" src="https://user-images.githubusercontent.com/52696359/121898480-63ce0c80-cd5e-11eb-9068-193254714a86.png">  
 
 ## 주섬주섬 - 일상의 분리배출 도우미  
 ##### MZ세대의 1인 가구를 위한 올바른 분리배출 유도 앱서비스  
