@@ -1,14 +1,33 @@
 # ZOOSUM ZOOSUM
 ![issue badge](https://img.shields.io/badge/platform-Android-brightgreen)
 
-## ♻️ 주섬주섬 - 일상의 분리배출 도우미
+<img width="50" alt="앱아이콘" src="https://user-images.githubusercontent.com/52696359/121898480-63ce0c80-cd5e-11eb-9068-193254714a86.png">  
 
-App service to encourage proper separation and discharge of MZ Generation ‒1 person households
+## 주섬주섬 - 일상의 분리배출 도우미  
+##### App service to encourage proper separation and discharge of MZ Generation ‒1 person households  
+##### MZ세대의 1인 가구를 위한 올바른 분리배출 유도 앱서비스  
+<br/><br/>
+### 🎖&nbsp;&nbsp;Awards
+- 제 8회 K-해커톤 한국콘텐츠학회장상 수상  
+<br/>
 
-MZ세대의 1인 가구를 위한 올바른 분리배출 유도 앱서비스
+### ♻️&nbsp;&nbsp;Website  
+🔗 [zoosum zoosum](https://zoosum.site)  
+<br/>
 
-### 🎖 제 8회 K-해커톤 한국콘텐츠학회장상 수상
+### 🌱&nbsp;&nbsp;Develope With
+- Android Studio, Kotlin
+- Firebase Firestore
+<br/>
 
+### 👥&nbsp;&nbsp;Team 밍글맹글
+- Android: [김예림](https://github.com/aerimforest), [조은비](https://github.com/neoAA)
+- Web: [김도이](https://github.com/heydoy)
+- Design: 권지엽, 박수아  
+<br/>
+
+### 🔐&nbsp;&nbsp;License
+- MIT
 
 ![image](https://user-images.githubusercontent.com/52696359/98488830-aa123900-226e-11eb-944a-34a18f9eac3d.png)
 
