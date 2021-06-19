@@ -7,12 +7,17 @@
 ##### MZ세대의 1인 가구를 위한 올바른 분리배출 유도 앱서비스  
 ##### App service to encourage proper separation and discharge of MZ Generation ‒1 person households  
 <br/><br/>
+
 ### 🎖&nbsp;&nbsp;Awards
 - 🥈&nbsp;&nbsp;제 8회 K-해커톤 한국콘텐츠학회장상 수상(2nd place)
 <br/>
 
 ### ♻️&nbsp;&nbsp;Website  
 🔗 [zoosum zoosum](https://zoosum.site)  
+<br/><br/>
+
+### 💬&nbsp;&nbsp;KaKaoTalk Chatbot
+🔗 [분리배출 방법 물어보기](https://pf.kakao.com/_ppxfRK)
 <br/><br/>
 
 ### 🌱&nbsp;&nbsp;Development Environment / Language
@@ -23,7 +28,7 @@
 
 ### 👥&nbsp;&nbsp;Team 밍글맹글
 - Android: [김예림](https://github.com/aerimforest), [조은비](https://github.com/neoAA)
-- Web: [김도이](https://github.com/heydoy)
+- Web & Chatbot: [김도이](https://github.com/heydoy)
 - Design: 권지엽, 박수아  
 <br/>
 
