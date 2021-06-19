@@ -14,17 +14,17 @@
 
 ### ♻️&nbsp;&nbsp;Website  
 🔗 [zoosum zoosum](https://zoosum.site)  
-<br/><br/>
+<br/><br/>  
 
 ### 💬&nbsp;&nbsp;KaKaoTalk Chatbot
 🔗 [분리배출 방법 물어보기](https://pf.kakao.com/_ppxfRK)
-<br/><br/>
+<br/><br/><br/>  
 
 ### 🌱&nbsp;&nbsp;Development Environment / Language
 - Android Studio
 - Kotlin
 - Firebase Firestore
-<br/>
+<br/>  
 
 ### 👥&nbsp;&nbsp;Team 밍글맹글
 - Android: [김예림](https://github.com/aerimforest), [조은비](https://github.com/neoAA)
