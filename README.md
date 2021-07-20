@@ -13,7 +13,7 @@
 <br/>
 
 ### ♻️&nbsp;&nbsp;Website  
-🔗 [zoosum zoosum](https://zoosum.site)  
+🔗 [zoosum zoosum](https://zoosum.netlify.app/)  
 <br/><br/>  
 
 ### 💬&nbsp;&nbsp;KaKaoTalk Chatbot
